@@ -1,110 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HiVaRiX Deals Hub</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiVaRiX - Amazon Deals & Affiliate Reviews</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .deal-card {
+            background: linear-gradient(145deg, #1f2937, #374151);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .deal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-gradient {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .flash-deal {
+            animation: flash-glow 2s infinite;
+        }
+        
+        @keyframes flash-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.8); }
+        }
+        
+        .countdown {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .category-card {
+            background: linear-gradient(145deg, #4f46e5, #7c3aed);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .affiliate-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg">
-    <div class="max-w-6xl mx-auto p-6 flex justify-between items-center">
-      <h1 class="text-2xl font-extrabold tracking-wide">HiVaRiX Deals Hub</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#deals" class="hover:underline">Deals</a></li>
-          <li><a href="#categories" class="hover:underline">Categories</a></li>
-          <li><a href="#newsletter" class="hover:underline">Subscribe</a></li>
-        </ul>
-      </nav>
+<body class="gradient-bg min-h-screen">
+    <!-- Affiliate Disclosure Banner -->
+    <div class="bg-orange-600 text-gray-100 text-center py-2 px-4 text-sm">
+        <span class="font-semibold">Affiliate Disclosure:</span> HiVaRiX earns from qualifying Amazon purchases. Prices may vary.
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white py-20 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Shop the Best Amazon Deals</h2>
-    <p class="text-lg mb-6">Exclusive discounts, daily offers, and trending picks curated for you.</p>
-    <a href="#deals" class="bg-white text-pink-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100">Start Shopping</a>
-  </section>
-
-  <!-- Deals Section -->
-  <section id="deals" class="max-w-6xl mx-auto py-16 px-6">
-    <h3 class="text-3xl font-bold mb-8 text-gray-800 text-center">🔥 Today’s Hot Deals</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Example Deal -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
-        <div class="p-6">
-          <h4 class="text-xl font-semibold mb-2">Wireless Headphones</h4>
-          <p class="text-gray-600 mb-4">High-quality sound, noise cancellation, and long battery life.</p>
-          <span class="block text-lg font-bold text-green-600 mb-4">$59.99</span>
-          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
-            View on Amazon
-          </a>
+    <!-- Navigation -->
+    <nav class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-orange-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold text-gradient">HiVaRiX</div>
+                    <span class="text-cyan-400 font-semibold">Amazon Deals</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-2xl mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search Amazon deals..." class="w-full px-4 py-2 bg-gray-800 text-gray-200 rounded-l-lg border border-gray-600 focus:outline-none focus:border-orange-400">
+                        <button class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-r-lg text-gray-900 font-semibold transition-colors duration-300">
+                            🔍
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#reviews" class="text-cyan-300 hover:text-yellow-400 transition-colors duration-300">Reviews</a>
+                    <a href="#deals" class="text-cyan-300 hover:text-yellow-400 transition-colors duration-300">Best Deals</a>
+                    <div class="hidden md:flex items-center space-x-3">
+                        <a href="https://instagram.com/hivarix" target="_blank" class="text-pink-400 hover:text-pink-300 transition-colors duration-300 text-xl">📷</a>
+                        <a href="https://youtube.com/@hivarix" target="_blank" class="text-red-400 hover:text-red-300 transition-colors duration-300 text-xl">📺</a>
+                        <a href="https://tiktok.com/@hivarix" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-xl">🎵</a>
+                    </div>
+                    <button class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-gray-100 px-4 py-2 rounded-lg font-semibold transition-all duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
+    </nav>
 
-      <!-- Duplicate this block for more deals -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
-        <div class="p-6">
-          <h4 class="text-xl font-semibold mb-2">Smart Watch</h4>
-          <p class="text-gray-600 mb-4">Track your fitness, monitor health, and stay connected.</p>
-          <span class="block text-lg font-bold text-green-600 mb-4">$79.99</span>
-          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
-            View on Amazon
-          </a>
+    <!-- Hero Banner -->
+    <section class="pt-8 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-r from-red-600 to-pink-600 rounded-2xl p-8 md:p-12 text-center flash-deal">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-100 mb-4">
+                    🔥 CURATED AMAZON DEALS 🔥
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-6">
+                    Hand-picked by HiVaRiX - Up to 80% OFF!
+                </p>
+                <div class="countdown inline-flex items-center space-x-4 px-6 py-3 rounded-full text-gray-100 font-bold text-lg mb-6">
+                    <span>⏰ Daily deals refresh in:</span>
+                    <span id="countdown">23:45:12</span>
+                </div>
+                <div>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                        View Today's Picks
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
-        <div class="p-6">
-          <h4 class="text-xl font-semibold mb-2">Portable Speaker</h4>
-          <p class="text-gray-600 mb-4">Waterproof, compact, and powerful sound for outdoors.</p>
-          <span class="block text-lg font-bold text-green-600 mb-4">$39.99</span>
-          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
-            View on Amazon
-          </a>
+    <!-- Categories -->
+    <section class="py-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8 text-yellow-400">Shop Amazon Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">📱</div>
+                    <span class="text-gray-200 font-semibold">Electronics</span>
+                </div>
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">👕</div>
+                    <span class="text-gray-200 font-semibold">Fashion</span>
+                </div>
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">🏠</div>
+                    <span class="text-gray-200 font-semibold">Home & Kitchen</span>
+                </div>
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">📚</div>
+                    <span class="text-gray-200 font-semibold">Books</span>
+                </div>
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">🎮</div>
+                    <span class="text-gray-200 font-semibold">Gaming</span>
+                </div>
+                <div class="category-card p-4 rounded-xl text-center cursor-pointer">
+                    <div class="text-3xl mb-2">💄</div>
+                    <span class="text-gray-200 font-semibold">Beauty</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Featured Deals -->
+    <section id="deals" class="py-12 px-4 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">
+                <span class="text-gradient">HiVaRiX Recommended Deals</span>
+            </h2>
+            <p class="text-center text-gray-300 mb-12">Personally tested and reviewed by our team</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Deal Card 1 -->
+                <div class="deal-card p-6 rounded-xl relative">
+                    <div class="affiliate-badge text-xs font-bold px-2 py-1 rounded-full mb-2 inline-block text-gray-900">
+                        HiVaRiX Pick
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">📱</span>
+                    </div>
+                    <div class="bg-red-500 text-gray-100 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">
+                        75% OFF
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-200 mb-2">Wireless Earbuds Pro</h3>
+                    <p class="text-gray-400 text-sm mb-3">⭐ Reviewed by HiVaRiX: "Excellent sound quality for the price!"</p>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-2xl font-bold price-gradient">$24.99</span>
+                        <span class="text-gray-400 line-through">$99.99</span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="text-gray-400 text-sm ml-2">(2,847)</span>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300 mb-2">
+                        View on Amazon
+                    </button>
+                    <button class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300">
+                        Read Our Review
+                    </button>
+                </div>
 
-  <!-- Categories -->
-  <section id="categories" class="bg-gray-50 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">Browse by Category</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">🎧 Electronics</a>
-        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">👕 Fashion</a>
-        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">🏡 Home</a>
-        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">💻 Gadgets</a>
-      </div>
-    </div>
-  </section>
+                <!-- Deal Card 2 -->
+                <div class="deal-card p-6 rounded-xl relative">
+                    <div class="affiliate-badge text-xs font-bold px-2 py-1 rounded-full mb-2 inline-block text-gray-900">
+                        Editor's Choice
+                    </div>
+                    <div class="bg-gradient-to-br from-green-500 to-teal-600 h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">⌚</span>
+                    </div>
+                    <div class="bg-red-500 text-gray-100 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">
+                        60% OFF
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-200 mb-2">Smart Fitness Watch</h3>
+                    <p class="text-gray-400 text-sm mb-3">⭐ HiVaRiX says: "Perfect for fitness tracking and daily use!"</p>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-2xl font-bold price-gradient">$79.99</span>
+                        <span class="text-gray-400 line-through">$199.99</span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="text-gray-400 text-sm ml-2">(1,523)</span>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300 mb-2">
+                        View on Amazon
+                    </button>
+                    <button class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300">
+                        Read Our Review
+                    </button>
+                </div>
 
-  <!-- Newsletter -->
-  <section id="newsletter" class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16 text-white text-center">
-    <h3 class="text-3xl font-bold mb-4">Subscribe for Daily Deals</h3>
-    <p class="mb-6">Get the hottest Amazon discounts delivered to your inbox.</p>
+                <!-- Deal Card 3 -->
+                <div class="deal-card p-6 rounded-xl relative">
+                    <div class="affiliate-badge text-xs font-bold px-2 py-1 rounded-full mb-2 inline-block text-gray-900">
+                        Best Value
+                    </div>
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-600 h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">💻</span>
+                    </div>
+                    <div class="bg-red-500 text-gray-100 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">
+                        45% OFF
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-200 mb-2">Gaming Laptop Ultra</h3>
+                    <p class="text-gray-400 text-sm mb-3">⭐ HiVaRiX tested: "Incredible performance for gaming!"</p>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-2xl font-bold price-gradient">$899.99</span>
+                        <span class="text-gray-400 line-through">$1,649.99</span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="text-gray-400 text-sm ml-2">(892)</span>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300 mb-2">
+                        View on Amazon
+                    </button>
+                    <button class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300">
+                        Read Our Review
+                    </button>
+                </div>
 
-    <!-- Replace with Mailchimp/ConvertKit embed -->
-    <form action="https://YOUR-MAILCHIMP-LINK" method="post" target="_blank" class="flex justify-center max-w-md mx-auto">
-      <input type="email" name="EMAIL" placeholder="Enter your email" required class="p-3 rounded-l-lg text-gray-800 w-2/3">
-      <button type="submit" class="bg-orange-500 px-5 rounded-r-lg font-semibold hover:bg-orange-600">Subscribe</button>
-    </form>
-  </section>
+                <!-- Deal Card 4 -->
+                <div class="deal-card p-6 rounded-xl relative">
+                    <div class="affiliate-badge text-xs font-bold px-2 py-1 rounded-full mb-2 inline-block text-gray-900">
+                        Trending
+                    </div>
+                    <div class="bg-gradient-to-br from-yellow-500 to-orange-600 h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">🎧</span>
+                    </div>
+                    <div class="bg-red-500 text-gray-100 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">
+                        70% OFF
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-200 mb-2">Noise-Canceling Headphones</h3>
+                    <p class="text-gray-400 text-sm mb-3">⭐ HiVaRiX review: "Amazing noise cancellation!"</p>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-2xl font-bold price-gradient">$59.99</span>
+                        <span class="text-gray-400 line-through">$199.99</span>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <div class="text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="text-gray-400 text-sm ml-2">(3,241)</span>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300 mb-2">
+                        View on Amazon
+                    </button>
+                    <button class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 font-semibold py-2 rounded-lg transition-all duration-300">
+                        Read Our Review
+                    </button>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
-    <p>&copy; 2025 HiVaRiX Deals Hub. All rights reserved.</p>
-    <p class="mt-2">As an Amazon Associate, we earn from qualifying purchases.</p>
-  </footer>
+            <div class="text-center mt-12">
+                <button class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                    View All HiVaRiX Picks
+                </button>
+            </div>
+        </div>
+    </section>
 
-</body>
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="text-gradient">Latest HiVaRiX Reviews</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4">📱 Tech Reviews</h3>
+                    <p class="text-gray-200 text-lg mb-6">In-depth analysis of the latest gadgets and electronics on Amazon</p>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Read Tech Reviews
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-600 to-emerald-600 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4">🏠 Home & Living</h3>
+                    <p class="text-gray-200 text-lg mb-6">Honest reviews of home products that make life better</p>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Browse Home Reviews
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-br from-pink-600 to-red-600 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4">💄 Beauty & Health</h3>
+                    <p class="text-gray-200 text-lg mb-6">Tested beauty products and health essentials from Amazon</p>
+                    <button class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                        View Beauty Reviews
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 px-4 bg-gray-900/70">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">
+                <span class="text-gradient">Never Miss a Deal</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">Get HiVaRiX's curated Amazon deals delivered to your inbox daily</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Enter your email..." class="flex-1 px-4 py-3 bg-gray-800 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-orange-400">
+                <button class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-gray-100 font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                    Subscribe Free
+                </button>
+            </div>
+            
+            <p class="text-gray-400 text-sm mt-4">Join 50,000+ deal hunters. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 border-t border-orange-500/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold text-gradient mb-4">About HiVaRiX</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Review Process</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gradient mb-4">Categories</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Electronics</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Home & Garden</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Fashion</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gradient mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Deal Alerts</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Price Tracking</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Shopping Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gradient mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <div class="text-2xl font-bold text-gradient mb-4">HiVaRiX</div>
+                
+                <!-- Social Media Links -->
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="https://instagram.com/hivarix" target="_blank" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-gray-100 px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2">
+                        <span>📷</span>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://youtube.com/@hivarix" target="_blank" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-gray-100 px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2">
+                        <span>📺</span>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://tiktok.com/@hivarix" target="_blank" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-gray-100 px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2">
+                        <span>🎵</span>
+                        <span>TikTok</span>
+                    </a>
+                </div>
+                
+                <p class="text-gray-400 mb-2">© 2024 HiVaRiX. Your trusted Amazon affiliate partner.</p>
+                <p class="text-gray-500 text-sm">
+                    As an Amazon Associate, HiVaRiX earns from qualifying purchases. 
+                    Product prices and availability are accurate as of the date/time indicated and are subject to change.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const distance = tomorrow - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Amazon affiliate link simulation
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('View on Amazon')) {
+                button.addEventListener('click', function() {
+                    // Simulate opening Amazon with affiliate link
+                    alert('🛒 Redirecting to Amazon with HiVaRiX affiliate link...\n\nThis helps support our reviews at no extra cost to you!');
+                });
+            }
+            
+            if (button.textContent.includes('Read Our Review')) {
+                button.addEventListener('click', function() {
+                    alert('📝 Opening detailed HiVaRiX review...\n\nOur honest, in-depth analysis of this product!');
+                });
+            }
+        });
+
+        // Category clicks
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.querySelector('span').textContent;
+                alert(`🔍 Browsing ${category} deals curated by HiVaRiX!`);
+            });
+        });
+
+        // Newsletter signup
+        document.querySelector('input[type="email"]').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const email = this.value;
+                if (email && email.includes('@')) {
+                    alert(`✅ Thanks for subscribing to HiVaRiX deals!\n\nYou'll receive our daily curated Amazon deals at ${email}`);
+                    this.value = '';
+                }
+            }
+        });
+
+        // Search functionality
+        document.querySelector('input[placeholder*="Search"]').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm) {
+                    alert(`🔍 Searching HiVaRiX curated deals for "${searchTerm}"...`);
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978124dbe7fb94c3',t:'MTc1NjY5MTcxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

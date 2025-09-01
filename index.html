@@ -400,6 +400,85 @@
         </div>
     </section>
 
+    <!-- Our Story Modal -->
+    <div id="ourStoryModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gradient">Our Story</h2>
+                <button onclick="closeOurStory()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-2">From Deal Hunters to Your Trusted Guide</h3>
+                </div>
+                
+                <p class="text-lg">
+                    <span class="text-cyan-400 font-semibold">HiVaRiX</span> started as a passion project by a group of friends who were obsessed with finding the best deals on Amazon. We spent countless hours scrolling through thousands of products, comparing prices, reading reviews, and testing items ourselves.
+                </p>
+                
+                <p>
+                    What began as sharing great finds with our families and friends quickly grew into something bigger. We realized that in the overwhelming world of online shopping, people needed a <span class="text-yellow-400 font-semibold">trusted voice</span> to cut through the noise and highlight products that were actually worth buying.
+                </p>
+                
+                <div class="bg-gradient-to-r from-purple-600/20 to-pink-600/20 p-6 rounded-xl border border-purple-500/30">
+                    <h4 class="text-xl font-bold text-purple-400 mb-3">🎯 Our Mission</h4>
+                    <p>
+                        To save you time and money by curating only the best Amazon deals and providing honest, detailed reviews of products we've personally tested. No fluff, no fake hype – just real recommendations from real people.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 p-6 rounded-xl border border-blue-500/30">
+                        <h4 class="text-lg font-bold text-blue-400 mb-3">🔍 What We Do</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Test products personally before recommending</li>
+                            <li>• Track price histories and alert you to real deals</li>
+                            <li>• Create honest, detailed reviews</li>
+                            <li>• Curate daily deal collections</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-6 rounded-xl border border-green-500/30">
+                        <h4 class="text-lg font-bold text-green-400 mb-3">💎 Our Values</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Transparency in all recommendations</li>
+                            <li>• Honest reviews, even if it means fewer sales</li>
+                            <li>• Community-first approach</li>
+                            <li>• Quality over quantity always</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>
+                    Today, <span class="text-cyan-400 font-semibold">HiVaRiX</span> has grown into a community of over <span class="text-yellow-400 font-semibold">50,000+ deal hunters</span> who trust our recommendations. We're proud to have saved our community millions of dollars while helping them discover amazing products they love.
+                </p>
+                
+                <div class="bg-gradient-to-r from-orange-600/20 to-red-600/20 p-6 rounded-xl border border-orange-500/30">
+                    <h4 class="text-xl font-bold text-orange-400 mb-3">🤝 Our Promise</h4>
+                    <p>
+                        Every product we feature has been carefully evaluated. We only recommend deals we'd buy ourselves and products we'd give to our own families. Your trust is everything to us.
+                    </p>
+                </div>
+                
+                <div class="text-center pt-6">
+                    <p class="text-lg mb-4">
+                        Ready to join our community of smart shoppers?
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="closeOurStory(); document.querySelector('input[type=email]').focus();" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Subscribe to Our Newsletter
+                        </button>
+                        <button onclick="closeOurStory(); window.open('https://instagram.com/hivarix', '_blank');" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Follow Our Journey
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 sm:py-12 px-4 border-t border-orange-500/30">
         <div class="max-w-7xl mx-auto">
@@ -407,7 +486,7 @@
                 <div>
                     <h4 class="text-base sm:text-lg font-semibold text-gradient mb-3 sm:mb-4">About HiVaRiX</h4>
                     <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Our Story</a></li>
+                        <li><a href="#" onclick="showOurStory()" class="hover:text-cyan-400 transition-colors cursor-pointer">Our Story</a></li>
                         <li><a href="#" class="hover:text-cyan-400 transition-colors">Review Process</a></li>
                         <li><a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
                     </ul>
@@ -575,6 +654,24 @@
                 window.open(affiliateLink, '_blank');
             }
         });
+
+        // Our Story Modal Functions
+        function showOurStory() {
+            document.getElementById('ourStoryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOurStory() {
+            document.getElementById('ourStoryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('ourStoryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOurStory();
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9788880586bfe8fa',t:'MTc1Njc2OTE3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97889e84c007636b',t:'MTc1Njc3MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

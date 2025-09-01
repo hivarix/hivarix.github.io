@@ -3,61 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HiVaRiX | Shop & Links</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      text-align: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 500px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #555;
-      margin-bottom: 20px;
-    }
-    a.button {
-      display: block;
-      margin: 10px 0;
-      padding: 15px;
-      text-decoration: none;
-      border-radius: 8px;
-      background: #ff9900;
-      color: white;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background: #e68a00;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 0.8em;
-      color: #888;
-    }
-  </style>
+  <title>HiVaRiX Deals Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>HiVaRiX Shop</h1>
-    <p>Curated picks & recommendations. Shop with us 👇</p>
+<body class="bg-gray-100 font-sans">
 
-    <!-- Replace these links with your Amazon affiliate links -->
-    <a class="button" href="https://www.amazon.com/dp/EXAMPLE1?tag=yourtag-20" target="_blank">🔥 Best Tech Gadgets</a>
-    <a class="button" href="https://www.amazon.com/dp/EXAMPLE2?tag=yourtag-20" target="_blank">🎧 Music Essentials</a>
-    <a class="button" href="https://www.amazon.com/dp/EXAMPLE3?tag=yourtag-20" target="_blank">📚 Learning & Books</a>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto p-6 flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold tracking-wide">HiVaRiX Deals Hub</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#deals" class="hover:underline">Deals</a></li>
+          <li><a href="#categories" class="hover:underline">Categories</a></li>
+          <li><a href="#newsletter" class="hover:underline">Subscribe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-      © 2025 HiVaRiX | Powered by Amazon Associates
-    </footer>
-  </div>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white py-20 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Shop the Best Amazon Deals</h2>
+    <p class="text-lg mb-6">Exclusive discounts, daily offers, and trending picks curated for you.</p>
+    <a href="#deals" class="bg-white text-pink-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100">Start Shopping</a>
+  </section>
+
+  <!-- Deals Section -->
+  <section id="deals" class="max-w-6xl mx-auto py-16 px-6">
+    <h3 class="text-3xl font-bold mb-8 text-gray-800 text-center">🔥 Today’s Hot Deals</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Example Deal -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold mb-2">Wireless Headphones</h4>
+          <p class="text-gray-600 mb-4">High-quality sound, noise cancellation, and long battery life.</p>
+          <span class="block text-lg font-bold text-green-600 mb-4">$59.99</span>
+          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Duplicate this block for more deals -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold mb-2">Smart Watch</h4>
+          <p class="text-gray-600 mb-4">Track your fitness, monitor health, and stay connected.</p>
+          <span class="block text-lg font-bold text-green-600 mb-4">$79.99</span>
+          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+        <img src="https://via.placeholder.com/400x250" alt="Product" class="w-full">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold mb-2">Portable Speaker</h4>
+          <p class="text-gray-600 mb-4">Waterproof, compact, and powerful sound for outdoors.</p>
+          <span class="block text-lg font-bold text-green-600 mb-4">$39.99</span>
+          <a href="https://amzn.to/4p0kZCD" target="_blank" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="categories" class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">Browse by Category</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">🎧 Electronics</a>
+        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">👕 Fashion</a>
+        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">🏡 Home</a>
+        <a href="#" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">💻 Gadgets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16 text-white text-center">
+    <h3 class="text-3xl font-bold mb-4">Subscribe for Daily Deals</h3>
+    <p class="mb-6">Get the hottest Amazon discounts delivered to your inbox.</p>
+
+    <!-- Replace with Mailchimp/ConvertKit embed -->
+    <form action="https://YOUR-MAILCHIMP-LINK" method="post" target="_blank" class="flex justify-center max-w-md mx-auto">
+      <input type="email" name="EMAIL" placeholder="Enter your email" required class="p-3 rounded-l-lg text-gray-800 w-2/3">
+      <button type="submit" class="bg-orange-500 px-5 rounded-r-lg font-semibold hover:bg-orange-600">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+    <p>&copy; 2025 HiVaRiX Deals Hub. All rights reserved.</p>
+    <p class="mt-2">As an Amazon Associate, we earn from qualifying purchases.</p>
+  </footer>
+
 </body>
 </html>

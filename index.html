@@ -441,27 +441,40 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Amazon affiliate link simulation
+        // Amazon affiliate link functionality
+        const affiliateLink = 'https://amzn.to/4p0kZCD';
+        
         document.querySelectorAll('button').forEach(button => {
-            if (button.textContent.includes('View on Amazon')) {
+            if (button.textContent.includes('View on Amazon') || 
+                button.textContent.includes('Shop Flash Deals Now') ||
+                button.textContent.includes('View All HiVaRiX Picks') ||
+                button.textContent.includes('Join Prime Now') ||
+                button.textContent.includes('Shop Now')) {
                 button.addEventListener('click', function() {
-                    // Simulate opening Amazon with affiliate link
-                    alert('🛒 Redirecting to Amazon with HiVaRiX affiliate link...\n\nThis helps support our reviews at no extra cost to you!');
+                    window.open(affiliateLink, '_blank');
                 });
             }
             
-            if (button.textContent.includes('Read Our Review')) {
+            if (button.textContent.includes('View Today\'s Picks')) {
+                button.addEventListener('click', function() {
+                    window.open('https://amzn.to/3JMzKIZ', '_blank');
+                });
+            }
+            
+            if (button.textContent.includes('Read Our Review') ||
+                button.textContent.includes('Read Tech Reviews') ||
+                button.textContent.includes('Browse Home Reviews') ||
+                button.textContent.includes('View Beauty Reviews')) {
                 button.addEventListener('click', function() {
                     alert('📝 Opening detailed HiVaRiX review...\n\nOur honest, in-depth analysis of this product!');
                 });
             }
         });
 
-        // Category clicks
+        // Category clicks - redirect to Amazon affiliate link
         document.querySelectorAll('.category-card').forEach(card => {
             card.addEventListener('click', function() {
-                const category = this.querySelector('span').textContent;
-                alert(`🔍 Browsing ${category} deals curated by HiVaRiX!`);
+                window.open(affiliateLink, '_blank');
             });
         });
 
@@ -476,15 +489,22 @@
             }
         });
 
-        // Search functionality
+        // Search functionality - redirect to Amazon affiliate link
         document.querySelector('input[placeholder*="Search"]').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const searchTerm = this.value;
                 if (searchTerm) {
-                    alert(`🔍 Searching HiVaRiX curated deals for "${searchTerm}"...`);
+                    window.open(affiliateLink, '_blank');
                 }
             }
         });
+        
+        // Search button click
+        document.querySelector('button').addEventListener('click', function() {
+            if (this.textContent.includes('🔍')) {
+                window.open(affiliateLink, '_blank');
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978124dbe7fb94c3',t:'MTc1NjY5MTcxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9783bf5e4129e90f',t:'MTc1NjcxOTAxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

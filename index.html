@@ -471,10 +471,27 @@
             }
         });
 
-        // Category clicks - redirect to Amazon affiliate link
+        // Category clicks - redirect to specific Amazon affiliate links
         document.querySelectorAll('.category-card').forEach(card => {
             card.addEventListener('click', function() {
-                window.open(affiliateLink, '_blank');
+                const categoryText = card.querySelector('span').textContent;
+                let categoryLink = affiliateLink; // default fallback
+                
+                if (categoryText.includes('Electronics')) {
+                    categoryLink = 'https://amzn.to/4mHpekM';
+                } else if (categoryText.includes('Fashion')) {
+                    categoryLink = 'https://amzn.to/3HPcQQK';
+                } else if (categoryText.includes('Home & Kitchen')) {
+                    categoryLink = 'https://amzn.to/3UQP61w';
+                } else if (categoryText.includes('Books')) {
+                    categoryLink = 'https://amzn.to/45ITrdq';
+                } else if (categoryText.includes('Gaming')) {
+                    categoryLink = 'https://amzn.to/4gmm5ot';
+                } else if (categoryText.includes('Beauty')) {
+                    categoryLink = 'https://amzn.to/4p2CkuC';
+                }
+                
+                window.open(categoryLink, '_blank');
             });
         });
 
@@ -506,5 +523,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9783bf5e4129e90f',t:'MTc1NjcxOTAxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9783dae9c4ba94ac',t:'MTc1NjcyMDE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

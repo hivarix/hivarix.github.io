@@ -479,6 +479,614 @@
         </div>
     </div>
 
+    <!-- Contact Us Modal -->
+    <div id="contactUsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gradient">Contact Us</h2>
+                <button onclick="closeContactUs()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">📞</div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-2">Get in Touch with HiVaRiX</h3>
+                    <p class="text-gray-400">We'd love to hear from you! Here's how to reach our team</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 p-6 rounded-xl border border-blue-500/30">
+                        <h4 class="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                            📧 Email Us
+                        </h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <p class="font-semibold text-cyan-400">General Inquiries:</p>
+                                <p class="text-gray-300">hello@hivarix.com</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-cyan-400">Product Reviews:</p>
+                                <p class="text-gray-300">reviews@hivarix.com</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-cyan-400">Partnership Inquiries:</p>
+                                <p class="text-gray-300">partnerships@hivarix.com</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-cyan-400">Technical Support:</p>
+                                <p class="text-gray-300">support@hivarix.com</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-4">⏱️ We typically respond within 24 hours</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-6 rounded-xl border border-purple-500/30">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4 flex items-center">
+                            💬 Social Media
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-full">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-pink-400">Instagram</p>
+                                    <p class="text-sm text-gray-400">@hivarix - DM us anytime!</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-gradient-to-r from-red-500 to-red-600 p-2 rounded-full">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-red-400">YouTube</p>
+                                    <p class="text-sm text-gray-400">@hivarix - Comment on our videos</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-full">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-cyan-400">TikTok</p>
+                                    <p class="text-sm text-gray-400">@hivarix - Quick responses!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-600/20 to-emerald-600/20 p-6 rounded-xl border border-green-500/30">
+                    <h4 class="text-xl font-bold text-green-400 mb-4">📝 Quick Contact Form</h4>
+                    <p class="text-gray-400 mb-4">Send us a message and we'll get back to you soon!</p>
+                    
+                    <form class="space-y-4" onsubmit="handleContactForm(event)">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-300 mb-2">Name *</label>
+                                <input type="text" required class="w-full px-4 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-green-400" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-300 mb-2">Email *</label>
+                                <input type="email" required class="w-full px-4 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-green-400" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Subject *</label>
+                            <select required class="w-full px-4 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-green-400">
+                                <option value="">Select a topic...</option>
+                                <option value="general">General Question</option>
+                                <option value="review">Product Review Request</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="technical">Technical Issue</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
+                            <textarea required rows="4" class="w-full px-4 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-green-400" placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Send Message 📤
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-gradient-to-br from-orange-600/20 to-red-600/20 p-4 rounded-xl border border-orange-500/30 text-center">
+                        <div class="text-3xl mb-2">🕐</div>
+                        <h5 class="font-bold text-orange-400 mb-1">Response Time</h5>
+                        <p class="text-sm text-gray-400">Usually within 24 hours</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-600/20 to-indigo-600/20 p-4 rounded-xl border border-blue-500/30 text-center">
+                        <div class="text-3xl mb-2">🌍</div>
+                        <h5 class="font-bold text-blue-400 mb-1">Time Zone</h5>
+                        <p class="text-sm text-gray-400">EST (UTC-5)</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-4 rounded-xl border border-purple-500/30 text-center">
+                        <div class="text-3xl mb-2">📍</div>
+                        <h5 class="font-bold text-purple-400 mb-1">Based In</h5>
+                        <p class="text-sm text-gray-400">United States</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-600/20 to-orange-600/20 p-6 rounded-xl border border-yellow-500/30">
+                    <h4 class="text-xl font-bold text-yellow-400 mb-3">❓ Frequently Asked Questions</h4>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="font-semibold text-yellow-300">Q: How do you choose which products to review?</p>
+                            <p class="text-gray-400">A: We select trending, highly-rated, or requested products and purchase them ourselves for unbiased testing.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-yellow-300">Q: Can I request a specific product review?</p>
+                            <p class="text-gray-400">A: Absolutely! Email us at reviews@hivarix.com with your product suggestions.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-yellow-300">Q: Do you accept free products for review?</p>
+                            <p class="text-gray-400">A: No, we purchase all products ourselves to maintain complete independence and honesty.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-yellow-300">Q: How can I collaborate with HiVaRiX?</p>
+                            <p class="text-gray-400">A: Send partnership inquiries to partnerships@hivarix.com with your proposal details.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center pt-6">
+                    <p class="text-lg mb-4">
+                        Ready to connect? We're here to help! 🤝
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="window.open('https://instagram.com/hivarix', '_blank');" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Follow on Instagram
+                        </button>
+                        <button onclick="closeContactUs(); document.querySelector('input[type=email]').focus();" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Subscribe to Newsletter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deal Alerts Modal -->
+    <div id="dealAlertsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gradient">Deal Alerts</h2>
+                <button onclick="closeDealAlerts()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🚨</div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-2">Never Miss a Great Deal Again</h3>
+                    <p class="text-gray-400">Get instant notifications for the best Amazon deals curated by HiVaRiX</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-600/20 to-red-600/20 p-6 rounded-xl border border-orange-500/30">
+                    <h4 class="text-xl font-bold text-orange-400 mb-3">🔥 What You'll Get</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Flash deals up to 80% off</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Lightning deals before they sell out</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Price drop alerts on wishlist items</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Exclusive HiVaRiX member deals</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Category-specific alerts</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Daily deal roundups</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Holiday & seasonal sales</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">✓</span>
+                                <span>Prime Day early access</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 p-6 rounded-xl border border-cyan-500/30">
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">📱 Choose Your Alert Method</h4>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-4 rounded-xl border border-green-500/30 text-center">
+                            <div class="text-3xl mb-2">📧</div>
+                            <h5 class="font-bold text-green-400 mb-2">Email Alerts</h5>
+                            <p class="text-sm text-gray-400 mb-3">Daily digest + instant flash deals</p>
+                            <button onclick="setupEmailAlerts()" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                                Setup Email
+                            </button>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-4 rounded-xl border border-purple-500/30 text-center">
+                            <div class="text-3xl mb-2">📲</div>
+                            <h5 class="font-bold text-purple-400 mb-2">Push Notifications</h5>
+                            <p class="text-sm text-gray-400 mb-3">Instant alerts on your phone</p>
+                            <button onclick="setupPushNotifications()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                                Enable Push
+                            </button>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-600/20 to-indigo-600/20 p-4 rounded-xl border border-blue-500/30 text-center">
+                            <div class="text-3xl mb-2">💬</div>
+                            <h5 class="font-bold text-blue-400 mb-2">SMS Alerts</h5>
+                            <p class="text-sm text-gray-400 mb-3">Text messages for urgent deals</p>
+                            <button onclick="setupSMSAlerts()" class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                                Setup SMS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-600/20 to-indigo-600/20 p-6 rounded-xl border border-purple-500/30">
+                    <h4 class="text-xl font-bold text-purple-400 mb-4">🎯 Customize Your Alerts</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-bold text-purple-300 mb-3">Categories You Love</h5>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500" checked>
+                                    <span class="text-sm">📱 Electronics & Tech</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500">
+                                    <span class="text-sm">🏠 Home & Kitchen</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500">
+                                    <span class="text-sm">👕 Fashion & Beauty</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500">
+                                    <span class="text-sm">🎮 Gaming & Entertainment</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500">
+                                    <span class="text-sm">📚 Books & Education</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded bg-gray-700 border-gray-600 text-purple-500 focus:ring-purple-500">
+                                    <span class="text-sm">🏃 Sports & Outdoors</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-purple-300 mb-3">Deal Preferences</h5>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-2">Minimum Discount</label>
+                                    <select class="w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-400">
+                                        <option value="20">20% or more</option>
+                                        <option value="30">30% or more</option>
+                                        <option value="50" selected>50% or more</option>
+                                        <option value="70">70% or more</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-2">Price Range</label>
+                                    <select class="w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-400">
+                                        <option value="all">All Prices</option>
+                                        <option value="under25">Under $25</option>
+                                        <option value="25-100">$25 - $100</option>
+                                        <option value="100-500">$100 - $500</option>
+                                        <option value="over500">Over $500</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-2">Alert Frequency</label>
+                                    <select class="w-full px-3 py-2 bg-gray-700 text-gray-200 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-400">
+                                        <option value="instant">Instant (as they happen)</option>
+                                        <option value="hourly">Hourly digest</option>
+                                        <option value="daily" selected>Daily digest</option>
+                                        <option value="weekly">Weekly roundup</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <button onclick="saveAlertPreferences()" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                            Save My Preferences
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 p-6 rounded-xl border border-yellow-500/30">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-3">⚡ Lightning Deal Alerts</h4>
+                        <p class="text-sm text-gray-400 mb-4">Get notified the moment lightning deals go live - before they sell out!</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⚡</span>
+                                <span>5-minute early access</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⚡</span>
+                                <span>Stock level indicators</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⚡</span>
+                                <span>Time remaining countdown</span>
+                            </li>
+                        </ul>
+                        <button onclick="enableLightningAlerts()" class="w-full mt-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition-all duration-300">
+                            Enable Lightning Alerts
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-6 rounded-xl border border-green-500/30">
+                        <h4 class="text-lg font-bold text-green-400 mb-3">📊 Price Drop Tracking</h4>
+                        <p class="text-sm text-gray-400 mb-4">Track specific products and get alerted when prices drop!</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">📈</span>
+                                <span>Historical price charts</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">📈</span>
+                                <span>Target price alerts</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-green-400">📈</span>
+                                <span>Best time to buy predictions</span>
+                            </li>
+                        </ul>
+                        <button onclick="setupPriceTracking()" class="w-full mt-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300">
+                            Start Price Tracking
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-600/20 to-pink-600/20 p-6 rounded-xl border border-red-500/30">
+                    <h4 class="text-xl font-bold text-red-400 mb-3">🎁 Exclusive Member Benefits</h4>
+                    <p class="text-gray-400 mb-4">HiVaRiX alert subscribers get special perks:</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>Early access to Black Friday deals</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>Exclusive coupon codes</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>Member-only flash sales</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>Priority customer support</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>Monthly giveaways</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-red-400">🎯</span>
+                                <span>VIP community access</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center pt-6">
+                    <p class="text-lg mb-4">
+                        Ready to never miss a deal again? 🚀
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="closeDealAlerts(); document.querySelector('input[type=email]').focus();" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Start Getting Alerts
+                        </button>
+                        <button onclick="window.open('https://instagram.com/hivarix', '_blank');" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Follow for Updates
+                        </button>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">Join 50,000+ smart shoppers • Free to use • Unsubscribe anytime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Process Modal -->
+    <div id="reviewProcessModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gradient">Our Review Process</h2>
+                <button onclick="closeReviewProcess()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-2">Rigorous Testing, Honest Results</h3>
+                    <p class="text-gray-400">How we ensure every recommendation meets our high standards</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 p-6 rounded-xl border border-blue-500/30">
+                    <h4 class="text-xl font-bold text-blue-400 mb-3">📋 Our 5-Step Review Process</h4>
+                    <p class="mb-4">
+                        Every product goes through our comprehensive evaluation before we recommend it to our community.
+                    </p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-purple-400 mb-2">🛒 Product Selection & Purchase</h4>
+                            <p class="text-sm text-gray-400 mb-2">We purchase products with our own money - no free samples from brands</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Research trending and highly-rated products</li>
+                                <li>• Analyze customer reviews and complaints</li>
+                                <li>• Purchase at regular retail price</li>
+                                <li>• No brand partnerships influence our selection</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-green-400 mb-2">📦 Unboxing & First Impressions</h4>
+                            <p class="text-sm text-gray-400 mb-2">We document the complete unboxing experience</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Packaging quality and presentation</li>
+                                <li>• Included accessories and documentation</li>
+                                <li>• Build quality and materials assessment</li>
+                                <li>• Setup difficulty and time required</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-orange-400 mb-2">🧪 Real-World Testing</h4>
+                            <p class="text-sm text-gray-400 mb-2">Minimum 2-week testing period in real conditions</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Daily use in intended environment</li>
+                                <li>• Performance testing under various conditions</li>
+                                <li>• Durability and wear assessment</li>
+                                <li>• Comparison with similar products we own</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-cyan-400 mb-2">📊 Data Analysis & Scoring</h4>
+                            <p class="text-sm text-gray-400 mb-2">Objective evaluation across multiple criteria</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Performance metrics and benchmarks</li>
+                                <li>• Value for money assessment</li>
+                                <li>• User experience and ease of use</li>
+                                <li>• Long-term reliability prediction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">5</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-pink-400 mb-2">✍️ Review Writing & Publication</h4>
+                            <p class="text-sm text-gray-400 mb-2">Honest, detailed reviews with pros and cons</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Balanced perspective with clear pros/cons</li>
+                                <li>• Photo and video documentation</li>
+                                <li>• Comparison with alternatives</li>
+                                <li>• Clear recommendation for target audience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-6 rounded-xl border border-green-500/30">
+                        <h4 class="text-lg font-bold text-green-400 mb-3">✅ What We Look For</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Exceptional value for money</li>
+                            <li>• Reliable performance over time</li>
+                            <li>• Positive user experience</li>
+                            <li>• Strong customer support</li>
+                            <li>• Honest product descriptions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-red-600/20 to-pink-600/20 p-6 rounded-xl border border-red-500/30">
+                        <h4 class="text-lg font-bold text-red-400 mb-3">❌ Instant Disqualifiers</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Poor build quality or materials</li>
+                            <li>• Misleading product claims</li>
+                            <li>• Terrible customer service</li>
+                            <li>• Safety concerns or issues</li>
+                            <li>• Overpriced for the value offered</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-600/20 to-orange-600/20 p-6 rounded-xl border border-yellow-500/30">
+                    <h4 class="text-xl font-bold text-yellow-400 mb-3">🏆 Our Rating System</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <p class="font-semibold text-yellow-400">⭐⭐⭐⭐⭐ HiVaRiX Pick</p>
+                            <p class="text-gray-400">Exceptional product we'd buy again</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-green-400">⭐⭐⭐⭐ Editor's Choice</p>
+                            <p class="text-gray-400">Great product with minor flaws</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-400">⭐⭐⭐ Best Value</p>
+                            <p class="text-gray-400">Good product for the price point</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-orange-400">⭐⭐ Trending</p>
+                            <p class="text-gray-400">Popular but with notable issues</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center pt-6">
+                    <p class="text-lg mb-4">
+                        Trust our process? Join thousands who rely on our reviews!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="closeReviewProcess(); document.querySelector('input[type=email]').focus();" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Get Review Alerts
+                        </button>
+                        <button onclick="closeReviewProcess(); document.querySelector('#deals').scrollIntoView();" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            See Our Latest Reviews
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 sm:py-12 px-4 border-t border-orange-500/30">
         <div class="max-w-7xl mx-auto">
@@ -487,8 +1095,8 @@
                     <h4 class="text-base sm:text-lg font-semibold text-gradient mb-3 sm:mb-4">About HiVaRiX</h4>
                     <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
                         <li><a href="#" onclick="showOurStory()" class="hover:text-cyan-400 transition-colors cursor-pointer">Our Story</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Review Process</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" onclick="showReviewProcess()" class="hover:text-cyan-400 transition-colors cursor-pointer">Review Process</a></li>
+                        <li><a href="#" onclick="showContactUs()" class="hover:text-cyan-400 transition-colors cursor-pointer">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>
@@ -502,7 +1110,7 @@
                 <div>
                     <h4 class="text-base sm:text-lg font-semibold text-gradient mb-3 sm:mb-4">Resources</h4>
                     <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Deal Alerts</a></li>
+                        <li><a href="#" onclick="showDealAlerts()" class="hover:text-cyan-400 transition-colors cursor-pointer">Deal Alerts</a></li>
                         <li><a href="#" class="hover:text-cyan-400 transition-colors">Price Tracking</a></li>
                         <li><a href="#" class="hover:text-cyan-400 transition-colors">Shopping Tips</a></li>
                     </ul>
@@ -666,12 +1274,142 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal when clicking outside
+        // Contact Us Modal Functions
+        function showContactUs() {
+            document.getElementById('contactUsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactUs() {
+            document.getElementById('contactUsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact Form Handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = event.target.querySelector('input[type="text"]').value;
+            const email = event.target.querySelector('input[type="email"]').value;
+            const subject = event.target.querySelector('select').value;
+            const message = event.target.querySelector('textarea').value;
+            
+            // Simulate form submission
+            alert(`✅ Thanks for contacting HiVaRiX, ${name}!\n\nWe've received your message about "${subject}" and will respond to ${email} within 24 hours.\n\nFor urgent matters, feel free to DM us on Instagram @hivarix!`);
+            
+            // Reset form
+            event.target.reset();
+            closeContactUs();
+        }
+
+        // Review Process Modal Functions
+        function showReviewProcess() {
+            document.getElementById('reviewProcessModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReviewProcess() {
+            document.getElementById('reviewProcessModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Deal Alerts Modal Functions
+        function showDealAlerts() {
+            document.getElementById('dealAlertsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDealAlerts() {
+            document.getElementById('dealAlertsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Deal Alert Setup Functions
+        function setupEmailAlerts() {
+            const email = prompt('Enter your email address for deal alerts:');
+            if (email && email.includes('@')) {
+                alert(`✅ Email alerts activated!\n\nYou'll receive HiVaRiX deal alerts at ${email}\n\n📧 Daily digest at 8 AM\n⚡ Instant flash deal notifications\n🎯 Personalized recommendations\n\nWelcome to the HiVaRiX community!`);
+            }
+        }
+
+        function setupPushNotifications() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(function(permission) {
+                    if (permission === 'granted') {
+                        new Notification('🚨 HiVaRiX Deal Alerts Enabled!', {
+                            body: 'You\'ll now receive instant notifications for the best Amazon deals!',
+                            icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🚨</text></svg>'
+                        });
+                        alert('✅ Push notifications enabled!\n\nYou\'ll receive instant alerts for:\n⚡ Lightning deals\n🔥 Flash sales\n💰 Price drops\n🎯 Personalized deals');
+                    } else {
+                        alert('❌ Push notifications blocked.\n\nTo enable:\n1. Click the lock icon in your address bar\n2. Allow notifications for this site\n3. Try again');
+                    }
+                });
+            } else {
+                alert('❌ Push notifications not supported in this browser.\n\nTry using Chrome, Firefox, or Safari for the best experience.');
+            }
+        }
+
+        function setupSMSAlerts() {
+            const phone = prompt('Enter your phone number for SMS alerts:\n(Format: +1234567890)');
+            if (phone && phone.length >= 10) {
+                alert(`✅ SMS alerts activated!\n\nYou'll receive text messages at ${phone} for:\n\n⚡ Lightning deals (limited time)\n🔥 Flash sales over 70% off\n💎 Exclusive member deals\n🎯 Items on your wishlist\n\nStandard message rates apply. Reply STOP to opt out anytime.`);
+            }
+        }
+
+        function saveAlertPreferences() {
+            const categories = [];
+            document.querySelectorAll('#dealAlertsModal input[type="checkbox"]:checked').forEach(checkbox => {
+                categories.push(checkbox.nextElementSibling.textContent.trim());
+            });
+            
+            const minDiscount = document.querySelector('#dealAlertsModal select').value;
+            const priceRange = document.querySelectorAll('#dealAlertsModal select')[1].value;
+            const frequency = document.querySelectorAll('#dealAlertsModal select')[2].value;
+            
+            alert(`✅ Alert preferences saved!\n\n📂 Categories: ${categories.length > 0 ? categories.join(', ') : 'All categories'}\n💰 Min discount: ${minDiscount}%+\n💵 Price range: ${priceRange}\n⏰ Frequency: ${frequency}\n\nYour personalized deals are on the way!`);
+        }
+
+        function enableLightningAlerts() {
+            alert('⚡ Lightning Deal Alerts Enabled!\n\nYou\'ll get notified:\n• 5 minutes before deals go live\n• Real-time stock updates\n• Countdown timers\n• Direct purchase links\n\nNever miss a lightning deal again! 🚀');
+        }
+
+        function setupPriceTracking() {
+            const productUrl = prompt('Paste an Amazon product URL to start tracking:\n(e.g., https://amazon.com/dp/B08N5WRWNW)');
+            if (productUrl && productUrl.includes('amazon.com')) {
+                const targetPrice = prompt('What\'s your target price? (Enter amount without $)');
+                if (targetPrice && !isNaN(targetPrice)) {
+                    alert(`📊 Price tracking activated!\n\nProduct: ${productUrl.substring(0, 50)}...\nTarget price: $${targetPrice}\n\n✅ You'll be notified when:\n• Price drops to your target\n• Historical low is reached\n• Deal of the day features this item\n\nHappy saving! 💰`);
+                }
+            } else {
+                alert('❌ Please enter a valid Amazon product URL to start tracking.');
+            }
+        }
+
+        // Close modals when clicking outside
         document.getElementById('ourStoryModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeOurStory();
             }
         });
+
+        document.getElementById('contactUsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactUs();
+            }
+        });
+
+        document.getElementById('dealAlertsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDealAlerts();
+            }
+        });
+
+        document.getElementById('reviewProcessModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeReviewProcess();
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97889e84c007636b',t:'MTc1Njc3MDA5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9788c31b97ccc6b6',t:'MTc1Njc3MTU5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

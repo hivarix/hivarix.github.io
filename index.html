@@ -1156,6 +1156,306 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Footer Styles */
+        .footer {
+            margin-top: 4rem;
+        }
+        
+        .back-to-top {
+            background: linear-gradient(135deg, #37475a 0%, #232f3e 100%);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-top: 1px solid #485769;
+        }
+        
+        .back-to-top:hover {
+            background: linear-gradient(135deg, #485769 0%, #37475a 100%);
+        }
+        
+        .back-to-top span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .footer-main {
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff9500;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.25rem 0;
+        }
+        
+        .footer-links a:hover {
+            color: #ff9500;
+            padding-left: 0.5rem;
+        }
+        
+        .footer-secondary {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 2rem 0;
+            border-top: 1px solid #485769;
+        }
+        
+        .footer-secondary-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .footer-logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: transparent;
+            filter: none;
+        }
+        
+        .footer-selectors {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-selector:hover {
+            background: rgba(255, 149, 0, 0.2);
+            border-color: #ff9500;
+        }
+        
+        .selector-icon {
+            font-size: 1.1rem;
+        }
+        
+        .selector-arrow {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        .footer-bottom {
+            background: linear-gradient(135deg, #0f1419 0%, #1a202c 100%);
+            color: #a0aec0;
+            padding: 2rem 0;
+            border-top: 1px solid #2d3748;
+        }
+        
+        .footer-bottom-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .service-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+        
+        .service-links a:hover {
+            color: #ff9500;
+            background: rgba(255, 149, 0, 0.1);
+        }
+        
+        .service-links a strong {
+            color: #e2e8f0;
+            font-size: 0.9rem;
+        }
+        
+        .service-links a span {
+            opacity: 0.8;
+        }
+        
+        .footer-legal {
+            border-top: 1px solid #2d3748;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .legal-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .legal-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        
+        .legal-links a:hover {
+            color: #ff9500;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        
+        /* Footer Responsive Design */
+        @media (max-width: 768px) {
+            .footer-sections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .footer-secondary-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .footer-selectors {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.75rem;
+            }
+            
+            .footer-selector {
+                justify-content: center;
+                padding: 0.6rem;
+            }
+            
+            .footer-bottom-sections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .footer-legal {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .legal-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-sections {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-main {
+                padding: 2rem 0;
+            }
+            
+            .footer-secondary {
+                padding: 1.5rem 0;
+            }
+            
+            .footer-bottom {
+                padding: 1.5rem 0;
+            }
+            
+            .footer-bottom-sections {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .footer-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .footer-links a {
+                font-size: 0.85rem;
+            }
+            
+            .service-links a {
+                font-size: 0.75rem;
+            }
+            
+            .legal-links {
+                gap: 0.75rem;
+            }
+            
+            .legal-links a {
+                font-size: 0.75rem;
+            }
+            
+            .copyright {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1577,6 +1877,97 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Back to Top -->
+        <div class="back-to-top" onclick="scrollToTop()">
+            <div class="container">
+                <span>Back to top</span>
+            </div>
+        </div>
+        
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-sections">
+                    <!-- Get to Know Us -->
+                    <div class="footer-section">
+                        <h4 class="footer-title">Get to Know Us</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" onclick="showPage('home')">Home</a></li>
+                            <li><a href="#" onclick="showFooterPage('about')">About HiVaRiX</a></li>
+                            <li><a href="#" onclick="showFooterPage('privacy-policy')">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Let Us Help You -->
+                    <div class="footer-section">
+                        <h4 class="footer-title">Let Us Help You</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" onclick="showPage('account')">Your Account</a></li>
+                            <li><a href="#" onclick="showPage('orders')">Your Orders</a></li>
+                            <li><a href="#" onclick="showFooterPage('shipping')">Shipping Rates & Policies</a></li>
+                            <li><a href="#" onclick="showFooterPage('returns')">Returns & Replacements</a></li>
+                            <li><a href="#" onclick="showFooterPage('content')">Manage Your Content and Devices</a></li>
+                            <li><a href="#" onclick="showFooterPage('assistant')">HiVaRiX Assistant</a></li>
+                            <li><a href="#" onclick="showFooterPage('help')">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Language and Country Selector -->
+        <div class="footer-secondary">
+            <div class="container">
+                <div class="footer-secondary-content">
+                    <div class="footer-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo" class="footer-logo-img" onerror="this.style.display='none';">
+                    </div>
+                    
+                    <div class="footer-selectors">
+                        <div class="footer-selector" onclick="showLanguageSelector()">
+                            <span class="selector-icon">🌐</span>
+                            <span>English</span>
+                            <span class="selector-arrow">▼</span>
+                        </div>
+                        
+                        <div class="footer-selector" onclick="showCurrencySelector()">
+                            <span class="selector-icon">💰</span>
+                            <span>$ USD - U.S. Dollar</span>
+                            <span class="selector-arrow">▼</span>
+                        </div>
+                        
+                        <div class="footer-selector" onclick="showCountrySelector()">
+                            <span class="selector-icon">🇺🇸</span>
+                            <span>United States</span>
+                            <span class="selector-arrow">▼</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+
+                
+                <!-- Copyright and Legal -->
+                <div class="footer-legal">
+                    <div class="legal-links">
+                        <a href="#" onclick="showFooterPage('conditions')">Conditions of Use</a>
+                        <a href="#" onclick="showFooterPage('privacy')">Privacy Notice</a>
+                        <a href="#" onclick="showFooterPage('interest-ads')">Interest-Based Ads</a>
+                    </div>
+                    <div class="copyright">
+                        © 1996-2024, HiVaRiX.com, Inc. or its affiliates
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Cart Sidebar -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
@@ -1857,6 +2248,44 @@
             
             alert(`👁️ View changed to ${view} layout\n\n✨ Optimized for better product browsing experience!`);
         }
+
+        // Footer Functions
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function showFooterPage(page) {
+            const pageInfo = {
+                'about': '🏢 About HiVaRiX\n\nFounded in 2024, HiVaRiX is your trusted Amazon shopping assistant.\n\n🎯 Our Mission:\nTo make online shopping easier, faster, and more enjoyable for everyone.\n\n✨ What We Do:\n• Curate the best Amazon products\n• Provide personalized recommendations\n• Offer exclusive deals and discounts\n• Ensure secure, reliable shopping',
+                'privacy-policy': '🔒 Privacy Policy\n\nYour privacy is important to us.\n\n📋 What We Collect:\n• Account information\n• Shopping preferences\n• Order history\n• Device information\n\n🛡️ How We Protect Your Data:\n• Encrypted data transmission\n• Secure servers\n• Limited access controls\n• Regular security audits\n\nLast updated: December 2024',
+                'shipping': '📦 Shipping Rates & Policies\n\nFast, reliable shipping through Amazon\'s network\n\n🚚 Shipping Options:\n• FREE shipping on orders $25+\n• Prime 2-day shipping\n• Same-day delivery (select areas)\n• Express shipping available\n\n📍 Delivery Areas:\n• Nationwide coverage\n• International shipping available\n• PO Box delivery supported',
+                'returns': '↩️ Returns & Replacements\n\nEasy returns with Amazon\'s guarantee\n\n✅ Return Policy:\n• 30-day return window\n• Free return shipping\n• Full refund or replacement\n• No questions asked\n\n📋 How to Return:\n1. Go to Your Orders\n2. Select item to return\n3. Print return label\n4. Drop off at any location',
+                'content': '📱 Manage Your Content and Devices\n\nControl your digital content and devices\n\n🔧 Manage:\n• Digital purchases\n• Device settings\n• Content downloads\n• Account preferences\n\n📲 Supported Devices:\n• Smartphones & tablets\n• Computers\n• Smart TVs\n• Gaming consoles',
+                'assistant': '🤖 HiVaRiX Assistant\n\nYour AI-powered shopping companion\n\n✨ Features:\n• Product recommendations\n• Price tracking\n• Deal alerts\n• Shopping reminders\n\n💬 How to Use:\n• Ask questions about products\n• Get personalized suggestions\n• Track your orders\n• Find the best deals',
+                'help': '❓ Help Center\n\nGet answers to your questions quickly!\n\n🔍 Popular Topics:\n• Order tracking\n• Returns and refunds\n• Account management\n• Payment methods\n• Shipping information\n\n📞 Contact Support:\n• Live Chat: Available 24/7\n• Email: support@hivarix.com\n• Phone: 1-800-HIVARIX',
+                'conditions': '📜 Conditions of Use\n\nTerms and conditions for using HiVaRiX\n\n📋 Key Terms:\n• Account responsibilities\n• Acceptable use policy\n• Payment terms\n• Limitation of liability\n\n⚖️ Legal Information:\n• Governed by applicable laws\n• Dispute resolution procedures\n• Modification rights\n\nLast updated: December 2024',
+                'privacy': '🔒 Privacy Notice\n\nHow we collect, use, and protect your information\n\n📊 Information We Collect:\n• Personal information\n• Shopping behavior\n• Device data\n• Location information\n\n🎯 How We Use Information:\n• Improve services\n• Personalize experience\n• Process orders\n• Communicate with you',
+                'interest-ads': '🎯 Interest-Based Ads\n\nPersonalized advertising information\n\n📈 How It Works:\n• We show relevant ads\n• Based on your interests\n• Across our platform\n• From trusted partners\n\n⚙️ Your Choices:\n• Opt-out anytime\n• Manage ad preferences\n• Control data sharing\n• Update settings easily'
+            };
+
+            const info = pageInfo[page] || `📄 ${page.charAt(0).toUpperCase() + page.slice(1)}\n\nThis section contains information about ${page}.\n\n🔗 More details coming soon!`;
+            alert(info);
+        }
+
+        function showLanguageSelector() {
+            alert('🌐 Language Selection\n\nChoose your preferred language:\n\n🇺🇸 English (US)\n🇬🇧 English (UK)\n🇪🇸 Español\n🇫🇷 Français\n🇩🇪 Deutsch\n🇮🇹 Italiano\n🇯🇵 日本語\n🇨🇳 中文\n🇰🇷 한국어\n🇷🇺 Русский\n\n✨ Language preference will be saved to your account!');
+        }
+
+        function showCurrencySelector() {
+            alert('💰 Currency Selection\n\nSelect your preferred currency:\n\n🇺🇸 USD - US Dollar\n🇪🇺 EUR - Euro\n🇬🇧 GBP - British Pound\n🇯🇵 JPY - Japanese Yen\n🇨🇦 CAD - Canadian Dollar\n🇦🇺 AUD - Australian Dollar\n🇨🇭 CHF - Swiss Franc\n🇨🇳 CNY - Chinese Yuan\n\n💱 Prices will be converted automatically!');
+        }
+
+        function showCountrySelector() {
+            alert('🌍 Country/Region Selection\n\nSelect your country or region:\n\n🇺🇸 United States\n🇨🇦 Canada\n🇬🇧 United Kingdom\n🇩🇪 Germany\n🇫🇷 France\n🇮🇹 Italy\n🇪🇸 Spain\n🇯🇵 Japan\n🇦🇺 Australia\n🇧🇷 Brazil\n\n🚚 This affects shipping options and product availability!');
+        }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9859eac3e23ff663',t:'MTc1ODk2NDc0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985a16e0d4b9fc95',t:'MTc1ODk2NjU0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

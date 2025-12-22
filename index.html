@@ -7,20 +7,17 @@
 
 <style>
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #e6e6e6;
   color: #333;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-body { flex-direction: column; }
-
-/* NAVIGATION */
+/* ================= NAVBAR ================= */
 .navbar {
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -37,7 +34,6 @@ body { flex-direction: column; }
   height: 50px;
 }
 
-/* MENU BUTTON */
 .menu-btn {
   display: none;
   font-size: 26px;
@@ -47,7 +43,6 @@ body { flex-direction: column; }
   color: #003366;
 }
 
-/* NAV LINKS */
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
@@ -55,11 +50,7 @@ body { flex-direction: column; }
   font-weight: 600;
 }
 
-.nav-links a:hover {
-  color: #003366;
-}
-
-/* HEADER */
+/* ================= HEADER ================= */
 header {
   padding: 80px 20px;
   text-align: center;
@@ -67,7 +58,6 @@ header {
 
 header h1 {
   font-size: 40px;
-  margin-bottom: 20px;
   color: #003366;
 }
 
@@ -76,14 +66,6 @@ header p {
   color: #555;
 }
 
-/* SECTION */
-section {
-  padding: 50px 20px;
-  text-align: center;
-  flex: 1;
-}
-
-/* BUTTON */
 button {
   background: #003366;
   color: #fff;
@@ -95,49 +77,73 @@ button {
   margin-top: 20px;
 }
 
-/* FOOTER */
+/* ================= CONTENT ================= */
+section {
+  padding: 50px 20px;
+  text-align: center;
+  flex: 1;
+}
+
+/* ================= FOOTER ================= */
 footer {
   background: #e6e6e6;
   text-align: center;
   padding: 20px;
   font-size: 14px;
   color: #555;
-  flex-shrink: 0;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
 }
 
 footer img {
   width: 24px;
   height: 24px;
-  margin: 0 10px;
-  vertical-align: middle;
 }
 
-/* MOBILE MENU */
+/* ================= MOBILE MENU (WhatsApp Style) ================= */
 @media (max-width: 768px) {
   .menu-btn {
     display: block;
   }
 
   .nav-links {
-    display: none;
-    flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 75px;
     right: 20px;
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 160px;
-    padding: 10px 0;
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+    padding: 8px 0;
   }
 
   .nav-links a {
-    margin: 10px 0;
-    text-align: center;
+    padding: 12px 20px;
+    margin: 0;
+  }
+
+  .nav-links a:hover {
+    background: #f2f2f2;
   }
 
   .nav-links.show {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  header h1 {
+    font-size: 28px;
   }
 }
 </style>
@@ -145,7 +151,7 @@ footer img {
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
 
@@ -168,7 +174,10 @@ footer img {
 <!-- CONTENT -->
 <section>
   <h2>Why Choose Us?</h2>
-  <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
+  <p>
+    We combine creativity, technology, and strategy to help businesses grow
+    and succeed in today’s digital world.
+  </p>
 </section>
 
 <!-- FOOTER -->
@@ -176,19 +185,25 @@ footer img {
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
     <a href="https://www.instagram.com/hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
     </a>
     <a href="https://www.youtube.com/@hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
     </a>
   </div>
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- SCRIPT -->
 <script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
 </script>
 
 </body>

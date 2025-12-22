@@ -14,9 +14,11 @@ html, body { font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; 
 .logo-container{display:flex;flex-direction:column;}
 .logo-container img{height:50px;}
 .logo-container .slogan{font-size:8px;font-style:italic;color:#003366;margin-top:2px;}
-.nav-icons{display:flex;align-items:center;gap:15px;}
-.nav-icons button, .nav-icons .cart-icon{width:40px;height:40px;display:flex;justify-content:center;align-items:center;font-size:28px;color:#003366;border:none;background:none;cursor:pointer;position:relative;}
+
+.nav-icons{display:flex;align-items:center;gap:10px;}
+.nav-icons button{width:40px;height:40px;display:flex;justify-content:center;align-items:center;font-size:28px;color:#003366;border:none;background:none;cursor:pointer;position:relative;}
 #cartCount{position:absolute;top:-6px;right:-6px;background:#ff6600;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:50%;display:none;}
+
 .nav-links{display:flex;gap:15px;}
 .nav-links a{text-decoration:none;color:#003366;font-weight:600;}
 .nav-links a:hover{color:#003366;}
@@ -67,10 +69,10 @@ footer img{width:24px;height:24px;}
 
   <div class="nav-icons">
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div class="cart-icon" onclick="toggleCart()">
+    <button class="cart-btn" onclick="toggleCart()">
       <i class="fas fa-shopping-cart"></i>
       <span id="cartCount">0</span>
-    </div>
+    </button>
   </div>
 
   <div class="nav-links" id="navLinks">

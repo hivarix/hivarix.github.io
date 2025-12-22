@@ -11,9 +11,9 @@ html, body { margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:
 .logo-container { display:flex; flex-direction:column; align-items:flex-start; }
 .logo-container img { height:50px; }
 .logo-container .slogan { font-size:8px; font-style:italic; color:#003366; font-weight:600; line-height:1.1; margin-top:2px; }
-.nav-icons { display:flex; align-items:center; gap:15px; }
+.nav-icons { display:flex; align-items:center; gap:15px; height:40px; }
 .nav-icons .menu-btn,
-.nav-icons .cart-icon i { font-size:28px; color:#003366; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; height:40px; width:40px; }
+.nav-icons .cart-icon i { font-size:28px; height:40px; width:40px; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; color:#003366; }
 .cart-icon { position:relative; cursor:pointer; }
 #cartCount { position:absolute; top:-6px; right:-6px; background:#ff6600; color:#fff; font-size:12px; font-weight:600; padding:2px 6px; border-radius:50%; display:none; }
 .nav-links { display:flex; }
@@ -159,19 +159,31 @@ footer img { width:24px; height:24px; }
 <!-- PAYSTACK SCRIPT -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-let cart = [];
+// Persistent cart with localStorage
+let cart = JSON.parse(localStorage.getItem('hivarixCart')) || [];
 
 function addToCart(name, price) {
     cart.push({ name, price });
+    saveCart();
     updateCartDisplay();
     renderMiniCart();
     toggleCart(true);
 }
 
+function saveCart() {
+    localStorage.setItem('hivarixCart', JSON.stringify(cart));
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCartDisplay();
+    renderMiniCart();
+}
+
 function updateCartDisplay() {
     const cartCount = document.getElementById('cartCount');
     const totalItems = cart.length;
-
     if(totalItems > 0){
         cartCount.style.display = 'inline-block';
         cartCount.textContent = totalItems;
@@ -214,12 +226,6 @@ function closeCart() {
     document.getElementById('miniCart').style.display = 'none';
 }
 
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCartDisplay();
-    renderMiniCart();
-}
-
 function checkoutCart() {
     if(cart.length === 0) return;
 
@@ -239,6 +245,7 @@ function checkoutCart() {
         callback: function(response){
             alert('Payment complete! Reference: ' + response.reference);
             cart = [];
+            saveCart();
             updateCartDisplay();
             renderMiniCart();
             closeCart();
@@ -250,6 +257,7 @@ function checkoutCart() {
     handler.openIframe();
 }
 
+// Mobile menu
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
 }
@@ -259,6 +267,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         document.getElementById("navLinks").classList.remove("show");
     });
 });
+
+// Initialize cart display
+updateCartDisplay();
+renderMiniCart();
 </script>
 </body>
 </html>

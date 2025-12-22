@@ -4,179 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global</title>
-
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #e6e6e6;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; min-height:100vh; display:flex; flex-direction:column; }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  background: #fff;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+/* --- Navbar --- */
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#fff; border-bottom:1px solid #ccc; position:sticky; top:0; z-index:1000; }
+.logo-container { display:flex; flex-direction:column; }
+.logo-container img { height:50px; }
+.logo-container .slogan { font-size:8px; font-style:italic; color:#003366; margin-top:2px; }
+.nav-icons { display:flex; align-items:center; gap:15px; }
+.nav-icons button, .nav-icons .cart-icon { width:40px; height:40px; display:flex; justify-content:center; align-items:center; font-size:28px; color:#003366; border:none; background:none; cursor:pointer; position:relative; }
+#cartCount { position:absolute; top:-6px; right:-6px; background:#ff6600; color:#fff; font-size:12px; font-weight:600; padding:2px 6px; border-radius:50%; display:none; }
 
-/* Logo + Slogan */
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+/* --- Nav links --- */
+.nav-links { display:flex; gap:15px; }
+.nav-links a { text-decoration:none; color:#003366; font-weight:600; }
+.nav-links a:hover { color:#003366; }
 
-.logo-container img {
-  height: 50px;
-}
-
-.logo-container .slogan {
-  font-size: 8px;       /* very small */
-  font-style: italic;   /* italic */
-  color: #003366;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-top: 2px;      /* very close to logo */
-}
-
-/* Menu button */
-.menu-btn {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #003366;
-}
-
-/* Navigation links */
-.nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #003366;
-  font-weight: 600;
-}
-
-/* ================= HEADER ================= */
-header {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 40px;
-  color: #003366;
-}
-
-header p {
-  font-size: 18px;
-  color: #555;
-}
-
-button {
-  background: #003366;
-  color: #fff;
-  border: none;
-  padding: 14px 22px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-/* ================= CONTENT ================= */
-section {
-  padding: 50px 20px;
-  text-align: center;
-  flex: 1;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #e6e6e6;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #555;
-}
-
-footer div {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-footer img {
-  width: 24px;
-  height: 24px;
-}
-
-/* ================= MOBILE MENU (WhatsApp Style) ================= */
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
+/* --- Mobile menu --- */
+@media(max-width:768px){
+  .nav-links { 
+    position:absolute; top:75px; right:20px; flex-direction:column; background:#fff; border-radius:12px; padding:10px 0; display:none;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
   }
-
-  .nav-links {
-    position: absolute;
-    top: 75px;
-    right: 20px;
-    background: #fff;
-    width: 180px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    display: none;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.25s ease;
-    padding: 8px 0;
-  }
-
-  .nav-links a {
-    padding: 12px 20px;
-    margin: 0;
-  }
-
-  .nav-links a:hover {
-    background: #f2f2f2;
-  }
-
-  .nav-links.show {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  header h1 {
-    font-size: 28px;
-  }
+  .nav-links.show { display:flex; }
 }
+
+/* --- Header --- */
+header { text-align:center; padding:50px 20px; }
+header h1 { color:#003366; font-size:40px; }
+header p { color:#555; font-size:18px; }
+header button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+
+/* --- Section --- */
+section { padding:50px 20px; text-align:center; flex:1; }
+
+/* --- Footer --- */
+footer { background:#e6e6e6; text-align:center; padding:20px; color:#555; }
+footer div { display:flex; justify-content:center; gap:10px; margin-top:10px; }
+footer img { width:24px; height:24px; }
+
+/* --- Mini cart --- */
+.mini-cart { position:absolute; top:60px; right:20px; width:300px; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.2); padding:15px; display:none; z-index:1001; }
+.mini-cart ul { list-style:none; max-height:250px; overflow-y:auto; margin:0; padding:0; }
+.mini-cart li { padding:6px 0; border-bottom:1px solid #eee; }
+
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<!-- Navbar -->
 <nav class="navbar">
   <div class="logo-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="Logo">
     <div class="slogan">Digital Excellence</div>
   </div>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="nav-icons">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </div>
+  </div>
 
   <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
@@ -185,47 +78,98 @@ footer img {
   </div>
 </nav>
 
-<!-- HEADER -->
+<!-- Mini cart -->
+<div class="mini-cart" id="miniCart">
+  <h3 style="margin-top:0; color:#003366;">Your Cart</h3>
+  <ul id="cartItems"></ul>
+  <div style="text-align:right; margin-top:10px;">
+    <strong>Total: NGN <span id="cartTotal">0</span></strong>
+  </div>
+  <div style="display:flex; justify-content:space-between; margin-top:10px;">
+    <button onclick="checkoutCart()">Checkout</button>
+    <button onclick="closeCart()" style="background:#ccc;color:#333;">Close</button>
+  </div>
+</div>
+
+<!-- Header -->
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
   <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
-  <a href="/products.html"><button>Explore Products</button></a>
+  <button onclick="window.location.href='/products.html'">Explore Products</button>
 </header>
 
-<!-- CONTENT -->
 <section>
   <h2>Why Choose Us?</h2>
-  <p>
-    We combine creativity, technology, and strategy to help businesses grow
-    and succeed in today’s digital world.
-  </p>
+  <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-    </a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
-    </a>
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"></a>
   </div>
 </footer>
 
-<!-- SCRIPT -->
+<!-- Scripts -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("show");
+let cart = JSON.parse(localStorage.getItem('hivarixCart')) || [];
+
+function updateCartDisplay(){
+    const count = document.getElementById('cartCount');
+    if(cart.length>0){ count.style.display='inline-block'; count.textContent=cart.length; }
+    else count.style.display='none';
 }
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("navLinks").classList.remove("show");
-  });
-});
-</script>
+function renderMiniCart(){
+    const items = document.getElementById('cartItems'); items.innerHTML='';
+    let total=0;
+    cart.forEach((c,i)=>{
+        total+=c.price;
+        const li=document.createElement('li');
+        li.innerHTML=`${c.name} - NGN ${c.price} <button style="float:right;background:#ff4d4d;color:#fff;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;" onclick="removeItem(${i})">x</button>`;
+        items.appendChild(li);
+    });
+    document.getElementById('cartTotal').textContent=total;
+}
 
+function addToCart(name, price){
+    cart.push({name, price});
+    saveCart(); updateCartDisplay(); renderMiniCart(); toggleCart(true);
+}
+
+function saveCart(){ localStorage.setItem('hivarixCart', JSON.stringify(cart)); }
+function removeItem(i){ cart.splice(i,1); saveCart(); updateCartDisplay(); renderMiniCart(); }
+
+function toggleCart(force=false){
+    const cartEl=document.getElementById('miniCart');
+    if(force || cartEl.style.display==='none') cartEl.style.display='block';
+    else cartEl.style.display='none';
+}
+function closeCart(){ document.getElementById('miniCart').style.display='none'; }
+
+function checkoutCart(){
+    if(cart.length===0) return;
+    const total=cart.reduce((sum,c)=>sum+c.price,0);
+    var handler = PaystackPop.setup({
+        key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
+        email: 'customer@example.com',
+        amount: total*100,
+        currency: 'NGN',
+        ref: ''+Math.floor(Math.random()*1000000000+1),
+        metadata:{custom_fields:[{display_name:"Products", variable_name:"product_list", value:cart.map(c=>c.name).join(", ")}]},
+        callback:function(response){ alert('Payment complete! Ref: '+response.reference); cart=[]; saveCart(); updateCartDisplay(); renderMiniCart(); closeCart(); },
+        onClose:function(){ alert('Payment cancelled.'); }
+    });
+    handler.openIframe();
+}
+
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById('navLinks').classList.remove('show');}));
+
+updateCartDisplay(); renderMiniCart();
+</script>
 </body>
 </html>

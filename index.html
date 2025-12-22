@@ -1,73 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hivarix</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HiVaRiX Global</title>
+<style>
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #001f3f; color: #fff; line-height: 1.6; min-height: 100vh; }
+
+/* ===== Container ===== */
+.container { width: 95%; max-width: 1200px; margin: auto; padding: 20px 0; }
+
+/* ===== Header ===== */
+header { text-align: center; padding: 40px 20px; }
+header img { height: 80px; margin-bottom: 15px; }
+header h1 { font-size: 36px; color: #ffffff; }
+
+/* ===== Products ===== */
+.products { padding: 40px 0; }
+.products h2 { text-align: center; font-size: 32px; margin-bottom: 30px; color: #00bfff; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 25px; }
+
+.product-card { background-color: #00264d; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+.product-card img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; }
+.product-card h3 { font-size: 20px; margin-bottom: 10px; color: #00bfff; }
+.product-card p.price { font-size: 18px; font-weight: bold; color: #00ffff; margin-bottom: 15px; }
+.product-card button { background: #00bfff; color: #001f3f; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+.product-card button:hover { background: #0099cc; }
+
+/* ===== About ===== */
+.about { background: #00264d; padding: 40px 20px; margin: 40px 0; border-radius: 12px; text-align: center; }
+.about h2 { font-size: 28px; margin-bottom: 20px; color: #00bfff; }
+.about p { font-size: 16px; margin-bottom: 15px; }
+.about a { color: #00ffff; }
+.about .social-links { margin-top: 15px; }
+.about .social-links a { margin: 0 10px; font-weight: bold; color: #00bfff; transition: 0.3s; }
+.about .social-links a:hover { color: #00ffff; }
+
+/* ===== Footer ===== */
+footer { background: #001a35; color: #ccc; text-align: center; padding: 20px 0; font-size: 14px; }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    header h1 { font-size: 28px; }
+    .products h2 { font-size: 26px; }
+    .about h2 { font-size: 24px; }
+    .product-card h3 { font-size: 18px; }
+}
+@media(max-width:480px){
+    header h1 { font-size: 24px; }
+    .products h2 { font-size: 22px; }
+    .about h2 { font-size: 20px; }
+    .product-card { padding: 15px; }
+    .product-card button { padding: 10px 15px; font-size: 14px; }
+}
+</style>
 </head>
 <body>
-<header class="site-header">
-    <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo" class="logo">
-        <h1>Hivarix Global</h1>
-    </div>
+
+<!-- ===== Header ===== -->
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <h1>HiVaRiX Global</h1>
 </header>
 
+<!-- ===== Products ===== -->
 <section class="products container">
     <h2>Our Products & Services</h2>
     <div class="product-grid">
-        <!-- Sample Product Cards (replace images & content) -->
+
         <div class="product-card">
             <img src="https://via.placeholder.com/300x200" alt="Oraimo Cable">
             <h3>Oraimo Type C Cable</h3>
             <p class="price">NGN 7,500</p>
+            <button onclick="payWithPaystack(7500,'Oraimo Type C Cable')">Buy Now</button>
         </div>
 
         <div class="product-card">
             <img src="https://via.placeholder.com/300x200" alt="Branding & Digital Solutions">
             <h3>Branding & Digital Solutions</h3>
             <p class="price">NGN 25,000</p>
+            <button onclick="payWithPaystack(25000,'Branding & Digital Solutions')">Buy Now</button>
         </div>
 
         <div class="product-card">
             <img src="https://via.placeholder.com/300x200" alt="Online Presence Pack">
             <h3>Online Presence Pack</h3>
             <p class="price">NGN 200,000</p>
+            <button onclick="payWithPaystack(200000,'Online Presence Pack')">Buy Now</button>
         </div>
 
         <div class="product-card">
             <img src="https://via.placeholder.com/300x200" alt="Startup Digital Pack">
             <h3>Startup Digital Pack</h3>
             <p class="price">NGN 150,000</p>
+            <button onclick="payWithPaystack(150000,'Startup Digital Pack')">Buy Now</button>
         </div>
 
         <div class="product-card">
             <img src="https://via.placeholder.com/300x200" alt="Business Visibility Pack">
             <h3>Business Visibility & Local Listing Pack</h3>
             <p class="price">NGN 100,000</p>
+            <button onclick="payWithPaystack(100000,'Business Visibility Pack')">Buy Now</button>
         </div>
+
     </div>
 </section>
 
+<!-- ===== About ===== -->
 <section class="about container">
     <h2>About Us</h2>
     <p>We provide professional branding, digital services, consultancy, online registration assistance, and general merchandise designed to help individuals and businesses save time, avoid errors, and grow with confidence.</p>
-
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:[email protected]">[email protected]</a></p>
+    <p>Email: <a href="mailto:info@hivarix.com">info@hivarix.com</a></p>
     <p>Phone: <a href="tel:+2348030677459">+234 803 067 7459</a></p>
-
     <div class="social-links">
-        <a href="#" target="_blank">Instagram</a> |
-        <a href="#" target="_blank">Twitter</a> |
-        <a href="#" target="_blank">Facebook</a> |
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Facebook</a>
         <a href="#" target="_blank">WhatsApp</a>
     </div>
 </section>
 
-<footer class="site-footer">
-    <p>&copy; 2025 HiVaRiX Global</p>
+<!-- ===== Footer ===== -->
+<footer>
+    &copy; 2025 HiVaRiX Global
 </footer>
+
+<!-- ===== Scripts ===== -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>
+<script>
+emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with EmailJS user ID
+
+function payWithPaystack(amount, product){
+    let email = prompt("Enter your email for payment confirmation:");
+    if(!email){ alert("Email is required!"); return; }
+
+    let handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY_HERE', // Replace with Paystack public key
+        email: email,
+        amount: amount * 100,
+        currency: "NGN",
+        ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: { custom_fields: [{display_name: product, variable_name: "product_name", value: product}] },
+        callback: function(response){
+            alert('Payment complete! Reference: ' + response.reference);
+
+            // Send email confirmation
+            emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+                to_email: email,
+                product_name: product,
+                amount_paid: amount,
+                reference: response.reference
+            }).then(function(){
+                alert("Confirmation email sent!");
+            }, function(error){
+                console.log(error);
+                alert("Email could not be sent.");
+            });
+        },
+        onClose: function(){ alert('Payment cancelled.'); }
+    });
+    handler.openIframe();
+}
+</script>
+
 </body>
 </html>

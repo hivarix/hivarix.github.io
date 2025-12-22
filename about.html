@@ -1,96 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About HiVaRiX</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #ffffff, #f9f9f9);
-      color: #232f3e;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-    header img {
-      max-width: 160px;
-      height: auto;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #232f3e;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #ff9900;
-    }
-    main {
-      flex-grow: 1;
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-      line-height: 1.7;
-      text-align: left;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #ff9900;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
-      background: #f3f3f3;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – HiVaRiX Global</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* NAV */
+nav {
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img { height: 50px; }
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+nav a:hover { color: #007bff; }
+
+/* CONTENT */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.about-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+}
+
+.about-box h1 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.about-box p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>About HiVaRiX</h1>
-    <p>
-      At HiVaRiX, we believe shopping should be more than transactions – it should be trust, value, and joy. 
-      We started with a simple mission: to bring people closer to the best deals on Amazon while building 
-      a space filled with honesty and care for our customers.
-    </p>
-    <p>
-      Every product we recommend is chosen with sincerity, because we know the joy of finding something 
-      that truly adds value to your life. Our goal is not only to help you save money, but also to help 
-      you shop smarter, with confidence that you’re making the right choice.
-    </p>
-    <p>
-      HiVaRiX stands on the principles of <strong>integrity, service, and customer-first commitment</strong>. 
-      We’re not just an affiliate link — we’re a bridge between people and opportunities to live better 
-      through quality shopping.
-    </p>
-    <p>
-      Thank you for trusting us. Together, let’s make every shopping experience simple, sincere, and 
-      worth remembering.
-    </p>
-  </main>
+<nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
 
-  <footer>
-    <p>&copy; 2025 HiVaRiX. All rights reserved.</p>
-  </footer>
+<section class="container">
+  <div class="about-box">
+    <h1>About HiVaRiX Global</h1>
+    <p>
+      HiVaRiX Global is a professional services and general merchandise company
+      committed to helping individuals and businesses save time, reduce errors,
+      and grow with confidence.
+    </p>
+
+    <p>
+      We specialize in branding, digital solutions, online registrations,
+      consultancy services, and the sale of quality products — all delivered
+      with transparency and professionalism.
+    </p>
+
+    <p>
+      Our goal is simple: provide reliable solutions that make business easier
+      and more accessible for everyone.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 HiVaRiX Global. All rights reserved.
+</footer>
+
 </body>
 </html>

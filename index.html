@@ -7,50 +7,55 @@
 <style>
 /* ===== Reset & Base ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #001f3f; color: #fff; line-height: 1.6; min-height: 100vh; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f8f8; color: #333; line-height: 1.6; min-height: 100vh; }
 
 /* ===== Container ===== */
 .container { width: 95%; max-width: 1200px; margin: auto; padding: 20px 0; }
 
 /* ===== Header ===== */
-header { text-align: center; padding: 40px 20px; background-color: #ff6600; } /* Orange background */
+header { text-align: center; padding: 40px 20px; background-color: #f8f8f8; }
 header img { height: 80px; margin-bottom: 15px; display: inline-block; background: transparent; }
-header h1 { font-size: 36px; color: #ffffff; }
+header h1 { font-size: 36px; color: #333; margin-bottom: 10px; }
+
+/* ===== Welcome Message ===== */
+.welcome { text-align: center; font-size: 20px; margin-bottom: 30px; color: #555; }
 
 /* ===== Products ===== */
 .products { padding: 40px 0; }
-.products h2 { text-align: center; font-size: 32px; margin-bottom: 30px; color: #00bfff; }
+.products h2 { text-align: center; font-size: 32px; margin-bottom: 30px; color: #007bff; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 25px; }
 
-.product-card { background-color: #00264d; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+.product-card { background-color: #ffffff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 .product-card img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; }
-.product-card h3 { font-size: 20px; margin-bottom: 10px; color: #00bfff; }
-.product-card p.price { font-size: 18px; font-weight: bold; color: #00ffff; margin-bottom: 15px; }
-.product-card button { background: #00bfff; color: #001f3f; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
-.product-card button:hover { background: #0099cc; }
+.product-card h3 { font-size: 20px; margin-bottom: 10px; color: #007bff; }
+.product-card p.price { font-size: 18px; font-weight: bold; color: #ff6600; margin-bottom: 15px; }
+.product-card button { background: #007bff; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+.product-card button:hover { background: #0056b3; }
 
 /* ===== About ===== */
-.about { background: #00264d; padding: 40px 20px; margin: 40px 0; border-radius: 12px; text-align: center; }
-.about h2 { font-size: 28px; margin-bottom: 20px; color: #00bfff; }
-.about p { font-size: 16px; margin-bottom: 15px; }
-.about a { color: #00ffff; }
+.about { background: #ffffff; padding: 40px 20px; margin: 40px 0; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.about h2 { font-size: 28px; margin-bottom: 20px; color: #007bff; }
+.about p { font-size: 16px; margin-bottom: 15px; color: #333; }
+.about a { color: #007bff; }
 .about .social-links { margin-top: 15px; }
-.about .social-links a { margin: 0 10px; font-weight: bold; color: #00bfff; transition: 0.3s; }
-.about .social-links a:hover { color: #00ffff; }
+.about .social-links a { margin: 0 10px; font-weight: bold; color: #007bff; transition: 0.3s; }
+.about .social-links a:hover { color: #0056b3; }
 
 /* ===== Footer ===== */
-footer { background: #001a35; color: #ccc; text-align: center; padding: 20px 0; font-size: 14px; }
+footer { background: #e6e6e6; color: #555; text-align: center; padding: 20px 0; font-size: 14px; }
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
     header h1 { font-size: 28px; }
+    .welcome { font-size: 18px; }
     .products h2 { font-size: 26px; }
     .about h2 { font-size: 24px; }
     .product-card h3 { font-size: 18px; }
 }
 @media(max-width:480px){
     header h1 { font-size: 24px; }
+    .welcome { font-size: 16px; }
     .products h2 { font-size: 22px; }
     .about h2 { font-size: 20px; }
     .product-card { padding: 15px; }
@@ -64,6 +69,7 @@ footer { background: #001a35; color: #ccc; text-align: center; padding: 20px 0; 
 <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
     <h1>HiVaRiX Global</h1>
+    <div class="welcome">Welcome! Explore our products and professional services designed to help you grow your business and save time.</div>
 </header>
 
 <!-- ===== Products ===== -->
@@ -148,7 +154,6 @@ function payWithPaystack(amount, product){
         callback: function(response){
             alert('Payment complete! Reference: ' + response.reference);
 
-            // Send email confirmation
             emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
                 to_email: email,
                 product_name: product,

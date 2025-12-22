@@ -4,174 +4,209 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global</title>
+
 <style>
-/* ===== Reset & Base ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f8f8; color: #333; line-height: 1.6; min-height: 100vh; }
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ===== Container ===== */
-.container { width: 95%; max-width: 1200px; margin: auto; padding: 20px 0; }
+/* ===== Base ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+}
 
-/* ===== Header ===== */
-header { text-align: center; padding: 40px 20px; background-color: #f8f8f8; }
-header img { height: 80px; margin-bottom: 15px; display: inline-block; background: transparent; }
-header h1 { font-size: 36px; color: #333; margin-bottom: 10px; }
+/* ===== Layout ===== */
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
 
-/* ===== Welcome Message ===== */
-.welcome { text-align: center; font-size: 20px; margin-bottom: 30px; color: #555; }
+/* ===== Header (PURE WHITE) ===== */
+header {
+  background: #ffffff; /* PURE WHITE */
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+header img {
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.welcome {
+  font-size: 18px;
+  color: #555;
+}
 
 /* ===== Products ===== */
-.products { padding: 40px 0; }
-.products h2 { text-align: center; font-size: 32px; margin-bottom: 30px; color: #007bff; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 25px; }
+.products {
+  padding: 40px 0;
+}
 
-.product-card { background-color: #ffffff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-.product-card img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; }
-.product-card h3 { font-size: 20px; margin-bottom: 10px; color: #007bff; }
-.product-card p.price { font-size: 18px; font-weight: bold; color: #ff6600; margin-bottom: 15px; }
-.product-card button { background: #007bff; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
-.product-card button:hover { background: #0056b3; }
+.products h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0056b3;
+}
 
 /* ===== About ===== */
-.about { background: #ffffff; padding: 40px 20px; margin: 40px 0; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.about h2 { font-size: 28px; margin-bottom: 20px; color: #007bff; }
-.about p { font-size: 16px; margin-bottom: 15px; color: #333; }
-.about a { color: #007bff; }
-.about .social-links { margin-top: 15px; }
-.about .social-links a { margin: 0 10px; font-weight: bold; color: #007bff; transition: 0.3s; }
-.about .social-links a:hover { color: #0056b3; }
+.about {
+  background: #ffffff;
+  margin: 40px auto;
+  padding: 40px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.about a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 /* ===== Footer ===== */
-footer { background: #e6e6e6; color: #555; text-align: center; padding: 20px 0; font-size: 14px; }
+footer {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 14px;
+}
 
 /* ===== Responsive ===== */
-@media(max-width:768px){
-    header h1 { font-size: 28px; }
-    .welcome { font-size: 18px; }
-    .products h2 { font-size: 26px; }
-    .about h2 { font-size: 24px; }
-    .product-card h3 { font-size: 18px; }
-}
-@media(max-width:480px){
-    header h1 { font-size: 24px; }
-    .welcome { font-size: 16px; }
-    .products h2 { font-size: 22px; }
-    .about h2 { font-size: 20px; }
-    .product-card { padding: 15px; }
-    .product-card button { padding: 10px 15px; font-size: 14px; }
+@media (max-width: 768px) {
+  header h1 { font-size: 28px; }
+  .products h2 { font-size: 26px; }
 }
 </style>
 </head>
+
 <body>
 
-<!-- ===== Header ===== -->
+<!-- ===== HEADER ===== -->
 <header>
-    <!-- Transparent logo -->
-    <img src="HIVARIX LOGO.svg" alt="HiVaRiX Logo">
-    <h1>HiVaRiX Global</h1>
-    <div class="welcome">Welcome! Explore our products and professional services designed to help you grow your business and save time.</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+  <h1>HiVaRiX Global</h1>
+  <div class="welcome">
+    Welcome! Explore our products and professional services designed to help you grow with confidence.
+  </div>
 </header>
 
-<!-- ===== Products ===== -->
+<!-- ===== PRODUCTS ===== -->
 <section class="products container">
-    <h2>Our Products & Services</h2>
-    <div class="product-grid">
+  <h2>Our Products & Services</h2>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200" alt="Oraimo Cable">
-            <h3>Oraimo Type C Cable</h3>
-            <p class="price">NGN 7,500</p>
-            <button onclick="payWithPaystack(7500,'Oraimo Type C Cable')">Buy Now</button>
-        </div>
+  <div class="product-grid">
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200" alt="Branding & Digital Solutions">
-            <h3>Branding & Digital Solutions</h3>
-            <p class="price">NGN 25,000</p>
-            <button onclick="payWithPaystack(25000,'Branding & Digital Solutions')">Buy Now</button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200" alt="Online Presence Pack">
-            <h3>Online Presence Pack</h3>
-            <p class="price">NGN 200,000</p>
-            <button onclick="payWithPaystack(200000,'Online Presence Pack')">Buy Now</button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200" alt="Startup Digital Pack">
-            <h3>Startup Digital Pack</h3>
-            <p class="price">NGN 150,000</p>
-            <button onclick="payWithPaystack(150000,'Startup Digital Pack')">Buy Now</button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200" alt="Business Visibility Pack">
-            <h3>Business Visibility & Local Listing Pack</h3>
-            <p class="price">NGN 100,000</p>
-            <button onclick="payWithPaystack(100000,'Business Visibility Pack')">Buy Now</button>
-        </div>
-
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Oraimo Type C Cable</h3>
+      <div class="price">NGN 7,500</div>
+      <button>Buy Now</button>
     </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Branding & Digital Solutions</h3>
+      <div class="price">NGN 25,000</div>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Online Presence Pack</h3>
+      <div class="price">NGN 200,000</div>
+      <button>Buy Now</button>
+    </div>
+
+  </div>
 </section>
 
-<!-- ===== About ===== -->
+<!-- ===== ABOUT ===== -->
 <section class="about container">
-    <h2>About Us</h2>
-    <p>We provide professional branding, digital services, consultancy, online registration assistance, and general merchandise designed to help individuals and businesses save time, avoid errors, and grow with confidence.</p>
-    <p>Email: <a href="mailto:info@hivarix.com">info@hivarix.com</a></p>
-    <p>Phone: <a href="tel:+2348030677459">+234 803 067 7459</a></p>
-    <div class="social-links">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">Twitter</a>
-        <a href="#" target="_blank">Facebook</a>
-        <a href="#" target="_blank">WhatsApp</a>
-    </div>
+  <h2>About HiVaRiX</h2>
+  <p>
+    We provide professional branding, digital services, consultancy,
+    online registration assistance, and general merchandise to help businesses grow.
+  </p>
+  <p>Email: <a href="mailto:info@hivarix.com">info@hivarix.com</a></p>
 </section>
 
-<!-- ===== Footer ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
-    &copy; 2025 HiVaRiX Global
+  © 2025 HiVaRiX Global. All rights reserved.
 </footer>
-
-<!-- ===== Scripts ===== -->
-<script src="https://js.paystack.co/v1/inline.js"></script>
-<script src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>
-<script>
-emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with EmailJS user ID
-
-function payWithPaystack(amount, product){
-    let email = prompt("Enter your email for payment confirmation:");
-    if(!email){ alert("Email is required!"); return; }
-
-    let handler = PaystackPop.setup({
-        key: 'YOUR_PUBLIC_KEY_HERE', // Replace with Paystack public key
-        email: email,
-        amount: amount * 100,
-        currency: "NGN",
-        ref: '' + Math.floor((Math.random() * 1000000000) + 1),
-        metadata: { custom_fields: [{display_name: product, variable_name: "product_name", value: product}] },
-        callback: function(response){
-            alert('Payment complete! Reference: ' + response.reference);
-
-            emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
-                to_email: email,
-                product_name: product,
-                amount_paid: amount,
-                reference: response.reference
-            }).then(function(){
-                alert("Confirmation email sent!");
-            }, function(error){
-                console.log(error);
-                alert("Email could not be sent.");
-            });
-        },
-        onClose: function(){ alert('Payment cancelled.'); }
-    });
-    handler.openIframe();
-}
-</script>
 
 </body>
 </html>

@@ -9,65 +9,38 @@
 * { box-sizing:border-box; margin:0; padding:0; }
 html, body { font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; min-height:100vh; display:flex; flex-direction:column; }
 
-/* --- Navbar --- */
-.navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#fff; border-bottom:1px solid #ccc; position:sticky; top:0; z-index:1000; }
-.logo-container { display:flex; flex-direction:column; }
-.logo-container img { height:50px; }
-.logo-container .slogan { font-size:8px; font-style:italic; color:#003366; margin-top:2px; }
-.nav-icons { display:flex; align-items:center; gap:15px; }
-.nav-icons button, .nav-icons .cart-icon { width:40px; height:40px; display:flex; justify-content:center; align-items:center; font-size:28px; color:#003366; border:none; background:none; cursor:pointer; position:relative; }
-#cartCount { position:absolute; top:-6px; right:-6px; background:#ff6600; color:#fff; font-size:12px; font-weight:600; padding:2px 6px; border-radius:50%; display:none; }
-
-/* --- Nav links --- */
-.nav-links { display:flex; gap:15px; }
-.nav-links a { text-decoration:none; color:#003366; font-weight:600; }
-.nav-links a:hover { color:#003366; }
-
-/* --- Mobile menu --- */
+/* Navbar */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#fff;border-bottom:1px solid #ccc;position:sticky;top:0;z-index:1000;}
+.logo-container{display:flex;flex-direction:column;}
+.logo-container img{height:50px;}
+.logo-container .slogan{font-size:8px;font-style:italic;color:#003366;margin-top:2px;}
+.nav-icons{display:flex;align-items:center;gap:10px;}
+.nav-icons button{width:40px;height:40px;display:flex;justify-content:center;align-items:center;font-size:28px;color:#003366;border:none;background:none;cursor:pointer;position:relative;}
+#cartCount{position:absolute;top:-6px;right:-6px;background:#ff6600;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:50%;display:none;}
+.nav-links{display:flex;gap:15px;}
+.nav-links a{text-decoration:none;color:#003366;font-weight:600;}
+.nav-links a:hover{color:#003366;}
 @media(max-width:768px){
-  .nav-links { 
-    position:absolute; top:75px; right:20px; flex-direction:column; background:#fff; border-radius:12px; padding:10px 0; display:none;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  .nav-links{
+    position:absolute;top:75px;right:20px;flex-direction:column;background:#fff;border-radius:12px;padding:10px 0;display:none;box-shadow:0 10px 30px rgba(0,0,0,0.15);
   }
-  .nav-links.show { display:flex; }
+  .nav-links.show{display:flex;}
 }
 
-/* --- Header --- */
-header { text-align:center; padding:50px 20px; }
-header h1 { color:#003366; font-size:36px; margin-bottom:20px; }
-header p { color:#555; font-size:18px; }
-header button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+/* Header */
+header{padding:80px 20px;text-align:center;}
+header h1{font-size:40px;margin-bottom:10px;color:#003366;}
+header .slogan{font-size:8px;font-style:italic;color:#003366;margin-bottom:20px;}
+header p{font-size:18px;color:#555;}
+button.main-btn{background:#003366;color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:16px;cursor:pointer;margin-top:20px;}
 
-/* --- Sections --- */
-section.container { max-width:1000px; margin:auto; padding:50px 20px; flex:1; }
-section h2 { color:#003366; text-align:center; margin-bottom:20px; }
-section p { margin-bottom:20px; }
+/* Section */
+section{padding:50px 20px;text-align:center;flex:1;}
 
-/* Team / Product section */
-.team, .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:40px; }
-.team-member, .card { background:#f8f8f8; padding:25px; border-radius:14px; text-align:center; box-shadow:0 6px 25px rgba(0,0,0,0.08); transition:transform 0.25s ease; }
-.team-member img, .card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px; }
-.card:hover { transform:translateY(-6px); }
-
-/* Price style */
-.price { margin-top:15px; font-weight:bold; color:#ff6600; }
-
-/* --- Footer --- */
-footer { background:#e6e6e6; text-align:center; padding:20px; color:#555; }
-footer div { display:flex; justify-content:center; gap:10px; margin-top:10px; }
-footer img { width:24px; height:24px; }
-
-/* --- Mini cart --- */
-.mini-cart { position:absolute; top:60px; right:20px; width:300px; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.2); padding:15px; display:none; z-index:1001; }
-.mini-cart ul { list-style:none; max-height:250px; overflow-y:auto; margin:0; padding:0; }
-.mini-cart li { padding:6px 0; border-bottom:1px solid #eee; }
-
-/* --- Inputs --- */
-.mini-cart input { width:48%; padding:6px; margin-bottom:5px; margin-right:4%; }
-.mini-cart input:nth-child(2n) { margin-right:0; }
-
-@media(max-width:768px){ header h1{ font-size:28px; } }
-
+/* Footer */
+footer{background:#e6e6e6;text-align:center;padding:20px;font-size:14px;color:#555;flex-shrink:0;}
+footer div{display:flex;justify-content:center;gap:10px;margin-top:10px;}
+footer img{width:24px;height:24px;}
 </style>
 </head>
 <body>
@@ -75,16 +48,16 @@ footer img { width:24px; height:24px; }
 <!-- Navbar -->
 <nav class="navbar">
   <div class="logo-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
     <div class="slogan">Digital Excellence</div>
   </div>
 
   <div class="nav-icons">
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div class="cart-icon" onclick="toggleCart()">
+    <button class="cart-btn" onclick="toggleCart()">
       <i class="fas fa-shopping-cart"></i>
       <span id="cartCount">0</span>
-    </div>
+    </button>
   </div>
 
   <div class="nav-links" id="navLinks">
@@ -95,22 +68,19 @@ footer img { width:24px; height:24px; }
 </nav>
 
 <!-- Mini cart -->
-<div class="mini-cart" id="miniCart">
-  <h3 style="margin-top:0; color:#003366;">Your Cart</h3>
+<div class="mini-cart" id="miniCart" style="display:none;position:fixed;top:80px;right:20px;width:300px;background:#fff;padding:15px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:999;">
+  <h3 style="margin-top:0;color:#003366;">Your Cart</h3>
   <ul id="cartItems"></ul>
-  <div style="text-align:right; margin-top:10px;">
+  <div style="text-align:right;margin-top:10px;">
     <strong>Total: NGN <span id="cartTotal">0</span></strong>
   </div>
-
-  <!-- User details -->
-  <div style="margin-top:10px;">
+  <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;">
     <input type="text" id="firstName" placeholder="First Name">
     <input type="text" id="lastName" placeholder="Last Name">
     <input type="email" id="email" placeholder="Email">
     <input type="tel" id="phone" placeholder="Phone Number">
   </div>
-
-  <div style="display:flex; justify-content:space-between; margin-top:10px;">
+  <div style="display:flex;justify-content:space-between;margin-top:10px;">
     <button onclick="checkoutCart()">Checkout</button>
     <button onclick="closeCart()" style="background:#ccc;color:#333;">Close</button>
   </div>
@@ -119,103 +89,67 @@ footer img { width:24px; height:24px; }
 <!-- Header -->
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
+  <div class="slogan">Digital Excellence</div>
   <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
-  <button onclick="window.location.href='/products.html'">Explore Products</button>
+  <button class="main-btn" onclick="window.location.href='/products.html'">Explore Products</button>
 </header>
 
-<!-- Example Section (replace for each page) -->
-<section class="container">
+<section>
   <h2>Why Choose Us?</h2>
   <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
 </section>
 
-<!-- Footer -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"></a>
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
   </div>
 </footer>
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
+// Cart functions
 let cart = JSON.parse(localStorage.getItem('hivarixCart')) || [];
-
-function updateCartDisplay(){
-    const count = document.getElementById('cartCount');
-    if(cart.length>0){ count.style.display='inline-block'; count.textContent=cart.length; }
-    else count.style.display='none';
-}
-
-function renderMiniCart(){
-    const items = document.getElementById('cartItems'); items.innerHTML='';
-    let total=0;
-    cart.forEach((c,i)=>{
-        total+=c.price;
-        const li=document.createElement('li');
-        li.innerHTML=`${c.name} - NGN ${c.price} <button style="float:right;background:#ff4d4d;color:#fff;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;" onclick="removeItem(${i})">x</button>`;
-        items.appendChild(li);
-    });
-    document.getElementById('cartTotal').textContent=total;
-}
-
-function addToCart(name, price){
-    cart.push({name, price});
-    saveCart(); updateCartDisplay(); renderMiniCart(); toggleCart(true);
-}
-
-function saveCart(){ localStorage.setItem('hivarixCart', JSON.stringify(cart)); }
+function addToCart(name, price){cart.push({name, price});saveCart();updateCartDisplay();renderMiniCart();toggleCart(true);}
+function saveCart(){ localStorage.setItem('hivarixCart',JSON.stringify(cart)); }
 function removeItem(i){ cart.splice(i,1); saveCart(); updateCartDisplay(); renderMiniCart(); }
-
-function toggleCart(force=false){
-    const cartEl=document.getElementById('miniCart');
-    if(force || cartEl.style.display==='none') cartEl.style.display='block';
-    else cartEl.style.display='none';
-}
+function updateCartDisplay(){ const count=document.getElementById('cartCount'); if(cart.length>0){count.style.display='inline-block';count.textContent=cart.length;} else count.style.display='none';}
+function renderMiniCart(){ const items=document.getElementById('cartItems'); items.innerHTML=''; let total=0; cart.forEach((c,i)=>{total+=c.price; const li=document.createElement('li'); li.innerHTML=`${c.name} - NGN ${c.price} <button style="float:right;background:#ff4d4d;color:#fff;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;" onclick="removeItem(${i})">x</button>`; items.appendChild(li); }); document.getElementById('cartTotal').textContent=total;}
+function toggleCart(force=false){const cartEl=document.getElementById('miniCart');if(force||cartEl.style.display==='none')cartEl.style.display='block';else cartEl.style.display='none';}
 function closeCart(){ document.getElementById('miniCart').style.display='none'; }
-
-function checkoutCart(){
-    if(cart.length===0) return alert('Your cart is empty!');
-
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-
-    if(!firstName || !lastName || !email || !phone){
-        return alert('Please fill in all your details before checkout.');
-    }
-
-    const total = cart.reduce((sum,c)=>sum+c.price,0);
-
-    var handler = PaystackPop.setup({
-        key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-        email: email,
-        amount: total * 100,
-        currency: 'NGN',
-        ref: '' + Math.floor(Math.random()*1000000000+1),
-        metadata: {
-            custom_fields:[
-                {display_name:"First Name", variable_name:"first_name", value:firstName},
-                {display_name:"Last Name", variable_name:"last_name", value:lastName},
-                {display_name:"Phone", variable_name:"phone", value:phone},
-                {display_name:"Products", variable_name:"product_list", value:cart.map(c=>c.name).join(", ")}
-            ]
-        },
+function checkoutCart(){ 
+    if(cart.length===0) return alert('Your cart is empty!'); 
+    const firstName=document.getElementById('firstName').value.trim(); 
+    const lastName=document.getElementById('lastName').value.trim(); 
+    const email=document.getElementById('email').value.trim(); 
+    const phone=document.getElementById('phone').value.trim(); 
+    if(!firstName||!lastName||!email||!phone) return alert('Please fill in all your details.'); 
+    const total=cart.reduce((sum,c)=>sum+c.price,0); 
+    var handler = PaystackPop.setup({ 
+        key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc', 
+        email:email, 
+        amount:total*100, 
+        currency:'NGN', 
+        ref:''+Math.floor(Math.random()*1000000000+1), 
+        metadata:{custom_fields:[ 
+            {display_name:"First Name",variable_name:"first_name",value:firstName},
+            {display_name:"Last Name",variable_name:"last_name",value:lastName},
+            {display_name:"Phone",variable_name:"phone",value:phone},
+            {display_name:"Products",variable_name:"product_list",value:cart.map(c=>c.name).join(", ")} 
+        ]}, 
         callback:function(response){
-            alert('Payment complete! Ref: ' + response.reference);
-            cart=[]; saveCart(); updateCartDisplay(); renderMiniCart(); closeCart();
-        },
-        onClose:function(){ alert('Payment cancelled.'); }
-    });
+            cart=[];saveCart();updateCartDisplay();renderMiniCart();closeCart(); 
+            window.location.href="/thank-you.html"; 
+        }, 
+        onClose:function(){alert('Payment was not completed.');} 
+    }); 
     handler.openIframe();
 }
-
 function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
 document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById('navLinks').classList.remove('show');}));
-
 updateCartDisplay(); renderMiniCart();
 </script>
+
 </body>
 </html>

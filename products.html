@@ -23,13 +23,16 @@ header p { font-size:18px; color:#555; }
 .card h3 { color:#003366; margin-bottom:12px; }
 .price { margin-top:15px; font-weight:bold; color:#ff6600; }
 button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
-.cart-section { background:#fff; padding:20px; border-radius:14px; margin-bottom:40px; box-shadow:0 6px 25px rgba(0,0,0,0.08); }
-.cart-section h2 { color:#003366; margin-bottom:15px; }
-.cart-section ul { list-style:none; padding:0; margin-bottom:10px; }
 footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
 footer div { display:flex; justify-content:center; gap:14px; margin-top:10px; }
 footer img { width:24px; height:24px; }
-@media(max-width:768px){ .menu-btn { display:block; } .nav-links { position:absolute; top:75px; right:20px; background:#fff; width:180px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.18); display:none; flex-direction:column; opacity:0; transform:translateY(-10px); transition:all 0.25s ease; padding:8px 0; } .nav-links a { padding:12px 20px; margin:0; } .nav-links.show { display:flex; opacity:1; transform:translateY(0); } header h1 { font-size:28px; } }
+@media(max-width:768px){ 
+  .menu-btn { display:block; } 
+  .nav-links { position:absolute; top:75px; right:20px; background:#fff; width:180px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.18); display:none; flex-direction:column; opacity:0; transform:translateY(-10px); transition:all 0.25s ease; padding:8px 0; } 
+  .nav-links a { padding:12px 20px; margin:0; } 
+  .nav-links.show { display:flex; opacity:1; transform:translateY(0); } 
+  header h1 { font-size:28px; } 
+}
 </style>
 </head>
 <body>
@@ -41,7 +44,24 @@ footer img { width:24px; height:24px; }
     <div class="slogan">Digital Excellence</div>
   </div>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div style="display:flex; align-items:center; gap:15px;">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <div style="position:relative; cursor:pointer;" onclick="checkoutCart()">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopping_cart_font_awesome.svg" alt="Cart" style="width:28px; height:28px;">
+      <span id="cartCount" style="
+        position:absolute;
+        top:-8px;
+        right:-8px;
+        background:#ff6600;
+        color:#fff;
+        font-size:12px;
+        font-weight:600;
+        padding:2px 6px;
+        border-radius:50%;
+        display:none;">0</span>
+    </div>
+  </div>
 
   <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
@@ -97,14 +117,6 @@ footer img { width:24px; height:24px; }
   </div>
 </section>
 
-<!-- CART SECTION -->
-<section class="container cart-section">
-  <h2>Your Cart</h2>
-  <ul id="cartItems"></ul>
-  <p id="cartTotal">Total: NGN 0</p>
-  <button onclick="checkoutCart()" id="checkoutBtn" style="display:none;">Checkout</button>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
@@ -125,22 +137,15 @@ function addToCart(name, price) {
 }
 
 function updateCartDisplay() {
-    const cartItems = document.getElementById('cartItems');
-    const cartTotal = document.getElementById('cartTotal');
-    const checkoutBtn = document.getElementById('checkoutBtn');
+    const cartCount = document.getElementById('cartCount');
+    const totalItems = cart.length;
 
-    cartItems.innerHTML = '';
-    let total = 0;
-
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.name + ' - NGN ' + item.price;
-        cartItems.appendChild(li);
-        total += item.price;
-    });
-
-    cartTotal.textContent = 'Total: NGN ' + total;
-    checkoutBtn.style.display = cart.length > 0 ? 'inline-block' : 'none';
+    if(totalItems > 0){
+        cartCount.style.display = 'inline-block';
+        cartCount.textContent = totalItems;
+    } else {
+        cartCount.style.display = 'none';
+    }
 }
 
 function checkoutCart() {

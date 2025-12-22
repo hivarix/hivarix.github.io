@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You – HiVaRiX Global</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; min-height:100vh; display:flex; flex-direction:column; }
 
+/* Navbar */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#fff;border-bottom:1px solid #ccc;position:sticky;top:0;z-index:1000;}
+.logo-container{display:flex;flex-direction:column;}
+.logo-container img{height:50px;}
+.logo-container .slogan{font-size:8px;font-style:italic;color:#003366;margin-top:2px;}
+.nav-icons{display:flex;align-items:center;gap:10px;}
+.nav-icons button{width:40px;height:40px;display:flex;justify-content:center;align-items:center;font-size:28px;color:#003366;border:none;background:none;cursor:pointer;position:relative;}
+#cartCount{position:absolute;top:-6px;right:-6px;background:#ff6600;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:50%;display:none;}
+.nav-links{display:flex;gap:15px;}
+.nav-links a{text-decoration:none;color:#003366;font-weight:600;}
+.nav-links a:hover{color:#003366;}
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;top:75px;right:20px;flex-direction:column;background:#fff;border-radius:12px;padding:10px 0;display:none;box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  }
+  .nav-links.show{display:flex;}
+}
+
+/* Page content */
+.thank-you{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:50px 20px;}
+.thank-you h1{font-size:36px;color:#003366;margin-bottom:20px;}
+.thank-you p{font-size:18px;color:#555;margin-bottom:20px;}
+.thank-you button{background:#003366;color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:16px;cursor:pointer;}
+
+/* Footer */
+footer{background:#e6e6e6;text-align:center;padding:20px;color:#555;}
+footer div{display:flex;justify-content:center;gap:10px;margin-top:10px;}
+footer img{width:24px;height:24px;}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <div class="slogan">Digital Excellence</div>
+  </div>
+
+  <div class="nav-icons">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="cart-btn" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </button>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="/">Home</a>
+    <a href="/products.html">Products</a>
+    <a href="/about.html">About</a>
+  </div>
+</nav>
+
+<!-- Mini cart -->
+<div class="mini-cart" id="miniCart">
+  <h3 style="margin-top:0;color:#003366;">Your Cart</h3>
+  <ul id="cartItems"></ul>
+  <div style="text-align:right;margin-top:10px;">
+    <strong>Total: NGN <span id="cartTotal">0</span></strong>
+  </div>
+  <div style="margin-top:10px;">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="tel" id="phone" placeholder="Phone Number">
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-top:10px;">
+    <button onclick="checkoutCart()">Checkout</button>
+    <button onclick="closeCart()" style="background:#ccc;color:#333;">Close</button>
+  </div>
+</div>
+
+<!-- Thank You Content -->
+<section class="thank-you">
+  <h1>Thank You for Your Purchase!</h1>
+  <p>Your order has been successfully received.</p>
+  <p>We will contact you shortly to confirm the details.</p>
+  <button onclick="window.location.href='/'">Back to Home</button>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
+  <div>
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"></a>
+  </div>
+</footer>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+// Cart functions (same as About page)
+let cart = JSON.parse(localStorage.getItem('hivarixCart')) || [];
+function addToCart(name, price){cart.push({name, price});saveCart();updateCartDisplay();renderMiniCart();toggleCart(true);}
+function saveCart(){ localStorage.setItem('hivarixCart',JSON.stringify(cart)); }
+function removeItem(i){ cart.splice(i,1); saveCart(); updateCartDisplay(); renderMiniCart(); }
+function updateCartDisplay(){ const count=document.getElementById('cartCount'); if(cart.length>0){count.style.display='inline-block';count.textContent=cart.length;} else count.style.display='none';}
+function renderMiniCart(){ const items=document.getElementById('cartItems'); items.innerHTML=''; let total=0; cart.forEach((c,i)=>{total+=c.price; const li=document.createElement('li'); li.innerHTML=`${c.name} - NGN ${c.price} <button style="float:right;background:#ff4d4d;color:#fff;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;" onclick="removeItem(${i})">x</button>`; items.appendChild(li); }); document.getElementById('cartTotal').textContent=total;}
+function toggleCart(force=false){const cartEl=document.getElementById('miniCart');if(force||cartEl.style.display==='none')cartEl.style.display='block';else cartEl.style.display='none';}
+function closeCart(){ document.getElementById('miniCart').style.display='none'; }
+function checkoutCart(){ if(cart.length===0)return alert('Your cart is empty!'); const firstName=document.getElementById('firstName').value.trim(); const lastName=document.getElementById('lastName').value.trim(); const email=document.getElementById('email').value.trim(); const phone=document.getElementById('phone').value.trim(); if(!firstName||!lastName||!email||!phone)return alert('Please fill in all your details.'); const total=cart.reduce((sum,c)=>sum+c.price,0); var handler = PaystackPop.setup({ key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc', email:email, amount:total*100, currency:'NGN', ref:''+Math.floor(Math.random()*1000000000+1), metadata:{custom_fields:[ {display_name:"First Name",variable_name:"first_name",value:firstName},{display_name:"Last Name",variable_name:"last_name",value:lastName},{display_name:"Phone",variable_name:"phone",value:phone},{display_name:"Products",variable_name:"product_list",value:cart.map(c=>c.name).join(", ")} ]}, callback:function(response){cart=[];saveCart();updateCartDisplay();renderMiniCart();closeCart(); window.location.href="/thank-you.html";}, onClose:function(){alert('Payment was not completed.');} }); handler.openIframe();}
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById('navLinks').classList.remove('show');}));
+updateCartDisplay(); renderMiniCart();
+</script>
+
+</body>
+</html>

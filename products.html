@@ -4,177 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products – HiVaRiX Global</title>
-
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #e6e6e6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: #333;
-}
-
-/* NAVIGATION */
-.navbar {
-  background: #fff;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar img {
-  height: 50px;
-}
-
-/* MENU BUTTON */
-.menu-btn {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #003366;
-}
-
-/* NAV LINKS */
-.nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #003366;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: #003366;
-}
-
-/* PAGE HEADER */
-.page-header {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.page-header h1 {
-  font-size: 36px;
-  color: #003366;
-}
-
-.page-header p {
-  font-size: 18px;
-  color: #555;
-  margin-top: 10px;
-}
-
-/* CONTENT */
-.container {
-  width: 95%;
-  max-width: 1200px;
-  margin: auto;
-  flex: 1;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  padding-bottom: 60px;
-}
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease;
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card h3 {
-  color: #003366;
-  margin-bottom: 12px;
-}
-
-.price {
-  margin-top: 15px;
-  font-weight: bold;
-  color: #ff6600;
-}
-
-/* FOOTER */
-footer {
-  background: #e6e6e6;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #555;
-  flex-shrink: 0;
-}
-
-footer img {
-  width: 24px;
-  height: 24px;
-  margin: 0 10px;
-  vertical-align: middle;
-}
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 160px;
-    padding: 10px 0;
-  }
-
-  .nav-links a {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .page-header h1 {
-    font-size: 28px;
-  }
-}
+html, body { margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
+.navbar { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
+.logo-container { display:flex; flex-direction:column; align-items:flex-start; }
+.logo-container img { height:50px; }
+.logo-container .slogan { font-size:8px; font-style:italic; color:#003366; font-weight:600; line-height:1.1; margin-top:2px; }
+.menu-btn { display:none; font-size:26px; background:none; border:none; cursor:pointer; color:#003366; }
+.nav-links a { margin-left:20px; text-decoration:none; color:#003366; font-weight:600; }
+.nav-links a:hover { color:#003366; }
+header { padding:50px 20px; text-align:center; }
+header h1 { font-size:36px; color:#003366; }
+header p { font-size:18px; color:#555; }
+.container { width:95%; max-width:1200px; margin:auto; flex:1; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:60px; }
+.card { background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); text-align:center; transition:transform 0.25s ease; }
+.card:hover { transform:translateY(-6px); }
+.card h3 { color:#003366; margin-bottom:12px; }
+.price { margin-top:15px; font-weight:bold; color:#ff6600; }
+button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
+footer div { display:flex; justify-content:center; gap:14px; margin-top:10px; }
+footer img { width:24px; height:24px; }
+@media(max-width:768px){ .menu-btn { display:block; } .nav-links { position:absolute; top:75px; right:20px; background:#fff; width:180px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.18); display:none; flex-direction:column; opacity:0; transform:translateY(-10px); transition:all 0.25s ease; padding:8px 0; } .nav-links a { padding:12px 20px; margin:0; } .nav-links.show { display:flex; opacity:1; transform:translateY(0); } header h1 { font-size:28px; } }
 </style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 <nav class="navbar">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+  <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <div class="slogan">Digital Excellence</div>
+  </div>
 
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
@@ -185,56 +47,50 @@ footer img {
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<section class="page-header">
+<!-- HEADER -->
+<header>
   <h1>Our Products & Services</h1>
   <p>Explore all our professional services and quality merchandise below.</p>
-</section>
+</header>
 
-<!-- PRODUCTS -->
+<!-- PRODUCT GRID -->
 <section class="container">
   <div class="grid">
-    <a href="products/branding-digital-solutions.html" class="card-link">
-      <div class="card">
-        <h3>Branding & Digital Solutions</h3>
-        <div class="price">NGN 25,000</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Branding & Digital Solutions</h3>
+      <div class="price">NGN 25,000</div>
+      <button onclick="payWithPaystack('Branding & Digital Solutions', 25000)">Buy Now</button>
+    </div>
 
-    <a href="products/startup-digital-pack.html" class="card-link">
-      <div class="card">
-        <h3>Startup Digital Pack</h3>
-        <div class="price">NGN 150,000</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Startup Digital Pack</h3>
+      <div class="price">NGN 150,000</div>
+      <button onclick="payWithPaystack('Startup Digital Pack', 150000)">Buy Now</button>
+    </div>
 
-    <a href="products/business-visibility-local-listing-pack.html" class="card-link">
-      <div class="card">
-        <h3>Business Visibility & Local Listing Pack</h3>
-        <div class="price">NGN 100,000</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Business Visibility & Local Listing Pack</h3>
+      <div class="price">NGN 100,000</div>
+      <button onclick="payWithPaystack('Business Visibility & Local Listing Pack', 100000)">Buy Now</button>
+    </div>
 
-    <a href="products/oraimo-type-c-to-type-c-cable.html" class="card-link">
-      <div class="card">
-        <h3>Oraimo Type C To Type C Cable</h3>
-        <div class="price">NGN 7,500</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Oraimo Type C To Type C Cable</h3>
+      <div class="price">NGN 7,500</div>
+      <button onclick="payWithPaystack('Oraimo Type C To Type C Cable', 7500)">Buy Now</button>
+    </div>
 
-    <a href="products/online-presence-pack.html" class="card-link">
-      <div class="card">
-        <h3>Online Presence Pack</h3>
-        <div class="price">NGN 200,000</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Online Presence Pack</h3>
+      <div class="price">NGN 200,000</div>
+      <button onclick="payWithPaystack('Online Presence Pack', 200000)">Buy Now</button>
+    </div>
 
-    <a href="products/business-and-digital-consultancy.html" class="card-link">
-      <div class="card">
-        <h3>Business & Digital Consultancy</h3>
-        <div class="price">NGN 300,000</div>
-      </div>
-    </a>
+    <div class="card">
+      <h3>Business & Digital Consultancy</h3>
+      <div class="price">NGN 300,000</div>
+      <button onclick="payWithPaystack('Business & Digital Consultancy', 300000)">Buy Now</button>
+    </div>
   </div>
 </section>
 
@@ -242,20 +98,47 @@ footer img {
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-    </a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
-    </a>
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"></a>
   </div>
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- PAYSTACK SCRIPT -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-  function toggleMenu() {
+function payWithPaystack(productName, amount) {
+    var handler = PaystackPop.setup({
+        key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
+        email: 'customer@example.com', // Optional: prefill with customer email
+        amount: amount * 100, // Convert NGN to kobo
+        currency: 'NGN',
+        ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+            custom_fields: [
+                { display_name: "Product", variable_name: "product_name", value: productName }
+            ]
+        },
+        callback: function(response){
+            alert('Payment complete! Reference: ' + response.reference);
+            // Optional: redirect to thank-you page
+            // window.location.href = "/thank-you.html";
+        },
+        onClose: function(){
+            alert('Payment cancelled.');
+        }
+    });
+    handler.openIframe();
+}
+
+function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
-  }
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+    });
+});
 </script>
 
 </body>

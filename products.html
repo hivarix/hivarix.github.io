@@ -11,12 +11,19 @@ html, body { margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:
 .logo-container { display:flex; flex-direction:column; align-items:flex-start; }
 .logo-container img { height:50px; }
 .logo-container .slogan { font-size:8px; font-style:italic; color:#003366; font-weight:600; line-height:1.1; margin-top:2px; }
-.menu-btn { display:none; font-size:26px; background:none; border:none; cursor:pointer; color:#003366; }
+.nav-icons { display:flex; align-items:center; gap:15px; }
+.nav-icons .menu-btn,
+.nav-icons .cart-icon i { font-size:28px; color:#003366; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; height:40px; width:40px; }
+.cart-icon { position:relative; cursor:pointer; }
+#cartCount { position:absolute; top:-6px; right:-6px; background:#ff6600; color:#fff; font-size:12px; font-weight:600; padding:2px 6px; border-radius:50%; display:none; }
+.nav-links { display:flex; }
 .nav-links a { margin-left:20px; text-decoration:none; color:#003366; font-weight:600; }
 .nav-links a:hover { color:#003366; }
+
 header { padding:50px 20px; text-align:center; }
 header h1 { font-size:36px; color:#003366; }
 header p { font-size:18px; color:#555; }
+
 .container { width:95%; max-width:1200px; margin:auto; flex:1; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:20px; }
 .card { background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); text-align:center; transition:transform 0.25s ease; }
@@ -24,17 +31,34 @@ header p { font-size:18px; color:#555; }
 .card h3 { color:#003366; margin-bottom:12px; }
 .price { margin-top:15px; font-weight:bold; color:#ff6600; }
 button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+
 footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
 footer div { display:flex; justify-content:center; gap:14px; margin-top:10px; }
 footer img { width:24px; height:24px; }
+
 .mini-cart { position:absolute; top:60px; right:20px; width:300px; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.2); padding:15px; display:none; z-index:1001; }
 .mini-cart ul { list-style:none; padding:0; max-height:250px; overflow-y:auto; margin:0; }
-@media(max-width:768px){ 
-  .menu-btn { display:block; } 
-  .nav-links { position:absolute; top:75px; right:20px; background:#fff; width:180px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.18); display:none; flex-direction:column; opacity:0; transform:translateY(-10px); transition:all 0.25s ease; padding:8px 0; } 
-  .nav-links a { padding:12px 20px; margin:0; } 
-  .nav-links.show { display:flex; opacity:1; transform:translateY(0); } 
-  header h1 { font-size:28px; } 
+
+@media(max-width:768px){
+    .menu-btn { display:flex; }
+    .nav-links { 
+        position:absolute;
+        top:75px;
+        right:20px;
+        background:#fff;
+        width:180px;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.18);
+        display:none;
+        flex-direction:column;
+        opacity:0;
+        transform:translateY(-10px);
+        transition:all 0.25s ease;
+        padding:8px 0;
+    }
+    .nav-links a { padding:12px 20px; margin:0; }
+    .nav-links.show { display:flex; opacity:1; transform:translateY(0); }
+    header h1 { font-size:28px; } 
 }
 </style>
 </head>
@@ -47,22 +71,12 @@ footer img { width:24px; height:24px; }
     <div class="slogan">Digital Excellence</div>
   </div>
 
-  <div style="display:flex; align-items:center; gap:15px;">
+  <div class="nav-icons">
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-    <div style="position:relative; cursor:pointer;" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart" style="font-size:28px; color:#003366;"></i>
-        <span id="cartCount" style="
-            position:absolute;
-            top:-8px;
-            right:-8px;
-            background:#ff6600;
-            color:#fff;
-            font-size:12px;
-            font-weight:600;
-            padding:2px 6px;
-            border-radius:50%;
-            display:none;">0</span>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
     </div>
   </div>
 
@@ -187,7 +201,6 @@ function renderMiniCart() {
     cartTotal.textContent = total;
 }
 
-// Toggle mini cart visibility
 function toggleCart(forceShow=false) {
     const miniCart = document.getElementById('miniCart');
     if(forceShow || miniCart.style.display === 'none') {
@@ -237,7 +250,6 @@ function checkoutCart() {
     handler.openIframe();
 }
 
-// Navbar menu toggle
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
 }
@@ -248,6 +260,5 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 });
 </script>
-
 </body>
 </html>

@@ -4,28 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global</title>
+
 <style>
-html, body { height: 100%; margin: 0; padding: 0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #e6e6e6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body { flex-direction: column; }
-nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
-nav img { height:50px; }
-nav a { margin-left:20px; text-decoration:none; color:#003366; font-weight:600; }
-nav a:hover { color:#003366; }
-header { padding:80px 20px; text-align:center; }
-header h1 { font-size:40px; margin-bottom:20px; color:#003366; }
-header p { font-size:18px; color:#555; }
-section { padding:50px 20px; text-align:center; flex:1; }
-button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
-footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
-footer img { width:24px; height:24px; margin:0 10px; vertical-align:middle; }
+
+/* NAVIGATION */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar img {
+  height: 50px;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #003366;
+}
+
+/* NAV LINKS */
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #003366;
+}
+
+/* HEADER */
+header {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+header p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* SECTION */
+section {
+  padding: 50px 20px;
+  text-align: center;
+  flex: 1;
+}
+
+/* BUTTON */
+button {
+  background: #003366;
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  flex-shrink: 0;
+}
+
+footer img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 160px;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <!-- NAVIGATION -->
-<nav>
+<nav class="navbar">
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
-  <div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
     <a href="/products.html">Products</a>
     <a href="/about.html">About</a>
@@ -39,18 +165,31 @@ footer img { width:24px; height:24px; margin:0 10px; vertical-align:middle; }
   <a href="/products.html"><button>Explore Products</button></a>
 </header>
 
+<!-- CONTENT -->
 <section>
   <h2>Why Choose Us?</h2>
   <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+    <a href="https://www.instagram.com/hivarix" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+    </a>
   </div>
 </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>

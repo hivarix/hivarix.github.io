@@ -17,12 +17,15 @@ header { padding:50px 20px; text-align:center; }
 header h1 { font-size:36px; color:#003366; }
 header p { font-size:18px; color:#555; }
 .container { width:95%; max-width:1200px; margin:auto; flex:1; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:60px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:20px; }
 .card { background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); text-align:center; transition:transform 0.25s ease; }
 .card:hover { transform:translateY(-6px); }
 .card h3 { color:#003366; margin-bottom:12px; }
 .price { margin-top:15px; font-weight:bold; color:#ff6600; }
 button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+.cart-section { background:#fff; padding:20px; border-radius:14px; margin-bottom:40px; box-shadow:0 6px 25px rgba(0,0,0,0.08); }
+.cart-section h2 { color:#003366; margin-bottom:15px; }
+.cart-section ul { list-style:none; padding:0; margin-bottom:10px; }
 footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
 footer div { display:flex; justify-content:center; gap:14px; margin-top:10px; }
 footer img { width:24px; height:24px; }
@@ -59,39 +62,47 @@ footer img { width:24px; height:24px; }
     <div class="card">
       <h3>Branding & Digital Solutions</h3>
       <div class="price">NGN 25,000</div>
-      <button onclick="payWithPaystack('Branding & Digital Solutions', 25000)">Buy Now</button>
+      <button onclick="addToCart('Branding & Digital Solutions', 25000)">Add to Cart</button>
     </div>
 
     <div class="card">
       <h3>Startup Digital Pack</h3>
       <div class="price">NGN 150,000</div>
-      <button onclick="payWithPaystack('Startup Digital Pack', 150000)">Buy Now</button>
+      <button onclick="addToCart('Startup Digital Pack', 150000)">Add to Cart</button>
     </div>
 
     <div class="card">
       <h3>Business Visibility & Local Listing Pack</h3>
       <div class="price">NGN 100,000</div>
-      <button onclick="payWithPaystack('Business Visibility & Local Listing Pack', 100000)">Buy Now</button>
+      <button onclick="addToCart('Business Visibility & Local Listing Pack', 100000)">Add to Cart</button>
     </div>
 
     <div class="card">
       <h3>Oraimo Type C To Type C Cable</h3>
       <div class="price">NGN 7,500</div>
-      <button onclick="payWithPaystack('Oraimo Type C To Type C Cable', 7500)">Buy Now</button>
+      <button onclick="addToCart('Oraimo Type C To Type C Cable', 7500)">Add to Cart</button>
     </div>
 
     <div class="card">
       <h3>Online Presence Pack</h3>
       <div class="price">NGN 200,000</div>
-      <button onclick="payWithPaystack('Online Presence Pack', 200000)">Buy Now</button>
+      <button onclick="addToCart('Online Presence Pack', 200000)">Add to Cart</button>
     </div>
 
     <div class="card">
       <h3>Business & Digital Consultancy</h3>
       <div class="price">NGN 300,000</div>
-      <button onclick="payWithPaystack('Business & Digital Consultancy', 300000)">Buy Now</button>
+      <button onclick="addToCart('Business & Digital Consultancy', 300000)">Add to Cart</button>
     </div>
   </div>
+</section>
+
+<!-- CART SECTION -->
+<section class="container cart-section">
+  <h2>Your Cart</h2>
+  <ul id="cartItems"></ul>
+  <p id="cartTotal">Total: NGN 0</p>
+  <button onclick="checkoutCart()" id="checkoutBtn" style="display:none;">Checkout</button>
 </section>
 
 <!-- FOOTER -->
@@ -106,22 +117,52 @@ footer img { width:24px; height:24px; }
 <!-- PAYSTACK SCRIPT -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-function payWithPaystack(productName, amount) {
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.name + ' - NGN ' + item.price;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    cartTotal.textContent = 'Total: NGN ' + total;
+    checkoutBtn.style.display = cart.length > 0 ? 'inline-block' : 'none';
+}
+
+function checkoutCart() {
+    if(cart.length === 0) return;
+
+    const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+
     var handler = PaystackPop.setup({
         key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-        email: 'customer@example.com', // Optional: prefill with customer email
-        amount: amount * 100, // Convert NGN to kobo
+        email: 'customer@example.com',
+        amount: totalAmount * 100,
         currency: 'NGN',
         ref: '' + Math.floor((Math.random() * 1000000000) + 1),
         metadata: {
             custom_fields: [
-                { display_name: "Product", variable_name: "product_name", value: productName }
+                { display_name: "Products", variable_name: "product_list", value: cart.map(i => i.name).join(", ") }
             ]
         },
         callback: function(response){
             alert('Payment complete! Reference: ' + response.reference);
-            // Optional: redirect to thank-you page
-            // window.location.href = "/thank-you.html";
+            cart = [];
+            updateCartDisplay();
         },
         onClose: function(){
             alert('Payment cancelled.');
@@ -130,6 +171,7 @@ function payWithPaystack(productName, amount) {
     handler.openIframe();
 }
 
+// Navbar menu toggle
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
 }

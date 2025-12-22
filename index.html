@@ -6,206 +6,175 @@
 <title>HiVaRiX Global</title>
 
 <style>
-/* ===== Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ===== Base ===== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   background: #f8f8f8;
   color: #333;
-  line-height: 1.6;
 }
 
-/* ===== Layout ===== */
-.container {
-  width: 95%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px 0;
+/* ===== NAVBAR ===== */
+nav {
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ===== Header (PURE WHITE) ===== */
+nav img {
+  height: 50px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+/* ===== HEADER ===== */
 header {
-  background: #ffffff; /* PURE WHITE */
+  background: #ffffff;
   text-align: center;
   padding: 40px 20px;
-  border-bottom: 1px solid #eaeaea;
-}
-
-header img {
-  height: 80px;
-  margin-bottom: 15px;
 }
 
 header h1 {
   font-size: 36px;
-  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .welcome {
   font-size: 18px;
   color: #555;
+  margin-top: 10px;
 }
 
-/* ===== Products ===== */
+/* ===== PRODUCTS ===== */
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .products {
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
 .products h2 {
   text-align: center;
-  font-size: 32px;
-  margin-bottom: 30px;
   color: #007bff;
+  margin-bottom: 30px;
 }
 
-.product-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 25px;
 }
 
-.product-card {
+.card {
   background: #ffffff;
   padding: 20px;
   border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
+.card h3 {
+  margin: 15px 0;
   color: #007bff;
-  margin-bottom: 10px;
 }
 
 .price {
-  font-weight: bold;
   color: #ff6600;
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
 button {
   background: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
   background: #0056b3;
 }
 
-/* ===== About ===== */
-.about {
-  background: #ffffff;
-  margin: 40px auto;
-  padding: 40px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.about h2 {
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-.about a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 footer {
   background: #e6e6e6;
   text-align: center;
   padding: 20px;
-  color: #555;
   font-size: 14px;
+  color: #555;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
+/* ===== MOBILE ===== */
+@media(max-width:768px){
   header h1 { font-size: 28px; }
-  .products h2 { font-size: 26px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- NAV -->
+<nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
   <h1>HiVaRiX Global</h1>
   <div class="welcome">
-    Welcome! Explore our products and professional services designed to help you grow with confidence.
+    Welcome! Discover professional services and quality products tailored to help your business grow.
   </div>
 </header>
 
-<!-- ===== PRODUCTS ===== -->
+<!-- PRODUCTS -->
 <section class="products container">
   <h2>Our Products & Services</h2>
 
-  <div class="product-grid">
-
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x200">
+  <div class="grid">
+    <div class="card">
       <h3>Oraimo Type C Cable</h3>
       <div class="price">NGN 7,500</div>
       <button>Buy Now</button>
     </div>
 
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x200">
+    <div class="card">
       <h3>Branding & Digital Solutions</h3>
       <div class="price">NGN 25,000</div>
       <button>Buy Now</button>
     </div>
 
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x200">
+    <div class="card">
       <h3>Online Presence Pack</h3>
       <div class="price">NGN 200,000</div>
       <button>Buy Now</button>
     </div>
-
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section class="about container">
-  <h2>About HiVaRiX</h2>
-  <p>
-    We provide professional branding, digital services, consultancy,
-    online registration assistance, and general merchandise to help businesses grow.
-  </p>
-  <p>Email: <a href="mailto:info@hivarix.com">info@hivarix.com</a></p>
-</section>
-
-<!-- ===== FOOTER ===== -->
 <footer>
-  © 2025 HiVaRiX Global. All rights reserved.
+  © 2025 HiVaRiX Global
 </footer>
 
 </body>

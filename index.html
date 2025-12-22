@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global</title>
+<title>Products – HiVaRiX Global</title>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,7 +14,7 @@ body {
   color: #333;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAV ===== */
 nav {
   background: #ffffff;
   border-bottom: 1px solid #eaeaea;
@@ -24,9 +24,7 @@ nav {
   align-items: center;
 }
 
-nav img {
-  height: 50px;
-}
+nav img { height: 50px; }
 
 nav a {
   text-decoration: none;
@@ -35,82 +33,65 @@ nav a {
   margin-left: 20px;
 }
 
-nav a:hover {
-  color: #007bff;
-}
+nav a:hover { color: #007bff; }
 
-/* ===== HEADER ===== */
-header {
-  background: #ffffff;
+/* ===== PAGE HEADER ===== */
+.page-header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px 30px;
 }
 
-header h1 {
+.page-header h1 {
   font-size: 36px;
-  margin-top: 15px;
 }
 
-.welcome {
+.page-header p {
   font-size: 18px;
   color: #555;
   margin-top: 10px;
 }
 
-/* ===== PRODUCTS ===== */
+/* ===== PRODUCTS GRID ===== */
 .container {
   width: 95%;
   max-width: 1200px;
   margin: auto;
 }
 
-.products {
-  padding: 50px 0;
-}
-
-.products h2 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 30px;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 25px;
+  padding-bottom: 60px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease;
   text-align: center;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+}
+
 .card h3 {
-  margin: 15px 0;
   color: #007bff;
+  margin-bottom: 12px;
 }
 
 .price {
-  color: #ff6600;
+  margin-top: 15px;
   font-weight: bold;
-  margin-bottom: 15px;
-}
-
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
+  color: #ff6600;
 }
 
 /* ===== FOOTER ===== */
@@ -124,7 +105,7 @@ footer {
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  header h1 { font-size: 28px; }
+  .page-header h1 { font-size: 28px; }
 }
 </style>
 </head>
@@ -133,48 +114,71 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
   <div>
     <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
     <a href="about.html">About</a>
   </div>
 </nav>
 
 <!-- HEADER -->
-<header>
-  <h1>HiVaRiX Global</h1>
-  <div class="welcome">
-    Welcome! Discover professional services and quality products tailored to help your business grow.
-  </div>
-</header>
+<section class="page-header">
+  <h1>Our Products & Services</h1>
+  <p>Explore all our professional services and quality merchandise below.</p>
+</section>
 
 <!-- PRODUCTS -->
-<section class="products container">
-  <h2>Our Products & Services</h2>
-
+<section class="container">
   <div class="grid">
-    <div class="card">
-      <h3>Oraimo Type C Cable</h3>
-      <div class="price">NGN 7,500</div>
-      <button>Buy Now</button>
-    </div>
 
-    <div class="card">
-      <h3>Branding & Digital Solutions</h3>
-      <div class="price">NGN 25,000</div>
-      <button>Buy Now</button>
-    </div>
+    <a href="products/branding-digital-solutions.html" class="card-link">
+      <div class="card">
+        <h3>Branding & Digital Solutions</h3>
+        <div class="price">NGN 25,000</div>
+      </div>
+    </a>
 
-    <div class="card">
-      <h3>Online Presence Pack</h3>
-      <div class="price">NGN 200,000</div>
-      <button>Buy Now</button>
-    </div>
+    <a href="products/startup-digital-pack.html" class="card-link">
+      <div class="card">
+        <h3>Startup Digital Pack</h3>
+        <div class="price">NGN 150,000</div>
+      </div>
+    </a>
+
+    <a href="products/business-visibility-local-listing-pack.html" class="card-link">
+      <div class="card">
+        <h3>Business Visibility & Local Listing Pack</h3>
+        <div class="price">NGN 100,000</div>
+      </div>
+    </a>
+
+    <a href="products/oraimo-type-c-to-type-c-cable.html" class="card-link">
+      <div class="card">
+        <h3>Oraimo Type C To Type C Cable</h3>
+        <div class="price">NGN 7,500</div>
+      </div>
+    </a>
+
+    <a href="products/online-presence-pack.html" class="card-link">
+      <div class="card">
+        <h3>Online Presence Pack</h3>
+        <div class="price">NGN 200,000</div>
+      </div>
+    </a>
+
+    <a href="products/business-and-digital-consultancy.html" class="card-link">
+      <div class="card">
+        <h3>Business & Digital Consultancy</h3>
+        <div class="price">NGN 300,000</div>
+      </div>
+    </a>
+
   </div>
 </section>
 
 <footer>
-  © 2025 HiVaRiX Global
+  © 2025 HiVaRiX Global. All rights reserved.
 </footer>
 
 </body>

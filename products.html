@@ -4,75 +4,259 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products – HiVaRiX Global</title>
+
 <style>
-html, body { height: 100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; display:flex; flex-direction:column; min-height:100vh; }
-body { flex-direction: column; color:#333; }
-nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
-nav img { height:50px; }
-nav a { margin-left:20px; text-decoration:none; color:#003366; font-weight:600; }
-nav a:hover { color:#003366; }
-.page-header{text-align:center;padding:50px 20px;}
-.page-header h1{font-size:36px; color:#003366;}
-.page-header p{font-size:18px;color:#555;margin-top:10px;}
-.container{width:95%;max-width:1200px;margin:auto; flex:1;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding-bottom:60px;}
-.card-link{text-decoration:none;color:inherit;}
-.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 25px rgba(0,0,0,0.08);transition:transform 0.25s ease;text-align:center;}
-.card:hover{transform:translateY(-6px);}
-.card h3{color:#003366;margin-bottom:12px;}
-.price{margin-top:15px;font-weight:bold;color:#ff6600;}
-button{background:#003366;color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:16px;cursor:pointer;margin-top:20px;}
-footer{background:#e6e6e6;text-align:center;padding:20px;font-size:14px;color:#555; flex-shrink:0;}
-footer img{width:24px;height:24px;margin:0 10px;vertical-align:middle;}
-@media(max-width:768px){.page-header h1{font-size:28px;}}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* NAVIGATION */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar img {
+  height: 50px;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #003366;
+}
+
+/* NAV LINKS */
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #003366;
+}
+
+/* PAGE HEADER */
+.page-header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  color: #003366;
+}
+
+.page-header p {
+  font-size: 18px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* CONTENT */
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding-bottom: 60px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  color: #003366;
+  margin-bottom: 12px;
+}
+
+.price {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+/* FOOTER */
+footer {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  flex-shrink: 0;
+}
+
+footer img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 160px;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<nav>
+<!-- NAVIGATION -->
+<nav class="navbar">
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
-  <div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
     <a href="/products.html">Products</a>
     <a href="/about.html">About</a>
   </div>
 </nav>
 
+<!-- PAGE HEADER -->
 <section class="page-header">
   <h1>Our Products & Services</h1>
   <p>Explore all our professional services and quality merchandise below.</p>
 </section>
 
+<!-- PRODUCTS -->
 <section class="container">
   <div class="grid">
     <a href="products/branding-digital-solutions.html" class="card-link">
-      <div class="card"><h3>Branding & Digital Solutions</h3><div class="price">NGN 25,000</div></div>
+      <div class="card">
+        <h3>Branding & Digital Solutions</h3>
+        <div class="price">NGN 25,000</div>
+      </div>
     </a>
+
     <a href="products/startup-digital-pack.html" class="card-link">
-      <div class="card"><h3>Startup Digital Pack</h3><div class="price">NGN 150,000</div></div>
+      <div class="card">
+        <h3>Startup Digital Pack</h3>
+        <div class="price">NGN 150,000</div>
+      </div>
     </a>
+
     <a href="products/business-visibility-local-listing-pack.html" class="card-link">
-      <div class="card"><h3>Business Visibility & Local Listing Pack</h3><div class="price">NGN 100,000</div></div>
+      <div class="card">
+        <h3>Business Visibility & Local Listing Pack</h3>
+        <div class="price">NGN 100,000</div>
+      </div>
     </a>
+
     <a href="products/oraimo-type-c-to-type-c-cable.html" class="card-link">
-      <div class="card"><h3>Oraimo Type C To Type C Cable</h3><div class="price">NGN 7,500</div></div>
+      <div class="card">
+        <h3>Oraimo Type C To Type C Cable</h3>
+        <div class="price">NGN 7,500</div>
+      </div>
     </a>
+
     <a href="products/online-presence-pack.html" class="card-link">
-      <div class="card"><h3>Online Presence Pack</h3><div class="price">NGN 200,000</div></div>
+      <div class="card">
+        <h3>Online Presence Pack</h3>
+        <div class="price">NGN 200,000</div>
+      </div>
     </a>
+
     <a href="products/business-and-digital-consultancy.html" class="card-link">
-      <div class="card"><h3>Business & Digital Consultancy</h3><div class="price">NGN 300,000</div></div>
+      <div class="card">
+        <h3>Business & Digital Consultancy</h3>
+        <div class="price">NGN 300,000</div>
+      </div>
     </a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+    <a href="https://www.instagram.com/hivarix" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+    </a>
   </div>
 </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>

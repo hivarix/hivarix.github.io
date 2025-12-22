@@ -5,23 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#ffffff;color:#333;}
-nav{background:#fff;border-bottom:1px solid #eaeaea;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
-nav img{height:50px;}
-nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:600;}
-nav a:hover{color:#007bff;}
-header{padding:80px 20px;text-align:center;}
-header h1{color:#007bff;font-size:40px;margin-bottom:20px;}
-header p{font-size:18px;color:#555;}
-section{padding:50px 20px;text-align:center;}
-footer{background:#e6e6e6;text-align:center;padding:20px;font-size:14px;color:#555;margin-top:60px;}
-button{background:#007bff;color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:16px;cursor:pointer;margin-top:20px;}
+html, body { height: 100%; margin: 0; padding: 0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
+body { flex-direction: column; }
+nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+nav img { height:50px; }
+nav a { margin-left:20px; text-decoration:none; color:#003366; font-weight:600; }
+nav a:hover { color:#003366; }
+header { padding:80px 20px; text-align:center; }
+header h1 { font-size:40px; margin-bottom:20px; color:#003366; }
+header p { font-size:18px; color:#555; }
+section { padding:50px 20px; text-align:center; flex:1; }
+button { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
+footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
+footer img { width:24px; height:24px; margin:0 10px; vertical-align:middle; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav>
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
   <div>
@@ -38,23 +39,16 @@ button{background:#007bff;color:#fff;border:none;padding:14px 22px;border-radius
   <a href="/products.html"><button>Explore Products</button></a>
 </header>
 
-<!-- FEATURED SECTION -->
 <section>
   <h2>Why Choose Us?</h2>
   <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
 </section>
 
 <footer>
-  <div style="padding:20px;text-align:center;background:#e6e6e6;">
-    <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-    <div style="margin-top:10px;">
-      <a href="https://www.instagram.com/hivarix" target="_blank" style="margin:0 10px;text-decoration:none;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:24px;height:24px;">
-      </a>
-      <a href="https://www.youtube.com/@hivarix" target="_blank" style="margin:0 10px;text-decoration:none;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width:24px;height:24px;">
-      </a>
-    </div>
+  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
+  <div>
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
   </div>
 </footer>
 

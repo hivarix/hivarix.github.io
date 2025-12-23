@@ -25,23 +25,14 @@ nav .menu-links a:hover {background:#f0f0f0;}
 /* Header */
 header {padding:80px 20px; text-align:center; position:relative; background:transparent; transition:background 0.3s;}
 header h1 {font-size:40px; margin-bottom:20px; color:#003366; font-weight:700;}
+header p {font-size:18px; color:#555; margin-bottom:20px;}
+header a button{background:#003366;color:#fff;border:none;padding:12px 24px;border-radius:10px;font-size:16px; cursor:pointer;}
+header a button:hover{background:#002244;}
 
 /* Sections */
 section {padding:50px 20px; text-align:center; flex:1;}
 section h2 {color:#003366; margin-bottom:20px;}
 section p {font-size:18px; color:#555; margin-bottom:20px;}
-
-/* Product Grid */
-.container{width:95%; max-width:1200px; margin:auto; flex:1;}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:60px;}
-.card-link{text-decoration:none; color:inherit;}
-.card{background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); transition:transform 0.25s ease; text-align:center;}
-.card:hover{transform:translateY(-6px);}
-.card h3{color:#003366; margin-bottom:12px;}
-.price{margin-top:15px; font-weight:bold; color:#ff6600;}
-button.add-to-cart, button.view-details{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:10px;}
-button.view-details{background:#555;margin-left:5px;}
-button.add-to-cart:hover, button.view-details:hover{background:#002244;}
 
 /* Footer */
 footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
@@ -88,52 +79,6 @@ footer .social-icons a:hover { color:#002244; }
   <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
   <a href="/products.html"><button>Explore Products</button></a>
 </header>
-
-<!-- PRODUCTS -->
-<section>
-  <h2>Our Products & Services</h2>
-  <div class="container">
-    <div class="grid" id="products-grid">
-      <!-- Product Example -->
-      <div class="card">
-        <h3>Branding & Digital Solutions</h3>
-        <div class="price">NGN 25,000</div>
-        <button class="add-to-cart" data-name="Branding & Digital Solutions" data-price="25000">Add to Cart</button>
-        <a href="/products/branding-digital-solutions.html"><button class="view-details">View Details</button></a>
-      </div>
-      <div class="card">
-        <h3>Business Visibility & Local Listing Pack</h3>
-        <div class="price">NGN 100,000</div>
-        <button class="add-to-cart" data-name="Business Visibility & Local Listing Pack" data-price="100000">Add to Cart</button>
-        <a href="/products/business-visibility-local-listing-pack.html"><button class="view-details">View Details</button></a>
-      </div>
-      <div class="card">
-        <h3>Startup Digital Pack</h3>
-        <div class="price">NGN 150,000</div>
-        <button class="add-to-cart" data-name="Startup Digital Pack" data-price="150000">Add to Cart</button>
-        <a href="/products/startup-digital-pack.html"><button class="view-details">View Details</button></a>
-      </div>
-      <div class="card">
-        <h3>Online Presence Pack</h3>
-        <div class="price">NGN 200,000</div>
-        <button class="add-to-cart" data-name="Online Presence Pack" data-price="200000">Add to Cart</button>
-        <a href="/products/online-presence-pack.html"><button class="view-details">View Details</button></a>
-      </div>
-      <div class="card">
-        <h3>Business & Digital Consultancy</h3>
-        <div class="price">NGN 300,000</div>
-        <button class="add-to-cart" data-name="Business & Digital Consultancy" data-price="300000">Add to Cart</button>
-        <a href="/products/business-and-digital-consultancy.html"><button class="view-details">View Details</button></a>
-      </div>
-      <div class="card">
-        <h3>NIN DOB Modification Pack</h3>
-        <div class="price">NGN 70,000</div>
-        <button class="add-to-cart" data-name="NIN DOB Modification Pack" data-price="70000">Add to Cart</button>
-        <a href="/products/nin-dob-modification-pack.html"><button class="view-details">View Details</button></a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- WHY CHOOSE US -->
 <section>
@@ -205,16 +150,6 @@ function removeFromCart(index) {
   cart.splice(index,1);
   updateCart();
 }
-
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const name = btn.getAttribute('data-name');
-    const price = parseFloat(btn.getAttribute('data-price'));
-    cart.push({name, price});
-    updateCart();
-    alert(`${name} added to cart`);
-  });
-});
 
 cartBtn.addEventListener('click', () => {
   cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';

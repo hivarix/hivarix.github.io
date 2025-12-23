@@ -10,9 +10,8 @@
 
 <style>
 html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
-body {flex-direction: column;}
 nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
-nav img {height:60px; cursor:pointer;}
+nav img {height:60px; cursor:pointer; font-weight:bold;}
 nav .nav-right {display:flex; align-items:center;}
 nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
 nav .nav-right button:hover {background:#002244; color:#fff;}
@@ -206,12 +205,13 @@ closeCartBtn.addEventListener('click', () => {
 checkoutBtn.addEventListener('click', () => {
   if(cart.length === 0) { alert('Your cart is empty'); return; }
 
-  const firstName = prompt("Enter your First Name");
-  const lastName = prompt("Enter your Last Name");
-  const email = prompt("Enter your Email");
-  const phone = prompt("Enter your Phone Number");
+  const firstName = prompt("Enter your First Name*");
+  const lastName = prompt("Enter your Last Name*");
+  const email = prompt("Enter your Email*");
+  const phone = prompt("Enter your Phone Number* (Nigerian format, e.g., 08012345678)");
 
-  if(!firstName || !lastName || !email || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !/^\d{7,15}$/.test(phone)){
+  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
+  if(!firstName || !lastName || !email || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !nigeriaPhone.test(phone)){
     alert("Please enter valid details before proceeding to payment.");
     return;
   }

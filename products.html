@@ -10,16 +10,12 @@
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-:root{
-  --brand:#003366;
-  --accent:#ffd700;
-}
+:root{--brand:#003366;--accent:#ffd700;}
 
 html,body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
-  color:#222;
 }
 
 /* NAV */
@@ -27,7 +23,7 @@ nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffffff;
+  background:#fff;
   border-bottom:1px solid rgba(0,0,0,.08);
   padding:14px 20px;
   display:flex;
@@ -36,8 +32,8 @@ nav{
 }
 nav img{
   height:72px;
-  user-select:none;
   -webkit-tap-highlight-color:transparent;
+  user-select:none;
   pointer-events:none;
 }
 @media(max-width:768px){nav img{height:58px;}}
@@ -61,6 +57,7 @@ nav img{
   border-radius:50%;
 }
 
+/* MENU */
 .menu-links{
   display:none;
   position:absolute;
@@ -206,55 +203,59 @@ footer .cac img{width:34px;}
 </header>
 
 <section class="products">
-
-<div class="product">
-<h3>Branding & Digital Solutions</h3>
-<p>₦25,000</p>
-<a href="/products/branding-digital-solutions.html"><button>View Details</button></a>
-<button onclick="addToCart('branding','Branding & Digital Solutions',25000,'/products/branding-digital-solutions.html')">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Startup Digital Pack</h3>
-<p>₦150,000</p>
-<a href="/products/startup-digital-pack.html"><button>View Details</button></a>
-<button onclick="addToCart('startup','Startup Digital Pack',150000,'/products/startup-digital-pack.html')">Add to Cart</button>
-</div>
-
-<div class="product">
-<h3>Business Visibility Pack</h3>
-<p>₦100,000</p>
-<a href="/products/business-visibility-local-listing-pack.html"><button>View Details</button></a>
-<button onclick="addToCart('visibility','Business Visibility Pack',100000,'/products/business-visibility-local-listing-pack.html')">Add to Cart</button>
-</div>
-
+  <div class="product">
+    <h3>Branding & Digital Solutions</h3>
+    <p>₦25,000</p>
+    <a href="/products/branding-digital-solutions.html"><button>View Details</button></a>
+    <button onclick="addToCart('branding','Branding & Digital Solutions',25000,'/products/branding-digital-solutions.html')">Add to Cart</button>
+  </div>
 </section>
 
 <div id="cart-popup">
-<h3>Your Cart</h3>
-<div id="cart-items"></div>
-<input id="email" placeholder="Email *">
-<button onclick="pay()">Proceed to Payment</button>
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+  <input id="email" placeholder="Email *">
+  <button onclick="pay()">Proceed to Payment</button>
 </div>
 
 <footer>
-<p>© 2025 HiVaRiX Global</p>
-<div class="cac">
-<img src="assets/assets/cac-logo.png">
-<span>Registered with CAC – BN8390093</span>
-</div>
+  <p>© 2025 HiVaRiX Global</p>
+  <div class="cac">
+    <img src="assets/assets/cac-logo.png">
+    <span>Registered with CAC – BN8390093</span>
+  </div>
 </footer>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
+const menuBtn=document.getElementById("menu-btn");
+const cartBtn=document.getElementById("cart-btn");
+const menuLinks=document.getElementById("menu-links");
+const cartPopup=document.getElementById("cart-popup");
+const cartItems=document.getElementById("cart-items");
+const cartCount=document.getElementById("cart-count");
+
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==="block"?"none":"block";
+};
+cartBtn.onclick=e=>{
+  e.stopPropagation();
+  cartPopup.style.display=cartPopup.style.display==="block"?"none":"block";
+};
+document.onclick=()=>{
+  menuLinks.style.display="none";
+  cartPopup.style.display="none";
+};
+
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
 
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
-  updateCartUI();
+  renderCart();
 }
-function updateCartUI(){
-  cart-count.textContent = cart.reduce((t,i)=>t+i.qty,0);
-  cart-items.innerHTML = cart.map(i=>`
+function renderCart(){
+  cartCount.textContent=cart.reduce((t,i)=>t+i.qty,0);
+  cartItems.innerHTML=cart.length?cart.map(i=>`
     <div class="cart-item">
       <div>${i.name}<br>₦${i.price}</div>
       <div class="cart-controls">
@@ -263,18 +264,18 @@ function updateCartUI(){
         <button onclick="qty('${i.id}',1)">+</button>
         <button class="cart-remove" onclick="removeItem('${i.id}')">×</button>
       </div>
-    </div>`).join("") || "Cart empty";
+    </div>`).join(""):"Cart empty";
 }
 function addToCart(id,name,price,url){
-  let i=cart.find(p=>p.id===id);
-  i?i.qty++:cart.push({id,name,price,qty:1});
+  let item=cart.find(i=>i.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
   saveCart();
   location.href=url;
 }
 function qty(id,d){
   let i=cart.find(p=>p.id===id);
   i.qty+=d;
-  if(i.qty<=0) removeItem(id);
+  if(i.qty<=0) cart=cart.filter(p=>p.id!==id);
   saveCart();
 }
 function removeItem(id){
@@ -282,6 +283,7 @@ function removeItem(id){
   saveCart();
 }
 function pay(){
+  if(!cart.length)return alert("Cart empty");
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:email.value,
@@ -289,7 +291,7 @@ function pay(){
     callback:()=>alert("Payment Successful")
   }).openIframe();
 }
-updateCartUI();
+renderCart();
 </script>
 
 </body>

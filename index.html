@@ -3,70 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HiVaRiX Global – Digital Excellence, Branding & Online Services</title>
-<meta name="description" content="HiVaRiX Global delivers digital solutions, branding, and quality merchandise for businesses and individuals seeking Digital Excellence.">
+
+<meta name="description" content="HiVaRiX Global delivers professional digital services, branding, consultancy, and online solutions for businesses seeking Digital Excellence.">
+
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
-body {flex-direction: column;}
-nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
-nav img {height:60px; cursor:pointer;}
-nav .nav-right {display:flex; align-items:center;}
-nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
-nav .nav-right button:hover {background:#002244; color:#fff;}
-#cart-count {position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
-nav .menu-links {display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
-nav .menu-links a {padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
-nav .menu-links a:last-child {border-bottom:none;}
-nav .menu-links a:hover {background:#f0f0f0;}
+html, body {
+  margin:0; padding:0; min-height:100%;
+  font-family:'Segoe UI', sans-serif;
+  background:#e6e6e6; color:#333;
+}
 
-/* Header with Hero Image */
-header {position:relative; height:400px; display:flex; align-items:center; justify-content:center; text-align:center; background:#e6e6e6; overflow:hidden;}
-header img {width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; z-index:0;}
-header .header-content {position:relative; z-index:1; color:#fff;}
-header h1 {font-size:48px; font-weight:700; margin-bottom:20px; text-shadow:1px 1px 6px rgba(0,0,0,0.7);}
-header p {font-size:20px; margin-bottom:25px; text-shadow:1px 1px 6px rgba(0,0,0,0.6);}
-header .btn-explore {padding:14px 28px; font-size:18px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+/* NAV */
+nav {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid #ccc;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-/* Sections */
-section {padding:50px 20px; text-align:center; flex:1;}
-section h2 {color:#003366; margin-bottom:20px;}
-section p {font-size:18px; color:#555; margin-bottom:20px;}
+nav img {
+  height:58px;
+  cursor:pointer;
+}
 
-/* Footer */
-footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
-footer h3{margin-bottom:5px;}
-footer .social-icons { margin:10px 0; }
-footer .social-icons a { margin:0 10px; display:inline-block; color:#003366; font-size:28px; transition:color 0.3s; }
-footer .social-icons a:hover { color:#002244; }
+.nav-right {
+  display:flex;
+  gap:12px;
+}
 
-/* CAC Stamp */
-.cac-footer { opacity:0.1; width:120px; margin:10px auto 5px auto; display:block; }
-.cac-text { font-size:14px; color:#555; line-height:1.3; text-align:center; }
+.nav-right button {
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  border:none;
+  background:#003366;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  position:relative;
+}
 
-/* Cart Popup */
-#cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:400px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
-#cart-popup h3 { margin-top:0; color:#003366; }
-.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-.cart-item button { background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px; }
-.cart-actions { display:flex; justify-content:space-between; margin-top:15px; }
-.cart-actions button { flex:1; margin:0 5px; padding:10px; }
+#cart-count {
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:red;
+  color:#fff;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+}
 
-/* Responsive */
-@media(max-width:768px){header h1{font-size:28px;} nav .menu-links{position:static; width:100%; top:auto; right:auto; box-shadow:none; border-radius:0;}}
+/* MENU */
+.menu-links {
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  overflow:hidden;
+}
+
+.menu-links a {
+  display:block;
+  padding:14px 22px;
+  text-decoration:none;
+  color:#003366;
+  font-weight:600;
+  border-bottom:1px solid #eee;
+}
+
+.menu-links a:last-child {border-bottom:none;}
+.menu-links a:hover {background:#f5f5f5;}
+
+/* HERO */
+header {
+  position:relative;
+  padding:130px 20px;
+  text-align:center;
+  color:#fff;
+  background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978');
+  background-size:cover;
+  background-position:center;
+}
+
+header::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+
+header * {
+  position:relative;
+  z-index:1;
+}
+
+header h1 {
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+header p {
+  max-width:720px;
+  margin:auto;
+  font-size:18px;
+}
+
+header button {
+  margin-top:26px;
+  padding:14px 30px;
+  border:none;
+  border-radius:8px;
+  background:#003366;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section {
+  padding:60px 20px;
+  text-align:center;
+}
+
+section h2 {
+  color:#003366;
+  margin-bottom:15px;
+}
+
+section p {
+  max-width:800px;
+  margin:auto;
+  font-size:18px;
+  color:#555;
+}
+
+/* CART POPUP */
+#cart-popup {
+  display:none;
+  position:fixed;
+  top:80px;
+  right:20px;
+  width:320px;
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.25);
+  z-index:2000;
+}
+
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.cart-item button {
+  background:red;
+  border:none;
+  color:#fff;
+  padding:2px 6px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.cart-actions {
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.cart-actions button {
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  background:#003366;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:30px 20px;
+  font-size:14px;
+  color:#555;
+}
+
+.social-icons {
+  margin:12px 0;
+}
+
+.social-icons a {
+  margin:0 10px;
+  font-size:26px;
+  color:#003366;
+}
+
+.cac-footer {
+  width:120px;
+  opacity:0.12;
+  margin-top:15px;
+}
 </style>
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-  <a href="https://hivarix.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
+  <a href="https://hivarix.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Global">
+  </a>
+
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
+    <button id="cart-btn">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count">0</span>
+    </button>
   </div>
+
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
     <a href="/products.html">Products</a>
@@ -74,29 +246,29 @@ footer .social-icons a:hover { color:#002244; }
   </div>
 </nav>
 
-<!-- HEADER -->
+<!-- HERO -->
 <header>
-  <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZGlnaXRhbCUyMGJ1c2luZXNzfHx8fHx8MTY5Nzg0MTIwMQ&ixlib=rb-4.0.3&q=80&w=1080" alt="Digital Excellence">
-  <div class="header-content">
-    <h1>Welcome to HiVaRiX Global</h1>
-    <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
-    <a href="/products.html"><button class="btn-explore">Explore Products</button></a>
-  </div>
+  <h1>Welcome to HiVaRiX Global</h1>
+  <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
+  <a href="/products.html"><button>Explore Products</button></a>
 </header>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY -->
 <section>
   <h2>Why Choose Us?</h2>
-  <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
+  <p>
+    We combine strategy, creativity, and technology to help businesses grow, stand out,
+    and succeed in a digital-first world.
+  </p>
 </section>
 
-<!-- CART POPUP -->
+<!-- CART -->
 <div id="cart-popup">
   <h3>Your Cart</h3>
   <div id="cart-items"></div>
   <div class="cart-actions">
-    <button id="checkout-btn">Checkout</button>
-    <button id="close-cart-btn">Close</button>
+    <button onclick="window.location.href='/products.html'">Checkout</button>
+    <button id="close-cart">Close</button>
   </div>
 </div>
 
@@ -108,109 +280,46 @@ footer .social-icons a:hover { color:#002244; }
     <a href="https://www.instagram.com/hivarix" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.youtube.com/@hivarix" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
+
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <img src="assets/assets/cac-logo.png" alt="CAC Registered Business" class="cac-footer">
-  <p class="cac-text">
+
+  <img src="assets/assets/cac-logo.png" class="cac-footer" alt="CAC">
+
+  <p>
     HiVaRiX Global is a registered business.<br>
     Certified by the Corporate Affairs Commission (CAC)<br>
     Certificate Number: BN8390093
   </p>
 </footer>
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-// Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const menuLinks = document.getElementById('menu-links');
-menuBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
-  menuLinks.style.flexDirection = 'column';
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if(!menuLinks.contains(e.target) && e.target !== menuBtn){
-    menuLinks.style.display = 'none';
-  }
-});
-
-// Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const cartCountSpan = document.getElementById('cart-count');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
-const cartItemsDiv = document.getElementById('cart-items');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const checkoutBtn = document.getElementById('checkout-btn');
+const closeCart = document.getElementById('close-cart');
+const cartCount = document.getElementById('cart-count');
 
-function updateCart() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-  cartCountSpan.textContent = cart.length;
-  cartItemsDiv.innerHTML = '';
-  cart.forEach((item, index) => {
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`;
-    cartItemsDiv.appendChild(div);
-  });
-}
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+cartCount.textContent = cart.length;
 
-function removeFromCart(index) {
-  cart.splice(index,1);
-  updateCart();
-}
+menuBtn.onclick = e => {
+  e.stopPropagation();
+  menuLinks.style.display = menuLinks.style.display === 'block' ? 'none' : 'block';
+};
 
-cartBtn.addEventListener('click', () => {
+cartBtn.onclick = e => {
+  e.stopPropagation();
   cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
-});
+};
 
-closeCartBtn.addEventListener('click', () => {
+closeCart.onclick = () => cartPopup.style.display = 'none';
+
+document.addEventListener('click', () => {
+  menuLinks.style.display = 'none';
   cartPopup.style.display = 'none';
 });
-
-// Paystack Checkout with Single Form
-checkoutBtn.addEventListener('click', () => {
-  if(cart.length === 0) { alert('Your cart is empty'); return; }
-
-  // Single Form Prompt
-  const firstName = prompt("Enter your First Name *");
-  const lastName = prompt("Enter your Last Name *");
-  const email = prompt("Enter your Email *");
-  const phone = prompt("Enter your Phone Number (Nigeria format) *");
-
-  if(!firstName || !lastName || !email || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !/^0\d{10}$/.test(phone)){
-    alert("Please enter valid details before proceeding to payment.");
-    return;
-  }
-
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-  let handler = PaystackPop.setup({
-    key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email: email,
-    amount: total * 100,
-    metadata: {
-      custom_fields: [
-        {display_name: "First Name", variable_name: "first_name", value: firstName},
-        {display_name: "Last Name", variable_name: "last_name", value: lastName},
-        {display_name: "Phone Number", variable_name: "phone", value: phone},
-      ]
-    },
-    callback: function(response){
-      alert('Payment complete! Reference: ' + response.reference);
-      cart = [];
-      updateCart();
-      cartPopup.style.display='none';
-      window.location.href = '/thank-you.html';
-    },
-    onClose: function(){
-      alert('Payment was not completed');
-    }
-  });
-  handler.openIframe();
-});
-
-updateCart();
 </script>
+
 </body>
 </html>

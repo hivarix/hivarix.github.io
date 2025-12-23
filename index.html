@@ -19,31 +19,32 @@ html,body{
   color:#333;
 }
 
-/* NAVIGATION – SOLID */
+/* NAVIGATION – EXACT WHITE MATCH */
 nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffffff;
-  border-bottom:1px solid #ddd;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  background:#ffffff;            /* PURE WHITE */
+  border-bottom:1px solid #e5e5e5;
+  box-shadow:0 1px 6px rgba(0,0,0,.06); /* neutral shadow */
   padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-/* LOGO – BOLDER */
+/* LOGO – MATCHED WHITE */
 nav img{
-  height:64px; /* slightly larger */
-  filter:contrast(1.25) saturate(1.2);
-  drop-shadow:0 2px 4px rgba(0,0,0,.35);
+  height:64px;
+  background:transparent;        /* ensures logo white blends */
+  filter:contrast(1.2) saturate(1.15);
 }
 
 /* NAV BUTTONS */
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
-  width:42px;height:42px;
+  width:42px;
+  height:42px;
   border-radius:8px;
   border:none;
   background:#003366;
@@ -54,8 +55,10 @@ nav img{
 }
 #cart-count{
   position:absolute;
-  top:-6px;right:-6px;
-  background:red;color:#fff;
+  top:-6px;
+  right:-6px;
+  background:red;
+  color:#fff;
   font-size:12px;
   padding:2px 6px;
   border-radius:50%;
@@ -65,8 +68,9 @@ nav img{
 .menu-links{
   display:none;
   position:absolute;
-  top:72px;right:20px;
-  background:#fff;
+  top:72px;
+  right:20px;
+  background:#ffffff;
   border-radius:10px;
   box-shadow:0 6px 20px rgba(0,0,0,.15);
 }
@@ -119,7 +123,7 @@ nav img{
 section{
   padding:80px 20px;
   text-align:center;
-  background:#fff;
+  background:#ffffff;
 }
 section h2{color:#003366;margin-bottom:14px;}
 section p{
@@ -161,9 +165,10 @@ footer{
 #cart-popup{
   display:none;
   position:fixed;
-  top:80px;right:20px;
+  top:80px;
+  right:20px;
   width:340px;
-  background:#fff;
+  background:#ffffff;
   border-radius:14px;
   padding:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
@@ -188,7 +193,7 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-  nav img{height:56px;} /* balanced on mobile */
+  nav img{height:56px;}
   .hero h1{font-size:32px;}
   .hero{min-height:75vh;}
 }

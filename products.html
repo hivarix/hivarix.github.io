@@ -46,7 +46,6 @@ nav img{height:68px;}
   cursor:pointer;
   position:relative;
 }
-
 #cart-count{
   position:absolute;
   top:-6px;right:-6px;
@@ -60,12 +59,10 @@ nav img{height:68px;}
 .menu-links{
   display:none;
   position:absolute;
-  top:78px;
-  right:20px;
+  top:78px;right:20px;
   background:#fff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
-  overflow:hidden;
 }
 .menu-links a{
   display:block;
@@ -107,16 +104,15 @@ header p{font-size:18px;}
   gap:30px;
 }
 
-/* PRODUCT CARD – PROFESSIONAL ALIGNMENT */
+/* PRODUCT CARD */
 .product{
   background:rgba(255,255,255,.6);
   backdrop-filter:blur(18px);
-  border-radius:24px;
+  border-radius:18px;
   padding:28px;
-  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  box-shadow:0 16px 30px rgba(0,0,0,.12);
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
   text-align:center;
 }
 
@@ -129,26 +125,44 @@ header p{font-size:18px;}
 .product .price{
   font-size:18px;
   font-weight:700;
-  margin:10px 0 18px;
+  margin:12px 0 20px;
 }
 
+/* ACTIONS – FIXED ALIGNMENT */
 .product .actions{
   margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
 .product a,
 .product button{
-  display:block;
-  width:100%;
-  padding:12px 20px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+/* Secondary */
+.product a{
+  background:transparent;
+  border:2px solid var(--brand);
+  color:var(--brand);
+}
+.product a:hover{
+  background:rgba(0,51,102,.08);
+}
+
+/* Primary */
+.product button{
   border:none;
-  border-radius:22px;
   background:var(--accent);
   color:#003366;
-  font-weight:600;
-  text-decoration:none;
-  cursor:pointer;
-  margin-top:10px;
 }
 
 /* CART MODAL */
@@ -173,15 +187,15 @@ header p{font-size:18px;}
   margin-bottom:12px;
 }
 .cart-controls button{
-  padding:4px 8px;
+  padding:4px 10px;
 }
 input{
   width:100%;
   padding:10px;
   margin-top:10px;
 }
-.pay{background:var(--accent);}
-.close{background:#ccc;margin-top:10px;}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
 
 /* FOOTER */
 footer{
@@ -357,9 +371,9 @@ function updateQty(id,change){
 function closeCart(){modal.style.display="none";}
 
 function payNow(){
-  const name=cust-name.value.trim();
-  const email=cust-email.value.trim();
-  const phone=cust-phone.value.trim();
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
 
   if(!name||!email||!phone){
     alert("All customer details are required");

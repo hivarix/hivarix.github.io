@@ -3,368 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global</title>
 
-<!-- Font Awesome -->
+<!-- SEO Title -->
+<title>HiVaRiX Global – Digital Excellence, Branding & Online Services</title>
+
+<!-- Meta Description -->
+<meta name="description" content="HiVaRiX Global delivers digital solutions, branding, and quality merchandise for businesses and individuals seeking Digital Excellence.">
+
+<!-- Favicon (HiVaRiX Wikimedia Commons Logo) -->
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="HiVaRiX Global – Digital Excellence">
+<meta property="og:description" content="Delivering digital solutions, branding, and quality merchandise for businesses and individuals worldwide.">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+<meta property="og:url" content="https://hivarix.github.io/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HiVaRiX Global – Digital Excellence">
+<meta name="twitter:description" content="Delivering digital solutions, branding, and quality merchandise for businesses and individuals worldwide.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+
+<!-- Fonts & Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- Paystack -->
-<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:#e6e6e6;
-  color:#333;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
+/* General Styles */
+html, body { height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
+body { flex-direction: column; }
 
-/* NAVBAR */
-.navbar{
-  background:#fff;
-  border-bottom:1px solid #ccc;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
+nav img { height:50px; }
+nav .nav-right { display:flex; align-items:center; }
+nav .nav-right a, nav .nav-right button { margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; }
+nav .nav-right a:hover, nav .nav-right button:hover { background:#002244; color:#fff; }
+nav .menu-links { display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; }
+nav .menu-links a { padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee; }
+nav .menu-links a:last-child { border-bottom:none; }
+nav .menu-links a:hover { background:#f0f0f0; }
 
-.logo-box{
-  display:flex;
-  flex-direction:column;
-}
+/* Header */
+header { padding:80px 20px; text-align:center; position:relative; }
+header h1 { font-size:40px; margin-bottom:10px; color:#003366; }
+header .slogan { font-size:6px; font-style:italic; color:#555; display:block; margin-top:5px; }
 
-.logo-box img{height:50px}
+/* Sections */
+section { padding:50px 20px; text-align:center; flex:1; }
+section h2 { color:#003366; margin-bottom:20px; }
+section p { font-size:18px; color:#555; margin-bottom:20px; }
+section .cac-stamp { opacity:0.1; width:150px; margin:40px auto; display:block; }
 
-.logo-box .slogan{
-  font-size:8px;
-  font-style:italic;
-  color:#003366;
-  margin-top:2px;
-}
+/* Product Grid */
+.container{width:95%;max-width:1200px;margin:auto; flex:1;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding-bottom:60px;}
+.card-link{text-decoration:none;color:inherit;}
+.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 25px rgba(0,0,0,0.08);transition:transform 0.25s ease;text-align:center;}
+.card:hover{transform:translateY(-6px);}
+.card h3{color:#003366;margin-bottom:12px;}
+.price{margin-top:15px;font-weight:bold;color:#ff6600;}
+button{background:#003366;color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:16px;cursor:pointer;margin-top:20px;}
 
-/* ICONS */
-.nav-icons{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+/* Footer */
+footer{background:#e6e6e6;text-align:center;padding:20px;font-size:14px;color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
+footer .social-icons { margin-top:10px; }
+footer .social-icons a img { width:32px; height:32px; margin:0 10px; vertical-align:middle; }
 
-.nav-icons button{
-  width:40px;
-  height:40px;
-  background:none;
-  border:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  color:#003366;
-  cursor:pointer;
-  position:relative;
-}
-
-#cartCount{
-  position:absolute;
-  top:-6px;
-  right:-6px;
-  background:#ff6600;
-  color:#fff;
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:50%;
-  display:none;
-}
-
-/* MENU */
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#003366;
-  font-weight:600;
-}
-
+/* Responsive */
 @media(max-width:768px){
-  .nav-links{
-    position:absolute;
-    top:75px;
-    right:20px;
-    background:#fff;
-    flex-direction:column;
-    padding:10px 0;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    display:none;
-  }
-  .nav-links.show{display:flex;}
-}
-
-/* MINI CART */
-.mini-cart{
-  display:none;
-  position:fixed;
-  top:80px;
-  right:20px;
-  width:300px;
-  background:#fff;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-  z-index:999;
-}
-
-.mini-cart h3{color:#003366;margin-bottom:10px}
-.mini-cart ul{list-style:none;margin-bottom:10px}
-.mini-cart li{font-size:14px;margin-bottom:6px}
-
-.mini-cart input{
-  width:100%;
-  padding:8px;
-  margin-bottom:6px;
-}
-
-.mini-cart button{
-  width:100%;
-  background:#003366;
-  color:#fff;
-  border:none;
-  padding:10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* HERO */
-header{
-  padding:90px 20px;
-  text-align:center;
-}
-
-header h1{
-  font-size:40px;
-  color:#003366;
-  margin-bottom:15px;
-}
-
-header p{
-  font-size:18px;
-  color:#555;
-}
-
-.main-btn{
-  margin-top:25px;
-  padding:14px 24px;
-  background:#003366;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  cursor:pointer;
-}
-
-/* INTRO */
-.intro{
-  background:#f2f2f2;
-  padding:60px 20px;
-  text-align:center;
-}
-
-.intro h2{
-  color:#003366;
-  margin-bottom:20px;
-}
-
-.intro p{
-  max-width:800px;
-  margin:auto;
-  font-size:18px;
-  line-height:1.7;
-  color:#555;
-}
-
-/* CAC STAMP */
-.cac-stamp{
-  padding:60px 20px;
-  text-align:center;
-  opacity:0.12;
-  pointer-events:none;
-}
-
-.cac-stamp img{
-  width:130px;
-  margin-bottom:10px;
-  filter:grayscale(100%);
-}
-
-.cac-stamp p{
-  font-size:12px;
-  color:#003366;
-  letter-spacing:0.8px;
-  line-height:1.5;
-}
-
-.cac-stamp span{
-  font-weight:600;
-  letter-spacing:1px;
-}
-
-/* SECTION */
-section{padding:60px 20px;text-align:center;flex:1}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#555;
-}
-
-.socials{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-top:12px;
-}
-
-.socials a{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#003366;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-  transition:.2s;
-}
-
-.socials a:hover{
-  background:#ff6600;
-  transform:translateY(-2px);
+header h1{font-size:28px;}
+nav .menu-links{position:static; width:100%; top:auto; right:auto; box-shadow:none; border-radius:0;}
+nav .nav-right { gap:10px; }
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
-    <div class="slogan">Digital Excellence</div>
+<!-- NAVIGATION -->
+<nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+  <div class="nav-right">
+    <button id="menu-btn"><i class="fas fa-bars"></i></button>
+    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
   </div>
-
-  <div class="nav-icons">
-    <button onclick="toggleMenu()">☰</button>
-    <button onclick="toggleCart()">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="cartCount">0</span>
-    </button>
-  </div>
-
-  <div class="nav-links" id="navLinks">
+  <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
     <a href="/products.html">Products</a>
     <a href="/about.html">About</a>
   </div>
 </nav>
 
-<!-- MINI CART -->
-<div class="mini-cart" id="miniCart">
-  <h3>Your Cart</h3>
-  <ul id="cartItems"></ul>
-  <strong>Total: NGN <span id="cartTotal">0</span></strong>
-
-  <input id="firstName" placeholder="First Name">
-  <input id="lastName" placeholder="Last Name">
-  <input id="email" type="email" placeholder="Email">
-  <input id="phone" placeholder="Phone">
-
-  <button onclick="checkout()">Checkout</button>
-</div>
-
-<!-- HERO -->
+<!-- HEADER -->
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
+  <span class="slogan">Digital Excellence</span>
   <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
-  <button class="main-btn" onclick="location.href='/products.html'">Explore Products</button>
+  <a href="/products.html"><button>Explore Products</button></a>
 </header>
 
-<!-- INTRO -->
-<section class="intro">
-  <h2>Who We Are</h2>
-  <p>
-    <strong>HiVaRiX Global</strong> is a digital brand focused on helping businesses and individuals grow
-    through strategy, technology, and design.
-    <br><br>
-    We believe <em>All is.</em> Every brand already holds value and potential.
-    Through <strong>Digital Excellence</strong>, we refine what exists and transform it into clear,
-    impactful digital experiences that drive growth and confidence.
-  </p>
-</section>
-
-<!-- WHY -->
+<!-- WHY CHOOSE US -->
 <section>
-  <h2>Why Choose Us</h2>
-  <p>Clarity, strategy, and execution — delivered with intention.</p>
-</section>
-
-<!-- CAC STAMP -->
-<section class="cac-stamp">
-  <img src="/assets/assets/cac-logo.png" alt="CAC Registered Business">
-  <p>
-    Registered Business • Corporate Affairs Commission (Nigeria)<br>
-    <span>Certificate No: BN8390093</span>
-  </p>
+  <h2>Why Choose Us?</h2>
+  <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
+  <!-- CAC Logo as shadow stamp -->
+  <img src="assets/assets/cac-logo.png" alt="CAC Registered Business" class="cac-stamp">
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <div class="socials">
-    <a href="https://www.instagram.com/hivarix" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><i class="fab fa-youtube"></i></a>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
   </div>
 </footer>
 
 <script>
-let cart=JSON.parse(localStorage.getItem("hivarixCart"))||[];
+// Menu Toggle
+const menuBtn = document.getElementById('menu-btn');
+const menuLinks = document.getElementById('menu-links');
+menuBtn.addEventListener('click', () => {
+  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
+  menuLinks.style.flexDirection = 'column';
+});
 
-function save(){localStorage.setItem("hivarixCart",JSON.stringify(cart))}
-function updateCart(){
-  document.getElementById("cartCount").style.display=cart.length?"block":"none";
-  document.getElementById("cartCount").innerText=cart.length;
-  let html="",total=0;
-  cart.forEach(c=>{html+=`<li>${c.name} - NGN ${c.price}</li>`;total+=c.price});
-  document.getElementById("cartItems").innerHTML=html;
-  document.getElementById("cartTotal").innerText=total;
-}
-function toggleCart(){document.getElementById("miniCart").style.display^="block"}
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("show")}
-
-function checkout(){
-  const email=document.getElementById("email").value;
-  const total=cart.reduce((s,c)=>s+c.price,0);
-  PaystackPop.setup({
-    key:"pk_live_532c5eee05f819c8589de72642aff146a75237dc",
-    email,
-    amount:total*100,
-    callback:()=>{
-      cart=[];save();updateCart();
-      location.href="/thank-you.html";
-    }
-  }).openIframe();
-}
-
-updateCart();
+// Cart counter example
+let cartCount = 0;
+const cartCountSpan = document.getElementById('cart-count');
+const cartBtn = document.getElementById('cart-btn');
+cartBtn.addEventListener('click', () => {
+  alert('View Cart feature coming soon!');
+});
 </script>
 
 </body>

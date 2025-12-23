@@ -10,7 +10,8 @@
 
 <style>
 html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
-nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
+body {flex-direction: column;}
+nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000;}
 nav img {height:60px; cursor:pointer;}
 nav .nav-right {display:flex; align-items:center;}
 nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
@@ -38,7 +39,9 @@ section p {font-size:18px; color:#555; margin-bottom:20px;}
 .card:hover{transform:translateY(-6px);}
 .card h3{color:#003366; margin-bottom:12px;}
 .price{margin-top:15px; font-weight:bold; color:#ff6600;}
-button.add-to-cart{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:15px;}
+button.add-to-cart, button.view-details{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:10px;}
+button.view-details{background:#555;margin-left:5px;}
+button.add-to-cart:hover, button.view-details:hover{background:#002244;}
 
 /* Footer */
 footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
@@ -52,18 +55,10 @@ footer .social-icons a:hover { color:#002244; }
 .cac-text { font-size:14px; color:#555; line-height:1.3; text-align:center; }
 
 /* Cart Popup */
-#cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:500px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
+#cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:400px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
 #cart-popup h3 { margin-top:0; color:#003366; }
 .cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
 .cart-item button { background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px; }
-
-/* Checkout Form */
-#checkout-form {display:flex; flex-direction:column; margin-top:10px;}
-#checkout-form input {margin-bottom:10px; padding:8px 10px; border-radius:6px; border:1px solid #ccc; font-size:14px;}
-#checkout-form button {padding:10px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:16px;}
-#checkout-form button:hover {background:#002244;}
-
-/* Cart Actions */
 .cart-actions { display:flex; justify-content:space-between; margin-top:15px; }
 .cart-actions button { flex:1; margin:0 5px; padding:10px; }
 
@@ -99,20 +94,42 @@ footer .social-icons a:hover { color:#002244; }
   <h2>Our Products & Services</h2>
   <div class="container">
     <div class="grid" id="products-grid">
+      <!-- Product Example -->
       <div class="card">
         <h3>Branding & Digital Solutions</h3>
         <div class="price">NGN 25,000</div>
         <button class="add-to-cart" data-name="Branding & Digital Solutions" data-price="25000">Add to Cart</button>
+        <a href="/products/branding-digital-solutions.html"><button class="view-details">View Details</button></a>
+      </div>
+      <div class="card">
+        <h3>Business Visibility & Local Listing Pack</h3>
+        <div class="price">NGN 100,000</div>
+        <button class="add-to-cart" data-name="Business Visibility & Local Listing Pack" data-price="100000">Add to Cart</button>
+        <a href="/products/business-visibility-local-listing-pack.html"><button class="view-details">View Details</button></a>
       </div>
       <div class="card">
         <h3>Startup Digital Pack</h3>
         <div class="price">NGN 150,000</div>
         <button class="add-to-cart" data-name="Startup Digital Pack" data-price="150000">Add to Cart</button>
+        <a href="/products/startup-digital-pack.html"><button class="view-details">View Details</button></a>
       </div>
       <div class="card">
-        <h3>Oraimo Type C To Type C Cable</h3>
-        <div class="price">NGN 7,500</div>
-        <button class="add-to-cart" data-name="Oraimo Type C To Type C Cable" data-price="7500">Add to Cart</button>
+        <h3>Online Presence Pack</h3>
+        <div class="price">NGN 200,000</div>
+        <button class="add-to-cart" data-name="Online Presence Pack" data-price="200000">Add to Cart</button>
+        <a href="/products/online-presence-pack.html"><button class="view-details">View Details</button></a>
+      </div>
+      <div class="card">
+        <h3>Business & Digital Consultancy</h3>
+        <div class="price">NGN 300,000</div>
+        <button class="add-to-cart" data-name="Business & Digital Consultancy" data-price="300000">Add to Cart</button>
+        <a href="/products/business-and-digital-consultancy.html"><button class="view-details">View Details</button></a>
+      </div>
+      <div class="card">
+        <h3>NIN DOB Modification Pack</h3>
+        <div class="price">NGN 70,000</div>
+        <button class="add-to-cart" data-name="NIN DOB Modification Pack" data-price="70000">Add to Cart</button>
+        <a href="/products/nin-dob-modification-pack.html"><button class="view-details">View Details</button></a>
       </div>
     </div>
   </div>
@@ -128,17 +145,10 @@ footer .social-icons a:hover { color:#002244; }
 <div id="cart-popup">
   <h3>Your Cart</h3>
   <div id="cart-items"></div>
-
-  <h4>Fill Your Information</h4>
-  <form id="checkout-form">
-    <input type="text" id="firstName" placeholder="First Name*" required>
-    <input type="text" id="lastName" placeholder="Last Name*" required>
-    <input type="email" id="email" placeholder="Email*" required>
-    <input type="tel" id="phone" placeholder="Phone Number* (e.g., 08012345678)" required>
-    <button type="submit">Proceed to Payment</button>
-  </form>
-
-  <button id="close-cart-btn">Close</button>
+  <div class="cart-actions">
+    <button id="checkout-btn">Checkout</button>
+    <button id="close-cart-btn">Close</button>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -170,14 +180,14 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Load cart from localStorage
+// Cart
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
 const cartItemsDiv = document.getElementById('cart-items');
 const closeCartBtn = document.getElementById('close-cart-btn');
-const checkoutForm = document.getElementById('checkout-form');
+const checkoutBtn = document.getElementById('checkout-btn');
 
 function updateCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -209,28 +219,22 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
 cartBtn.addEventListener('click', () => {
   cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
 });
-closeCartBtn.addEventListener('click', () => { cartPopup.style.display = 'none'; });
+closeCartBtn.addEventListener('click', () => {
+  cartPopup.style.display = 'none';
+});
 
-// Checkout Form
-checkoutForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  if(cart.length === 0){ alert('Your cart is empty'); return; }
+// Paystack Checkout
+checkoutBtn.addEventListener('click', () => {
+  if(cart.length === 0) { alert('Your cart is empty'); return; }
 
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName = document.getElementById('lastName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
+  const firstName = prompt("Enter your First Name");
+  const lastName = prompt("Enter your Last Name");
+  const email = prompt("Enter your Email");
+  const phone = prompt("Enter your Phone Number (Nigeria)");
 
-  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-
-  if(!firstName || !lastName || !email || !phone){
-    alert("Please fill all required fields."); return;
-  }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert("Please enter a valid email."); return;
-  }
-  if(!nigeriaPhone.test(phone)){
-    alert("Please enter a valid Nigerian phone number."); return;
+  if(!firstName || !lastName || !email || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !/^\d{10,11}$/.test(phone)){
+    alert("Please enter valid details before proceeding.");
+    return;
   }
 
   let total = cart.reduce((sum, item) => sum + item.price, 0);
@@ -250,10 +254,11 @@ checkoutForm.addEventListener('submit', function(e){
       cart = [];
       updateCart();
       cartPopup.style.display='none';
-      checkoutForm.reset();
       window.location.href = '/thank-you.html';
     },
-    onClose: function(){ alert('Payment was not completed'); }
+    onClose: function(){
+      alert('Payment was not completed');
+    }
   });
   handler.openIframe();
 });

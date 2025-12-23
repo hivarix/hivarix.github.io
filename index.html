@@ -3,108 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global – Digital Excellence, Branding & Solutions</title>
+<title>HiVaRiX Global – Digital Excellence, Branding & Online Services</title>
 <meta name="description" content="HiVaRiX Global delivers professional digital services, branding, consultancy, and online solutions.">
 
-<link rel="icon" href="assets/assets/HiVaRiX_Logo.png" type="image/png">
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-
-/* BASE */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #e6e6e6;
-  color: #333;
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family:'Segoe UI',sans-serif;
+  background:#e6e6e6;
+  color:#333;
 }
 
-/* HEADER NAV */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #ffffff; /* matches logo background */
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff; /* exact match for logo background */
+  border-bottom:1px solid #ccc;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* LOGO (use your official one) */
-nav img {
-  height: 60px;
-  background: #ffffff; /* ensure pure white behind logo */
-  object-fit: contain;
+/* LOGO */
+nav img{
+  height:58px;
+  background:#ffffff;
+  object-fit:contain;
 }
 
 /* NAV BUTTONS */
-.nav-right {
-  display: flex;
-  gap: 12px;
+.nav-right{display:flex;gap:12px;}
+.nav-right button{
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  border:none;
+  background:#003366;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  position:relative;
 }
-.nav-right button {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  border: none;
-  background: #003366;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  position: relative;
-}
-#cart-count {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: red;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
+#cart-count{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:red;
+  color:#fff;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
 }
 
 /* MENU */
-.menu-links {
-  display: none;
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+.menu-links{
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
 }
-.menu-links a {
-  display: block;
-  padding: 14px 22px;
-  text-decoration: none;
-  color: #003366;
-  font-weight: 600;
+.menu-links a{
+  display:block;
+  padding:14px 22px;
+  text-decoration:none;
+  color:#003366;
+  font-weight:600;
+  border-bottom:1px solid #eee;
 }
-.menu-links a:hover { background: #f5f5f5; }
+.menu-links a:hover{background:#f5f5f5;}
 
-/* HERO SECTION */
-header {
-  position: relative;
-  padding: 130px 20px;
-  text-align: center;
-  color: #fff;
-  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+/* HERO */
+header{
+  position:relative;
+  padding:130px 20px;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
 }
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.6);
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.6);
 }
-header * { position: relative; z-index: 1; }
-header h1 { font-size: 40px; margin-bottom: 20px; }
-header p { max-width: 720px; margin:auto; font-size:18px; }
-header button {
+header *{position:relative;z-index:1;}
+header h1{font-size:40px;margin-bottom:20px;}
+header p{max-width:720px;margin:auto;font-size:18px;}
+header button{
   margin-top:26px;
   padding:14px 30px;
   border:none;
@@ -112,31 +109,39 @@ header button {
   background:#003366;
   color:#fff;
   font-size:16px;
+  cursor:pointer;
 }
 
-/* WHY CHOOSE US (solid) */
-.why-hero {
-  background: #ffffff;
-  padding: 90px 20px;
-  text-align: center;
+/* WHY HERO */
+.why-hero{
+  position:relative;
+  padding:90px 20px;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
 }
-.why-hero h2 { color:#003366; font-size:28px; }
-.why-hero p { max-width:720px; margin:auto; font-size:17px; }
+.why-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.65);
+}
+.why-hero *{position:relative;z-index:1;}
 
-/* CART POPUP */
-#cart-popup {
+/* CART */
+#cart-popup{
   display:none;
   position:fixed;
   top:80px;
   right:20px;
   width:340px;
-  background:#ffffff;
+  background:#fff;
   border-radius:14px;
   padding:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
   z-index:2000;
 }
-#cart-popup h3{color:#003366;}
+#cart-popup h3{margin-top:0;color:#003366;}
 #cart-popup input{
   width:100%;
   padding:10px;
@@ -155,24 +160,30 @@ header button {
 }
 
 /* FOOTER */
-.footer-hero {
-  text-align: center;
-  padding: 70px 20px;
-  background:#003366;
+.footer-hero{
+  position:relative;
+  padding:70px 20px;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
+}
+.footer-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.7);
+}
+.footer-hero *{position:relative;z-index:1;}
+
+.social-icons a{
+  margin:0 10px;
+  font-size:26px;
   color:#fff;
 }
-.footer-hero img.cac-footer {
+.cac-footer{
   width:130px;
   margin-top:18px;
 }
-.footer-hero a { color:#ffd700; }
-
-/* MOBILE */
-@media (max-width:768px){
-  nav img { height:48px; }
-  header h1{font-size:32px;}
-}
-
 </style>
 </head>
 
@@ -180,7 +191,8 @@ header button {
 
 <nav>
   <a href="/">
-    <img src="assets/assets/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"
+         alt="HiVaRiX Logo">
   </a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
@@ -199,15 +211,17 @@ header button {
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
   <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
-  <button onclick="location.href='/products.html'">Explore Products</button>
+  <a href="/products.html"><button>Explore Products</button></a>
 </header>
 
 <section class="why-hero">
   <h2>Why Choose Us?</h2>
   <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
-  <button onclick="location.href='/about.html'" style="margin-top:20px;padding:10px 24px;background:#ffd700;color:#003366;border:none;border-radius:6px;">
-    Learn More
-  </button>
+  <a href="/about.html">
+    <button style="margin-top:20px;padding:12px 28px;border:none;border-radius:8px;background:#ffd700;color:#003366;font-weight:600;">
+      View More
+    </button>
+  </a>
 </section>
 
 <div id="cart-popup">
@@ -221,14 +235,17 @@ header button {
 
 <footer class="footer-hero">
   <h3>Contact Us</h3>
-  <div>
+  <div class="social-icons">
     <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
     <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <img src="assets/assets/cac-logo.png" class="cac-footer" alt="CAC Registered Business">
-  <p>Certified by the Corporate Affairs Commission (CAC), Certificate No: BN8390093</p>
+  <p>
+    HiVaRiX Global is a registered business.<br>
+    CAC Certificate Number: BN8390093
+  </p>
 </footer>
 
 <script>
@@ -237,21 +254,32 @@ const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
 const cartPopup=document.getElementById('cart-popup');
 
-menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display = menuLinks.style.display==='block'?'none':'block';};
-cartBtn.onclick=e=>{e.stopPropagation();cartPopup.style.display = cartPopup.style.display==='block'?'none':'block';};
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
 
-document.addEventListener('click', e=>{
+cartBtn.onclick=e=>{
+  e.stopPropagation();
+  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
+};
+
+document.addEventListener('click',e=>{
   if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none';
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn) cartPopup.style.display='none';
 });
 
 function pay(){
-  const f=firstName.value.trim(); const l=lastName.value.trim();
-  const e=email.value.trim(); const p=phone.value.trim();
+  const f=firstName.value.trim();
+  const l=lastName.value.trim();
+  const e=email.value.trim();
+  const p=phone.value.trim();
+
   if(!f||!l||!e||!/^0[789][01]\d{8}$/.test(p)){
-    alert("Please enter valid details.");
+    alert("Please enter valid details. Nigerian phone only.");
     return;
   }
+
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:e,
@@ -260,7 +288,7 @@ function pay(){
       {display_name:"Name",value:f+" "+l},
       {display_name:"Phone",value:p}
     ]},
-    callback:()=>{alert("Payment Successful!");location.href='/thank-you.html';}
+    callback:()=>{alert("Payment Successful!");window.location.href='/thank-you.html';}
   }).openIframe();
 }
 </script>

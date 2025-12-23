@@ -35,13 +35,10 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-
-/* LOGO */
 nav img{
   height:72px;
   user-select:none;
   -webkit-tap-highlight-color:transparent;
-  -webkit-touch-callout:none;
 }
 @media(max-width:768px){
   nav img{height:58px;}
@@ -107,11 +104,10 @@ header h1{font-size:38px;margin-bottom:10px;}
 header p{font-size:18px;}
 
 @media(max-width:480px){
-  header h1{font-size:26px;line-height:1.25;}
-  header p{font-size:15px;max-width:90%;margin:auto;}
+  header h1{font-size:26px;}
 }
 
-/* PRODUCTS */
+/* PRODUCTS GRID */
 .products{
   max-width:1100px;
   margin:-50px auto 80px;
@@ -133,6 +129,7 @@ header p{font-size:18px;}
 .product a,
 .product button{
   display:block;
+  width:100%;
   margin-top:12px;
   padding:12px 26px;
   border:none;
@@ -144,7 +141,7 @@ header p{font-size:18px;}
   text-decoration:none;
 }
 
-/* CART */
+/* CART POPUP */
 #cart-popup{
   display:none;
   position:fixed;
@@ -155,20 +152,6 @@ header p{font-size:18px;}
   padding:20px;
   box-shadow:0 25px 50px rgba(0,0,0,.35);
   z-index:2000;
-}
-.cart-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-.cart-row button{
-  margin-left:4px;
-  border:none;
-  background:var(--brand);
-  color:#fff;
-  padding:4px 8px;
-  border-radius:6px;
 }
 
 /* FOOTER */
@@ -201,7 +184,7 @@ footer .cac img{width:34px;}
 
 <nav>
   <a href="/">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
   </a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
@@ -217,7 +200,7 @@ footer .cac img{width:34px;}
 <header>
   <div>
     <h1>Our Products & Services</h1>
-    <p>Explore our professional digital solutions</p>
+    <p>Explore our professional digital solutions & merchandise</p>
   </div>
 </header>
 
@@ -283,24 +266,31 @@ const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
 const cartPopup=document.getElementById('cart-popup');
 
-menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
-cartBtn.onclick=e=>{e.stopPropagation();cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
+cartBtn.onclick=e=>{
+  e.stopPropagation();
+  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
+};
 document.addEventListener('click',e=>{
   if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
 });
 
+/* CART SYNC */
 let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
 
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
-  renderCart();
   document.getElementById("cart-count").textContent =
     cart.reduce((t,i)=>t+i.qty,0);
+  renderCart();
 }
 
 function addToCart(id,name,price){
-  const item=cart.find(i=>i.id===id);
+  const item=cart.find(p=>p.id===id);
   if(item){item.qty++;}else{cart.push({id,name,price,qty:1});}
   saveCart();
 }
@@ -309,30 +299,12 @@ function renderCart(){
   const box=document.getElementById("cart-items");
   let total=0;
   box.innerHTML="";
-  cart.forEach((i,idx)=>{
+  cart.forEach(i=>{
     total+=i.price*i.qty;
-    box.innerHTML+=`
-      <div class="cart-row">
-        ${i.name} (${i.qty})
-        <div>
-          <button onclick="changeQty(${idx},-1)">-</button>
-          <button onclick="changeQty(${idx},1)">+</button>
-          <button onclick="removeItem(${idx})">x</button>
-        </div>
-      </div>`;
+    box.innerHTML+=`<p>${i.name} (${i.qty})</p>`;
   });
-  document.getElementById("cart-total").textContent="Total: ₦"+total.toLocaleString();
-}
-
-function changeQty(i,d){
-  cart[i].qty+=d;
-  if(cart[i].qty<=0)cart.splice(i,1);
-  saveCart();
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  saveCart();
+  document.getElementById("cart-total").textContent =
+    "Total: ₦"+total.toLocaleString();
 }
 
 function pay(){
@@ -343,7 +315,7 @@ function pay(){
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:email,
     amount:total*100,
-    callback:()=>{alert("Payment Successful");cart=[];saveCart();}
+    callback:()=>alert("Payment Successful")
   }).openIframe();
 }
 

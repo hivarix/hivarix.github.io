@@ -18,11 +18,9 @@
 /* BASE */
 html,body{
   margin:0;
-  padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
-  overflow-x:hidden;
 }
 
 /* NAV */
@@ -30,23 +28,26 @@ nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffffff;
+  background:#ffffff; /* ALWAYS SOLID */
   border-bottom:1px solid rgba(0,0,0,.08);
-  padding:14px 20px;
+  padding:16px 24px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-/* LOGO – NO FLASH / NO REFLECTION */
+/* LOGO – AMAZON-SIZED */
 nav img{
-  height:56px;
+  height:72px;              /* Bigger, bold brand presence */
+  max-height:80px;
   user-select:none;
-  pointer-events:auto;
   -webkit-tap-highlight-color:transparent;
 }
-nav a{
-  -webkit-tap-highlight-color:transparent;
+
+@media(max-width:768px){
+  nav img{
+    height:58px;            /* Controlled on mobile */
+  }
 }
 
 /* NAV BUTTONS */
@@ -73,7 +74,7 @@ nav a{
 .menu-links{
   display:none;
   position:absolute;
-  top:72px;right:20px;
+  top:82px;right:20px;
   background:#ffffff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
@@ -87,7 +88,7 @@ nav a{
 }
 .menu-links a:hover{background:#f0f0f0;}
 
-/* HERO – ONLY IMAGE */
+/* HERO (ONLY IMAGE SECTION) */
 header{
   position:relative;
   min-height:70vh;
@@ -145,7 +146,7 @@ header button{
 #cart-popup{
   display:none;
   position:fixed;
-  top:90px;right:20px;
+  top:100px;right:20px;
   width:340px;
   background:#ffffff;
   border-radius:20px;
@@ -182,18 +183,15 @@ footer .social-icons a{
   color:#fff;
 }
 footer .cac{
-  margin-top:16px;
+  margin-top:14px;
   display:flex;
-  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  gap:6px;
+  gap:8px;
   font-size:13px;
   opacity:.85;
 }
-footer .cac img{
-  width:30px;
-  height:auto;
-}
+footer .cac img{width:34px;}
 
 @media(max-width:768px){
   header h1{font-size:30px;}
@@ -236,6 +234,7 @@ footer .cac img{
   <a href="/about.html"><button>View More</button></a>
 </section>
 
+<!-- CART -->
 <div id="cart-popup">
   <h3>Checkout Details</h3>
   <input id="firstName" placeholder="First Name *">
@@ -254,7 +253,7 @@ footer .cac img{
   </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <img src="assets/assets/cac-logo.png" alt="CAC">
     <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
   </div>
 </footer>
@@ -279,6 +278,7 @@ document.addEventListener('click',e=>{
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
 });
 
+/* PAYSTACK */
 function pay(){
   const f=firstName.value.trim();
   const l=lastName.value.trim();

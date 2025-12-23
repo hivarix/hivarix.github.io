@@ -15,7 +15,6 @@
   --accent:#ffd700;
 }
 
-/* BASE */
 html,body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
@@ -35,19 +34,14 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-
-/* LOGO – BIG + NO TAP FLASH */
 nav img{
   height:72px;
   user-select:none;
   -webkit-tap-highlight-color:transparent;
-  -webkit-touch-callout:none;
+  pointer-events:none;
 }
-@media(max-width:768px){
-  nav img{height:58px;}
-}
+@media(max-width:768px){nav img{height:58px;}}
 
-/* NAV BUTTONS */
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -67,12 +61,11 @@ nav img{
   border-radius:50%;
 }
 
-/* MENU */
 .menu-links{
   display:none;
   position:absolute;
   top:72px;right:20px;
-  background:#ffffff;
+  background:#fff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
 }
@@ -87,7 +80,6 @@ nav img{
 
 /* HERO */
 header{
-  position:relative;
   min-height:60vh;
   display:flex;
   align-items:center;
@@ -95,6 +87,7 @@ header{
   text-align:center;
   color:#fff;
   background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
+  position:relative;
 }
 header::before{
   content:"";
@@ -102,16 +95,15 @@ header::before{
   inset:0;
   background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
 }
-header *{position:relative;z-index:1;}
-header h1{font-size:38px;margin-bottom:10px;}
+header *{position:relative;}
+header h1{font-size:38px;}
 header p{font-size:18px;max-width:720px;}
-
 @media(max-width:480px){
-  header h1{font-size:26px;line-height:1.25;}
-  header p{font-size:15px;max-width:90%;margin:auto;}
+  header h1{font-size:26px;}
+  header p{font-size:15px;}
 }
 
-/* PRODUCTS GRID */
+/* PRODUCTS */
 .products{
   max-width:1100px;
   margin:-50px auto 80px;
@@ -129,58 +121,48 @@ header p{font-size:18px;max-width:720px;}
   box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 .product h3{color:var(--brand);}
-.product p{font-size:15px;}
-
-.product .view-btn{
-  display:block;
-  margin-top:14px;
-  padding:12px 26px;
-  border-radius:22px;
-  background:var(--accent);
-  color:#003366;
-  font-weight:600;
-  text-decoration:none;
-}
-
 .product button{
   margin-top:12px;
-  padding:12px 26px;
+  padding:12px;
+  width:100%;
   border:none;
   border-radius:22px;
   background:var(--accent);
-  color:#003366;
   font-weight:600;
   cursor:pointer;
-  width:100%;
 }
 
-/* CART POPUP */
+/* CART */
 #cart-popup{
   display:none;
   position:fixed;
   top:90px;
   right:20px;
   width:340px;
-  background:#ffffff;
+  background:#fff;
   border-radius:20px;
   padding:20px;
   box-shadow:0 25px 50px rgba(0,0,0,.35);
   z-index:2000;
 }
-#cart-popup input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
 }
-#cart-popup button{
+.cart-controls button{
+  width:26px;height:26px;
+  border:none;border-radius:6px;
+  background:#003366;color:#fff;
+}
+.cart-remove{background:#cc0000!important;}
+
+#cart-popup input,#cart-popup button{
   width:100%;
   padding:12px;
-  border:none;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
+  border-radius:10px;
+  margin-top:10px;
 }
 
 /* FOOTER */
@@ -190,11 +172,6 @@ footer{
   padding:60px 20px;
   text-align:center;
 }
-footer .social-icons a{
-  margin:0 10px;
-  font-size:24px;
-  color:#fff;
-}
 footer .cac{
   display:flex;
   justify-content:center;
@@ -203,18 +180,13 @@ footer .cac{
   margin-top:14px;
 }
 footer .cac img{width:34px;}
-@media(max-width:768px){
-  footer .cac{flex-direction:column;gap:6px;}
-}
 </style>
 </head>
 
 <body>
 
 <nav>
-  <a href="/">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
-  </a>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
     <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
@@ -235,114 +207,89 @@ footer .cac img{width:34px;}
 
 <section class="products">
 
-  <div class="product">
-    <h3>Branding & Digital Solutions</h3>
-    <p>Professional branding, creative & digital services — ₦25,000</p>
-    <a href="/products/branding-digital-solutions.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">Add to Cart</button>
-  </div>
+<div class="product">
+<h3>Branding & Digital Solutions</h3>
+<p>₦25,000</p>
+<a href="/products/branding-digital-solutions.html"><button>View Details</button></a>
+<button onclick="addToCart('branding','Branding & Digital Solutions',25000,'/products/branding-digital-solutions.html')">Add to Cart</button>
+</div>
 
-  <div class="product">
-    <h3>Startup Digital Pack</h3>
-    <p>Complete startup sales toolkit — ₦150,000</p>
-    <a href="/products/startup-digital-pack.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
-  </div>
+<div class="product">
+<h3>Startup Digital Pack</h3>
+<p>₦150,000</p>
+<a href="/products/startup-digital-pack.html"><button>View Details</button></a>
+<button onclick="addToCart('startup','Startup Digital Pack',150000,'/products/startup-digital-pack.html')">Add to Cart</button>
+</div>
 
-  <div class="product">
-    <h3>Business Visibility & Local Listing Pack</h3>
-    <p>Local SEO and listings — ₦100,000</p>
-    <a href="/products/business-visibility-local-listing-pack.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('visibility','Business Visibility Pack',100000)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Oraimo Type C to C Cable</h3>
-    <p>Universal charging cable — ₦7,500</p>
-    <a href="/products/oraimo-type-c-cable.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('oraimo-cable','Oraimo Type C Cable',7500)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Online Presence Pack</h3>
-    <p>SEO, PPC & website presence — ₦200,000</p>
-    <a href="/products/online-presence-pack.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('online-presence','Online Presence Pack',200000)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Business & Digital Consultancy</h3>
-    <p>Professional advising services — ₦300,000</p>
-    <a href="/products/business-digital-consultancy.html" class="view-btn">View Details</a>
-    <button onclick="addToCart('digital-consultancy','Business & Digital Consultancy',300000)">Add to Cart</button>
-  </div>
+<div class="product">
+<h3>Business Visibility Pack</h3>
+<p>₦100,000</p>
+<a href="/products/business-visibility-local-listing-pack.html"><button>View Details</button></a>
+<button onclick="addToCart('visibility','Business Visibility Pack',100000,'/products/business-visibility-local-listing-pack.html')">Add to Cart</button>
+</div>
 
 </section>
 
 <div id="cart-popup">
-  <h3>Checkout Details</h3>
-  <input id="firstName" placeholder="First Name *">
-  <input id="lastName" placeholder="Last Name *">
-  <input id="email" placeholder="Email *">
-  <input id="phone" placeholder="Phone Number *">
-  <button onclick="pay()">Proceed to Payment</button>
+<h3>Your Cart</h3>
+<div id="cart-items"></div>
+<input id="email" placeholder="Email *">
+<button onclick="pay()">Proceed to Payment</button>
 </div>
 
 <footer>
-  <h3>Contact Us</h3>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
-  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <div class="cac">
-    <img src="assets/assets/cac-logo.png">
-    <span>Registered with CAC – BN8390093</span>
-  </div>
+<p>© 2025 HiVaRiX Global</p>
+<div class="cac">
+<img src="assets/assets/cac-logo.png">
+<span>Registered with CAC – BN8390093</span>
+</div>
 </footer>
 
 <script>
-const menuBtn=document.getElementById('menu-btn');
-const menuLinks=document.getElementById('menu-links');
-const cartBtn=document.getElementById('cart-btn');
-const cartPopup=document.getElementById('cart-popup');
-
-menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
-cartBtn.onclick=e=>{e.stopPropagation();cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
-document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
-  if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
-});
-
-/* SHARED CART */
 let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
 
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
-  document.getElementById("cart-count").textContent =
-    cart.reduce((t,i)=>t+i.qty,0);
+  updateCartUI();
 }
-saveCart();
-
-function addToCart(id,name,price){
-  const item=cart.find(p=>p.id===id);
-  if(item){item.qty++;}else{cart.push({id,name,price,qty:1});}
+function updateCartUI(){
+  cart-count.textContent = cart.reduce((t,i)=>t+i.qty,0);
+  cart-items.innerHTML = cart.map(i=>`
+    <div class="cart-item">
+      <div>${i.name}<br>₦${i.price}</div>
+      <div class="cart-controls">
+        <button onclick="qty('${i.id}',-1)">−</button>
+        <span>${i.qty}</span>
+        <button onclick="qty('${i.id}',1)">+</button>
+        <button class="cart-remove" onclick="removeItem('${i.id}')">×</button>
+      </div>
+    </div>`).join("") || "Cart empty";
+}
+function addToCart(id,name,price,url){
+  let i=cart.find(p=>p.id===id);
+  i?i.qty++:cart.push({id,name,price,qty:1});
   saveCart();
-  alert(name+" added to cart");
+  location.href=url;
 }
-
+function qty(id,d){
+  let i=cart.find(p=>p.id===id);
+  i.qty+=d;
+  if(i.qty<=0) removeItem(id);
+  saveCart();
+}
+function removeItem(id){
+  cart=cart.filter(i=>i.id!==id);
+  saveCart();
+}
 function pay(){
-  const e=email.value.trim();
-  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
-  if(!e||!total){alert("Enter email and add items");return;}
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:e,
-    amount:total*100,
-    callback:()=>alert("Payment Successful!")
+    email:email.value,
+    amount:cart.reduce((t,i)=>t+i.price*i.qty,0)*100,
+    callback:()=>alert("Payment Successful")
   }).openIframe();
 }
+updateCartUI();
 </script>
 
 </body>

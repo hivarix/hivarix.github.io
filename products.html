@@ -3,66 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global – Products & Services</title>
+<title>Products – HiVaRiX Global</title>
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
-nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
-nav img {height:60px; cursor:pointer;}
-nav .nav-right {display:flex; align-items:center;}
-nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
-nav .nav-right button:hover {background:#002244; color:#fff;}
-#cart-count {position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
-nav .menu-links {display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
-nav .menu-links a {padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
-nav .menu-links a:last-child {border-bottom:none;}
-nav .menu-links a:hover {background:#f0f0f0;}
-
-/* Sections */
-section {padding:50px 20px; text-align:center; flex:1;}
-section h2 {color:#003366; margin-bottom:20px;}
-section p {font-size:18px; color:#555; margin-bottom:20px;}
-
-/* Product Grid */
-.container{width:95%; max-width:1200px; margin:auto; flex:1;}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:60px;}
-.card-link{text-decoration:none; color:inherit;}
+body {font-family:'Segoe UI',sans-serif; background:#e6e6e6; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000;}
+nav img{height:60px; cursor:pointer;}
+nav .nav-right button{margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
+#cart-count{position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
+.menu-links{display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
+.menu-links a{padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
+.menu-links a:last-child{border-bottom:none;}
+section{padding:50px 20px; flex:1;}
+section h2{color:#003366; margin-bottom:30px; text-align:center;}
+.container{width:95%; max-width:1200px; margin:auto;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px;}
 .card{background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); transition:transform 0.25s ease; text-align:center;}
 .card:hover{transform:translateY(-6px);}
 .card h3{color:#003366; margin-bottom:12px;}
-.price{margin-top:15px; font-weight:bold; color:#ff6600;}
-button.add-to-cart{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:15px;}
-
-/* Footer */
-footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
-footer h3{margin-bottom:5px;}
-footer .social-icons { margin:10px 0; }
-footer .social-icons a { margin:0 10px; display:inline-block; color:#003366; font-size:28px; transition:color 0.3s; }
-footer .social-icons a:hover { color:#002244; }
-
-/* CAC Stamp */
-.cac-footer { opacity:0.1; width:120px; margin:10px auto 5px auto; display:block; }
-.cac-text { font-size:14px; color:#555; line-height:1.3; text-align:center; }
-
-/* Cart Popup */
-#cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:500px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
-#cart-popup h3 { margin-top:0; color:#003366; }
-.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-.cart-item button { background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px; }
-
-/* Checkout Form */
-#checkout-form {display:flex; flex-direction:column; margin-top:10px;}
-#checkout-form input {margin-bottom:10px; padding:8px 10px; border-radius:6px; border:1px solid #ccc; font-size:14px;}
-#checkout-form button {padding:10px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:16px;}
-#checkout-form button:hover {background:#002244;}
-
-/* Cart Actions */
-.cart-actions { display:flex; justify-content:space-between; margin-top:15px; }
-
-/* Responsive */
-@media(max-width:768px){nav .menu-links{position:static; width:100%; top:auto; right:auto; box-shadow:none; border-radius:0;}}
+.card p.price{margin-top:15px; font-weight:bold; color:#ff6600;}
+.card a, .card button{margin-top:10px; display:inline-block; text-decoration:none; background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px; cursor:pointer;}
+.card a:hover, .card button:hover{background:#002244;}
+footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; display:flex; flex-direction:column; align-items:center;}
+footer .social-icons a{margin:0 10px; color:#003366; font-size:28px;}
+footer .social-icons a:hover{color:#002244;}
+.cac-footer{opacity:0.1; width:120px; margin:10px auto 5px auto; display:block;}
+.cac-text{text-align:center; font-size:14px;}
 </style>
 </head>
 <body>
@@ -81,46 +48,50 @@ footer .social-icons a:hover { color:#002244; }
   </div>
 </nav>
 
-<!-- PRODUCTS SECTION -->
+<!-- PRODUCTS GRID -->
 <section>
   <h2>Our Products & Services</h2>
   <div class="container">
     <div class="grid" id="products-grid">
       <div class="card">
         <h3>Branding & Digital Solutions</h3>
-        <div class="price">NGN 25,000</div>
+        <p class="price">NGN 25,000</p>
+        <a href="/branding-digital-solutions.html">View Details</a>
         <button class="add-to-cart" data-name="Branding & Digital Solutions" data-price="25000">Add to Cart</button>
       </div>
       <div class="card">
         <h3>Startup Digital Pack</h3>
-        <div class="price">NGN 150,000</div>
+        <p class="price">NGN 150,000</p>
+        <a href="/startup-digital-pack.html">View Details</a>
         <button class="add-to-cart" data-name="Startup Digital Pack" data-price="150000">Add to Cart</button>
       </div>
       <div class="card">
-        <h3>Oraimo Type C To Type C Cable</h3>
-        <div class="price">NGN 7,500</div>
-        <button class="add-to-cart" data-name="Oraimo Type C To Type C Cable" data-price="7500">Add to Cart</button>
+        <h3>NIN DOB Modification Pack</h3>
+        <p class="price">NGN 70,000</p>
+        <a href="/nin-dob-modification.html">View Details</a>
+        <button class="add-to-cart" data-name="NIN DOB Modification Pack" data-price="70000">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h3>Business & Digital Consultancy</h3>
+        <p class="price">NGN 300,000</p>
+        <a href="/business-digital-consultancy.html">View Details</a>
+        <button class="add-to-cart" data-name="Business & Digital Consultancy" data-price="300000">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h3>Online Presence Pack</h3>
+        <p class="price">NGN 200,000</p>
+        <a href="/online-presence-pack.html">View Details</a>
+        <button class="add-to-cart" data-name="Online Presence Pack" data-price="200000">Add to Cart</button>
+      </div>
+      <div class="card">
+        <h3>Business Visibility & Local Listing Pack</h3>
+        <p class="price">NGN 100,000</p>
+        <a href="/business-visibility-pack.html">View Details</a>
+        <button class="add-to-cart" data-name="Business Visibility & Local Listing Pack" data-price="100000">Add to Cart</button>
       </div>
     </div>
   </div>
 </section>
-
-<!-- CART POPUP -->
-<div id="cart-popup">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-
-  <h4>Fill Your Information</h4>
-  <form id="checkout-form">
-    <input type="text" id="firstName" placeholder="First Name*" required>
-    <input type="text" id="lastName" placeholder="Last Name*" required>
-    <input type="email" id="email" placeholder="Email*" required>
-    <input type="tel" id="phone" placeholder="Phone Number* (e.g., 08012345678)" required>
-    <button type="submit">Proceed to Payment</button>
-  </form>
-
-  <button id="close-cart-btn">Close</button>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -135,46 +106,20 @@ footer .social-icons a:hover { color:#002244; }
   <p class="cac-text">HiVaRiX Global is a registered business.<br>CAC Certificate Number: BN8390093</p>
 </footer>
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-// Menu Toggle
+// Menu toggle
 const menuBtn = document.getElementById('menu-btn');
 const menuLinks = document.getElementById('menu-links');
-menuBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
-  menuLinks.style.flexDirection = 'column';
-});
-document.addEventListener('click', (e) => {
-  if(!menuLinks.contains(e.target) && e.target !== menuBtn){
-    menuLinks.style.display = 'none';
-  }
-});
+menuBtn.addEventListener('click', e => { e.stopPropagation(); menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex'; menuLinks.style.flexDirection = 'column'; });
+document.addEventListener('click', e => { if(!menuLinks.contains(e.target) && e.target !== menuBtn){ menuLinks.style.display = 'none'; } });
 
-// Load cart from localStorage
+// Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
-const cartBtn = document.getElementById('cart-btn');
-const cartPopup = document.getElementById('cart-popup');
-const cartItemsDiv = document.getElementById('cart-items');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const checkoutForm = document.getElementById('checkout-form');
 
-function updateCart() {
+function updateCartCount(){ 
+  cartCountSpan.textContent = cart.length; 
   localStorage.setItem('cart', JSON.stringify(cart));
-  cartCountSpan.textContent = cart.length;
-  cartItemsDiv.innerHTML = '';
-  cart.forEach((item, index) => {
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`;
-    cartItemsDiv.appendChild(div);
-  });
-}
-
-function removeFromCart(index) {
-  cart.splice(index,1);
-  updateCart();
 }
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
@@ -182,64 +127,12 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
     const name = btn.getAttribute('data-name');
     const price = parseFloat(btn.getAttribute('data-price'));
     cart.push({name, price});
-    updateCart();
+    updateCartCount();
     alert(`${name} added to cart`);
   });
 });
 
-cartBtn.addEventListener('click', () => {
-  cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
-});
-closeCartBtn.addEventListener('click', () => { cartPopup.style.display = 'none'; });
-
-// Checkout Form
-checkoutForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  if(cart.length === 0){ alert('Your cart is empty'); return; }
-
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName = document.getElementById('lastName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-
-  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-
-  if(!firstName || !lastName || !email || !phone){
-    alert("Please fill all required fields."); return;
-  }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert("Please enter a valid email."); return;
-  }
-  if(!nigeriaPhone.test(phone)){
-    alert("Please enter a valid Nigerian phone number."); return;
-  }
-
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-  let handler = PaystackPop.setup({
-    key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email: email,
-    amount: total * 100,
-    metadata: {
-      custom_fields: [
-        {display_name: "First Name", variable_name: "first_name", value: firstName},
-        {display_name: "Last Name", variable_name: "last_name", value: lastName},
-        {display_name: "Phone Number", variable_name: "phone", value: phone},
-      ]
-    },
-    callback: function(response){
-      alert('Payment complete! Reference: ' + response.reference);
-      cart = [];
-      updateCart();
-      cartPopup.style.display='none';
-      checkoutForm.reset();
-      window.location.href = '/thank-you.html';
-    },
-    onClose: function(){ alert('Payment was not completed'); }
-  });
-  handler.openIframe();
-});
-
-updateCart();
+updateCartCount();
 </script>
 </body>
 </html>

@@ -3,55 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>HiVaRiX Global – Digital Excellence, Branding & Online Services</title>
 <meta name="description" content="HiVaRiX Global delivers digital solutions, branding, and quality merchandise for businesses and individuals seeking Digital Excellence.">
-
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-html, body { height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
-body { flex-direction: column; }
-nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
-nav img { height:60px; font-weight:bold; font-style:normal; }
-nav .nav-right { display:flex; align-items:center; }
-nav .nav-right button { margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative; }
-nav .nav-right button:hover { background:#002244; color:#fff; }
-#cart-count { position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px; }
-nav .menu-links { display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden; }
-nav .menu-links a { padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee; }
-nav .menu-links a:last-child { border-bottom:none; }
-nav .menu-links a:hover { background:#f0f0f0; }
+html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
+body {flex-direction: column;}
+nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
+nav img {height:60px; cursor:pointer;}
+nav .nav-right {display:flex; align-items:center;}
+nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
+nav .nav-right button:hover {background:#002244; color:#fff;}
+#cart-count {position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
+nav .menu-links {display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
+nav .menu-links a {padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
+nav .menu-links a:last-child {border-bottom:none;}
+nav .menu-links a:hover {background:#f0f0f0;}
 
 /* Header */
-header { padding:80px 20px; text-align:center; position:relative; }
-header h1 { font-size:40px; margin-bottom:20px; color:#003366; font-weight:700; }
+header {padding:80px 20px; text-align:center; position:relative; background:transparent; transition:background 0.3s;}
+header h1 {font-size:40px; margin-bottom:20px; color:#003366; font-weight:700;}
 
 /* Sections */
-section { padding:50px 20px; text-align:center; flex:1; }
-section h2 { color:#003366; margin-bottom:20px; }
-section p { font-size:18px; color:#555; margin-bottom:20px; }
+section {padding:50px 20px; text-align:center; flex:1;}
+section h2 {color:#003366; margin-bottom:20px;}
+section p {font-size:18px; color:#555; margin-bottom:20px;}
 
 /* Product Grid */
-.container{width:95%;max-width:1200px;margin:auto; flex:1;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding-bottom:60px;}
-.card-link{text-decoration:none;color:inherit;}
-.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 25px rgba(0,0,0,0.08);transition:transform 0.25s ease;text-align:center;}
+.container{width:95%; max-width:1200px; margin:auto; flex:1;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; padding-bottom:60px;}
+.card-link{text-decoration:none; color:inherit;}
+.card{background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); transition:transform 0.25s ease; text-align:center;}
 .card:hover{transform:translateY(-6px);}
-.card h3{color:#003366;margin-bottom:12px;}
-.price{margin-top:15px;font-weight:bold;color:#ff6600;}
+.card h3{color:#003366; margin-bottom:12px;}
+.price{margin-top:15px; font-weight:bold; color:#ff6600;}
 button.add-to-cart{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:15px;}
 
 /* Footer */
-footer{background:#e6e6e6;text-align:center;padding:20px;font-size:14px;color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
+footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
+footer h3{margin-bottom:5px;}
 footer .social-icons { margin:10px 0; }
 footer .social-icons a { margin:0 10px; display:inline-block; color:#003366; font-size:28px; transition:color 0.3s; }
 footer .social-icons a:hover { color:#002244; }
 
 /* CAC Stamp */
 .cac-footer { opacity:0.1; width:120px; margin:10px auto 5px auto; display:block; }
-.cac-text { font-size:14px; color:#555; margin-top:5px; }
+.cac-text { font-size:14px; color:#555; line-height:1.3; text-align:center; }
 
 /* Cart Popup */
 #cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:400px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
@@ -69,7 +68,7 @@ footer .social-icons a:hover { color:#002244; }
 
 <!-- NAVIGATION -->
 <nav>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
+  <a href="https://hivarix.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
     <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
@@ -130,6 +129,7 @@ footer .social-icons a:hover { color:#002244; }
 
 <!-- FOOTER -->
 <footer>
+  <h3>Contact Us</h3>
   <div class="social-icons">
     <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.instagram.com/hivarix" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -137,7 +137,7 @@ footer .social-icons a:hover { color:#002244; }
   </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <img src="assets/assets/cac-logo.png" alt="CAC Registered Business" class="cac-footer">
-  <p class="cac-text">HiVaRiX Global is a registered business – CAC Certificate Number: BN8390093</p>
+  <p class="cac-text">HiVaRiX Global is a registered business.<br>CAC Certificate Number: BN8390093</p>
 </footer>
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
@@ -145,9 +145,17 @@ footer .social-icons a:hover { color:#002244; }
 // Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const menuLinks = document.getElementById('menu-links');
-menuBtn.addEventListener('click', () => {
+menuBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
   menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
   menuLinks.style.flexDirection = 'column';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if(!menuLinks.contains(e.target) && e.target !== menuBtn){
+    menuLinks.style.display = 'none';
+  }
 });
 
 // Load cart from localStorage

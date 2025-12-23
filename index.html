@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global</title>
 
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Paystack -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Segoe UI',sans-serif;
   background:#e6e6e6;
@@ -21,12 +23,12 @@ body{
 
 /* NAVBAR */
 .navbar{
+  background:#fff;
+  border-bottom:1px solid #ccc;
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  background:#fff;
-  border-bottom:1px solid #ccc;
   position:sticky;
   top:0;
   z-index:1000;
@@ -37,9 +39,7 @@ body{
   flex-direction:column;
 }
 
-.logo-box img{
-  height:50px;
-}
+.logo-box img{height:50px}
 
 .logo-box .slogan{
   font-size:8px;
@@ -48,6 +48,7 @@ body{
   margin-top:2px;
 }
 
+/* ICONS */
 .nav-icons{
   display:flex;
   align-items:center;
@@ -57,13 +58,13 @@ body{
 .nav-icons button{
   width:40px;
   height:40px;
+  background:none;
+  border:none;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:26px;
   color:#003366;
-  background:none;
-  border:none;
   cursor:pointer;
   position:relative;
 }
@@ -80,6 +81,7 @@ body{
   display:none;
 }
 
+/* MENU */
 .nav-links{
   display:flex;
   gap:20px;
@@ -96,12 +98,12 @@ body{
     position:absolute;
     top:75px;
     right:20px;
-    flex-direction:column;
     background:#fff;
-    border-radius:12px;
+    flex-direction:column;
     padding:10px 0;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
     display:none;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
   }
   .nav-links.show{display:flex;}
 }
@@ -116,15 +118,13 @@ body{
   background:#fff;
   padding:15px;
   border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
   z-index:999;
 }
 
 .mini-cart h3{color:#003366;margin-bottom:10px}
-
 .mini-cart ul{list-style:none;margin-bottom:10px}
-
-.mini-cart li{margin-bottom:6px;font-size:14px}
+.mini-cart li{font-size:14px;margin-bottom:6px}
 
 .mini-cart input{
   width:100%;
@@ -133,6 +133,7 @@ body{
 }
 
 .mini-cart button{
+  width:100%;
   background:#003366;
   color:#fff;
   border:none;
@@ -185,16 +186,12 @@ header p{
   max-width:800px;
   margin:auto;
   font-size:18px;
-  color:#555;
   line-height:1.7;
+  color:#555;
 }
 
-/* SECTION */
-section{
-  padding:60px 20px;
-  text-align:center;
-  flex:1;
-}
+/* SECTIONS */
+section{padding:60px 20px;text-align:center;flex:1}
 
 /* FOOTER */
 footer{
@@ -203,14 +200,30 @@ footer{
   color:#555;
 }
 
-footer div{
+.socials{
   display:flex;
   justify-content:center;
-  gap:12px;
-  margin-top:10px;
+  gap:16px;
+  margin-top:12px;
 }
 
-footer img{width:24px}
+.socials a{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#003366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  transition:.2s;
+}
+
+.socials a:hover{
+  background:#ff6600;
+  transform:translateY(-2px);
+}
 </style>
 </head>
 
@@ -247,7 +260,7 @@ footer img{width:24px}
   <input id="firstName" placeholder="First Name">
   <input id="lastName" placeholder="Last Name">
   <input id="email" type="email" placeholder="Email">
-  <input id="phone" placeholder="Phone Number">
+  <input id="phone" placeholder="Phone">
 
   <button onclick="checkout()">Checkout</button>
 </div>
@@ -272,35 +285,30 @@ footer img{width:24px}
   </p>
 </section>
 
-<!-- WHY -->
 <section>
   <h2>Why Choose Us</h2>
-  <p>We combine clarity, creativity, and technology to deliver purposeful digital solutions.</p>
+  <p>Clarity, strategy, and execution — delivered with intention.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <div>
-    <a href="https://www.instagram.com/hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-    </a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
-    </a>
+  <div class="socials">
+    <a href="https://www.instagram.com/hivarix" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@hivarix" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </footer>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("hivarixCart")) || [];
+let cart=JSON.parse(localStorage.getItem("hivarixCart"))||[];
 
 function save(){localStorage.setItem("hivarixCart",JSON.stringify(cart))}
 function updateCart(){
-  document.getElementById("cartCount").style.display = cart.length ? "block" : "none";
-  document.getElementById("cartCount").innerText = cart.length;
-  let items="", total=0;
-  cart.forEach((c,i)=>{items+=`<li>${c.name} - NGN ${c.price}</li>`;total+=c.price});
-  document.getElementById("cartItems").innerHTML=items;
+  document.getElementById("cartCount").style.display=cart.length?"block":"none";
+  document.getElementById("cartCount").innerText=cart.length;
+  let html="",total=0;
+  cart.forEach(c=>{html+=`<li>${c.name} - NGN ${c.price}</li>`;total+=c.price});
+  document.getElementById("cartItems").innerHTML=html;
   document.getElementById("cartTotal").innerText=total;
 }
 function toggleCart(){document.getElementById("miniCart").style.display^="block"}

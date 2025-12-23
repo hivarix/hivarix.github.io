@@ -15,9 +15,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  background: #f8f9fa; /* light neutral background like products page */
   font-family: 'Segoe UI', sans-serif;
-  background: #e6e6e6;
   color: #333;
 }
 
@@ -26,23 +25,22 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #ffffff; /* MATCH LOGO BG */
-  padding: 14px 20px;
+  background: #ffffff; /* white header */
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* FORCE LOGO TO BLEND */
+/* LOGO */
 nav img {
   height: 58px;
   background: #ffffff;
-  mix-blend-mode: multiply;
   filter: contrast(1.2) saturate(1.15);
-  image-rendering: -webkit-optimize-contrast;
-  cursor: pointer;
+  mix-blend-mode: multiply;
 }
 
+/* NAV BUTTONS */
 .nav-right {
   display: flex;
   gap: 12px;
@@ -71,37 +69,31 @@ nav img {
   border-radius: 50%;
 }
 
-/* MENU */
+/* MENU LINKS */
 .menu-links {
   display: none;
   position: absolute;
   top: 70px;
-  right: 20px;
+  right: 24px;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.15);
-  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.1);
 }
 
 .menu-links a {
   display: block;
-  padding: 14px 22px;
+  padding: 12px 18px;
   text-decoration: none;
   color: #003366;
   font-weight: 600;
-  border-bottom: 1px solid #eee;
 }
 
-.menu-links a:hover {
-  background: #f5f5f5;
-}
-
-/* HERO – SINGLE IMAGE */
+/* HERO */
 header {
   position: relative;
-  padding: 130px 20px;
+  padding: 140px 20px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   background: url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
 }
 
@@ -109,7 +101,7 @@ header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,.6);
 }
 
 header * {
@@ -118,8 +110,8 @@ header * {
 }
 
 header h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 42px;
+  font-weight: 700;
 }
 
 header p {
@@ -129,30 +121,109 @@ header p {
 }
 
 header button {
-  margin-top: 26px;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 8px;
+  margin-top: 24px;
+  padding: 12px 28px;
   background: #003366;
-  color: #ffffff;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
 }
 
-/* WHY SECTION – SOLID */
+/* PRODUCT GRID SECTION */
+.products-section {
+  padding: 60px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.products-section h2 {
+  font-size: 32px;
+  color: #003366;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-actions a {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-view {
+  background: #003366;
+  color: #fff;
+}
+
+.btn-cart {
+  background: #ffd700;
+  color: #003366;
+}
+
+/* WHY CHOOSE US */
 .why-hero {
   background: #ffffff;
-  padding: 90px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
 .why-hero h2 {
+  font-size: 28px;
   color: #003366;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .why-hero p {
-  max-width: 720px;
+  max-width: 680px;
   margin: auto;
+  font-size: 17px;
 }
 
 /* CART POPUP */
@@ -163,64 +234,39 @@ header button {
   right: 20px;
   width: 340px;
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,.35);
   z-index: 2000;
 }
 
-#cart-popup h3 {
-  margin-top: 0;
-  color: #003366;
-}
-
-#cart-popup input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-#cart-popup button {
-  width: 100%;
-  padding: 12px;
-  background: #003366;
-  border: none;
-  color: #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* FOOTER – SOLID */
+/* FOOTER */
 footer {
   background: #003366;
   color: #ffffff;
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.social-icons a {
-  margin: 0 10px;
-  font-size: 26px;
-  color: #ffffff;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ffd700;
-}
-
-.cac-footer {
+footer img.cac-footer {
   width: 130px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
-/* MOBILE */
+/* UTILITY */
+a.btn-alt {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 24px;
+  background: #ffd700;
+  color: #003366;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
-  nav img {
-    height: 48px;
-  }
+  nav img { height: 48px; }
 }
 </style>
 </head>
@@ -238,7 +284,6 @@ footer {
       <span id="cart-count">0</span>
     </button>
   </div>
-
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
     <a href="/products.html">Products</a>
@@ -249,20 +294,39 @@ footer {
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
   <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
-  <a href="/products.html"><button>Explore Products</button></a>
+  <button onclick="location.href='/products.html'">Browse Products</button>
 </header>
+
+<section class="products-section">
+  <h2>Our Products & Services</h2>
+  <div class="product-grid">
+    <!-- Example cards matching products page -->
+    <div class="product-card">
+      <div class="product-title">Branding & Digital Solutions</div>
+      <div class="product-price">NGN 25,000</div>
+      <div class="product-actions">
+        <a href="/products.html#branding" class="btn-view">View Details</a>
+        <a href="#" class="btn-cart">Add to Cart</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-title">Startup Digital Pack</div>
+      <div class="product-price">NGN 150,000</div>
+      <div class="product-actions">
+        <a href="/products.html#startup" class="btn-view">View Details</a>
+        <a href="#" class="btn-cart">Add to Cart</a>
+      </div>
+    </div>
+    <!-- add more cards similarly -->
+  </div>
+</section>
 
 <section class="why-hero">
   <h2>Why Choose Us?</h2>
-  <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
-  <a href="/about.html">
-    <button style="margin-top:20px;padding:12px 28px;border:none;border-radius:8px;background:#ffd700;color:#003366;font-weight:600;">
-      View More
-    </button>
-  </a>
+  <p>We combine strategy, creativity and technology to deliver scalable, sustainable digital growth.</p>
+  <a href="/about.html" class="btn-alt">Learn More</a>
 </section>
 
-<!-- CART -->
 <div id="cart-popup">
   <h3>Checkout Details</h3>
   <input id="firstName" placeholder="First Name *">
@@ -279,16 +343,9 @@ footer {
     <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
     <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
-
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-
   <img src="assets/assets/cac-logo.png" class="cac-footer" alt="CAC Registered Business">
-
-  <p>
-    HiVaRiX Global is a registered business.<br>
-    Certified by the Corporate Affairs Commission (CAC)<br>
-    Certificate Number: BN8390093
-  </p>
+  <p>HiVaRiX Global is a registered business. CAC Certificate Number: BN8390093</p>
 </footer>
 
 <script>
@@ -297,30 +354,25 @@ const menuLinks = document.getElementById('menu-links');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
 
-// Toggle menu
 menuBtn.onclick = e => {
   e.stopPropagation();
   menuLinks.style.display =
     menuLinks.style.display === 'block' ? 'none' : 'block';
 };
 
-// Toggle cart
 cartBtn.onclick = e => {
   e.stopPropagation();
   cartPopup.style.display =
     cartPopup.style.display === 'block' ? 'none' : 'block';
 };
 
-// Close when clicking outside
 document.addEventListener('click', e => {
   if (!menuLinks.contains(e.target) && e.target !== menuBtn)
     menuLinks.style.display = 'none';
-
   if (!cartPopup.contains(e.target) && e.target !== cartBtn)
     cartPopup.style.display = 'none';
 });
 
-// PAYSTACK
 function pay() {
   const f = firstName.value.trim();
   const l = lastName.value.trim();
@@ -344,7 +396,7 @@ function pay() {
     },
     callback: () => {
       alert("Payment Successful!");
-      window.location.href = "/thank-you.html";
+      window.location.href = '/thank-you.html';
     }
   }).openIframe();
 }

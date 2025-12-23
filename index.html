@@ -18,10 +18,10 @@
 /* BASE */
 html,body{
   margin:0;
+  padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
-  overflow-x:hidden;
 }
 
 /* NAV */
@@ -37,11 +37,11 @@ nav{
   align-items:center;
 }
 
-/* LOGO – BIG + NO CLICK FLASH */
+/* LOGO – BIG LIKE AMAZON, NO CLICK FLASH */
 nav img{
-  height:60px;
+  height:72px;
+  max-height:80px;
   user-select:none;
-  pointer-events:auto;
   -webkit-tap-highlight-color:transparent;
 }
 
@@ -101,14 +101,8 @@ header::before{
   background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
 }
 header *{position:relative;z-index:1;}
-header h1{
-  font-size:40px;
-  margin-bottom:14px;
-}
-header p{
-  max-width:720px;
-  font-size:18px;
-}
+header h1{font-size:40px;margin-bottom:14px;}
+header p{max-width:720px;font-size:18px;}
 header button{
   margin-top:24px;
   padding:14px 32px;
@@ -143,7 +137,7 @@ header button{
   font-weight:600;
 }
 
-/* CART */
+/* CART POPUP */
 #cart-popup{
   display:none;
   position:fixed;
@@ -183,24 +177,38 @@ footer .social-icons a{
   font-size:24px;
   color:#fff;
 }
+
+/* CAC – LOCKED & CORRECT */
 footer .cac{
-  margin-top:14px;
   display:flex;
   justify-content:center;
   align-items:center;
   gap:8px;
   font-size:13px;
+  margin-top:14px;
   opacity:.85;
 }
-footer .cac img{width:34px;}
+footer .cac img{
+  width:34px;
+  height:auto;
+}
 
-/* MOBILE FIX – WELCOME TEXT ONLY */
-@media(max-width:480px){
+@media(max-width:768px){
+  nav img{height:58px;}
+  header h1{font-size:30px;}
+  .glass{margin:-40px 14px 60px;}
+  footer .cac{
+    flex-direction:column;
+    gap:6px;
+  }
+}
+
+/* MOBILE HERO TEXT FIX */
+@media (max-width:480px){
   header h1{
     font-size:26px;
     line-height:1.25;
     letter-spacing:-0.3px;
-    margin-bottom:10px;
   }
   header p{
     font-size:15px;
@@ -212,7 +220,6 @@ footer .cac img{width:34px;}
     font-size:15px;
     padding:12px 26px;
   }
-  .glass{margin:-40px 14px 60px;}
 }
 </style>
 </head>
@@ -269,7 +276,7 @@ footer .cac img{width:34px;}
   </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
+    <img src="assets/assets/cac-logo.png" alt="CAC">
     <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
   </div>
 </footer>

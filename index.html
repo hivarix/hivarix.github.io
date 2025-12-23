@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global – Digital Excellence, Branding & Online Services</title>
-<meta name="description" content="HiVaRiX Global delivers professional digital services, branding, consultancy, and online solutions.">
+<title>HiVaRiX Global – Digital Excellence</title>
 
-<link rel="icon" href="assets/assets/hivarix-global-logo.png" type="image/png">
+<link rel="icon" href="assets/assets/hivarix-global-logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
@@ -15,34 +14,31 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  background: #e6e6e6;
   font-family: 'Segoe UI', sans-serif;
-  background: #e6e6e6; /* RESTORED ORIGINAL BACKGROUND */
   color: #333;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #ffffff; /* MATCH LOGO BACKGROUND */
+  background: #ffffff; /* MATCH LOGO BG */
   padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: none;
-  border: none;
 }
 
+/* FORCE LOGO TO BLEND */
 nav img {
   height: 58px;
-  background: #ffffff;
-  filter: contrast(1.2) saturate(1.15);
-  image-rendering: -webkit-optimize-contrast;
-  cursor: pointer;
+  mix-blend-mode: multiply; /* VISUAL TRANSPARENCY */
+  filter: contrast(1.2);
 }
 
+/* NAV BUTTONS */
 .nav-right {
   display: flex;
   gap: 12px;
@@ -80,7 +76,6 @@ nav img {
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0,0,0,.15);
-  overflow: hidden;
 }
 
 .menu-links a {
@@ -89,27 +84,22 @@ nav img {
   text-decoration: none;
   color: #003366;
   font-weight: 600;
-  border-bottom: 1px solid #eee;
 }
 
-.menu-links a:hover {
-  background: #f5f5f5;
-}
-
-/* HERO HEADER */
+/* HERO – SINGLE IMAGE */
 header {
   position: relative;
-  padding: 130px 20px;
+  padding: 140px 20px;
   text-align: center;
-  color: #ffffff;
-  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+  color: #fff;
+  background: url("https://images.unsplash.com/photo-1552664730-d307ca884978") center/cover no-repeat;
 }
 
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,.6);
 }
 
 header * {
@@ -118,8 +108,7 @@ header * {
 }
 
 header h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 42px;
 }
 
 header p {
@@ -134,33 +123,27 @@ header button {
   border: none;
   border-radius: 8px;
   background: #003366;
-  color: #ffffff;
+  color: #fff;
   font-size: 16px;
-  cursor: pointer;
 }
 
-/* WHY SECTION */
+/* SOLID SECTION */
 .why-hero {
-  position: relative;
+  background: #ffffff;
   padding: 90px 20px;
   text-align: center;
-  color: #ffffff;
-  background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
 }
 
-.why-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
+.why-hero h2 {
+  color: #003366;
 }
 
-.why-hero * {
-  position: relative;
-  z-index: 1;
+.why-hero p {
+  max-width: 720px;
+  margin: auto;
 }
 
-/* CART POPUP */
+/* CART */
 #cart-popup {
   display: none;
   position: fixed;
@@ -171,74 +154,25 @@ header button {
   border-radius: 14px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  z-index: 2000;
 }
 
-#cart-popup h3 {
-  margin-top: 0;
-  color: #003366;
-}
-
-#cart-popup input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-#cart-popup button {
-  width: 100%;
-  padding: 12px;
+/* FOOTER – SOLID */
+footer {
   background: #003366;
-  border: none;
-  color: #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* FOOTER */
-.footer-hero {
-  position: relative;
+  color: #fff;
   padding: 70px 20px;
   text-align: center;
-  color: #ffffff;
-  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
-}
-
-.footer-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-}
-
-.footer-hero * {
-  position: relative;
-  z-index: 1;
 }
 
 .social-icons a {
   margin: 0 10px;
   font-size: 26px;
-  color: #ffffff;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ffd700;
-}
-
-.cac-footer {
-  width: 130px;
-  margin-top: 18px;
+  color: #fff;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  nav img {
-    height: 48px;
-  }
+  nav img { height: 48px; }
 }
 </style>
 </head>
@@ -256,12 +190,6 @@ header button {
       <span id="cart-count">0</span>
     </button>
   </div>
-
-  <div class="menu-links" id="menu-links">
-    <a href="/">Home</a>
-    <a href="/products.html">Products</a>
-    <a href="/about.html">About</a>
-  </div>
 </nav>
 
 <header>
@@ -273,90 +201,11 @@ header button {
 <section class="why-hero">
   <h2>Why Choose Us?</h2>
   <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
-  <a href="/about.html">
-    <button style="margin-top:20px;padding:12px 28px;border:none;border-radius:8px;background:#ffd700;color:#003366;font-weight:600;">
-      View More
-    </button>
-  </a>
 </section>
 
-<div id="cart-popup">
-  <h3>Checkout Details</h3>
-  <input id="firstName" placeholder="First Name *">
-  <input id="lastName" placeholder="Last Name *">
-  <input id="email" placeholder="Email *">
-  <input id="phone" placeholder="Phone Number (Nigeria) *">
-  <button onclick="pay()">Proceed to Payment</button>
-</div>
-
-<footer class="footer-hero">
-  <h3>Contact Us</h3>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
-
+<footer>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-
-  <img src="assets/assets/cac-logo.png" class="cac-footer" alt="CAC Registered Business">
-
-  <p>
-    HiVaRiX Global is a registered business.<br>
-    Certified by the Corporate Affairs Commission (CAC)<br>
-    Certificate Number: BN8390093
-  </p>
 </footer>
-
-<script>
-const menuBtn = document.getElementById('menu-btn');
-const menuLinks = document.getElementById('menu-links');
-const cartBtn = document.getElementById('cart-btn');
-const cartPopup = document.getElementById('cart-popup');
-
-menuBtn.onclick = e => {
-  e.stopPropagation();
-  menuLinks.style.display = menuLinks.style.display === 'block' ? 'none' : 'block';
-};
-
-cartBtn.onclick = e => {
-  e.stopPropagation();
-  cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
-};
-
-document.addEventListener('click', e => {
-  if (!menuLinks.contains(e.target) && e.target !== menuBtn) menuLinks.style.display = 'none';
-  if (!cartPopup.contains(e.target) && e.target !== cartBtn) cartPopup.style.display = 'none';
-});
-
-function pay() {
-  const f = firstName.value.trim();
-  const l = lastName.value.trim();
-  const e = email.value.trim();
-  const p = phone.value.trim();
-
-  if (!f || !l || !e || !/^0[789][01]\d{8}$/.test(p)) {
-    alert("Please enter valid details. Nigerian phone only.");
-    return;
-  }
-
-  PaystackPop.setup({
-    key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email: e,
-    amount: 25000 * 100,
-    metadata: {
-      custom_fields: [
-        { display_name: "Name", value: f + " " + l },
-        { display_name: "Phone", value: p }
-      ]
-    },
-    callback: () => {
-      alert("Payment Successful!");
-      window.location.href = "/thank-you.html";
-    }
-  }).openIframe();
-}
-</script>
 
 </body>
 </html>

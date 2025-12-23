@@ -1,120 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global</title>
-<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
-<style>
-  /* Basic Reset */
-  html, body { margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; min-height:100vh; display:flex; flex-direction:column; }
-  a { text-decoration:none; color:inherit; }
-  h1,h2,h3,p { margin:0; padding:0; }
-  button { cursor:pointer; }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.95);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 20px;
-    border-bottom:1px solid #ccc;
-  }
-  nav img { height:50px; font-weight:bold; cursor:pointer; }
-  .menu-cart { display:flex; align-items:center; }
-  .menu-btn, .cart-btn { font-size:24px; margin-left:15px; background:none; border:none; cursor:pointer; position:relative; }
-  .cart-count { background:#ff6600; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px; position:absolute; top:-5px; right:-5px; }
-
-  /* MENU POPUP */
-  #menu-popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:2000; }
-  #menu-popup ul { list-style:none; background:#fff; width:200px; padding:20px; margin:0; position:absolute; top:60px; right:20px; border-radius:10px; }
-  #menu-popup li { margin-bottom:15px; }
-  #menu-popup li a { color:#003366; font-weight:600; }
-
-  /* HEADER */
-  header { padding:80px 20px 50px; text-align:center; flex-shrink:0; }
-  header h1 { font-size:40px; color:#003366; margin-bottom:20px; }
-
-  /* SECTION */
-  section { padding:50px 20px; text-align:center; flex:1; }
-  .container { max-width:1000px; margin:auto; }
-
-  /* PRODUCTS GRID */
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
-  .card { background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 25px rgba(0,0,0,0.08); transition:transform 0.25s ease; text-align:center; }
-  .card:hover { transform:translateY(-6px); }
-  .card h3 { color:#003366; margin-bottom:12px; }
-  .price { margin-top:15px; font-weight:bold; color:#ff6600; }
-  .add-cart { background:#003366; color:#fff; border:none; padding:14px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-top:20px; }
-
-  /* CART POPUP */
-  #cart-popup { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; border-radius:10px; width:320px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
-  #cart-items { max-height:200px; overflow-y:auto; margin-bottom:15px; }
-  .cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-  .cart-actions { text-align:right; }
-
-  /* FOOTER */
-  footer { background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; }
-  footer h4 { margin-top:0; margin-bottom:10px; }
-  .social { display:flex; justify-content:center; gap:15px; margin-top:5px; }
-  .social img { width:28px; height:28px; }
-
-  /* CAC stamp */
-  .cac { margin-top:20px; font-size:12px; color:#999; }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo" onclick="window.location='/'">
-  <div class="menu-cart">
-    <button class="menu-btn" id="menu-btn">&#9776;</button>
-    <button class="cart-btn" id="cart-btn">&#128722;<span class="cart-count" id="cart-count">0</span></button>
-  </div>
-</nav>
-
-<!-- MENU POPUP -->
-<div id="menu-popup">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/products.html">Products</a></li>
-    <li><a href="/about.html">About</a></li>
-  </ul>
-</div>
-
-<!-- HEADER -->
-<header>
-  <h1>Welcome to HiVaRiX Global</h1>
-</header>
-
-<!-- WHY CHOOSE US -->
-<section>
-  <h2>Why Choose Us?</h2>
-  <p>We combine professional expertise, quality products, and digital solutions to help businesses and individuals thrive online.</p>
-</section>
-
-<!-- PRODUCTS GRID -->
-<section class="container" id="products-section">
-  <div class="grid" id="products-grid">
-    <div class="card" data-name="Branding & Digital Solutions" data-price="25000">
-      <h3>Branding & Digital Solutions</h3>
-      <div class="price">NGN 25,000</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <div class="card" data-name="Startup Digital Pack" data-price="150000">
-      <h3>Startup Digital Pack</h3>
-      <div class="price">NGN 150,000</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <!-- Add other products here -->
-  </div>
-</section>
-
 <!-- CART POPUP -->
 <div id="cart-popup">
   <h3>Your Cart</h3>
@@ -138,103 +21,67 @@
   </form>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <h4>Contact Us</h4>
-  <div class="social">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email"></a>
-    <a href="https://www.instagram.com/hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-  </div>
-  <div class="cac">
-    HiVaRiX Global is a registered business.<br>
-    CAC Certificate Number: BN8390093
-  </div>
-</footer>
-
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-  // Menu toggle
-  const menuBtn = document.getElementById('menu-btn');
-  const menuPopup = document.getElementById('menu-popup');
-  menuBtn.addEventListener('click', ()=> menuPopup.style.display='block');
-  window.addEventListener('click', e=>{ if(e.target==menuPopup) menuPopup.style.display='none'; });
+// Header sticky fix (already using position: sticky in CSS, ensure top:0)
+const header = document.querySelector('nav');
+header.style.position = 'sticky';
+header.style.top = '0';
+header.style.zIndex = '1000';
 
-  // Cart system
-  let cart=[];
-  const cartBtn=document.getElementById('cart-btn');
-  const cartPopup=document.getElementById('cart-popup');
-  const closeCartBtn=document.getElementById('close-cart-btn');
-  const cartCount=document.getElementById('cart-count');
-  const cartItemsDiv=document.getElementById('cart-items');
+// Checkout popup handling
+const checkoutBtn = document.getElementById('checkout-btn');
+const checkoutPopup = document.getElementById('checkout-form-popup');
+const cancelCheckout = document.getElementById('cancel-checkout');
 
-  function updateCart(){
-    cartCount.textContent=cart.length;
-    cartItemsDiv.innerHTML='';
-    cart.forEach((item,i)=>{
-      let div=document.createElement('div');
-      div.className='cart-item';
-      div.innerHTML=`${item.name} - NGN ${item.price} <button onclick="removeItem(${i})">X</button>`;
-      cartItemsDiv.appendChild(div);
-    });
+checkoutBtn.addEventListener('click', () => {
+  if(cart.length === 0) { alert('Your cart is empty'); return; }
+  checkoutPopup.style.display = 'block';
+});
+
+cancelCheckout.addEventListener('click', () => {
+  checkoutPopup.style.display = 'none';
+});
+
+// Form submission with validation
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  const firstName = form.firstName.value.trim();
+  const lastName = form.lastName.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+
+  const nigeriaPhoneRegex = /^(?:0|\+234)[789][01]\d{8}$/;
+  if(!nigeriaPhoneRegex.test(phone)){
+    alert("Please enter a valid Nigerian phone number (e.g., 08012345678 or +2348012345678).");
+    return;
   }
 
-  function removeItem(i){ cart.splice(i,1); updateCart(); }
+  const total = cart.reduce((sum,item)=>sum+item.price,0);
 
-  document.querySelectorAll('.add-cart').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const card=btn.parentElement;
-      cart.push({name: card.dataset.name, price: parseInt(card.dataset.price)});
-      updateCart();
-      alert(`${card.dataset.name} added to cart`);
-    });
-  });
-
-  cartBtn.addEventListener('click',()=> cartPopup.style.display='block');
-  closeCartBtn.addEventListener('click',()=> cartPopup.style.display='none');
-
-  // Checkout
-  const checkoutBtn=document.getElementById('checkout-btn');
-  const checkoutPopup=document.getElementById('checkout-form-popup');
-  const cancelCheckout=document.getElementById('cancel-checkout');
-  checkoutBtn.addEventListener('click',()=>{
-    if(cart.length===0){ alert('Cart is empty'); return; }
-    checkoutPopup.style.display='block';
-  });
-  cancelCheckout.addEventListener('click',()=> checkoutPopup.style.display='none');
-
-  document.getElementById('checkout-form').addEventListener('submit',function(e){
-    e.preventDefault();
-    const form=e.target;
-    const firstName=form.firstName.value.trim();
-    const lastName=form.lastName.value.trim();
-    const email=form.email.value.trim();
-    const phone=form.phone.value.trim();
-    const nigeriaPhone=/^(?:0|\+234)[789][01]\d{8}$/;
-    if(!nigeriaPhone.test(phone)){ alert("Invalid Nigerian phone number"); return; }
-    const total=cart.reduce((sum,item)=>sum+item.price,0);
-    let handler=PaystackPop.setup({
-      key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-      email:email,
-      amount: total*100,
-      metadata:{custom_fields:[
+  let handler = PaystackPop.setup({
+    key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
+    email: email,
+    amount: total * 100,
+    metadata: {
+      custom_fields: [
         {display_name:"First Name", variable_name:"first_name", value:firstName},
         {display_name:"Last Name", variable_name:"last_name", value:lastName},
         {display_name:"Phone Number", variable_name:"phone", value:phone},
-      ]},
-      callback:function(response){
-        alert('Payment complete! Ref: '+response.reference);
-        cart=[];
-        updateCart();
-        checkoutPopup.style.display='none';
-        cartPopup.style.display='none';
-        window.location.href='/thank-you.html';
-      },
-      onClose:function(){ alert('Payment not completed'); }
-    });
-    handler.openIframe();
+      ]
+    },
+    callback: function(response){
+      alert('Payment complete! Reference: '+response.reference);
+      cart = [];
+      updateCart();
+      checkoutPopup.style.display='none';
+      cartPopup.style.display='none';
+      window.location.href='/thank-you.html';
+    },
+    onClose: function(){
+      alert('Payment was not completed.');
+    }
   });
+  handler.openIframe();
+});
 </script>
-</body>
-</html>

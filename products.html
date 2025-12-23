@@ -36,7 +36,7 @@ nav{
   align-items:center;
 }
 
-/* LOGO – BIG + NO TAP FLASH */
+/* LOGO */
 nav img{
   height:72px;
   user-select:none;
@@ -85,7 +85,7 @@ nav img{
 }
 .menu-links a:hover{background:#f0f0f0;}
 
-/* HERO – PRODUCT STYLE */
+/* HERO */
 header{
   position:relative;
   min-height:60vh;
@@ -104,18 +104,11 @@ header::before{
 }
 header *{position:relative;z-index:1;}
 header h1{font-size:38px;margin-bottom:10px;}
-header p{max-width:720px;font-size:18px;}
+header p{font-size:18px;max-width:720px;}
 
 @media(max-width:480px){
-  header h1{
-    font-size:26px;
-    line-height:1.25;
-  }
-  header p{
-    font-size:15px;
-    max-width:90%;
-    margin:auto;
-  }
+  header h1{font-size:26px;line-height:1.25;}
+  header p{font-size:15px;max-width:90%;margin:auto;}
 }
 
 /* PRODUCTS */
@@ -127,7 +120,6 @@ header p{max-width:720px;font-size:18px;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:26px;
 }
-
 .product{
   background:rgba(255,255,255,.55);
   backdrop-filter:blur(18px);
@@ -138,8 +130,9 @@ header p{max-width:720px;font-size:18px;}
 }
 .product h3{color:var(--brand);}
 .product p{font-size:15px;}
+.product a button,
 .product button{
-  margin-top:16px;
+  margin-top:14px;
   padding:12px 26px;
   border:none;
   border-radius:22px;
@@ -147,6 +140,7 @@ header p{max-width:720px;font-size:18px;}
   color:#003366;
   font-weight:600;
   cursor:pointer;
+  width:100%;
 }
 
 /* CART */
@@ -178,7 +172,7 @@ header p{max-width:720px;font-size:18px;}
   color:#fff;
 }
 
-/* FOOTER – SAME AS INDEX */
+/* FOOTER */
 footer{
   background:linear-gradient(180deg,#00264d,#001933);
   color:#fff;
@@ -212,10 +206,7 @@ footer .cac img{width:34px;}
   </a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="cart-count">0</span>
-    </button>
+    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
   </div>
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
@@ -227,7 +218,7 @@ footer .cac img{width:34px;}
 <header>
   <div>
     <h1>Our Products & Services</h1>
-    <p>Professional digital solutions designed to scale your business.</p>
+    <p>Explore our professional digital solutions.</p>
   </div>
 </header>
 
@@ -235,16 +226,21 @@ footer .cac img{width:34px;}
   <div class="product">
     <h3>Website Design</h3>
     <p>Modern, responsive business websites.</p>
+    <a href="/products/website-design.html"><button>View Details</button></a>
     <button onclick="addToCart('web','Website Design',25000)">Add to Cart</button>
   </div>
+
   <div class="product">
     <h3>Branding Package</h3>
-    <p>Logo, brand identity & guidelines.</p>
+    <p>Complete brand identity solutions.</p>
+    <a href="/products/branding.html"><button>View Details</button></a>
     <button onclick="addToCart('brand','Branding Package',40000)">Add to Cart</button>
   </div>
+
   <div class="product">
     <h3>Digital Marketing</h3>
     <p>SEO, ads & growth strategy.</p>
+    <a href="/products/digital-marketing.html"><button>View Details</button></a>
     <button onclick="addToCart('marketing','Digital Marketing',30000)">Add to Cart</button>
   </div>
 </section>
@@ -278,14 +274,8 @@ const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
 const cartPopup=document.getElementById('cart-popup');
 
-menuBtn.onclick=e=>{
-  e.stopPropagation();
-  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
-};
-cartBtn.onclick=e=>{
-  e.stopPropagation();
-  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
-};
+menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
+cartBtn.onclick=e=>{e.stopPropagation();cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
 document.addEventListener('click',e=>{
   if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
@@ -293,7 +283,6 @@ document.addEventListener('click',e=>{
 
 /* SHARED CART */
 let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
-
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
   document.getElementById("cart-count").textContent =
@@ -302,9 +291,8 @@ function saveCart(){
 saveCart();
 
 function addToCart(id,name,price){
-  const item = cart.find(p=>p.id===id);
-  if(item){item.qty++;}
-  else{cart.push({id,name,price,qty:1});}
+  const item=cart.find(p=>p.id===id);
+  if(item){item.qty++;}else{cart.push({id,name,price,qty:1});}
   saveCart();
   alert(name+" added to cart");
 }
@@ -313,12 +301,15 @@ function pay(){
   const e=email.value.trim();
   const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
   if(!e||!total){alert("Cart empty or email missing");return;}
-
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:e,
     amount:total*100,
-    callback:()=>alert("Payment Successful!")
+    callback:()=>{
+      alert("Payment Successful!");
+      localStorage.removeItem("hivarix_cart");
+      saveCart();
+    }
   }).openIframe();
 }
 </script>

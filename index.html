@@ -19,13 +19,14 @@ html,body{
   color:#333;
 }
 
-/* NAVIGATION */
+/* NAVIGATION – SOLID ALWAYS */
 nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.95);
-  border-bottom:1px solid #ccc;
+  background:#ffffff; /* SOLID */
+  border-bottom:1px solid #ddd;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
   padding:14px 20px;
   display:flex;
   justify-content:space-between;
@@ -71,7 +72,7 @@ nav img{height:58px;}
 }
 .menu-links a:hover{background:#f5f5f5;}
 
-/* HERO SECTION (SINGLE IMAGE) */
+/* HERO */
 .hero{
   position:relative;
   min-height:90vh;
@@ -106,16 +107,13 @@ nav img{height:58px;}
   cursor:pointer;
 }
 
-/* CONTENT SECTIONS */
+/* SECTIONS */
 section{
   padding:80px 20px;
   text-align:center;
   background:#fff;
 }
-section h2{
-  color:#003366;
-  margin-bottom:14px;
-}
+section h2{color:#003366;margin-bottom:14px;}
 section p{
   max-width:720px;
   margin:auto;
@@ -151,7 +149,7 @@ footer{
   filter:drop-shadow(0 0 6px rgba(212,175,55,.9));
 }
 
-/* CART POPUP */
+/* CART */
 #cart-popup{
   display:none;
   position:fixed;
@@ -206,7 +204,6 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
     <h1>Welcome to HiVaRiX Global</h1>
@@ -215,14 +212,12 @@ footer{
   </div>
 </div>
 
-<!-- WHY US -->
 <section>
   <h2>Why Choose Us?</h2>
   <p>We combine strategy, creativity, and technology to deliver scalable, sustainable digital growth.</p>
   <a href="/about.html"><button class="btn-alt">View More</button></a>
 </section>
 
-<!-- CART POPUP -->
 <div id="cart-popup">
   <h3>Checkout Details</h3>
   <input id="firstName" placeholder="First Name *">
@@ -232,7 +227,6 @@ footer{
   <button onclick="pay()">Proceed to Payment</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <h3>Contact Us</h3>
   <div class="social-icons">

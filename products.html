@@ -14,7 +14,6 @@
   --brand:#003366;
   --accent:#ffd700;
 }
-
 body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
@@ -24,9 +23,7 @@ body{
 
 /* NAV */
 nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  position:sticky;top:0;z-index:1000;
   background:#fff;
   border-bottom:1px solid rgba(0,0,0,.08);
   padding:14px 20px;
@@ -35,7 +32,6 @@ nav{
   align-items:center;
 }
 nav img{height:68px;}
-
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -47,12 +43,9 @@ nav img{height:68px;}
   position:relative;
 }
 #cart-count{
-  position:absolute;
-  top:-6px;right:-6px;
+  position:absolute;top:-6px;right:-6px;
   background:red;color:#fff;
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:50%;
+  font-size:12px;padding:2px 6px;border-radius:50%;
 }
 
 /* MENU */
@@ -85,9 +78,7 @@ header{
   background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover;
 }
 header::before{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:rgba(0,0,0,.6);
 }
 header *{position:relative;}
@@ -115,27 +106,22 @@ header p{font-size:18px;}
   flex-direction:column;
   text-align:center;
 }
-
 .product h3{
   color:var(--brand);
   font-size:20px;
   margin-bottom:6px;
 }
-
 .product .price{
   font-size:18px;
   font-weight:700;
   margin:12px 0 20px;
 }
-
-/* ACTIONS – FIXED ALIGNMENT */
 .product .actions{
   margin-top:auto;
   display:flex;
   flex-direction:column;
   gap:12px;
 }
-
 .product a,
 .product button{
   height:46px;
@@ -147,29 +133,76 @@ header p{font-size:18px;}
   cursor:pointer;
   text-decoration:none;
 }
-
-/* Secondary */
 .product a{
   background:transparent;
   border:2px solid var(--brand);
   color:var(--brand);
 }
-.product a:hover{
-  background:rgba(0,51,102,.08);
-}
-
-/* Primary */
+.product a:hover{background:rgba(0,51,102,.08);}
 .product button{
   border:none;
   background:var(--accent);
   color:#003366;
 }
 
+/* PREMIUM BADGE & TOOLTIP */
+.product.premium{
+  position:relative;
+  border:2px solid rgba(255,215,0,.55);
+}
+.product .premium-badge{
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:linear-gradient(135deg,#ffd700,#ffb700);
+  color:#003366;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:20px;
+  box-shadow:0 6px 14px rgba(0,0,0,.2);
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+.tooltip{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:#003366;
+  color:#fff;
+  font-size:11px;
+  margin-left:6px;
+  cursor:help;
+}
+.tooltip span{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:130%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#003366;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:12px;
+  width:240px;
+  line-height:1.4;
+  transition:.2s ease;
+  z-index:50;
+}
+.tooltip:hover span{
+  visibility:visible;
+  opacity:1;
+}
+
 /* CART MODAL */
 #cart-modal{
   display:none;
-  position:fixed;
-  inset:0;
+  position:fixed;inset:0;
   background:rgba(0,0,0,.6);
   z-index:3000;
 }
@@ -186,9 +219,7 @@ header p{font-size:18px;}
   align-items:center;
   margin-bottom:12px;
 }
-.cart-controls button{
-  padding:4px 10px;
-}
+.cart-controls button{padding:4px 10px;}
 input{
   width:100%;
   padding:10px;
@@ -211,9 +242,7 @@ footer .cac{
   margin-top:14px;
 }
 footer .cac img{width:34px;}
-@media(max-width:768px){
-  footer .cac{flex-direction:column;}
-}
+@media(max-width:768px){footer .cac{flex-direction:column;}}
 </style>
 </head>
 
@@ -244,6 +273,7 @@ footer .cac img{width:34px;}
 
 <section class="products">
 
+  <!-- Standard Products -->
   <div class="product">
     <h3>Branding & Digital Solutions</h3>
     <div class="price">₦25,000</div>
@@ -277,6 +307,40 @@ footer .cac img{width:34px;}
     <div class="actions">
       <a href="/online-presence-pack.html">View Details</a>
       <button onclick="addToCart('online','Online Presence Pack',200000)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <h3>Social Media Booster Pack</h3>
+    <div class="price">₦1,200,000</div>
+    <div class="actions">
+      <a href="/social-media-booster-pack.html">View Details</a>
+      <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Premium / Invitation Only -->
+  <div class="product premium">
+    <div class="premium-badge">Premium • Invitation Only</div>
+
+    <h3>
+      Social Media Verified Badge Pack
+      <div class="tooltip">i
+        <span>
+          Eligibility requires:
+          <br>• Authentic brand presence
+          <br>• Active social media history
+          <br>• Compliance with platform policies
+          <br>• Manual review & approval
+        </span>
+      </div>
+    </h3>
+
+    <div class="price">₦1,500,000</div>
+
+    <div class="actions">
+      <a href="/verified-badge-pack.html">View Details</a>
+      <button onclick="requestAccess()">Request Access</button>
     </div>
   </div>
 
@@ -401,6 +465,22 @@ function payNow(){
       closeCart();
     }
   }).openIframe();
+}
+
+/* PREMIUM REQUEST ACCESS */
+function requestAccess(){
+  const subject = encodeURIComponent(
+    "Premium Access Request – Verified Badge Pack"
+  );
+
+  const body = encodeURIComponent(
+    "A customer has requested access to the Social Media Verified Badge Pack.\n\n" +
+    "Please follow up manually.\n\n" +
+    "Page: " + window.location.href
+  );
+
+  window.location.href =
+    "mailto:hivarixglobal@gmail.com?subject=" + subject + "&body=" + body;
 }
 
 saveCart();

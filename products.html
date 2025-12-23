@@ -35,7 +35,6 @@ nav img{
   height:72px;
   user-select:none;
   -webkit-tap-highlight-color:transparent;
-  -webkit-touch-callout:none;
 }
 @media(max-width:768px){nav img{height:58px;}}
 
@@ -96,7 +95,7 @@ header *{position:relative;}
 header h1{font-size:38px;}
 header p{font-size:18px;max-width:720px;}
 @media(max-width:480px){
-  header h1{font-size:26px;line-height:1.25;}
+  header h1{font-size:26px;}
   header p{font-size:15px;}
 }
 
@@ -156,21 +155,6 @@ header p{font-size:18px;max-width:720px;}
   box-shadow:0 25px 50px rgba(0,0,0,.35);
   z-index:2000;
 }
-#cart-popup input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-#cart-popup button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
-}
 
 /* FOOTER */
 footer{
@@ -178,11 +162,6 @@ footer{
   color:#fff;
   padding:60px 20px;
   text-align:center;
-}
-footer .social-icons a{
-  margin:0 10px;
-  font-size:24px;
-  color:#fff;
 }
 footer .cac{
   display:flex;
@@ -192,9 +171,6 @@ footer .cac{
   margin-top:14px;
 }
 footer .cac img{width:34px;}
-@media(max-width:768px){
-  footer .cac{flex-direction:column;gap:6px;}
-}
 </style>
 </head>
 
@@ -216,40 +192,55 @@ footer .cac img{width:34px;}
 <header>
   <div>
     <h1>Our Products & Services</h1>
-    <p>Explore our professional digital solutions & merchandise.</p>
+    <p>Explore our professional digital solutions.</p>
   </div>
 </header>
 
 <section class="products">
 
+  <!-- Branding -->
   <div class="product">
     <h3>Branding & Digital Solutions</h3>
-    <p>Professional branding, creative & digital services — ₦25,000</p>
+    <p>NGN 25,000</p>
+    <a href="/branding-digital-solutions.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">Add to Cart</button>
+  </div>
 
-    <a href="/branding-digital-solutions.html" class="view-btn">
-      View Details
-    </a>
+  <!-- Startup Pack -->
+  <div class="product">
+    <h3>Startup Digital Pack</h3>
+    <p>NGN 150,000</p>
+    <a href="/startup-digital-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
+  </div>
 
-    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">
-      Add to Cart
-    </button>
+  <!-- Business Visibility -->
+  <div class="product">
+    <h3>Business Visibility & Local Listing Pack</h3>
+    <p>NGN 100,000</p>
+    <a href="/business-visibility-local-listing-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('visibility','Business Visibility & Local Listing Pack',100000)">Add to Cart</button>
+  </div>
+
+  <!-- Online Presence -->
+  <div class="product">
+    <h3>Online Presence Pack</h3>
+    <p>NGN 200,000</p>
+    <a href="/online-presence-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('online','Online Presence Pack',200000)">Add to Cart</button>
+  </div>
+
+  <!-- Consultancy -->
+  <div class="product">
+    <h3>Business & Digital Consultancy</h3>
+    <p>NGN 300,000</p>
+    <a href="/business-digital-consultancy.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('consultancy','Business & Digital Consultancy',300000)">Add to Cart</button>
   </div>
 
 </section>
 
-<div id="cart-popup">
-  <h3>Checkout Details</h3>
-  <input id="email" placeholder="Email *">
-  <button onclick="pay()">Proceed to Payment</button>
-</div>
-
 <footer>
-  <h3>Contact Us</h3>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div class="cac">
     <img src="assets/assets/cac-logo.png">
@@ -261,41 +252,22 @@ footer .cac img{width:34px;}
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
-const cartPopup=document.getElementById('cart-popup');
 
 menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
-cartBtn.onclick=e=>{e.stopPropagation();cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
-document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
-  if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
-});
+document.addEventListener('click',()=>menuLinks.style.display='none');
 
-/* CART SYNC */
 let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
-  document.getElementById("cart-count").textContent=
-    cart.reduce((t,i)=>t+i.qty,0);
+  document.getElementById("cart-count").textContent=cart.reduce((t,i)=>t+i.qty,0);
 }
 saveCart();
 
 function addToCart(id,name,price){
-  let item=cart.find(p=>p.id===id);
+  const item=cart.find(p=>p.id===id);
   item?item.qty++:cart.push({id,name,price,qty:1});
   saveCart();
   alert(name+" added to cart");
-}
-
-function pay(){
-  const e=email.value.trim();
-  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
-  if(!e||!total){alert("Add items and enter email");return;}
-  PaystackPop.setup({
-    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:e,
-    amount:total*100,
-    callback:()=>alert("Payment Successful!")
-  }).openIframe();
 }
 </script>
 

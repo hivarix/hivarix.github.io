@@ -34,7 +34,7 @@
 html, body { height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh; }
 body { flex-direction: column; }
 nav { background:#fff; border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
-nav img { height:50px; }
+nav img { height:60px; font-weight:bold; font-style:normal; }
 nav .nav-right { display:flex; align-items:center; }
 nav .nav-right button { margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative; }
 nav .nav-right button:hover { background:#002244; color:#fff; }
@@ -46,8 +46,7 @@ nav .menu-links a:hover { background:#f0f0f0; }
 
 /* Header */
 header { padding:80px 20px; text-align:center; position:relative; }
-header h1 { font-size:40px; margin-bottom:10px; color:#003366; }
-header .slogan { font-size:6px; font-style:italic; color:#555; display:block; margin-top:5px; }
+header h1 { font-size:40px; margin-bottom:20px; color:#003366; font-weight:700; }
 
 /* Sections */
 section { padding:50px 20px; text-align:center; flex:1; }
@@ -101,7 +100,6 @@ footer .social-icons a img { width:32px; height:32px; margin:0 10px; vertical-al
 <!-- HEADER -->
 <header>
   <h1>Welcome to HiVaRiX Global</h1>
-  <span class="slogan">Digital Excellence</span>
   <p>Your trusted partner for digital services, branding, and quality merchandise.</p>
   <a href="/products.html"><button>Explore Products</button></a>
 </header>
@@ -111,7 +109,6 @@ footer .social-icons a img { width:32px; height:32px; margin:0 10px; vertical-al
   <h2>Our Products & Services</h2>
   <div class="container">
     <div class="grid" id="products-grid">
-      <!-- Example products -->
       <div class="card">
         <h3>Branding & Digital Solutions</h3>
         <div class="price">NGN 25,000</div>
@@ -157,7 +154,6 @@ footer .social-icons a img { width:32px; height:32px; margin:0 10px; vertical-al
   </div>
 </footer>
 
-<!-- Paystack Script -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <script>
@@ -169,8 +165,8 @@ menuBtn.addEventListener('click', () => {
   menuLinks.style.flexDirection = 'column';
 });
 
-// Cart Functionality
-let cart = [];
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
@@ -179,6 +175,7 @@ const closeCartBtn = document.getElementById('close-cart-btn');
 const checkoutBtn = document.getElementById('checkout-btn');
 
 function updateCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
   cartCountSpan.textContent = cart.length;
   cartItemsDiv.innerHTML = '';
   cart.forEach((item, index) => {
@@ -231,7 +228,7 @@ checkoutBtn.addEventListener('click', () => {
       cart = [];
       updateCart();
       cartPopup.style.display='none';
-      window.location.href = '/thank-you.html'; // redirect to your thank-you page
+      window.location.href = '/thank-you.html';
     },
     onClose: function(){
       alert('Payment was not completed');
@@ -239,6 +236,8 @@ checkoutBtn.addEventListener('click', () => {
   });
   handler.openIframe();
 });
+
+updateCart();
 </script>
 
 </body>

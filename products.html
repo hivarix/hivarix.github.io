@@ -36,7 +36,7 @@ nav{
   align-items:center;
 }
 
-/* LOGO */
+/* LOGO – BIG + NO TAP FLASH */
 nav img{
   height:72px;
   user-select:none;
@@ -130,9 +130,20 @@ header p{font-size:18px;max-width:720px;}
 }
 .product h3{color:var(--brand);}
 .product p{font-size:15px;}
-.product a button,
-.product button{
+
+.product .view-btn{
+  display:block;
   margin-top:14px;
+  padding:12px 26px;
+  border-radius:22px;
+  background:var(--accent);
+  color:#003366;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.product button{
+  margin-top:12px;
   padding:12px 26px;
   border:none;
   border-radius:22px;
@@ -196,8 +207,8 @@ footer .cac img{width:34px;}
   footer .cac{flex-direction:column;gap:6px;}
 }
 </style>
-
 </head>
+
 <body>
 
 <nav>
@@ -227,55 +238,43 @@ footer .cac img{width:34px;}
   <div class="product">
     <h3>Branding & Digital Solutions</h3>
     <p>Professional branding, creative & digital services — ₦25,000</p>
-    <a href="/products/branding-digital-solutions.html"><button>View Details</button></a>
-    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">
-      Add to Cart
-    </button>
+    <a href="/products/branding-digital-solutions.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">Add to Cart</button>
   </div>
 
   <div class="product">
     <h3>Startup Digital Pack</h3>
     <p>Complete startup sales toolkit — ₦150,000</p>
-    <a href="/products/startup-digital-pack.html"><button>View Details</button></a>
-    <button onclick="addToCart('startup','Startup Digital Pack',150000)">
-      Add to Cart
-    </button>
+    <a href="/products/startup-digital-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
   </div>
 
   <div class="product">
     <h3>Business Visibility & Local Listing Pack</h3>
     <p>Local SEO and listings — ₦100,000</p>
-    <a href="/products/business-visibility-local-listing-pack.html"><button>View Details</button></a>
-    <button onclick="addToCart('visibility','Business Visibility Pack',100000)">
-      Add to Cart
-    </button>
+    <a href="/products/business-visibility-local-listing-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('visibility','Business Visibility Pack',100000)">Add to Cart</button>
   </div>
 
   <div class="product">
     <h3>Oraimo Type C to C Cable</h3>
     <p>Universal charging cable — ₦7,500</p>
-    <a href="/products/oraimo-type-c-cable.html"><button>View Details</button></a>
-    <button onclick="addToCart('oraimo-cable','Oraimo Type C Cable',7500)">
-      Add to Cart
-    </button>
+    <a href="/products/oraimo-type-c-cable.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('oraimo-cable','Oraimo Type C Cable',7500)">Add to Cart</button>
   </div>
 
   <div class="product">
     <h3>Online Presence Pack</h3>
     <p>SEO, PPC & website presence — ₦200,000</p>
-    <a href="/products/online-presence-pack.html"><button>View Details</button></a>
-    <button onclick="addToCart('online-presence','Online Presence Pack',200000)">
-      Add to Cart
-    </button>
+    <a href="/products/online-presence-pack.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('online-presence','Online Presence Pack',200000)">Add to Cart</button>
   </div>
 
   <div class="product">
     <h3>Business & Digital Consultancy</h3>
     <p>Professional advising services — ₦300,000</p>
-    <a href="/products/business-digital-consultancy.html"><button>View Details</button></a>
-    <button onclick="addToCart('digital-consultancy','Business & Digital Consultancy',300000)">
-      Add to Cart
-    </button>
+    <a href="/products/business-digital-consultancy.html" class="view-btn">View Details</a>
+    <button onclick="addToCart('digital-consultancy','Business & Digital Consultancy',300000)">Add to Cart</button>
   </div>
 
 </section>
@@ -318,6 +317,7 @@ document.addEventListener('click',e=>{
 
 /* SHARED CART */
 let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
+
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
   document.getElementById("cart-count").textContent =

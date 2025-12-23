@@ -19,12 +19,12 @@ html,body{
   color:#333;
 }
 
-/* NAVIGATION – SOLID ALWAYS */
+/* NAVIGATION – SOLID */
 nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffffff; /* SOLID */
+  background:#ffffff;
   border-bottom:1px solid #ddd;
   box-shadow:0 2px 10px rgba(0,0,0,.08);
   padding:14px 20px;
@@ -32,7 +32,15 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-nav img{height:58px;}
+
+/* LOGO – BOLDER */
+nav img{
+  height:64px; /* slightly larger */
+  filter:contrast(1.25) saturate(1.2);
+  drop-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+
+/* NAV BUTTONS */
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -57,7 +65,7 @@ nav img{height:58px;}
 .menu-links{
   display:none;
   position:absolute;
-  top:70px;right:20px;
+  top:72px;right:20px;
   background:#fff;
   border-radius:10px;
   box-shadow:0 6px 20px rgba(0,0,0,.15);
@@ -176,11 +184,11 @@ footer{
   border:none;
   color:#fff;
   border-radius:8px;
-  cursor:pointer;
 }
 
 /* MOBILE */
 @media(max-width:768px){
+  nav img{height:56px;} /* balanced on mobile */
   .hero h1{font-size:32px;}
   .hero{min-height:75vh;}
 }
@@ -237,7 +245,7 @@ footer{
 
   <p>©️ 2025 HiVaRiX Global. All rights reserved.</p>
 
-  <img src="assets/assets/cac-logo.png" class="cac-footer" alt="CAC Registered Business">
+  <img src="assets/assets/cac-logo.png" class="cac-footer">
 
   <p>
     HiVaRiX Global is a registered business.<br>

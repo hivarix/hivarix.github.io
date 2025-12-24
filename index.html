@@ -137,34 +137,31 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP */
+/* CART POPUP (PRODUCTS.HTML STYLE) */
 #cart-popup{
   display:none;
   position:fixed;
-  top:90px;right:20px;
-  width:340px;
-  background:#ffffff;
-  border-radius:20px;
+  top:70px;
+  right:20px;
+  width:320px;
+  max-height:500px;
+  overflow-y:auto;
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:15px;
   padding:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.35);
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
   z-index:2000;
 }
-#cart-popup input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-#cart-popup button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
-  cursor:pointer;
-}
+#cart-popup h3{margin-top:0;color:var(--brand);}
+.cart-item{display:flex;justify-content:space-between;margin-bottom:10px;}
+.cart-item button{background:red;color:#fff;border:none;padding:2px 6px;border-radius:4px;cursor:pointer;font-size:12px;}
+
+/* CHECKOUT FORM */
+#checkout-form{display:flex;flex-direction:column;margin-top:10px;}
+#checkout-form input{margin-bottom:10px;padding:8px 10px;border-radius:6px;border:1px solid #ccc;font-size:14px;}
+#checkout-form button{padding:10px;background:var(--brand);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:16px;}
+#checkout-form button:hover{background:#002244;}
 
 /* FOOTER */
 footer{
@@ -178,8 +175,6 @@ footer .social-icons a{
   font-size:24px;
   color:#fff;
 }
-
-/* CAC */
 footer .cac{
   display:flex;
   justify-content:center;
@@ -247,12 +242,16 @@ footer .cac img{
 <!-- CART POPUP -->
 <div id="cart-popup">
   <h3>Your Cart</h3>
-  <div id="cart-items" style="margin-bottom:15px;"></div>
-  <input id="firstName" placeholder="First Name *">
-  <input id="lastName" placeholder="Last Name *">
-  <input id="email" placeholder="Email *">
-  <input id="phone" placeholder="Phone Number (Nigeria) *">
-  <button onclick="pay()">Proceed to Payment</button>
+  <div id="cart-items"></div>
+  <h4>Fill Your Information</h4>
+  <form id="checkout-form">
+    <input id="firstName" placeholder="First Name*" required>
+    <input id="lastName" placeholder="Last Name*" required>
+    <input id="email" placeholder="Email*" required>
+    <input id="phone" placeholder="Phone Number* (Nigeria)" required>
+    <button type="submit">Proceed to Payment</button>
+  </form>
+  <button id="close-cart-btn" style="margin-top:10px;padding:8px;border-radius:8px;background:#ccc;color:#000;border:none;width:100%;cursor:pointer;">Close</button>
 </div>
 
 <footer>
@@ -270,19 +269,20 @@ footer .cac img{
 </footer>
 
 <script>
-// MENU TOGGLE
+// MENU & CART TOGGLE
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
-menuBtn.onclick=e=>{ e.stopPropagation(); menuLinks.style.display=menuLinks.style.display==='block'?'none':'block'; };
-
-// CART TOGGLE
 const cartBtn=document.getElementById('cart-btn');
-const cartPopupDiv=document.getElementById('cart-popup');
-cartBtn.onclick=e=>{ e.stopPropagation(); cartPopupDiv.style.display=cartPopupDiv.style.display==='block'?'none':'block'; };
+const cartPopup=document.getElementById('cart-popup');
+const closeCartBtn=document.getElementById('close-cart-btn');
+
+menuBtn.onclick=e=>{ e.stopPropagation(); menuLinks.style.display = menuLinks.style.display==='block'?'none':'block'; };
+cartBtn.onclick=e=>{ e.stopPropagation(); cartPopup.style.display = cartPopup.style.display==='block'?'none':'block'; };
+closeCartBtn.onclick = ()=>{ cartPopup.style.display='none'; };
 
 document.addEventListener('click', e=>{
   if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none';
-  if(!cartPopupDiv.contains(e.target)&&e.target!==cartBtn) cartPopupDiv.style.display='none';
+  if(!cartPopup.contains(e.target)&&e.target!==cartBtn) cartPopup.style.display='none';
 });
 
 // CART SYSTEM
@@ -290,27 +290,21 @@ let cart = JSON.parse(localStorage.getItem('hivarix_cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
 const cartItemsDiv = document.getElementById('cart-items');
 
-function updateCart() {
+function updateCart(){
   localStorage.setItem('hivarix_cart', JSON.stringify(cart));
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  const totalItems = cart.reduce((sum,item)=>sum+item.qty,0);
   cartCountSpan.textContent = totalItems;
 
-  cartItemsDiv.innerHTML = '';
-  if(cart.length === 0){
-    cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+  cartItemsDiv.innerHTML='';
+  if(cart.length===0){
+    cartItemsDiv.innerHTML='<p>Your cart is empty.</p>';
     return;
   }
 
   cart.forEach((item,index)=>{
-    const div = document.createElement('div');
+    const div=document.createElement('div');
     div.classList.add('cart-item');
-    div.style.display='flex';
-    div.style.justifyContent='space-between';
-    div.style.marginBottom='10px';
-    div.innerHTML = `
-      <span>${item.name} (${item.qty}) - NGN ${item.price.toLocaleString()}</span>
-      <button onclick="removeFromCart(${index})" style="background:red;color:#fff;border:none;padding:2px 6px;border-radius:4px;cursor:pointer;font-size:12px;">x</button>
-    `;
+    div.innerHTML=`${item.name} (${item.qty}) - NGN ${item.price.toLocaleString()} <button onclick="removeFromCart(${index})">x</button>`;
     cartItemsDiv.appendChild(div);
   });
 }
@@ -320,46 +314,46 @@ function removeFromCart(index){
   updateCart();
 }
 
-function pay(){
-  if(cart.length === 0){ alert("Your cart is empty."); return; }
+const checkoutForm=document.getElementById('checkout-form');
+checkoutForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  if(cart.length===0){ alert('Your cart is empty'); return; }
 
   const f = firstName.value.trim();
   const l = lastName.value.trim();
-  const e = email.value.trim();
+  const eMail = email.value.trim();
   const p = phone.value.trim();
   const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
 
-  if(!f || !l || !e || !p){ alert("Please fill all fields."); return; }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){ alert("Invalid email."); return; }
-  if(!nigeriaPhone.test(p)){ alert("Invalid Nigerian phone number."); return; }
+  if(!f||!l||!eMail||!p){ alert('Fill all fields'); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eMail)){ alert('Invalid email'); return; }
+  if(!nigeriaPhone.test(p)){ alert('Invalid Nigerian phone'); return; }
 
   const totalAmount = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
-
   const handler = PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:e,
+    email:eMail,
     amount: totalAmount*100,
     metadata:{ custom_fields:[
-      { display_name:"First Name", variable_name:"first_name", value:f },
-      { display_name:"Last Name", variable_name:"last_name", value:l },
-      { display_name:"Phone Number", variable_name:"phone", value:p }
+      {display_name:"First Name",variable_name:"first_name",value:f},
+      {display_name:"Last Name",variable_name:"last_name",value:l},
+      {display_name:"Phone Number",variable_name:"phone",value:p}
     ]},
     callback:function(response){
-      alert("Payment complete! Ref: "+response.reference);
+      alert('Payment complete! Ref: '+response.reference);
       cart=[];
       updateCart();
-      cartPopupDiv.style.display='none';
-      firstName.value=''; lastName.value=''; email.value=''; phone.value='';
+      cartPopup.style.display='none';
+      checkoutForm.reset();
       window.location.href='/thank-you.html';
     },
-    onClose:function(){ alert("Payment not completed."); }
+    onClose:function(){ alert('Payment not completed.'); }
   });
   handler.openIframe();
-}
+});
 
 // INIT
 updateCart();
 </script>
-
 </body>
 </html>

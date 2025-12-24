@@ -14,9 +14,7 @@
   --brand:#003366;
   --accent:#ffd700;
 }
-
-/* BASE */
-html,body{
+body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
@@ -25,28 +23,15 @@ html,body{
 
 /* NAV */
 nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#ffffff;
+  position:sticky;top:0;z-index:1000;
+  background:#fff;
   border-bottom:1px solid rgba(0,0,0,.08);
   padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-
-/* LOGO */
-nav img{
-  height:72px;
-  user-select:none;
-  -webkit-tap-highlight-color:transparent;
-}
-@media(max-width:768px){
-  nav img{height:58px;}
-}
-
-/* NAV BUTTONS */
+nav img{height:68px;}
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -58,20 +43,17 @@ nav img{
   position:relative;
 }
 #cart-count{
-  position:absolute;
-  top:-6px;right:-6px;
+  position:absolute;top:-6px;right:-6px;
   background:red;color:#fff;
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:50%;
+  font-size:12px;padding:2px 6px;border-radius:50%;
 }
 
 /* MENU */
 .menu-links{
   display:none;
   position:absolute;
-  top:72px;right:20px;
-  background:#ffffff;
+  top:78px;right:20px;
+  background:#fff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
 }
@@ -93,59 +75,166 @@ header{
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover;
 }
 header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
+  content:"";position:absolute;inset:0;
+  background:rgba(0,0,0,.6);
 }
-header *{position:relative;z-index:1;}
-header h1{font-size:38px;margin-bottom:10px;}
-header p{font-size:18px;max-width:720px;}
-
-@media(max-width:480px){
-  header h1{font-size:26px;}
-  header p{font-size:15px;max-width:90%;}
+header *{position:relative;}
+header h1{font-size:38px;}
+header p{font-size:18px;}
+#branding-quotes {
+  font-size:12px;
+  color:rgba(255,255,255,0.85);
+  margin-top:12px;
+  font-style:italic;
+  min-height:20px;
+  transition: opacity 0.6s ease-in-out;
 }
 
 /* PRODUCTS GRID */
 .products{
-  max-width:1100px;
-  margin:-50px auto 80px;
+  max-width:1200px;
+  margin:-60px auto 90px;
   padding:40px 20px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
 
+/* PRODUCT CARD */
 .product{
-  background:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.6);
   backdrop-filter:blur(18px);
-  border-radius:22px;
-  padding:26px;
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 16px 30px rgba(0,0,0,.12);
+  display:flex;
+  flex-direction:column;
   text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
-
-.product h3{color:var(--brand);}
-.product p{font-size:15px;}
-
+.product h3{
+  color:var(--brand);
+  font-size:20px;
+  margin-bottom:6px;
+}
+.product .price{
+  font-size:18px;
+  font-weight:700;
+  margin:12px 0 20px;
+}
+.product .actions{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
 .product a,
 .product button{
-  display:block;
-  width:100%;
-  margin-top:14px;
-  padding:12px 26px;
-  border:none;
-  border-radius:22px;
-  background:var(--accent);
-  color:#003366;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
   font-weight:600;
   cursor:pointer;
   text-decoration:none;
 }
+.product a{
+  background:transparent;
+  border:2px solid var(--brand);
+  color:var(--brand);
+}
+.product a:hover{background:rgba(0,51,102,.08);}
+.product button{
+  border:none;
+  background:var(--accent);
+  color:#003366;
+}
+
+/* PREMIUM BADGE & TOOLTIP */
+.product.premium{
+  position:relative;
+  border:2px solid rgba(255,215,0,.55);
+}
+.product .premium-badge{
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:linear-gradient(135deg,#ffd700,#ffb700);
+  color:#003366;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:20px;
+  box-shadow:0 6px 14px rgba(0,0,0,.2);
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+.tooltip{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:#003366;
+  color:#fff;
+  font-size:11px;
+  margin-left:6px;
+  cursor:help;
+}
+.tooltip span{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:130%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#003366;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:12px;
+  width:240px;
+  line-height:1.4;
+  transition:.2s ease;
+  z-index:50;
+}
+.tooltip:hover span{
+  visibility:visible;
+  opacity:1;
+}
+
+/* CART MODAL */
+#cart-modal{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:3000;
+}
+#cart-box{
+  background:#fff;
+  max-width:460px;
+  margin:5% auto;
+  padding:26px;
+  border-radius:22px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.cart-controls button{padding:4px 10px;}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
 
 /* FOOTER */
 footer{
@@ -157,14 +246,11 @@ footer{
 footer .cac{
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:8px;
   margin-top:14px;
 }
 footer .cac img{width:34px;}
-@media(max-width:768px){
-  footer .cac{flex-direction:column;}
-}
+@media(max-width:768px){footer .cac{flex-direction:column;}}
 </style>
 </head>
 
@@ -189,61 +275,82 @@ footer .cac img{width:34px;}
 <header>
   <div>
     <h1>Our Products & Services</h1>
-    <p>Explore our professional digital solutions.</p>
+    <p>Explore our professional digital solutions</p>
+    <div id="branding-quotes"></div>
   </div>
 </header>
 
 <section class="products">
 
+  <!-- Standard Products -->
   <div class="product">
     <h3>Branding & Digital Solutions</h3>
-    <p>₦25,000</p>
-    <a href="/branding-digital-solutions.html">View Details</a>
-    <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">Add to Cart</button>
+    <div class="price">₦25,000</div>
+    <div class="actions">
+      <a href="/branding-digital-solutions.html">View Details</a>
+      <button onclick="addToCart('branding','Branding & Digital Solutions',25000)">Add to Cart</button>
+    </div>
   </div>
 
   <div class="product">
     <h3>Startup Digital Pack</h3>
-    <p>₦150,000</p>
-    <a href="/startup-digital-pack.html">View Details</a>
-    <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
+    <div class="price">₦150,000</div>
+    <div class="actions">
+      <a href="/startup-digital-pack.html">View Details</a>
+      <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
+    </div>
   </div>
 
   <div class="product">
-    <h3>Business Visibility & Local Listing Pack</h3>
-    <p>₦100,000</p>
-    <a href="/business-visibility-pack.html">View Details</a>
-    <button onclick="addToCart('visibility','Business Visibility Pack',100000)">Add to Cart</button>
+    <h3>Business Visibility Pack</h3>
+    <div class="price">₦100,000</div>
+    <div class="actions">
+      <a href="/business-visibility-pack.html">View Details</a>
+      <button onclick="addToCart('visibility','Business Visibility Pack',100000)">Add to Cart</button>
+    </div>
   </div>
 
   <div class="product">
     <h3>Online Presence Pack</h3>
-    <p>₦200,000</p>
-    <a href="/online-presence-pack.html">View Details</a>
-    <button onclick="addToCart('online','Online Presence Pack',200000)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>Business & Digital Consultancy</h3>
-    <p>₦300,000</p>
-    <a href="/business-digital-consultancy.html">View Details</a>
-    <button onclick="addToCart('consult','Business & Digital Consultancy',300000)">Add to Cart</button>
+    <div class="price">₦200,000</div>
+    <div class="actions">
+      <a href="/online-presence-pack.html">View Details</a>
+      <button onclick="addToCart('online','Online Presence Pack',200000)">Add to Cart</button>
+    </div>
   </div>
 
   <div class="product">
     <h3>Social Media Booster Pack</h3>
-    <p>₦1,200,000</p>
-    <a href="/social-media-booster-pack.html">View Details</a>
-    <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">Add to Cart</button>
+    <div class="price">₦1,200,000</div>
+    <div class="actions">
+      <a href="/social-media-booster-pack.html">View Details</a>
+      <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">Add to Cart</button>
+    </div>
   </div>
 
-  <div class="product">
-    <h3>Social Media Verified Badge Pack</h3>
-    <p>₦1,500,000 <br> <small>Premium / Invitation Only</small></p>
-    <a href="/social-media-verified-badge-pack.html">View Details</a>
-    <button onclick="requestAccess()">Request Access
-      <span title="Verification required before purchase">i</span>
-    </button>
+  <!-- Premium / Invitation Only -->
+  <div class="product premium">
+    <div class="premium-badge">Premium • Invitation Only</div>
+
+    <h3>
+      Social Media Verified Badge Pack
+      <div class="tooltip">i
+        <span>
+          Eligibility requires:
+          <br>• Authentic brand presence
+          <br>• Active social media history
+          <br>• Compliance with platform policies
+          <br>• Manual review & approval
+        </span>
+      </div>
+    </h3>
+
+    <div class="price">₦1,500,000</div>
+
+    <div class="actions">
+      <a href="/verified-badge-pack.html">View Details</a>
+      <button onclick="requestAccess()">Request Access</button>
+    </div>
   </div>
 
 </section>
@@ -256,33 +363,161 @@ footer .cac img{width:34px;}
   </div>
 </footer>
 
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div id="cart-box">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Total: ₦<span id="cart-total">0</span></h4>
+
+    <input id="cust-name" placeholder="Full Name" required>
+    <input id="cust-email" placeholder="Email Address" required>
+    <input id="cust-phone" placeholder="Phone Number" required>
+
+    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
 <script>
 /* MENU */
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
-menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
-document.addEventListener('click',e=>{if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';});
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
+document.addEventListener('click',e=>{
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
+    menuLinks.style.display='none';
+});
 
-/* CART SYNC */
+/* CART */
 let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+const cartBtn=document.getElementById("cart-btn");
+const modal=document.getElementById("cart-modal");
+const itemsDiv=document.getElementById("cart-items");
+const totalSpan=document.getElementById("cart-total");
+
 function saveCart(){
   localStorage.setItem("hivarix_cart",JSON.stringify(cart));
   document.getElementById("cart-count").textContent=
     cart.reduce((t,i)=>t+i.qty,0);
 }
+
 function addToCart(id,name,price){
-  const item=cart.find(p=>p.id===id);
+  const item=cart.find(i=>i.id===id);
   item?item.qty++:cart.push({id,name,price,qty:1});
   saveCart();
 }
-saveCart();
 
-/* REQUEST ACCESS FOR PREMIUM */
-function requestAccess(){
-  const subject=encodeURIComponent("Premium Access Request – Verified Badge Pack");
-  const body=encodeURIComponent("Customer requested access. Page: "+window.location.href);
-  window.location.href="mailto:hivarixglobal@gmail.com?subject="+subject+"&body="+body;
+cartBtn.onclick=openCart;
+
+function openCart(){
+  itemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    itemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+  totalSpan.textContent=total.toLocaleString();
+  modal.style.display="block";
 }
+
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  openCart();
+}
+
+function closeCart(){modal.style.display="none";}
+
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+
+  if(!name||!email||!phone){
+    alert("All customer details are required");
+    return;
+  }
+
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
+
+  PaystackPop.setup({
+    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{
+      custom_fields:[
+        {display_name:"Name",value:name},
+        {display_name:"Phone",value:phone}
+      ]
+    },
+    callback:()=>{
+      alert("Payment successful");
+      cart=[];
+      saveCart();
+      closeCart();
+    }
+  }).openIframe();
+}
+
+/* PREMIUM REQUEST ACCESS */
+function requestAccess(){
+  const subject = encodeURIComponent(
+    "Premium Access Request – Verified Badge Pack"
+  );
+
+  const body = encodeURIComponent(
+    "A customer has requested access to the Social Media Verified Badge Pack.\n\n" +
+    "Please follow up manually.\n\n" +
+    "Page: " + window.location.href
+  );
+
+  window.location.href =
+    "mailto:hivarixglobal@gmail.com?subject=" + subject + "&body=" + body;
+}
+
+/* RANDOM BRANDING QUOTES ANIMATION */
+const quotes = [
+  "Innovation starts here.",
+  "Your brand, amplified.",
+  "Digital solutions that shine.",
+  "Building brands with impact.",
+  "Empowering businesses globally.",
+  "Creativity meets strategy.",
+  "Your growth, our mission."
+];
+
+const quoteEl = document.getElementById("branding-quotes");
+
+function showRandomQuote() {
+  quoteEl.style.opacity = 0;
+  setTimeout(() => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteEl.textContent = randomQuote;
+    quoteEl.style.opacity = 1;
+  }, 600);
+}
+
+showRandomQuote();
+setInterval(showRandomQuote, 4000);
+
+saveCart();
 </script>
 
 </body>

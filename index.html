@@ -16,181 +16,58 @@
 }
 
 /* BASE */
-html,body{
-  margin:0; padding:0;
-  font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(180deg,#e9eef3,#dfe5ea);
-  color:#222;
-}
+html,body{margin:0;padding:0;font-family:'Segoe UI',sans-serif;background:linear-gradient(180deg,#e9eef3,#dfe5ea);color:#222;}
 
 /* NAV */
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.08);
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid rgba(0,0,0,.08);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
 nav img{height:72px;}
 .nav-right{display:flex;gap:12px;}
-.nav-right button{
-  width:42px;height:42px;
-  border:none;border-radius:10px;
-  background:var(--brand);
-  color:#fff;
-  font-size:18px;
-  cursor:pointer;
-  position:relative;
-}
-#cart-count{
-  position:absolute;
-  top:-6px;right:-6px;
-  background:red;color:#fff;
-  font-size:12px;padding:2px 6px;
-  border-radius:50%;
-}
+.nav-right button{width:42px;height:42px;border:none;border-radius:10px;background:var(--brand);color:#fff;font-size:18px;cursor:pointer;position:relative;}
+#cart-count{position:absolute;top:-6px;right:-6px;background:red;color:#fff;font-size:12px;padding:2px 6px;border-radius:50%;}
 
 /* MENU */
-.menu-links{
-  display:none;
-  position:absolute;
-  top:72px;right:20px;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
-}
-.menu-links a{
-  display:block;
-  padding:14px 22px;
-  color:var(--brand);
-  text-decoration:none;
-  font-weight:600;
-}
+.menu-links{display:none;position:absolute;top:72px;right:20px;background:#fff;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.25);}
+.menu-links a{display:block;padding:14px 22px;color:var(--brand);text-decoration:none;font-weight:600;}
 .menu-links a:hover{background:#f0f0f0;}
 
 /* HERO */
-header{
-  position:relative;
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-  background:url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
-}
-header::before{
-  content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
-}
+header{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;}
+header::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));}
 header *{position:relative;z-index:1;}
 header h1{font-size:40px;margin-bottom:14px;}
 header p{max-width:720px;font-size:18px;margin:0 auto;}
-header button{
-  margin-top:24px;
-  padding:14px 32px;
-  border:none;
-  border-radius:30px;
-  background:var(--accent);
-  color:#003366;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-}
+header button{margin-top:24px;padding:14px 32px;border:none;border-radius:30px;background:var(--accent);color:#003366;font-size:16px;font-weight:600;cursor:pointer;}
 
-/* GLASS SECTION */
-.glass{
-  margin:-60px auto 80px;
-  max-width:900px;
-  padding:60px 30px;
-  text-align:center;
-  background:rgba(255,255,255,.55);
-  backdrop-filter:blur(18px);
-  border-radius:28px;
-  box-shadow:0 30px 60px rgba(0,0,0,.15);
-}
-.glass h2{color:var(--brand);font-size:30px;}
-.glass p{font-size:18px;max-width:680px;margin:16px auto 0;}
-.glass button{
-  margin-top:26px;
-  padding:12px 28px;
-  border:none;
-  border-radius:24px;
-  background:var(--accent);
-  color:#003366;
-  font-weight:600;
-}
+/* PRODUCTS GRID */
+.products{max-width:1200px;margin:-60px auto 90px;padding:40px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+.product{background:rgba(255,255,255,.6);backdrop-filter:blur(18px);border-radius:18px;padding:28px;box-shadow:0 16px 30px rgba(0,0,0,.12);display:flex;flex-direction:column;text-align:center;}
+.product h3{color:var(--brand);font-size:20px;margin-bottom:6px;}
+.product .price{font-size:18px;font-weight:700;margin:12px 0 20px;}
+.product .actions{margin-top:auto;display:flex;flex-direction:column;gap:12px;}
+.product a,.product button{height:46px;display:flex;align-items:center;justify-content:center;border-radius:14px;font-weight:600;cursor:pointer;text-decoration:none;}
+.product a{background:transparent;border:2px solid var(--brand);color:var(--brand);}
+.product a:hover{background:rgba(0,51,102,.08);}
+.product button{border:none;background:var(--accent);color:#003366;}
+
+/* PREMIUM BADGE */
+.product.premium{position:relative;border:2px solid rgba(255,215,0,.55);}
+.product .premium-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,#ffd700,#ffb700);color:#003366;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px;box-shadow:0 6px 14px rgba(0,0,0,.2);text-transform:uppercase;letter-spacing:.4px;}
+.tooltip{position:relative;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#003366;color:#fff;font-size:11px;margin-left:6px;cursor:help;}
+.tooltip span{visibility:hidden;opacity:0;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:#003366;color:#fff;padding:10px 12px;border-radius:10px;font-size:12px;width:240px;line-height:1.4;transition:.2s ease;z-index:50;}
+.tooltip:hover span{visibility:visible;opacity:1;}
 
 /* CART MODAL */
-#cart-modal{
-  display:none;
-  position:fixed;
-  top:90px;right:20px;
-  width:340px;
-  background:#ffffff;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.35);
-  z-index:2000;
-}
-#cart-modal input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-#cart-modal button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
-}
+#cart-modal{display:none;position:fixed;top:90px;right:20px;width:340px;background:#fff;border-radius:20px;padding:20px;box-shadow:0 25px 50px rgba(0,0,0,.35);z-index:2000;}
+#cart-modal input{width:100%;padding:10px;margin-bottom:10px;border-radius:10px;border:1px solid #ccc;}
+#cart-modal button{width:100%;padding:12px;border:none;border-radius:12px;background:var(--brand);color:#fff;}
 
 /* FOOTER */
-footer{
-  background:linear-gradient(180deg,#00264d,#001933);
-  color:#fff;
-  padding:60px 20px;
-  text-align:center;
-}
-footer .social-icons a{
-  margin:0 10px;
-  font-size:24px;
-  color:#fff;
-}
-footer .cac{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  font-size:13px;
-  margin-top:14px;
-  opacity:.85;
-}
-footer .cac img{
-  width:34px;
-  height:auto;
-}
-
-@media(max-width:768px){
-  nav img{height:58px;}
-  header h1{font-size:30px;}
-  .glass{margin:-40px 14px 60px;}
-  footer .cac{flex-direction:column;gap:6px;}
-}
-@media(max-width:480px){
-  header h1{font-size:26px;line-height:1.25;letter-spacing:-0.3px;}
-  header p{font-size:15px;line-height:1.5;max-width:90%;margin:0 auto;}
-  header button{font-size:15px;padding:12px 26px;}
-}
+footer{background:linear-gradient(180deg,#00264d,#001933);color:#fff;padding:60px 20px;text-align:center;}
+footer .social-icons a{margin:0 10px;font-size:24px;color:#fff;}
+footer .cac{display:flex;justify-content:center;align-items:center;gap:8px;font-size:13px;margin-top:14px;opacity:.85;}
+footer .cac img{width:34px;height:auto;}
+@media(max-width:768px){nav img{height:58px;}header h1{font-size:30px;}.products{margin:-40px 14px 60px;}footer .cac{flex-direction:column;gap:6px;}}
+@media(max-width:480px){header h1{font-size:26px;line-height:1.25;letter-spacing:-0.3px;}header p{font-size:15px;line-height:1.5;max-width:90%;margin:0 auto;}header button{font-size:15px;padding:12px 26px;}}
 </style>
 </head>
 
@@ -217,15 +94,14 @@ footer .cac img{
   </div>
 </header>
 
-<section class="glass">
-  <h2>Why Choose Us?</h2>
-  <p>We combine strategy, creativity, and technology to deliver premium digital solutions, branding, and consultancy for businesses and creators ready to scale.</p>
-  <button onclick="window.location.href='/about.html'">View More</button>
+<section class="products" id="products-container">
+  <!-- Products will be dynamically injected here -->
 </section>
 
 <!-- CART MODAL -->
 <div id="cart-modal">
-  <h3>Checkout Details</h3>
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
   <input id="cust-name" placeholder="Full Name *">
   <input id="cust-email" placeholder="Email *">
   <input id="cust-phone" placeholder="Phone Number (Nigeria) *">
@@ -248,38 +124,92 @@ footer .cac img{
 </footer>
 
 <script>
-/* MENU TOGGLE */
+// MENU TOGGLE
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
-menuBtn.onclick=e=>{ e.stopPropagation(); menuLinks.style.display = menuLinks.style.display==='block'?'none':'block'; };
-document.addEventListener('click',e=>{ if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none'; });
+menuBtn.onclick=e=>{e.stopPropagation();menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
+document.addEventListener('click',e=>{if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';});
 
-/* CART MODAL */
-const cartBtn=document.getElementById('cart-btn');
+// PRODUCTS LIST (matches products.html)
+const products=[
+  {id:'branding',name:'Branding & Digital Solutions',price:25000,url:'/branding-digital-solutions.html'},
+  {id:'startup',name:'Startup Digital Pack',price:150000,url:'/startup-digital-pack.html'},
+  {id:'visibility',name:'Business Visibility Pack',price:100000,url:'/business-visibility-pack.html'},
+  {id:'online',name:'Online Presence Pack',price:200000,url:'/online-presence-pack.html'},
+  {id:'booster',name:'Social Media Booster Pack',price:1200000,url:'/social-media-booster-pack.html'},
+  {id:'verified',name:'Social Media Verified Badge Pack',price:1500000,url:'/verified-badge-pack.html',premium:true}
+];
+
+const productsContainer=document.getElementById('products-container');
+products.forEach(p=>{
+  const div=document.createElement('div'); div.classList.add('product');
+  if(p.premium){div.classList.add('premium');}
+  div.innerHTML=`
+    ${p.premium?'<div class="premium-badge">Premium • Invitation Only</div>':''}
+    <h3>${p.name} ${p.premium?'<div class="tooltip">i<span>Eligibility requires:<br>• Authentic brand presence<br>• Active social media history<br>• Manual review & approval</span></div>':''}</h3>
+    <div class="price">₦${(p.price/1000).toLocaleString()}k</div>
+    <div class="actions">
+      <a href="${p.url}">View Details</a>
+      ${p.premium?'<button onclick="requestAccess()">Request Access</button>':'<button onclick="addToCart(\''+p.id+'\',\''+p.name+'\', '+p.price+')">Add to Cart</button>'}
+    </div>
+  `;
+  productsContainer.appendChild(div);
+});
+
+// CART LOGIC
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+const cartCount=document.getElementById('cart-count');
 const cartModal=document.getElementById('cart-modal');
-cartBtn.onclick=e=>{ e.stopPropagation(); cartModal.style.display = cartModal.style.display==='block'?'none':'block'; };
-function closeCart(){cartModal.style.display='none';}
+const cartItems=document.getElementById('cart-items');
 
-/* PAYSTACK PAYMENT */
+function saveCart(){localStorage.setItem('hivarix_cart',JSON.stringify(cart));cartCount.textContent=cart.reduce((t,i)=>t+i.qty,0);}
+
+function addToCart(id,name,price){
+  const item=cart.find(i=>i.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
+  saveCart(); openCart();
+}
+
+function openCart(){
+  cartItems.innerHTML=''; let total=0;
+  cart.forEach((i,index)=>{total+=i.price*i.qty;cartItems.innerHTML+=`<div class="cart-item">${i.name} - ₦${i.price.toLocaleString()} <button onclick="removeFromCart(${index})">x</button></div>`;});
+}
+
+function removeFromCart(index){cart.splice(index,1);saveCart();openCart();}
+function closeCart(){cartModal.style.display='none';}
+cartBtn.onclick=e=>{e.stopPropagation();cartModal.style.display=cartModal.style.display==='block'?'none':'block';};
+
+// PAYSTACK PAYMENT
 function pay(){
   const name=document.getElementById('cust-name').value.trim();
   const email=document.getElementById('cust-email').value.trim();
   const phone=document.getElementById('cust-phone').value.trim();
   if(!name||!email||!/^0[789][01]\d{8}$/.test(phone)){alert("Please enter valid details.");return;}
+  const total=cart.reduce((sum,i)=>sum+i.price,0);
+  if(total===0){alert("Cart is empty");return;}
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:email,
-    amount:25000*100,
+    amount:total*100,
     metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
-    callback:()=>alert("Payment Successful!")
+    callback:()=>{alert("Payment Successful!"); cart=[]; saveCart(); closeCart();}
   }).openIframe();
 }
 
-/* RANDOM BRANDING QUOTES */
-const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
+// PREMIUM REQUEST ACCESS
+function requestAccess(){
+  const subject=encodeURIComponent("Premium Access Request – Verified Badge Pack");
+  const body=encodeURIComponent("A customer requested access to the Social Media Verified Badge Pack.\nPage: "+window.location.href);
+  window.location.href="mailto:hivarixglobal@gmail.com?subject="+subject+"&body="+body;
+}
+
+// BRANDING QUOTES
+const quotes=["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
 const quoteEl=document.getElementById("branding-quotes");
 function showQuote(){quoteEl.style.opacity=0; setTimeout(()=>{quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; quoteEl.style.opacity=1;},600);}
 showQuote(); setInterval(showQuote,4000);
+
+saveCart();
 </script>
 
 </body>

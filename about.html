@@ -22,7 +22,8 @@ nav .menu-links a:hover {background:#f0f0f0;}
 
 /* Sections */
 section {padding:50px 20px; text-align:center; flex:1;}
-section h2 {color:#003366; margin-bottom:20px;}
+section h2 {color:#003366; margin-bottom:12px;}
+#branding-quotes {font-size:14px; color:#555; font-style:italic; min-height:20px; margin-bottom:20px; transition: opacity 0.6s ease-in-out;}
 section p {font-size:18px; color:#555; margin-bottom:20px; line-height:1.6;}
 
 /* Footer */
@@ -71,6 +72,7 @@ footer .social-icons a:hover { color:#002244; }
 <!-- ABOUT SECTION -->
 <section>
   <h2>About HiVaRiX Global</h2>
+  <div id="branding-quotes"></div>
   <p>HiVaRiX Global is your trusted partner for digital services, branding, and quality merchandise. We deliver professional digital solutions to help businesses and individuals establish a strong online presence, increase visibility, and maximize digital growth.</p>
   <p>Our team combines expertise in design, technology, and e-commerce to ensure you get high-quality services and products that stand out. We are committed to excellence, innovation, and customer satisfaction.</p>
 </section>
@@ -198,6 +200,31 @@ checkoutForm.addEventListener('submit', function(e){
   });
   handler.openIframe();
 });
+
+// Branding quotes animation
+const quotes = [
+  "Innovation starts here.",
+  "Your brand, amplified.",
+  "Digital solutions that shine.",
+  "Building brands with impact.",
+  "Empowering businesses globally.",
+  "Creativity meets strategy.",
+  "Your growth, our mission."
+];
+
+const quoteEl = document.getElementById("branding-quotes");
+
+function showRandomQuote() {
+  quoteEl.style.opacity = 0;
+  setTimeout(() => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteEl.textContent = randomQuote;
+    quoteEl.style.opacity = 1;
+  }, 600);
+}
+
+showRandomQuote();
+setInterval(showRandomQuote, 4000);
 
 updateCart();
 </script>

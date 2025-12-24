@@ -17,8 +17,7 @@
 
 /* BASE */
 html,body{
-  margin:0;
-  padding:0;
+  margin:0; padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
@@ -29,23 +28,14 @@ nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffffff;
+  background:#fff;
   border-bottom:1px solid rgba(0,0,0,.08);
   padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-
-/* LOGO – BIG LIKE AMAZON, NO CLICK FLASH */
-nav img{
-  height:72px;
-  max-height:80px;
-  user-select:none;
-  -webkit-tap-highlight-color:transparent;
-}
-
-/* NAV BUTTONS */
+nav img{height:72px;}
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -60,8 +50,7 @@ nav img{
   position:absolute;
   top:-6px;right:-6px;
   background:red;color:#fff;
-  font-size:12px;
-  padding:2px 6px;
+  font-size:12px;padding:2px 6px;
   border-radius:50%;
 }
 
@@ -70,7 +59,7 @@ nav img{
   display:none;
   position:absolute;
   top:72px;right:20px;
-  background:#ffffff;
+  background:#fff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
 }
@@ -96,21 +85,21 @@ header{
 }
 header::before{
   content:"";
-  position:absolute;
-  inset:0;
+  position:absolute; inset:0;
   background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
 }
 header *{position:relative;z-index:1;}
 header h1{font-size:40px;margin-bottom:14px;}
-header p{max-width:720px;font-size:18px;}
+header p{max-width:720px;font-size:18px;margin:0 auto;}
 header button{
   margin-top:24px;
   padding:14px 32px;
   border:none;
   border-radius:30px;
-  background:linear-gradient(135deg,#004080,#00264d);
-  color:#fff;
+  background:var(--accent);
+  color:#003366;
   font-size:16px;
+  font-weight:600;
   cursor:pointer;
 }
 
@@ -120,7 +109,7 @@ header button{
   max-width:900px;
   padding:60px 30px;
   text-align:center;
-  background:rgba(255,255,255,.45);
+  background:rgba(255,255,255,.55);
   backdrop-filter:blur(18px);
   border-radius:28px;
   box-shadow:0 30px 60px rgba(0,0,0,.15);
@@ -137,8 +126,8 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP */
-#cart-popup{
+/* CART MODAL */
+#cart-modal{
   display:none;
   position:fixed;
   top:90px;right:20px;
@@ -149,14 +138,14 @@ header button{
   box-shadow:0 25px 50px rgba(0,0,0,.35);
   z-index:2000;
 }
-#cart-popup input{
+#cart-modal input{
   width:100%;
   padding:10px;
   margin-bottom:10px;
   border-radius:10px;
   border:1px solid #ccc;
 }
-#cart-popup button{
+#cart-modal button{
   width:100%;
   padding:12px;
   border:none;
@@ -177,8 +166,6 @@ footer .social-icons a{
   font-size:24px;
   color:#fff;
 }
-
-/* CAC – LOCKED & CORRECT */
 footer .cac{
   display:flex;
   justify-content:center;
@@ -197,29 +184,12 @@ footer .cac img{
   nav img{height:58px;}
   header h1{font-size:30px;}
   .glass{margin:-40px 14px 60px;}
-  footer .cac{
-    flex-direction:column;
-    gap:6px;
-  }
+  footer .cac{flex-direction:column;gap:6px;}
 }
-
-/* MOBILE HERO TEXT FIX */
-@media (max-width:480px){
-  header h1{
-    font-size:26px;
-    line-height:1.25;
-    letter-spacing:-0.3px;
-  }
-  header p{
-    font-size:15px;
-    line-height:1.5;
-    max-width:90%;
-    margin:0 auto;
-  }
-  header button{
-    font-size:15px;
-    padding:12px 26px;
-  }
+@media(max-width:480px){
+  header h1{font-size:26px;line-height:1.25;letter-spacing:-0.3px;}
+  header p{font-size:15px;line-height:1.5;max-width:90%;margin:0 auto;}
+  header button{font-size:15px;padding:12px 26px;}
 }
 </style>
 </head>
@@ -227,15 +197,10 @@ footer .cac img{
 <body>
 
 <nav>
-  <a href="/">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo">
-  </a>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="cart-count">0</span>
-    </button>
+    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
   </div>
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
@@ -247,24 +212,25 @@ footer .cac img{
 <header>
   <div>
     <h1>Welcome to HiVaRiX Global</h1>
-    <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
-    <a href="/products.html"><button>Explore Products</button></a>
+    <div id="branding-quotes"></div>
+    <button onclick="window.location.href='/products.html'">Explore Products</button>
   </div>
 </header>
 
 <section class="glass">
   <h2>Why Choose Us?</h2>
-  <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
-  <a href="/about.html"><button>View More</button></a>
+  <p>We combine strategy, creativity, and technology to deliver premium digital solutions, branding, and consultancy for businesses and creators ready to scale.</p>
+  <button onclick="window.location.href='/about.html'">View More</button>
 </section>
 
-<div id="cart-popup">
+<!-- CART MODAL -->
+<div id="cart-modal">
   <h3>Checkout Details</h3>
-  <input id="firstName" placeholder="First Name *">
-  <input id="lastName" placeholder="Last Name *">
-  <input id="email" placeholder="Email *">
-  <input id="phone" placeholder="Phone Number (Nigeria) *">
+  <input id="cust-name" placeholder="Full Name *">
+  <input id="cust-email" placeholder="Email *">
+  <input id="cust-phone" placeholder="Phone Number (Nigeria) *">
   <button onclick="pay()">Proceed to Payment</button>
+  <button onclick="closeCart()">Close</button>
 </div>
 
 <footer>
@@ -282,47 +248,38 @@ footer .cac img{
 </footer>
 
 <script>
+/* MENU TOGGLE */
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
+menuBtn.onclick=e=>{ e.stopPropagation(); menuLinks.style.display = menuLinks.style.display==='block'?'none':'block'; };
+document.addEventListener('click',e=>{ if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none'; });
+
+/* CART MODAL */
 const cartBtn=document.getElementById('cart-btn');
-const cartPopup=document.getElementById('cart-popup');
+const cartModal=document.getElementById('cart-modal');
+cartBtn.onclick=e=>{ e.stopPropagation(); cartModal.style.display = cartModal.style.display==='block'?'none':'block'; };
+function closeCart(){cartModal.style.display='none';}
 
-menuBtn.onclick=e=>{
-  e.stopPropagation();
-  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
-};
-cartBtn.onclick=e=>{
-  e.stopPropagation();
-  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
-};
-
-document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
-  if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
-});
-
+/* PAYSTACK PAYMENT */
 function pay(){
-  const f=firstName.value.trim();
-  const l=lastName.value.trim();
-  const e=email.value.trim();
-  const p=phone.value.trim();
-
-  if(!f||!l||!e||!/^0[789][01]\d{8}$/.test(p)){
-    alert("Please enter valid details.");
-    return;
-  }
-
+  const name=document.getElementById('cust-name').value.trim();
+  const email=document.getElementById('cust-email').value.trim();
+  const phone=document.getElementById('cust-phone').value.trim();
+  if(!name||!email||!/^0[789][01]\d{8}$/.test(phone)){alert("Please enter valid details.");return;}
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:e,
+    email:email,
     amount:25000*100,
-    metadata:{custom_fields:[
-      {display_name:"Name",value:f+" "+l},
-      {display_name:"Phone",value:p}
-    ]},
+    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
     callback:()=>alert("Payment Successful!")
   }).openIframe();
 }
+
+/* RANDOM BRANDING QUOTES */
+const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
+const quoteEl=document.getElementById("branding-quotes");
+function showQuote(){quoteEl.style.opacity=0; setTimeout(()=>{quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; quoteEl.style.opacity=1;},600);}
+showQuote(); setInterval(showQuote,4000);
 </script>
 
 </body>

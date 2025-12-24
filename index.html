@@ -16,13 +16,16 @@
 }
 
 /* BASE */
-html,body{
+html, body {
   margin:0;
   padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
   min-height:100vh;
+  overflow-x:hidden; /* Prevent horizontal scroll */
+  width:100%;
+  box-sizing:border-box;
 }
 
 /* NAV */
@@ -36,9 +39,10 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  width:100%;
 }
 nav img{
-  height:80px; /* Increased logo size */
+  height:80px; /* Bigger logo like products.html */
 }
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
@@ -61,10 +65,12 @@ nav img{
 .menu-links{
   display:none;
   position:absolute;
-  top:80px;right:20px;
+  top:72px;right:20px;
   background:#ffffff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
+  max-width: calc(100% - 20px);
+  z-index:1100;
 }
 .menu-links a{
   display:block;
@@ -78,13 +84,14 @@ nav img{
 /* HERO */
 header{
   position:relative;
-  min-height:75vh; /* Taller hero for spacing */
+  min-height:65vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
   background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+  width:100%;
 }
 header *{position:relative;}
 header h1{
@@ -168,46 +175,44 @@ input{
 
 /* FOOTER */
 footer{
-  background:linear-gradient(180deg,#00264d,#001933);
+  background:linear-gradient(180deg,#001a33,#001122);
   color:#fff;
-  padding:60px 20px;
+  padding:40px 20px;
   text-align:center;
   width:100%;
 }
-footer .footer-social a{
+footer .social-icons a{
   margin:0 10px;
   font-size:24px;
   color:#fff;
 }
-footer .footer-cac{
+footer .cac{
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   gap:6px;
-  font-size:13px;
-  margin-top:20px;
-}
-footer .footer-cac img{width:40px;}
-footer .footer-bottom{
-  margin-top:20px;
   font-size:14px;
+  margin-top:14px;
+  opacity:.85;
 }
-
-/* RESPONSIVE */
+footer .cac img{width:34px;}
+footer .footer-bottom{
+  margin-top:12px;
+  font-size:13px;
+}
 @media(max-width:768px){
   nav img{height:72px;}
-  header h1{font-size:32px;}
+  header h1{font-size:30px;}
   .glass{margin:40px 14px 60px;}
 }
-@media(max-width:480px){
+@media (max-width:480px){
   header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
-  header p{font-size:15px;}
+  header p{font-size:15px; line-height:1.5; max-width:90%; margin:0 auto;}
   header button{font-size:15px; padding:12px 26px;}
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -223,7 +228,6 @@ footer .footer-bottom{
   </div>
 </nav>
 
-<!-- HERO SECTION -->
 <header>
   <div>
     <h1>Welcome to HiVaRiX Global</h1>
@@ -245,35 +249,26 @@ footer .footer-bottom{
     <h3>Your Cart</h3>
     <div id="cart-items"></div>
     <h4>Total: ₦<span id="cart-total">0</span></h4>
-
     <input id="cust-name" placeholder="Full Name" required>
     <input id="cust-email" placeholder="Email Address" required>
     <input id="cust-phone" placeholder="Phone Number" required>
-
     <button class="pay" onclick="payNow()">Proceed to Payment</button>
     <button class="close" onclick="closeCart()">Close</button>
   </div>
 </div>
 
 <footer>
-  <div>
-    <h3>Contact Us</h3>
-    <div class="footer-social">
-      <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-      <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
-    </div>
+  <div class="social-icons">
+    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
   </div>
-
-  <div class="footer-cac">
+  <div class="cac">
     <img src="assets/assets/cac-logo.png" alt="CAC Logo">
     <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
   </div>
-
-  <div class="footer-bottom">
-    © 2025 HiVaRiX Global. All rights reserved.
-  </div>
+  <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
 </footer>
 
 <script>

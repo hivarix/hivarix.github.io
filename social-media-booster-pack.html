@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Booster Pack – HiVaRiX Global</title>
+
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,#e9eef3,#dfe5ea);
+  color:#222;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:1000;
+  background:#fff;border-bottom:1px solid rgba(0,0,0,.08);
+  padding:14px 20px;display:flex;justify-content:space-between;align-items:center;
+}
+nav img{height:68px;}
+.nav-right button{
+  width:42px;height:42px;border:none;border-radius:10px;
+  background:var(--brand);color:#fff;font-size:18px;cursor:pointer;position:relative;
+}
+
+/* MENU */
+.menu-links{
+  display:none;
+  position:absolute;top:78px;right:20px;
+  background:#fff;border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+.menu-links a{
+  display:block;padding:14px 22px;
+  color:var(--brand);text-decoration:none;font-weight:600;
+}
+.menu-links a:hover{background:#f0f0f0;}
+
+/* HERO */
+header{
+  position:relative;
+  min-height:40vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+}
+header::before{
+  content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);
+}
+header h1{font-size:36px;margin:0;position:relative;}
+
+/* CONTENT */
+.container{
+  max-width:900px;
+  margin:40px auto 80px;
+  padding:0 20px;
+}
+.product-details{
+  background:rgba(255,255,255,.9);
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 16px 30px rgba(0,0,0,.1);
+}
+.product-details h2{color:var(--brand);margin-bottom:10px;}
+.product-details .price{
+  font-size:22px;font-weight:700;color:var(--brand);
+  margin:12px 0 18px;
+}
+.product-details p{line-height:1.6;font-size:16px;margin-bottom:16px;}
+.product-details ul{margin-left:20px;margin-bottom:18px;}
+.product-details ul li{
+  margin-bottom:8px;font-size:15px;
+}
+.product-details button{
+  background:var(--accent);color:#003366;
+  border:none;padding:14px 22px;
+  font-size:16px;font-weight:600;
+  border-radius:18px;cursor:pointer;
+  transition:.2s ease;
+}
+.product-details button:hover{
+  opacity:.9;
+}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(180deg,#00264d,#001933);
+  color:#fff;padding:60px 20px;text-align:center;
+}
+footer .cac{
+  display:flex;
+  justify-content:center;
+  gap:8px;margin-top:14px;
+}
+footer .cac img{width:34px;}
+@media(max-width:768px){
+  footer .cac{flex-direction:column;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"></a>
+  <div class="nav-right">
+    <button id="menu-btn"><i class="fas fa-bars"></i></button>
+  </div>
+  <div class="menu-links" id="menu-links">
+    <a href="/">Home</a>
+    <a href="/products.html">Products</a>
+    <a href="/about.html">About</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Social Media Booster Pack</h1>
+</header>
+
+<div class="container">
+  <div class="product-details">
+    <h2>Boost Your Social Media Presence</h2>
+
+    <div class="price">₦1,200,000</div>
+
+    <p>
+      The <strong>Social Media Booster Pack</strong> is a premium digital solution designed to elevate your brand’s visibility, engagement, and credibility across top social platforms.
+      Built for businesses and creators ready to scale, this pack combines strategy, creative content optimization, and targeted growth techniques.
+    </p>
+
+    <h3>What’s Included:</h3>
+    <ul>
+      <li>Strategic social media audit & recommendations</li>
+      <li>Content planning & calendar setup</li>
+      <li>Custom branded visuals for platforms</li>
+      <li>Audience engagement optimization</li>
+      <li>Performance tracking & monthly insights</li>
+    </ul>
+
+    <p>
+      This pack is ideal for brands who want to strengthen their online footprint, drive real engagement,
+      and transform passive followers into loyal customers.
+    </p>
+
+    <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
+  <div class="cac">
+    <img src="assets/assets/cac-logo.png">
+    <span>Registered with CAC – BN8390093</span>
+  </div>
+</footer>
+
+<script>
+/* MENU TOGGLE */
+const menuBtn = document.getElementById('menu-btn');
+const menuLinks = document.getElementById('menu-links');
+menuBtn.onclick = e => {
+  e.stopPropagation();
+  menuLinks.style.display = menuLinks.style.display === 'block' ? 'none' : 'block';
+};
+document.addEventListener('click', e => {
+  if (!menuLinks.contains(e.target) && e.target !== menuBtn)
+    menuLinks.style.display = 'none';
+});
+
+/* CART SYNC */
+let cart = JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+}
+function addToCart(id,name,price){
+  const item = cart.find(p => p.id === id);
+  item ? item.qty++ : cart.push({id,name,price,qty:1});
+  saveCart();
+  alert(name + " added to cart!");
+}
+</script>
+
+</body>
+</html>

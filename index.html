@@ -4,22 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global – Digital Excellence</title>
+
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-:root {
+:root{
   --brand:#003366;
   --accent:#ffd700;
 }
 
 /* BASE */
-html, body {
+html,body{
   margin:0;
+  padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
+  min-height:100vh;
 }
 
 /* NAV */
@@ -35,7 +38,7 @@ nav{
   align-items:center;
 }
 nav img{
-  height:72px;
+  height:80px; /* Increased logo size */
 }
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
@@ -48,8 +51,7 @@ nav img{
   position:relative;
 }
 #cart-count{
-  position:absolute;
-  top:-6px;right:-6px;
+  position:absolute;top:-6px;right:-6px;
   background:red;color:#fff;
   font-size:12px;padding:2px 6px;
   border-radius:50%;
@@ -59,7 +61,7 @@ nav img{
 .menu-links{
   display:none;
   position:absolute;
-  top:72px;right:20px;
+  top:80px;right:20px;
   background:#ffffff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
@@ -76,7 +78,7 @@ nav img{
 /* HERO */
 header{
   position:relative;
-  min-height:50vh;
+  min-height:75vh; /* Taller hero for spacing */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -85,8 +87,14 @@ header{
   background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
 }
 header *{position:relative;}
-header h1{font-size:38px;margin-bottom:10px;}
-header p{font-size:16px;margin-bottom:14px;}
+header h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+header p{
+  font-size:16px;
+  margin-bottom:14px;
+}
 header button{
   padding:12px 28px;
   border:none;
@@ -107,7 +115,7 @@ header button{
 
 /* GLASS SECTION */
 .glass{
-  margin:-60px auto 80px;
+  margin:60px auto 80px;
   max-width:900px;
   padding:60px 30px;
   text-align:center;
@@ -162,42 +170,40 @@ input{
 footer{
   background:linear-gradient(180deg,#00264d,#001933);
   color:#fff;
-  padding:40px 20px;
+  padding:60px 20px;
   text-align:center;
-  font-size:14px;
+  width:100%;
 }
-footer .footer-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:flex-start;
-  max-width:1000px;
-  margin:0 auto;
-}
-footer h3{margin-bottom:8px;}
 footer .footer-social a{
   margin:0 10px;
-  font-size:20px;
+  font-size:24px;
   color:#fff;
 }
 footer .footer-cac{
   display:flex;
+  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-}
-footer .footer-cac img{width:34px;}
-footer .footer-bottom{
-  width:100%;
-  text-align:right;
-  margin-top:20px;
+  gap:6px;
   font-size:13px;
-  opacity:0.8;
+  margin-top:20px;
 }
+footer .footer-cac img{width:40px;}
+footer .footer-bottom{
+  margin-top:20px;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
 @media(max-width:768px){
-  footer .footer-container{flex-direction:column;align-items:center;text-align:center;}
-  footer .footer-bottom{text-align:center;}
-  nav img{height:60px;}
+  nav img{height:72px;}
+  header h1{font-size:32px;}
+  .glass{margin:40px 14px 60px;}
+}
+@media(max-width:480px){
+  header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
+  header p{font-size:15px;}
+  header button{font-size:15px; padding:12px 26px;}
 }
 </style>
 </head>
@@ -217,7 +223,7 @@ footer .footer-bottom{
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <header>
   <div>
     <h1>Welcome to HiVaRiX Global</h1>
@@ -249,125 +255,117 @@ footer .footer-bottom{
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-container">
-    <div>
-      <h3>Contact Us</h3>
-      <div class="footer-social">
-        <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-        <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
-      </div>
+  <div>
+    <h3>Contact Us</h3>
+    <div class="footer-social">
+      <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+      <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
     </div>
-    <div class="footer-cac">
-      <img src="assets/assets/cac-logo.png" alt="CAC">
-      <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
-    </div>
-    <div class="footer-bottom">
-      © 2025 HiVaRiX Global. All rights reserved.
-    </div>
+  </div>
+
+  <div class="footer-cac">
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 HiVaRiX Global. All rights reserved.
   </div>
 </footer>
 
 <script>
 /* MENU */
-const menuBtn = document.getElementById('menu-btn');
-const menuLinks = document.getElementById('menu-links');
-menuBtn.onclick = e => {
+const menuBtn=document.getElementById('menu-btn');
+const menuLinks=document.getElementById('menu-links');
+menuBtn.onclick=e=>{
   e.stopPropagation();
-  menuLinks.style.display = menuLinks.style.display === 'block' ? 'none' : 'block';
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
 };
-document.addEventListener('click', e => {
-  if (!menuLinks.contains(e.target) && e.target !== menuBtn) menuLinks.style.display = 'none';
+document.addEventListener('click',e=>{
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
+    menuLinks.style.display='none';
 });
 
 /* CART SYNC */
-let cart = JSON.parse(localStorage.getItem("hivarix_cart")) || [];
-const cartModal = document.getElementById("cart-modal");
-const cartItemsDiv = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-const cartCountEl = document.getElementById("cart-count");
-
-function saveCart() {
-  localStorage.setItem("hivarix_cart", JSON.stringify(cart));
-  cartCountEl.textContent = cart.reduce((t, i) => t + i.qty, 0);
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+  document.getElementById("cart-count").textContent=
+    cart.reduce((t,i)=>t+i.qty,0);
 }
-
-function addToCart(id, name, price) {
-  const item = cart.find(p => p.id === id);
-  item ? item.qty++ : cart.push({ id, name, price, qty: 1 });
+function addToCart(id,name,price){
+  const item=cart.find(p=>p.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
   saveCart();
 }
+saveCart();
 
-function updateCartModal() {
-  cartItemsDiv.innerHTML = '';
-  let total = 0;
-  cart.forEach(i => {
-    total += i.price * i.qty;
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <span>${i.name}</span>
-      <div class="cart-controls">
-        <button onclick="updateQty('${i.id}',-1)">−</button>
-        ${i.qty}
-        <button onclick="updateQty('${i.id}',1)">+</button>
+/* CART MODAL FUNCTIONS */
+const cartModal=document.getElementById("cart-modal");
+const cartItemsDiv=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
+
+document.getElementById("cart-btn").onclick=()=>{
+  cartItemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    cartItemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
       </div>
     `;
-    cartItemsDiv.appendChild(div);
   });
-  cartTotal.textContent = total.toLocaleString();
-}
-
-document.getElementById("cart-btn").onclick = () => {
-  updateCartModal();
-  cartModal.style.display = "block";
+  cartTotal.textContent=total.toLocaleString();
+  cartModal.style.display="block";
 };
-
-function updateQty(id, change) {
-  const item = cart.find(i => i.id === id);
-  if (!item) return;
-  item.qty += change;
-  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
   saveCart();
-  updateCartModal();
+  document.getElementById("cart-btn").click();
 }
+function closeCart(){cartModal.style.display="none";}
 
-function closeCart() { cartModal.style.display = "none"; }
-
-function payNow() {
-  const name = document.getElementById("cust-name").value.trim();
-  const email = document.getElementById("cust-email").value.trim();
-  const phone = document.getElementById("cust-phone").value.trim();
-  if (!name || !email || !phone) { alert("All customer details are required"); return; }
-  const total = cart.reduce((t, i) => t + i.price * i.qty, 0);
-  if (!total) { alert("Cart empty"); return; }
+/* PAYSTACK PAYMENT */
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+  if(!name||!email||!phone){alert("All customer details are required");return;}
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
   PaystackPop.setup({
-    key: 'REPLACE_WITH_YOUR_PUBLIC_KEY',
-    email: email,
-    amount: total * 100,
-    currency: 'NGN',
-    metadata: { custom_fields: [{ display_name: "Name", value: name }, { display_name: "Phone", value: phone }] },
-    callback: () => { alert("Payment successful"); cart = []; saveCart(); closeCart(); },
+    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
+    callback:()=>{alert("Payment successful"); cart=[]; saveCart(); closeCart();},
   }).openIframe();
 }
 
-/* BRANDING QUOTES */
+/* BRANDING QUOTES ANIMATION */
 const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
 const quoteEl = document.getElementById("branding-quotes");
 function showRandomQuote() {
-  quoteEl.style.opacity = 0;
-  setTimeout(() => {
-    quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteEl.style.opacity = 1;
-  }, 600);
+  quoteEl.style.opacity=0; 
+  setTimeout(()=>{
+    quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; 
+    quoteEl.style.opacity=1;
+  },600);
 }
 showRandomQuote();
-setInterval(showRandomQuote, 4000);
-
-saveCart();
+setInterval(showRandomQuote,4000);
 </script>
 </body>
 </html>

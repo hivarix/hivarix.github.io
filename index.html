@@ -38,9 +38,6 @@ nav{
 }
 nav img{
   height:72px;
-  max-height:80px;
-  user-select:none;
-  -webkit-tap-highlight-color:transparent;
 }
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
@@ -133,7 +130,7 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP – Sleek Glossy */
+/* CART POPUP – Same as about.html */
 #cart-popup{
   display:none;
   position:fixed;
@@ -245,11 +242,6 @@ footer{
   padding:60px 20px;
   text-align:center;
 }
-footer .social-icons a{
-  margin:0 10px;
-  font-size:24px;
-  color:#fff;
-}
 footer .cac{
   display:flex;
   justify-content:center;
@@ -324,21 +316,15 @@ footer .cac img{
 </div>
 
 <footer>
-  <h3>Contact Us</h3>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png" alt="CAC">
-    <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered with CAC – BN8390093</span>
   </div>
 </footer>
 
 <script>
-// Menu & cart toggle
+// Menu toggle
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
@@ -350,7 +336,7 @@ document.addEventListener('click',e=>{
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
 });
 
-// CART LOGIC
+// CART LOGIC – identical to about.html
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartCount = document.getElementById('cart-count');
 const cartItemsDiv = document.getElementById('cart-items');

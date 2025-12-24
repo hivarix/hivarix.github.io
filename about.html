@@ -4,63 +4,171 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Global – About Us</title>
-<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-html, body {height:100%; margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#e6e6e6; color:#333; display:flex; flex-direction:column; min-height:100vh;}
-nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; transition:background 0.3s;}
-nav img {height:60px; cursor:pointer;}
-nav .nav-right {display:flex; align-items:center;}
-nav .nav-right button {margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
-nav .nav-right button:hover {background:#002244; color:#fff;}
-#cart-count {position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
-nav .menu-links {display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
-nav .menu-links a {padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
-nav .menu-links a:last-child {border-bottom:none;}
-nav .menu-links a:hover {background:#f0f0f0;}
+:root {
+  --brand:#003366;
+  --accent:#ffd700;
+}
 
-/* Sections */
-section {padding:50px 20px; text-align:center; flex:1;}
-section h2 {color:#003366; margin-bottom:12px;}
-#branding-quotes {font-size:14px; color:#555; font-style:italic; min-height:20px; margin-bottom:20px; transition: opacity 0.6s ease-in-out;}
-section p {font-size:18px; color:#555; margin-bottom:20px; line-height:1.6;}
+/* BASE */
+html, body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,#e9eef3,#dfe5ea);
+  color:#222;
+}
 
-/* Footer */
-footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
-footer h3{margin-bottom:5px;}
-footer .social-icons { margin:10px 0; }
-footer .social-icons a { margin:0 10px; display:inline-block; color:#003366; font-size:28px; transition:color 0.3s; }
-footer .social-icons a:hover { color:#002244; }
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav img{
+  height:72px;
+}
+.nav-right{display:flex;gap:12px;}
+.nav-right button{
+  width:42px;height:42px;
+  border:none;border-radius:10px;
+  background:var(--brand);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  position:relative;
+}
+#cart-count{
+  position:absolute;top:-6px;right:-6px;
+  background:red;color:#fff;
+  font-size:12px;padding:2px 6px;
+  border-radius:50%;
+}
 
-/* CAC Stamp */
-.cac-footer { opacity:0.1; width:120px; margin:10px auto 5px auto; display:block; }
-.cac-text { font-size:14px; color:#555; line-height:1.3; text-align:center; }
+/* MENU */
+.menu-links{
+  display:none;
+  position:absolute;
+  top:72px;right:20px;
+  background:#ffffff;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+.menu-links a{
+  display:block;
+  padding:14px 22px;
+  color:var(--brand);
+  text-decoration:none;
+  font-weight:600;
+}
+.menu-links a:hover{background:#f0f0f0;}
 
-/* Cart Popup */
-#cart-popup { display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:500px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; }
-#cart-popup h3 { margin-top:0; color:#003366; }
-.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-.cart-item button { background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px; }
+/* HERO */
+header{
+  position:relative;
+  min-height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
+}
+header *{position:relative;}
+header h1{font-size:38px;margin-bottom:10px;}
+header #branding-quotes{
+  font-size:14px;color:rgba(255,255,255,0.85);font-style:italic;min-height:20px;transition:opacity 0.6s;
+}
 
-/* Checkout Form */
-#checkout-form {display:flex; flex-direction:column; margin-top:10px;}
-#checkout-form input {margin-bottom:10px; padding:8px 10px; border-radius:6px; border:1px solid #ccc; font-size:14px;}
-#checkout-form button {padding:10px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:16px;}
-#checkout-form button:hover {background:#002244;}
+/* ABOUT SECTION GLASS CARD */
+section.about-card{
+  max-width:900px;
+  margin:-40px auto 80px;
+  padding:40px;
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  text-align:center;
+}
+.about-card h2{
+  color:var(--brand);
+  margin-bottom:12px;
+}
+.about-card p{
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:14px;
+  color:#222;
+}
 
-/* Responsive */
-@media(max-width:768px){nav .menu-links{position:static; width:100%; top:auto; right:auto; box-shadow:none; border-radius:0;}}
+/* FOOTER */
+footer{
+  background:linear-gradient(180deg,#00264d,#001933);
+  color:#fff;
+  padding:60px 20px;
+  text-align:center;
+}
+footer .cac{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+}
+footer .cac img{width:34px;}
+@media(max-width:768px){footer .cac{flex-direction:column;}}
+
+/* CART MODAL */
+#cart-modal{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:3000;
+}
+#cart-box{
+  background:#fff;
+  max-width:460px;
+  margin:5% auto;
+  padding:26px;
+  border-radius:22px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.cart-controls button{padding:4px 10px;}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
 </style>
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="https://hivarix.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
+    <button id="cart-btn">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count">0</span>
+    </button>
   </div>
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
@@ -69,164 +177,127 @@ footer .social-icons a:hover { color:#002244; }
   </div>
 </nav>
 
-<!-- ABOUT SECTION -->
-<section>
-  <h2>About HiVaRiX Global</h2>
-  <div id="branding-quotes"></div>
+<header>
+  <div>
+    <h1>About HiVaRiX Global</h1>
+    <div id="branding-quotes"></div>
+  </div>
+</header>
+
+<section class="about-card">
+  <h2>Our Mission & Vision</h2>
   <p>HiVaRiX Global is your trusted partner for digital services, branding, and quality merchandise. We deliver professional digital solutions to help businesses and individuals establish a strong online presence, increase visibility, and maximize digital growth.</p>
   <p>Our team combines expertise in design, technology, and e-commerce to ensure you get high-quality services and products that stand out. We are committed to excellence, innovation, and customer satisfaction.</p>
 </section>
 
-<!-- CART POPUP -->
-<div id="cart-popup">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-
-  <h4>Fill Your Information</h4>
-  <form id="checkout-form">
-    <input type="text" id="firstName" placeholder="First Name*" required>
-    <input type="text" id="lastName" placeholder="Last Name*" required>
-    <input type="email" id="email" placeholder="Email*" required>
-    <input type="tel" id="phone" placeholder="Phone Number* (e.g., 08012345678)" required>
-    <button type="submit">Proceed to Payment</button>
-  </form>
-
-  <button id="close-cart-btn">Close</button>
-</div>
-
-<!-- FOOTER -->
 <footer>
-  <h3>Contact Us</h3>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
   <p>© 2025 HiVaRiX Global. All rights reserved.</p>
-  <img src="assets/assets/cac-logo.png" alt="CAC Registered Business" class="cac-footer">
-  <p class="cac-text">HiVaRiX Global is a registered business.<br>CAC Certificate Number: BN8390093</p>
+  <div class="cac">
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered with CAC – BN8390093</span>
+  </div>
 </footer>
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div id="cart-box">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Total: ₦<span id="cart-total">0</span></h4>
+
+    <input id="cust-name" placeholder="Full Name" required>
+    <input id="cust-email" placeholder="Email Address" required>
+    <input id="cust-phone" placeholder="Phone Number" required>
+
+    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
 <script>
-// Menu Toggle
-const menuBtn = document.getElementById('menu-btn');
-const menuLinks = document.getElementById('menu-links');
-menuBtn.addEventListener('click', (e) => {
+/* MENU */
+const menuBtn=document.getElementById('menu-btn');
+const menuLinks=document.getElementById('menu-links');
+menuBtn.onclick=e=>{
   e.stopPropagation();
-  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
-  menuLinks.style.flexDirection = 'column';
-});
-document.addEventListener('click', (e) => {
-  if(!menuLinks.contains(e.target) && e.target !== menuBtn){
-    menuLinks.style.display = 'none';
-  }
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
+document.addEventListener('click',e=>{
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
+    menuLinks.style.display='none';
 });
 
-// Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const cartCountSpan = document.getElementById('cart-count');
-const cartBtn = document.getElementById('cart-btn');
-const cartPopup = document.getElementById('cart-popup');
-const cartItemsDiv = document.getElementById('cart-items');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const checkoutForm = document.getElementById('checkout-form');
+/* CART SYNC */
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+  document.getElementById("cart-count").textContent=
+    cart.reduce((t,i)=>t+i.qty,0);
+}
+function addToCart(id,name,price){
+  const item=cart.find(p=>p.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
+  saveCart();
+}
+saveCart();
 
-function updateCart() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-  cartCountSpan.textContent = cart.length;
-  cartItemsDiv.innerHTML = '';
-  cart.forEach((item, index) => {
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`;
-    cartItemsDiv.appendChild(div);
+/* CART MODAL FUNCTIONS */
+const cartModal=document.getElementById("cart-modal");
+const cartItemsDiv=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
+
+document.getElementById("cart-btn").onclick=()=>{
+  cartItemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    cartItemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    `;
   });
+  cartTotal.textContent=total.toLocaleString();
+  cartModal.style.display="block";
+};
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  document.getElementById("cart-btn").click();
+}
+function closeCart(){cartModal.style.display="none";}
+
+/* PAYSTACK PAYMENT */
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+  if(!name||!email||!phone){alert("All customer details are required");return;}
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
+  PaystackPop.setup({
+    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
+    callback:()=>{alert("Payment successful"); cart=[]; saveCart(); closeCart();},
+  }).openIframe();
 }
 
-function removeFromCart(index) {
-  cart.splice(index,1);
-  updateCart();
-}
-
-cartBtn.addEventListener('click', () => {
-  cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
-});
-closeCartBtn.addEventListener('click', () => { cartPopup.style.display = 'none'; });
-
-// Checkout Form
-checkoutForm.addEventListener('submit', function(e){
-  e.preventDefault();
-  if(cart.length === 0){ alert('Your cart is empty'); return; }
-
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName = document.getElementById('lastName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-
-  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-
-  if(!firstName || !lastName || !email || !phone){
-    alert("Please fill all required fields."); return;
-  }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert("Please enter a valid email."); return;
-  }
-  if(!nigeriaPhone.test(phone)){
-    alert("Please enter a valid Nigerian phone number."); return;
-  }
-
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-  let handler = PaystackPop.setup({
-    key: 'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email: email,
-    amount: total * 100,
-    metadata: {
-      custom_fields: [
-        {display_name: "First Name", variable_name: "first_name", value: firstName},
-        {display_name: "Last Name", variable_name: "last_name", value: lastName},
-        {display_name: "Phone Number", variable_name: "phone", value: phone},
-      ]
-    },
-    callback: function(response){
-      alert('Payment complete! Reference: ' + response.reference);
-      cart = [];
-      updateCart();
-      cartPopup.style.display='none';
-      checkoutForm.reset();
-      window.location.href = '/thank-you.html';
-    },
-    onClose: function(){ alert('Payment was not completed'); }
-  });
-  handler.openIframe();
-});
-
-// Branding quotes animation
-const quotes = [
-  "Innovation starts here.",
-  "Your brand, amplified.",
-  "Digital solutions that shine.",
-  "Building brands with impact.",
-  "Empowering businesses globally.",
-  "Creativity meets strategy.",
-  "Your growth, our mission."
-];
-
+/* RANDOM BRANDING QUOTES ANIMATION */
+const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
 const quoteEl = document.getElementById("branding-quotes");
-
-function showRandomQuote() {
-  quoteEl.style.opacity = 0;
-  setTimeout(() => {
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteEl.textContent = randomQuote;
-    quoteEl.style.opacity = 1;
-  }, 600);
-}
-
+function showRandomQuote() {quoteEl.style.opacity=0; setTimeout(()=>{quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; quoteEl.style.opacity=1;},600);}
 showRandomQuote();
-setInterval(showRandomQuote, 4000);
-
-updateCart();
+setInterval(showRandomQuote,4000);
 </script>
 </body>
 </html>

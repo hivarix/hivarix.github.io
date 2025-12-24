@@ -22,10 +22,7 @@ html, body {
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
-  min-height:100vh;
   overflow-x:hidden; /* Prevent horizontal scroll */
-  width:100%;
-  box-sizing:border-box;
 }
 
 /* NAV */
@@ -39,10 +36,9 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  width:100%;
 }
 nav img{
-  height:80px; /* Bigger logo like products.html */
+  height:72px;
 }
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
@@ -69,8 +65,6 @@ nav img{
   background:#ffffff;
   border-radius:14px;
   box-shadow:0 20px 40px rgba(0,0,0,.25);
-  max-width: calc(100% - 20px);
-  z-index:1100;
 }
 .menu-links a{
   display:block;
@@ -84,14 +78,13 @@ nav img{
 /* HERO */
 header{
   position:relative;
-  min-height:65vh;
+  min-height:50vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
   background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
-  width:100%;
 }
 header *{position:relative;}
 header h1{
@@ -122,7 +115,7 @@ header button{
 
 /* GLASS SECTION */
 .glass{
-  margin:60px auto 80px;
+  margin:-60px auto 80px;
   max-width:900px;
   padding:60px 30px;
   text-align:center;
@@ -175,11 +168,10 @@ input{
 
 /* FOOTER */
 footer{
-  background:linear-gradient(180deg,#001a33,#001122);
+  background:linear-gradient(180deg,#00264d,#001933);
   color:#fff;
-  padding:40px 20px;
+  padding:60px 20px;
   text-align:center;
-  width:100%;
 }
 footer .social-icons a{
   margin:0 10px;

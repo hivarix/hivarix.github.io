@@ -36,16 +36,12 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-
-/* LOGO */
 nav img{
   height:72px;
   max-height:80px;
   user-select:none;
   -webkit-tap-highlight-color:transparent;
 }
-
-/* NAV BUTTONS */
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -137,52 +133,109 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP */
+/* CART POPUP – Sleek Glossy */
 #cart-popup{
   display:none;
   position:fixed;
-  top:90px;right:20px;
-  width:340px;
-  background:#ffffff;
+  top:90px; right:20px;
+  width:360px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(16px);
   border-radius:20px;
-  padding:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.35);
+  padding:25px 20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3), 0 8px 16px rgba(0,0,0,0.15);
   z-index:2000;
-  max-height:500px;
+  max-height:520px;
   overflow-y:auto;
+  transition:all 0.3s ease;
+  border:1px solid rgba(255,255,255,0.6);
 }
-#cart-popup input{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
+#cart-popup h3{
+  font-size:22px;
+  color:var(--brand);
+  margin-bottom:18px;
+  text-align:center;
+  letter-spacing:0.5px;
 }
-#cart-popup button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
-  cursor:pointer;
-}
-
-/* CART ITEMS */
 .cart-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:10px;
-  flex-wrap:wrap;
+  margin-bottom:12px;
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.4);
+  backdrop-filter:blur(6px);
+  transition:all 0.2s ease;
+}
+.cart-item:hover{
+  background:rgba(255,255,255,0.55);
 }
 .cart-item button{
   margin:0 2px;
-  padding:2px 6px;
-  font-size:12px;
+  padding:4px 8px;
+  font-size:13px;
   border:none;
-  border-radius:4px;
+  border-radius:6px;
   cursor:pointer;
+  background:var(--brand);
+  color:#fff;
+  transition:all 0.2s ease;
+}
+.cart-item button:hover{
+  background:linear-gradient(135deg,#004080,#00264d);
+}
+#cart-total{
+  font-weight:700;
+  font-size:18px;
+  margin-top:14px;
+  text-align:right;
+  color:var(--brand);
+}
+#checkout-form input{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.15);
+  font-size:14px;
+  background:rgba(255,255,255,0.7);
+  transition:all 0.2s ease;
+}
+#checkout-form input:focus{
+  outline:none;
+  border-color:var(--brand);
+  background:rgba(255,255,255,0.85);
+}
+#checkout-form button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#004080,#00264d);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  font-size:16px;
+  margin-top:8px;
+  transition:all 0.3s ease;
+}
+#checkout-form button:hover{
+  background:linear-gradient(135deg,#00264d,#001a33);
+}
+#close-cart-btn{
+  margin-top:12px;
+  padding:10px;
+  border-radius:10px;
+  background:#ccc;
+  color:#000;
+  border:none;
+  width:100%;
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+#close-cart-btn:hover{
+  background:#bbb;
 }
 
 /* FOOTER */
@@ -215,28 +268,12 @@ footer .cac img{
   nav img{height:58px;}
   header h1{font-size:30px;}
   .glass{margin:-40px 14px 60px;}
-  footer .cac{
-    flex-direction:column;
-    gap:6px;
-  }
+  footer .cac{flex-direction:column; gap:6px;}
 }
-
 @media (max-width:480px){
-  header h1{
-    font-size:26px;
-    line-height:1.25;
-    letter-spacing:-0.3px;
-  }
-  header p{
-    font-size:15px;
-    line-height:1.5;
-    max-width:90%;
-    margin:0 auto;
-  }
-  header button{
-    font-size:15px;
-    padding:12px 26px;
-  }
+  header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
+  header p{font-size:15px; line-height:1.5; max-width:90%; margin:0 auto;}
+  header button{font-size:15px; padding:12px 26px;}
 }
 </style>
 </head>
@@ -274,16 +311,16 @@ footer .cac img{
 <div id="cart-popup">
   <h3>Your Cart</h3>
   <div id="cart-items"></div>
-  <p id="cart-total" style="font-weight:bold;text-align:right;margin-top:10px;"></p>
-  <h4>Fill Your Information</h4>
+  <div id="cart-total"></div>
+  <h4>Fill Your Details</h4>
   <form id="checkout-form">
-    <input id="firstName" placeholder="First Name*" required>
-    <input id="lastName" placeholder="Last Name*" required>
-    <input id="email" placeholder="Email*" required>
-    <input id="phone" placeholder="Phone Number* (Nigeria)" required>
+    <input type="text" id="firstName" placeholder="First Name *" required>
+    <input type="text" id="lastName" placeholder="Last Name *" required>
+    <input type="email" id="email" placeholder="Email *" required>
+    <input type="tel" id="phone" placeholder="Phone Number (Nigeria) *" required>
     <button type="submit">Proceed to Payment</button>
   </form>
-  <button id="close-cart-btn" style="margin-top:10px;padding:8px;border-radius:8px;background:#ccc;color:#000;border:none;width:100%;cursor:pointer;">Close</button>
+  <button id="close-cart-btn">Close</button>
 </div>
 
 <footer>
@@ -301,106 +338,74 @@ footer .cac img{
 </footer>
 
 <script>
-// MENU & CART TOGGLE
+// Menu & cart toggle
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
 const cartPopup=document.getElementById('cart-popup');
-
-menuBtn.onclick=e=>{
-  e.stopPropagation();
-  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
-};
-cartBtn.onclick=e=>{
-  e.stopPropagation();
-  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
-};
-
+menuBtn.onclick=e=>{e.stopPropagation(); menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
+cartBtn.onclick=e=>{e.stopPropagation(); cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
 document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none';
-  if(!cartPopup.contains(e.target)&&e.target!==cartBtn) cartPopup.style.display='none';
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
+  if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
 });
 
-// CART SYSTEM
-let cart = JSON.parse(localStorage.getItem('hivarix_cart')) || [];
-const cartCountSpan = document.getElementById('cart-count');
+// CART LOGIC
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartCount = document.getElementById('cart-count');
 const cartItemsDiv = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-const checkoutForm = document.getElementById('checkout-form');
+const cartTotalDiv = document.getElementById('cart-total');
 
 function updateCart(){
-  localStorage.setItem('hivarix_cart', JSON.stringify(cart));
-  const totalItems = cart.reduce((sum,item)=>sum+item.qty,0);
-  const totalAmount = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
-  cartCountSpan.textContent = totalItems;
-  cartTotal.textContent = totalItems>0 ? `Total: NGN ${totalAmount.toLocaleString()}` : '';
-
+  localStorage.setItem('cart',JSON.stringify(cart));
+  cartCount.textContent = cart.reduce((sum,i)=>sum+i.quantity,0);
   cartItemsDiv.innerHTML='';
-  if(cart.length===0){
-    cartItemsDiv.innerHTML='<p>Your cart is empty.</p>';
-    return;
-  }
-
   cart.forEach((item,index)=>{
     const div=document.createElement('div');
     div.classList.add('cart-item');
-    div.innerHTML=`
-      <span>${item.name}</span>
+    div.innerHTML = `
+      ${item.name} - NGN ${item.price} 
       <div>
-        <button onclick="decrementQty(${index})">-</button>
-        <span style="margin:0 6px;">${item.qty}</span>
-        <button onclick="incrementQty(${index})">+</button>
-        NGN ${item.price.toLocaleString()}
-        <button onclick="removeFromCart(${index})">x</button>
-      </div>
-    `;
+        <button onclick="changeQty(${index},-1)">-</button>
+        ${item.quantity}
+        <button onclick="changeQty(${index},1)">+</button>
+        <button onclick="removeItem(${index})">x</button>
+      </div>`;
     cartItemsDiv.appendChild(div);
   });
+  const total = cart.reduce((sum,i)=>sum+i.price*i.quantity,0);
+  cartTotalDiv.textContent = `Total: NGN ${total}`;
 }
 
-function removeFromCart(index){
+function changeQty(index,delta){
+  cart[index].quantity += delta;
+  if(cart[index].quantity<1) cart[index].quantity=1;
+  updateCart();
+}
+
+function removeItem(index){
   cart.splice(index,1);
   updateCart();
 }
 
-function incrementQty(index){
-  cart[index].qty++;
-  updateCart();
-}
-
-function decrementQty(index){
-  if(cart[index].qty>1){
-    cart[index].qty--;
-  } else {
-    cart.splice(index,1);
-  }
-  updateCart();
-}
-
-// CHECKOUT
-checkoutForm.addEventListener('submit', function(e){
+// Checkout form
+const checkoutForm = document.getElementById('checkout-form');
+checkoutForm.addEventListener('submit',function(e){
   e.preventDefault();
-  if(cart.length===0){ alert('Your cart is empty'); return; }
-
-  const f = firstName.value.trim();
-  const l = lastName.value.trim();
-  const eMail = email.value.trim();
-  const p = phone.value.trim();
-  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-
-  if(!f||!l||!eMail||!p){ alert('Fill all fields'); return; }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(eMail)){ alert('Invalid email'); return; }
-  if(!nigeriaPhone.test(p)){ alert('Invalid Nigerian phone'); return; }
-
-  const totalAmount = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
-  const handler = PaystackPop.setup({
+  if(cart.length===0){alert('Cart is empty'); return;}
+  const f=document.getElementById('firstName').value.trim();
+  const l=document.getElementById('lastName').value.trim();
+  const em=document.getElementById('email').value.trim();
+  const p=document.getElementById('phone').value.trim();
+  if(!f||!l||!em||!/^0[789][01]\d{8}$/.test(p)){alert('Enter valid details'); return;}
+  const total = cart.reduce((sum,i)=>sum+i.price*i.quantity,0);
+  PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:eMail,
-    amount: totalAmount*100,
-    metadata:{ custom_fields:[
-      {display_name:"First Name",variable_name:"first_name",value:f},
-      {display_name:"Last Name",variable_name:"last_name",value:l},
-      {display_name:"Phone Number",variable_name:"phone",value:p}
+    email:em,
+    amount: total*100,
+    metadata:{custom_fields:[
+      {display_name:"Name",value:f+" "+l},
+      {display_name:"Phone",value:p}
     ]},
     callback:function(response){
       alert('Payment complete! Ref: '+response.reference);
@@ -408,15 +413,14 @@ checkoutForm.addEventListener('submit', function(e){
       updateCart();
       cartPopup.style.display='none';
       checkoutForm.reset();
-      window.location.href='/thank-you.html';
     },
-    onClose:function(){ alert('Payment not completed.'); }
-  });
-  handler.openIframe();
+    onClose:function(){alert('Payment not completed');}
+  }).openIframe();
 });
+
+document.getElementById('close-cart-btn').onclick = ()=>{cartPopup.style.display='none';};
 
 updateCart();
 </script>
-
 </body>
 </html>

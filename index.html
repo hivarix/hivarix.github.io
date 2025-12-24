@@ -137,31 +137,53 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP (PRODUCTS.HTML STYLE) */
+/* CART POPUP */
 #cart-popup{
   display:none;
   position:fixed;
-  top:70px;
-  right:20px;
-  width:320px;
+  top:90px;right:20px;
+  width:340px;
+  background:#ffffff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 25px 50px rgba(0,0,0,.35);
+  z-index:2000;
   max-height:500px;
   overflow-y:auto;
-  background:#fff;
-  border:1px solid #ccc;
-  border-radius:15px;
-  padding:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.25);
-  z-index:2000;
 }
-#cart-popup h3{margin-top:0;color:var(--brand);}
-.cart-item{display:flex;justify-content:space-between;margin-bottom:10px;}
-.cart-item button{background:red;color:#fff;border:none;padding:2px 6px;border-radius:4px;cursor:pointer;font-size:12px;}
+#cart-popup input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+#cart-popup button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:var(--brand);
+  color:#fff;
+  cursor:pointer;
+}
 
-/* CHECKOUT FORM */
-#checkout-form{display:flex;flex-direction:column;margin-top:10px;}
-#checkout-form input{margin-bottom:10px;padding:8px 10px;border-radius:6px;border:1px solid #ccc;font-size:14px;}
-#checkout-form button{padding:10px;background:var(--brand);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:16px;}
-#checkout-form button:hover{background:#002244;}
+/* CART ITEMS */
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+.cart-item button{
+  margin:0 2px;
+  padding:2px 6px;
+  font-size:12px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
 
 /* FOOTER */
 footer{
@@ -200,9 +222,21 @@ footer .cac img{
 }
 
 @media (max-width:480px){
-  header h1{font-size:26px;line-height:1.25;letter-spacing:-0.3px;}
-  header p{font-size:15px;line-height:1.5;max-width:90%;margin:0 auto;}
-  header button{font-size:15px;padding:12px 26px;}
+  header h1{
+    font-size:26px;
+    line-height:1.25;
+    letter-spacing:-0.3px;
+  }
+  header p{
+    font-size:15px;
+    line-height:1.5;
+    max-width:90%;
+    margin:0 auto;
+  }
+  header button{
+    font-size:15px;
+    padding:12px 26px;
+  }
 }
 </style>
 </head>
@@ -213,10 +247,7 @@ footer .cac img{
   <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="cart-count">0</span>
-    </button>
+    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
   </div>
   <div class="menu-links" id="menu-links">
     <a href="/">Home</a>
@@ -243,6 +274,7 @@ footer .cac img{
 <div id="cart-popup">
   <h3>Your Cart</h3>
   <div id="cart-items"></div>
+  <p id="cart-total" style="font-weight:bold;text-align:right;margin-top:10px;"></p>
   <h4>Fill Your Information</h4>
   <form id="checkout-form">
     <input id="firstName" placeholder="First Name*" required>
@@ -274,13 +306,17 @@ const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
 const cartBtn=document.getElementById('cart-btn');
 const cartPopup=document.getElementById('cart-popup');
-const closeCartBtn=document.getElementById('close-cart-btn');
 
-menuBtn.onclick=e=>{ e.stopPropagation(); menuLinks.style.display = menuLinks.style.display==='block'?'none':'block'; };
-cartBtn.onclick=e=>{ e.stopPropagation(); cartPopup.style.display = cartPopup.style.display==='block'?'none':'block'; };
-closeCartBtn.onclick = ()=>{ cartPopup.style.display='none'; };
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
+cartBtn.onclick=e=>{
+  e.stopPropagation();
+  cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';
+};
 
-document.addEventListener('click', e=>{
+document.addEventListener('click',e=>{
   if(!menuLinks.contains(e.target)&&e.target!==menuBtn) menuLinks.style.display='none';
   if(!cartPopup.contains(e.target)&&e.target!==cartBtn) cartPopup.style.display='none';
 });
@@ -289,11 +325,15 @@ document.addEventListener('click', e=>{
 let cart = JSON.parse(localStorage.getItem('hivarix_cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
 const cartItemsDiv = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const checkoutForm = document.getElementById('checkout-form');
 
 function updateCart(){
   localStorage.setItem('hivarix_cart', JSON.stringify(cart));
   const totalItems = cart.reduce((sum,item)=>sum+item.qty,0);
+  const totalAmount = cart.reduce((sum,item)=>sum + item.price*item.qty,0);
   cartCountSpan.textContent = totalItems;
+  cartTotal.textContent = totalItems>0 ? `Total: NGN ${totalAmount.toLocaleString()}` : '';
 
   cartItemsDiv.innerHTML='';
   if(cart.length===0){
@@ -304,7 +344,16 @@ function updateCart(){
   cart.forEach((item,index)=>{
     const div=document.createElement('div');
     div.classList.add('cart-item');
-    div.innerHTML=`${item.name} (${item.qty}) - NGN ${item.price.toLocaleString()} <button onclick="removeFromCart(${index})">x</button>`;
+    div.innerHTML=`
+      <span>${item.name}</span>
+      <div>
+        <button onclick="decrementQty(${index})">-</button>
+        <span style="margin:0 6px;">${item.qty}</span>
+        <button onclick="incrementQty(${index})">+</button>
+        NGN ${item.price.toLocaleString()}
+        <button onclick="removeFromCart(${index})">x</button>
+      </div>
+    `;
     cartItemsDiv.appendChild(div);
   });
 }
@@ -314,7 +363,21 @@ function removeFromCart(index){
   updateCart();
 }
 
-const checkoutForm=document.getElementById('checkout-form');
+function incrementQty(index){
+  cart[index].qty++;
+  updateCart();
+}
+
+function decrementQty(index){
+  if(cart[index].qty>1){
+    cart[index].qty--;
+  } else {
+    cart.splice(index,1);
+  }
+  updateCart();
+}
+
+// CHECKOUT
 checkoutForm.addEventListener('submit', function(e){
   e.preventDefault();
   if(cart.length===0){ alert('Your cart is empty'); return; }
@@ -352,8 +415,8 @@ checkoutForm.addEventListener('submit', function(e){
   handler.openIframe();
 });
 
-// INIT
 updateCart();
 </script>
+
 </body>
 </html>

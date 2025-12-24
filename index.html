@@ -50,11 +50,9 @@ nav img{
   position:relative;
 }
 #cart-count{
-  position:absolute;
-  top:-6px;right:-6px;
+  position:absolute;top:-6px;right:-6px;
   background:red;color:#fff;
-  font-size:12px;
-  padding:2px 6px;
+  font-size:12px;padding:2px 6px;
   border-radius:50%;
 }
 
@@ -76,35 +74,28 @@ nav img{
 }
 .menu-links a:hover{background:#f0f0f0;}
 
-/* HERO */
+/* HERO (About.html style) */
 header{
   position:relative;
-  min-height:70vh;
+  min-height:50vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+  background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover no-repeat;
 }
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65));
+header *{position:relative;}
+header h1{
+  font-size:38px;
+  margin-bottom:10px;
 }
-header *{position:relative;z-index:1;}
-header h1{font-size:40px;margin-bottom:14px;}
-header p{max-width:720px;font-size:18px;}
-header button{
-  margin-top:24px;
-  padding:14px 32px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#004080,#00264d);
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
+#branding-quotes{
+  font-size:14px;
+  color:rgba(255,255,255,0.85);
+  font-style:italic;
+  min-height:20px;
+  transition:opacity 0.6s;
 }
 
 /* GLASS SECTION */
@@ -130,110 +121,35 @@ header button{
   font-weight:600;
 }
 
-/* CART POPUP – Same as about.html */
-#cart-popup{
+/* CART MODAL */
+#cart-modal{
   display:none;
   position:fixed;
-  top:90px; right:20px;
-  width:360px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(16px);
-  border-radius:20px;
-  padding:25px 20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3), 0 8px 16px rgba(0,0,0,0.15);
-  z-index:2000;
-  max-height:520px;
-  overflow-y:auto;
-  transition:all 0.3s ease;
-  border:1px solid rgba(255,255,255,0.6);
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:3000;
 }
-#cart-popup h3{
-  font-size:22px;
-  color:var(--brand);
-  margin-bottom:18px;
-  text-align:center;
-  letter-spacing:0.5px;
+#cart-box{
+  background:#fff;
+  max-width:460px;
+  margin:5% auto;
+  padding:26px;
+  border-radius:22px;
 }
 .cart-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin-bottom:12px;
-  padding:8px 10px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.4);
-  backdrop-filter:blur(6px);
-  transition:all 0.2s ease;
 }
-.cart-item:hover{
-  background:rgba(255,255,255,0.55);
-}
-.cart-item button{
-  margin:0 2px;
-  padding:4px 8px;
-  font-size:13px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  background:var(--brand);
-  color:#fff;
-  transition:all 0.2s ease;
-}
-.cart-item button:hover{
-  background:linear-gradient(135deg,#004080,#00264d);
-}
-#cart-total{
-  font-weight:700;
-  font-size:18px;
-  margin-top:14px;
-  text-align:right;
-  color:var(--brand);
-}
-#checkout-form input{
+.cart-controls button{padding:4px 10px;}
+input{
   width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.15);
-  font-size:14px;
-  background:rgba(255,255,255,0.7);
-  transition:all 0.2s ease;
-}
-#checkout-form input:focus{
-  outline:none;
-  border-color:var(--brand);
-  background:rgba(255,255,255,0.85);
-}
-#checkout-form button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(135deg,#004080,#00264d);
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-  font-size:16px;
-  margin-top:8px;
-  transition:all 0.3s ease;
-}
-#checkout-form button:hover{
-  background:linear-gradient(135deg,#00264d,#001a33);
-}
-#close-cart-btn{
-  margin-top:12px;
   padding:10px;
-  border-radius:10px;
-  background:#ccc;
-  color:#000;
-  border:none;
-  width:100%;
-  cursor:pointer;
-  transition:all 0.2s ease;
+  margin-top:10px;
 }
-#close-cart-btn:hover{
-  background:#bbb;
-}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
 
 /* FOOTER */
 footer{
@@ -247,26 +163,10 @@ footer .cac{
   justify-content:center;
   align-items:center;
   gap:8px;
-  font-size:13px;
   margin-top:14px;
-  opacity:.85;
 }
-footer .cac img{
-  width:34px;
-  height:auto;
-}
-
-@media(max-width:768px){
-  nav img{height:58px;}
-  header h1{font-size:30px;}
-  .glass{margin:-40px 14px 60px;}
-  footer .cac{flex-direction:column; gap:6px;}
-}
-@media (max-width:480px){
-  header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
-  header p{font-size:15px; line-height:1.5; max-width:90%; margin:0 auto;}
-  header button{font-size:15px; padding:12px 26px;}
-}
+footer .cac img{width:34px;}
+@media(max-width:768px){footer .cac{flex-direction:column;}}
 </style>
 </head>
 
@@ -288,8 +188,7 @@ footer .cac img{
 <header>
   <div>
     <h1>Welcome to HiVaRiX Global</h1>
-    <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
-    <a href="/products.html"><button>Explore Products</button></a>
+    <div id="branding-quotes"></div>
   </div>
 </header>
 
@@ -299,20 +198,20 @@ footer .cac img{
   <a href="/about.html"><button>View More</button></a>
 </section>
 
-<!-- CART POPUP -->
-<div id="cart-popup">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-  <div id="cart-total"></div>
-  <h4>Fill Your Details</h4>
-  <form id="checkout-form">
-    <input type="text" id="firstName" placeholder="First Name *" required>
-    <input type="text" id="lastName" placeholder="Last Name *" required>
-    <input type="email" id="email" placeholder="Email *" required>
-    <input type="tel" id="phone" placeholder="Phone Number (Nigeria) *" required>
-    <button type="submit">Proceed to Payment</button>
-  </form>
-  <button id="close-cart-btn">Close</button>
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div id="cart-box">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Total: ₦<span id="cart-total">0</span></h4>
+
+    <input id="cust-name" placeholder="Full Name" required>
+    <input id="cust-email" placeholder="Email Address" required>
+    <input id="cust-phone" placeholder="Phone Number" required>
+
+    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
 </div>
 
 <footer>
@@ -324,89 +223,95 @@ footer .cac img{
 </footer>
 
 <script>
-// Menu toggle
+/* MENU */
 const menuBtn=document.getElementById('menu-btn');
 const menuLinks=document.getElementById('menu-links');
-const cartBtn=document.getElementById('cart-btn');
-const cartPopup=document.getElementById('cart-popup');
-menuBtn.onclick=e=>{e.stopPropagation(); menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';};
-cartBtn.onclick=e=>{e.stopPropagation(); cartPopup.style.display=cartPopup.style.display==='block'?'none':'block';};
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
 document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)menuLinks.style.display='none';
-  if(!cartPopup.contains(e.target)&&e.target!==cartBtn)cartPopup.style.display='none';
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
+    menuLinks.style.display='none';
 });
 
-// CART LOGIC – identical to about.html
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-const cartCount = document.getElementById('cart-count');
-const cartItemsDiv = document.getElementById('cart-items');
-const cartTotalDiv = document.getElementById('cart-total');
+/* CART SYNC */
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+  document.getElementById("cart-count").textContent=
+    cart.reduce((t,i)=>t+i.qty,0);
+}
+function addToCart(id,name,price){
+  const item=cart.find(p=>p.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
+  saveCart();
+}
+saveCart();
 
-function updateCart(){
-  localStorage.setItem('cart',JSON.stringify(cart));
-  cartCount.textContent = cart.reduce((sum,i)=>sum+i.quantity,0);
-  cartItemsDiv.innerHTML='';
-  cart.forEach((item,index)=>{
-    const div=document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `
-      ${item.name} - NGN ${item.price} 
-      <div>
-        <button onclick="changeQty(${index},-1)">-</button>
-        ${item.quantity}
-        <button onclick="changeQty(${index},1)">+</button>
-        <button onclick="removeItem(${index})">x</button>
-      </div>`;
-    cartItemsDiv.appendChild(div);
+/* CART MODAL FUNCTIONS */
+const cartModal=document.getElementById("cart-modal");
+const cartItemsDiv=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
+
+document.getElementById("cart-btn").onclick=()=>{
+  cartItemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    cartItemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    `;
   });
-  const total = cart.reduce((sum,i)=>sum+i.price*i.quantity,0);
-  cartTotalDiv.textContent = `Total: NGN ${total}`;
+  cartTotal.textContent=total.toLocaleString();
+  cartModal.style.display="block";
+};
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  document.getElementById("cart-btn").click();
 }
+function closeCart(){cartModal.style.display="none";}
 
-function changeQty(index,delta){
-  cart[index].quantity += delta;
-  if(cart[index].quantity<1) cart[index].quantity=1;
-  updateCart();
-}
-
-function removeItem(index){
-  cart.splice(index,1);
-  updateCart();
-}
-
-// Checkout form
-const checkoutForm = document.getElementById('checkout-form');
-checkoutForm.addEventListener('submit',function(e){
-  e.preventDefault();
-  if(cart.length===0){alert('Cart is empty'); return;}
-  const f=document.getElementById('firstName').value.trim();
-  const l=document.getElementById('lastName').value.trim();
-  const em=document.getElementById('email').value.trim();
-  const p=document.getElementById('phone').value.trim();
-  if(!f||!l||!em||!/^0[789][01]\d{8}$/.test(p)){alert('Enter valid details'); return;}
-  const total = cart.reduce((sum,i)=>sum+i.price*i.quantity,0);
+/* PAYSTACK PAYMENT */
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+  if(!name||!email||!phone){alert("All customer details are required");return;}
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
   PaystackPop.setup({
-    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:em,
-    amount: total*100,
-    metadata:{custom_fields:[
-      {display_name:"Name",value:f+" "+l},
-      {display_name:"Phone",value:p}
-    ]},
-    callback:function(response){
-      alert('Payment complete! Ref: '+response.reference);
-      cart=[];
-      updateCart();
-      cartPopup.style.display='none';
-      checkoutForm.reset();
-    },
-    onClose:function(){alert('Payment not completed');}
+    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
+    callback:()=>{alert("Payment successful"); cart=[]; saveCart(); closeCart();},
   }).openIframe();
-});
+}
 
-document.getElementById('close-cart-btn').onclick = ()=>{cartPopup.style.display='none';};
-
-updateCart();
+/* BRANDING QUOTES ANIMATION */
+const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
+const quoteEl = document.getElementById("branding-quotes");
+function showRandomQuote() {
+  quoteEl.style.opacity=0; 
+  setTimeout(()=>{
+    quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; 
+    quoteEl.style.opacity=1;
+  },600);
+}
+showRandomQuote();
+setInterval(showRandomQuote,4000);
 </script>
 </body>
 </html>

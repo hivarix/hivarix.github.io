@@ -7,7 +7,7 @@
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* Same CSS as previous product pages */
+/* Same CSS as Branding & Digital Solutions page */
 body {font-family:'Segoe UI',sans-serif; background:#e6e6e6; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
 nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000;}
 nav img{height:60px; cursor:pointer;}
@@ -24,7 +24,6 @@ button.add-to-cart{background:#003366;color:#fff;border:none;padding:10px 18px;b
 #cart-popup h3{margin-top:0; color:#003366;}
 .cart-item{display:flex; justify-content:space-between; margin-bottom:10px;}
 .cart-item button{background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px;}
-.cart-item span.qty{margin-left:5px; font-weight:bold;}
 #checkout-form{display:flex; flex-direction:column; margin-top:10px;}
 #checkout-form input{margin-bottom:10px; padding:8px 10px; border-radius:6px; border:1px solid #ccc; font-size:14px;}
 #checkout-form button{padding:10px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:16px;}
@@ -64,7 +63,7 @@ footer .social-icons a:hover{color:#002244;}
     <li>Email & contact integration</li>
   </ul>
   <p><strong>Price: NGN 150,000</strong></p>
-  <button class="add-to-cart" data-id="startup-pack" data-name="Startup Digital Pack" data-price="150000">Add to Bag</button>
+  <button class="add-to-cart" data-name="Startup Digital Pack" data-price="150000">Add to Bag</button>
 </section>
 
 <!-- CART POPUP -->
@@ -103,8 +102,8 @@ const menuLinks = document.getElementById('menu-links');
 menuBtn.addEventListener('click', e => { e.stopPropagation(); menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex'; menuLinks.style.flexDirection = 'column'; });
 document.addEventListener('click', e => { if(!menuLinks.contains(e.target) && e.target !== menuBtn){ menuLinks.style.display = 'none'; } });
 
-// Cart functionality
-let cart = JSON.parse(localStorage.getItem('hivarix_cart')) || [];
+// Cart
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartCountSpan = document.getElementById('cart-count');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
@@ -113,72 +112,52 @@ const closeCartBtn = document.getElementById('close-cart-btn');
 const checkoutForm = document.getElementById('checkout-form');
 
 function updateCart() {
-  localStorage.setItem('hivarix_cart', JSON.stringify(cart));
-  cartCountSpan.textContent = cart.reduce((sum, item)=>sum+item.qty,0);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartCountSpan.textContent = cart.length;
   cartItemsDiv.innerHTML = '';
-  cart.forEach((item,index)=>{
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `${item.name} - NGN ${item.price} x <span class="qty">${item.qty}</span> <button onclick="removeFromCart(${index})">x</button>`;
-    cartItemsDiv.appendChild(div);
-  });
+  cart.forEach((item,index)=>{ const div=document.createElement('div'); div.classList.add('cart-item'); div.innerHTML=`${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`; cartItemsDiv.appendChild(div); });
 }
 
 function removeFromCart(index){ cart.splice(index,1); updateCart(); }
 
 document.querySelectorAll('.add-to-cart').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    const id = btn.getAttribute('data-id');
     const name = btn.getAttribute('data-name');
     const price = parseFloat(btn.getAttribute('data-price'));
-    const existing = cart.find(i => i.id === id);
-    if(existing){ existing.qty += 1; } 
-    else { cart.push({id,name,price,qty:1}); }
+    cart.push({name,price});
     updateCart();
     alert(`${name} added to cart`);
   });
 });
 
-cartBtn.addEventListener('click', ()=>{ cartPopup.style.display = cartPopup.style.display==='block' ? 'none' : 'block'; });
+cartBtn.addEventListener('click', ()=>{ cartPopup.style.display = cartPopup.style.display==='block' ? 'none':'block'; });
 closeCartBtn.addEventListener('click', ()=>{ cartPopup.style.display='none'; });
 
-// Checkout with Paystack
+// Checkout
 checkoutForm.addEventListener('submit', function(e){
   e.preventDefault();
   if(cart.length===0){ alert('Cart is empty'); return; }
-
   const firstName = document.getElementById('firstName').value.trim();
   const lastName = document.getElementById('lastName').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-
   if(!firstName||!lastName||!email||!phone){ alert("Fill all required fields"); return; }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ alert("Invalid email"); return; }
   if(!nigeriaPhone.test(phone)){ alert("Invalid Nigerian phone number"); return; }
-
-  const total = cart.reduce((sum,item)=>sum+item.price*item.qty,0);
-
+  const total = cart.reduce((sum,item)=>sum+item.price,0);
   let handler = PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email: email,
-    amount: total * 100,
-    metadata: { custom_fields:[
+    email:email,
+    amount:total*100,
+    metadata:{custom_fields:[
       {display_name:"First Name",variable_name:"first_name",value:firstName},
       {display_name:"Last Name",variable_name:"last_name",value:lastName},
       {display_name:"Phone Number",variable_name:"phone",value:phone}
     ]},
-    callback: function(response){
-      alert('Payment complete! Reference: '+response.reference);
-      cart = [];
-      updateCart();
-      cartPopup.style.display='none';
-      checkoutForm.reset();
-      window.location.href='/thank-you.html';
-    },
-    onClose: function(){ alert('Payment was not completed'); }
+    callback:function(response){ alert('Payment complete! Reference: '+response.reference); cart=[]; updateCart(); cartPopup.style.display='none'; checkoutForm.reset(); window.location.href='/thank-you.html'; },
+    onClose:function(){alert('Payment was not completed');}
   });
-
   handler.openIframe();
 });
 

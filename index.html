@@ -332,7 +332,7 @@ function payNow(){
   const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
   if(!total){alert("Cart empty");return;}
   PaystackPop.setup({
-    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:email,
     amount:total*100,
     currency:'NGN',

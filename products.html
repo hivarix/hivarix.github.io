@@ -231,6 +231,23 @@ footer .cac img{width:34px;}
 footer .footer-bottom{margin-top:12px;font-size:13px;}
 </style>
 </head>
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div id="cart-box">
+    <h3>Your Cart</h3>
+
+    <div id="cart-items"></div>
+
+    <h4>Total: ₦<span id="cart-total">0</span></h4>
+
+    <input id="cust-name" placeholder="Full Name" required>
+    <input id="cust-email" placeholder="Email Address" required>
+    <input id="cust-phone" placeholder="Phone Number" required>
+
+    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
 
 <body>
 

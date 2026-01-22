@@ -176,6 +176,36 @@ header p{font-size:18px;}
 }
 .tooltip:hover span{visibility:visible;opacity:1;}
 
+/* CART MODAL */
+#cart-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:3000;
+}
+#cart-box{
+  background:#fff;
+  max-width:460px;
+  margin:5% auto;
+  padding:26px;
+  border-radius:22px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.cart-controls button{padding:4px 10px;}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
+
 /* FOOTER */
 footer{
   background:linear-gradient(180deg,#00264d,#001933);
@@ -272,7 +302,6 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
     </div>
   </div>
 
-  <!-- PREMIUM PRODUCT -->
   <div class="product premium">
     <div class="premium-badge">Premium • Invitation Only</div>
     <h3>
@@ -309,6 +338,147 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   </div>
   <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
 </footer>
+
+<!-- SCRIPTS -->
+<script>
+/* MENU */
+const menuBtn=document.getElementById('menu-btn');
+const menuLinks=document.getElementById('menu-links');
+
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display =
+    menuLinks.style.display==='block'?'none':'block';
+};
+
+document.addEventListener('click',e=>{
+  if(!menuLinks.contains(e.target) && e.target!==menuBtn)
+    menuLinks.style.display='none';
+});
+
+/* CART */
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+const cartBtn=document.getElementById("cart-btn");
+const modal=document.getElementById("cart-modal");
+const itemsDiv=document.getElementById("cart-items");
+const totalSpan=document.getElementById("cart-total");
+
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+  document.getElementById("cart-count").textContent =
+    cart.reduce((t,i)=>t+i.qty,0);
+}
+
+function addToCart(id,name,price){
+  const item=cart.find(i=>i.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
+  saveCart();
+}
+
+cartBtn.onclick=openCart;
+
+function openCart(){
+  itemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    itemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+  totalSpan.textContent=total.toLocaleString();
+  modal.style.display="block";
+}
+
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  openCart();
+}
+
+function closeCart(){modal.style.display="none";}
+
+/* PAYSTACK */
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+
+  if(!name||!email||!phone){
+    alert("All customer details are required");
+    return;
+  }
+
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
+
+  PaystackPop.setup({
+    key:'REPLACE_WITH_YOUR_PUBLIC_KEY',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{
+      custom_fields:[
+        {display_name:"Name",value:name},
+        {display_name:"Phone",value:phone}
+      ]
+    },
+    callback:()=>{
+      alert("Payment successful");
+      cart=[];
+      saveCart();
+      closeCart();
+    }
+  }).openIframe();
+}
+
+/* PREMIUM REQUEST ACCESS */
+function requestAccess(){
+  const subject = encodeURIComponent(
+    "Premium Access Request – Verified Badge Pack"
+  );
+  const body = encodeURIComponent(
+    "A customer has requested access to the Social Media Verified Badge Pack.\n\n"+
+    "Page: "+window.location.href
+  );
+  window.location.href =
+    "mailto:hivarixglobal@gmail.com?subject="+subject+"&body="+body;
+}
+
+/* BRANDING QUOTES */
+const quotes=[
+  "Innovation starts here.",
+  "Your brand, amplified.",
+  "Digital solutions that shine.",
+  "Building brands with impact.",
+  "Empowering businesses globally.",
+  "Creativity meets strategy.",
+  "Your growth, our mission."
+];
+const quoteEl=document.getElementById("branding-quotes");
+
+function showRandomQuote(){
+  quoteEl.style.opacity=0;
+  setTimeout(()=>{
+    quoteEl.textContent =
+      quotes[Math.floor(Math.random()*quotes.length)];
+    quoteEl.style.opacity=1;
+  },600);
+}
+showRandomQuote();
+setInterval(showRandomQuote,4000);
+
+saveCart();
+</script>
 
 </body>
 </html>

@@ -7,36 +7,185 @@
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body {font-family:'Segoe UI',sans-serif; background:#e6e6e6; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
-nav {background:rgba(255,255,255,0.95); border-bottom:1px solid #ccc; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000;}
-nav img{height:60px; cursor:pointer;}
-nav .nav-right button{margin-left:15px; display:flex; align-items:center; justify-content:center; height:40px; width:40px; font-size:18px; border-radius:8px; border:none; cursor:pointer; background:#003366; color:#fff; position:relative;}
-#cart-count{position:absolute; top:-5px; right:-5px; background:red; color:#fff; font-size:12px; border-radius:50%; padding:2px 6px;}
-.menu-links{display:none; flex-direction:column; background:#fff; position:absolute; top:65px; right:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:8px; overflow:hidden;}
-.menu-links a{padding:12px 20px; text-decoration:none; color:#003366; font-weight:600; border-bottom:1px solid #eee;}
-.menu-links a:last-child{border-bottom:none;}
-section{padding:50px 20px; text-align:left; max-width:900px; margin:auto;}
-section h2{color:#003366; margin-bottom:15px;}
-section ul{margin-left:20px;}
-button.add-to-cart{background:#003366;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:15px;}
-#cart-popup{display:none; position:fixed; top:70px; right:20px; background:#fff; border:1px solid #ccc; padding:20px; border-radius:10px; width:300px; max-height:500px; overflow-y:auto; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000;}
-#cart-popup h3{margin-top:0; color:#003366;}
-.cart-item{display:flex; justify-content:space-between; margin-bottom:10px;}
-.cart-item button{background:red; color:#fff; border:none; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:12px;}
-#checkout-form{display:flex; flex-direction:column; margin-top:10px;}
-#checkout-form input{margin-bottom:10px; padding:8px 10px; border-radius:6px; border:1px solid #ccc; font-size:14px;}
-#checkout-form button{padding:10px; background:#003366; color:#fff; border:none; border-radius:8px; cursor:pointer; font-size:16px;}
-#checkout-form button:hover{background:#002244;}
-footer{background:#e6e6e6; text-align:center; padding:20px; font-size:14px; color:#555; display:flex; flex-direction:column; align-items:center;}
-footer .social-icons a{margin:0 10px; color:#003366; font-size:28px;}
-footer .social-icons a:hover{color:#002244;}
-.cac-footer{opacity:0.1; width:120px; margin:10px auto 5px auto; display:block;}
-.cac-text{text-align:center; font-size:14px;}
+/* NAV & LAYOUT */
+body {
+  font-family:'Segoe UI',sans-serif;
+  background:#e6e6e6;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+nav {
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid #ccc;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+nav img {
+  height:60px;
+  cursor:pointer;
+}
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:15px; /* exact spacing for buttons */
+}
+.nav-right button {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  width:40px;
+  font-size:18px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  background:#003366;
+  color:#fff;
+  position:relative;
+}
+#cart-count {
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:#fff;
+  font-size:12px;
+  border-radius:50%;
+  padding:2px 6px;
+}
+.menu-links {
+  display:none;
+  flex-direction:column;
+  background:#fff;
+  position:absolute;
+  top:65px;
+  right:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  border-radius:8px;
+  overflow:hidden;
+}
+.menu-links a {
+  padding:12px 20px;
+  text-decoration:none;
+  color:#003366;
+  font-weight:600;
+  border-bottom:1px solid #eee;
+}
+.menu-links a:last-child {
+  border-bottom:none;
+}
+
+/* SECTION & BUTTONS */
+section {
+  padding:50px 20px;
+  text-align:left;
+  max-width:900px;
+  margin:auto;
+}
+section h2 { color:#003366; margin-bottom:15px; }
+section ul { margin-left:20px; }
+button.add-to-cart {
+  background:#003366;
+  color:#fff;
+  border:none;
+  padding:10px 18px;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+/* CART POPUP */
+#cart-popup {
+  display:none;
+  position:fixed;
+  top:70px;
+  right:20px;
+  background:#fff;
+  border:1px solid #ccc;
+  padding:20px;
+  border-radius:10px;
+  width:300px;
+  max-height:500px;
+  overflow-y:auto;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  z-index:2000;
+}
+#cart-popup h3 { margin-top:0; color:#003366; }
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.cart-item button {
+  background:red;
+  color:#fff;
+  border:none;
+  padding:2px 6px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:12px;
+}
+#checkout-form {
+  display:flex;
+  flex-direction:column;
+  margin-top:10px;
+}
+#checkout-form input {
+  margin-bottom:10px;
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+#checkout-form button {
+  padding:10px;
+  background:#003366;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+#checkout-form button:hover { background:#002244; }
+
+/* FOOTER */
+footer {
+  background:#e6e6e6;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  color:#555;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+footer .social-icons a {
+  margin:0 10px;
+  color:#003366;
+  font-size:28px;
+}
+footer .social-icons a:hover { color:#002244; }
+.cac-footer {
+  opacity:0.1;
+  width:120px;
+  margin:10px auto 5px auto;
+  display:block;
+}
+.cac-text { text-align:center; font-size:14px; }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
   <a href="https://hivarix.com"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
   <div class="nav-right">
@@ -93,105 +242,93 @@ footer .social-icons a:hover{color:#002244;}
   <p class="cac-text">HiVaRiX Global is a registered business.<br>CAC Certificate Number: BN8390093</p>
 </footer>
 
+<!-- PAYSTACK & CART SCRIPT -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-// --- MENU ---
+// MENU TOGGLE
 const menuBtn = document.getElementById('menu-btn');
 const menuLinks = document.getElementById('menu-links');
-menuBtn.addEventListener('click', e => { 
-  e.stopPropagation(); 
-  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex'; 
-  menuLinks.style.flexDirection = 'column'; 
+menuBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
+  menuLinks.style.flexDirection = 'column';
 });
-document.addEventListener('click', e => { 
-  if(!menuLinks.contains(e.target) && e.target !== menuBtn){ 
-    menuLinks.style.display = 'none'; 
-  } 
+document.addEventListener('click', e => {
+  if(!menuLinks.contains(e.target) && e.target !== menuBtn){
+    menuLinks.style.display = 'none';
+  }
 });
 
-// --- CART ---
+// CART FUNCTIONALITY
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-cart = cart.map(item => ({name:item.name, price:Number(item.price)})); // Fix any string prices
 const cartCountSpan = document.getElementById('cart-count');
-const cartItemsDiv = document.getElementById('cart-items');
 const cartBtn = document.getElementById('cart-btn');
 const cartPopup = document.getElementById('cart-popup');
+const cartItemsDiv = document.getElementById('cart-items');
 const closeCartBtn = document.getElementById('close-cart-btn');
 const checkoutForm = document.getElementById('checkout-form');
 
 function updateCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    cartCountSpan.textContent = cart.length;
-    cartItemsDiv.innerHTML = '';
-    if(cart.length===0){
-        cartItemsDiv.innerHTML = '<p>Your cart is empty</p>';
-        return;
-    }
-    cart.forEach((item,index)=>{
-        const div=document.createElement('div');
-        div.classList.add('cart-item');
-        div.innerHTML = `${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`;
-        cartItemsDiv.appendChild(div);
-    });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartCountSpan.textContent = cart.length;
+  cartItemsDiv.innerHTML = '';
+  cart.forEach((item,index)=>{
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
+    div.innerHTML = `${item.name} - NGN ${item.price} <button onclick="removeFromCart(${index})">x</button>`;
+    cartItemsDiv.appendChild(div);
+  });
 }
-
 function removeFromCart(index){
-    cart.splice(index,1);
-    updateCart();
+  cart.splice(index,1);
+  updateCart();
 }
-
-// Add to cart buttons
 document.querySelectorAll('.add-to-cart').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        const name = btn.getAttribute('data-name');
-        const price = parseFloat(btn.getAttribute('data-price'));
-        cart.push({name,price});
-        updateCart();
-        alert(`${name} added to cart`);
-    });
+  btn.addEventListener('click',()=>{
+    const name = btn.getAttribute('data-name');
+    const price = parseFloat(btn.getAttribute('data-price'));
+    cart.push({name,price});
+    updateCart();
+    alert(`${name} added to cart`);
+  });
 });
+cartBtn.addEventListener('click',()=>{ cartPopup.style.display = cartPopup.style.display === 'block' ? 'none':'block'; });
+closeCartBtn.addEventListener('click',()=>{ cartPopup.style.display='none'; });
 
-// Cart popup toggle
-cartBtn.addEventListener('click', ()=>{ cartPopup.style.display = cartPopup.style.display==='block' ? 'none':'block'; });
-closeCartBtn.addEventListener('click', ()=>{ cartPopup.style.display='none'; });
-
-// --- CHECKOUT ---
+// CHECKOUT & PAYSTACK
 checkoutForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(cart.length===0){ alert('Cart is empty'); return; }
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
-    if(!firstName||!lastName||!email||!phone){ alert("Fill all required fields"); return; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ alert("Invalid email"); return; }
-    if(!nigeriaPhone.test(phone)){ alert("Invalid Nigerian phone number"); return; }
-    const total = cart.reduce((sum,item)=>sum+item.price,0);
-    let handler = PaystackPop.setup({
-        key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-        email:email,
-        amount:total*100,
-        metadata:{custom_fields:[
-            {display_name:"First Name",variable_name:"first_name",value:firstName},
-            {display_name:"Last Name",variable_name:"last_name",value:lastName},
-            {display_name:"Phone Number",variable_name:"phone",value:phone}
-        ]},
-        callback:function(response){
-            alert('Payment complete! Reference: '+response.reference);
-            cart=[];
-            updateCart();
-            cartPopup.style.display='none';
-            checkoutForm.reset();
-            window.location.href='/thank-you.html';
-        },
-        onClose:function(){alert('Payment was not completed');}
-    });
-    handler.openIframe();
+  e.preventDefault();
+  if(cart.length===0){ alert('Cart is empty'); return; }
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const nigeriaPhone = /^(?:0|\+234)[789][01]\d{8}$/;
+  if(!firstName||!lastName||!email||!phone){ alert("Fill all required fields"); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ alert("Invalid email"); return; }
+  if(!nigeriaPhone.test(phone)){ alert("Invalid Nigerian phone number"); return; }
+  const total = cart.reduce((sum,item)=>sum+item.price,0);
+  let handler = PaystackPop.setup({
+    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
+    email:email,
+    amount:total*100,
+    metadata:{custom_fields:[
+      {display_name:"First Name",variable_name:"first_name",value:firstName},
+      {display_name:"Last Name",variable_name:"last_name",value:lastName},
+      {display_name:"Phone Number",variable_name:"phone",value:phone}
+    ]},
+    callback:function(response){
+      alert('Payment complete! Reference: '+response.reference);
+      cart=[]; updateCart(); cartPopup.style.display='none'; checkoutForm.reset();
+      window.location.href='/thank-you.html';
+    },
+    onClose:function(){ alert('Payment was not completed'); }
+  });
+  handler.openIframe();
 });
 
-// Initial render
 updateCart();
 </script>
+
 </body>
 </html>

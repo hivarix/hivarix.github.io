@@ -80,7 +80,7 @@ section h2{color:var(--brand);}
 section ul{margin-left:20px; margin-bottom:20px;}
 button.add-to-cart{
   background:var(--accent);
-  color:var(--brand);
+  color:#003366;
   border:none;
   padding:10px 18px;
   border-radius:10px;
@@ -125,14 +125,25 @@ footer{
   padding:60px 20px;
   text-align:center;
 }
+footer .social-icons a{
+  margin:0 10px;
+  font-size:24px;
+  color:#fff;
+}
 footer .cac{
   display:flex;
-  justify-content:center;
-  gap:8px;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
   margin-top:14px;
+  opacity:.85;
 }
 footer .cac img{width:34px;}
-@media(max-width:768px){footer .cac{flex-direction:column;}}
+footer .footer-bottom{margin-top:12px;font-size:13px;}
+@media(max-width:768px){
+  footer .cac{flex-direction:column;}
+}
 </style>
 </head>
 <body>
@@ -166,7 +177,7 @@ footer .cac img{width:34px;}
     <li>End-to-End Consultancy Support</li>
   </ul>
   <p><strong>Price: NGN 50,000</strong></p>
-  <button class="add-to-cart" data-id="branding" data-name="Branding & Digital Solutions" data-price="25000">Add to Cart</button>
+  <button class="add-to-cart" data-id="branding" data-name="Branding & Digital Solutions" data-price="50000">Add to Cart</button>
 </section>
 
 <!-- CART MODAL -->
@@ -192,11 +203,12 @@ footer .cac img{width:34px;}
     <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
   </div>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
-    <span>Registered • Protected • Worldwide
-CAC BN8390093</span>
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered • Protected • Worldwide<br>CAC BN8390093</span>
   </div>
-  <div class="footer-bottom">© 2025 HiVaRiX Global. All intellectual property rights reserved.</div>
+  <div class="footer-bottom">
+    © 2025 HiVaRiX Global. All intellectual property rights reserved.
+  </div>
 </footer>
 
 <script>
@@ -217,7 +229,8 @@ let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
 const cartBtn=document.getElementById("cart-btn");
 const modal=document.getElementById("cart-modal");
 const itemsDiv=document.getElementById("cart-items");
-const totalSpan=document.createElement("h4"); // for total display
+const totalSpan=document.createElement("h4");
+
 cartBtn.onclick=openCart;
 
 function saveCart(){

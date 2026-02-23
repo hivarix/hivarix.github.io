@@ -3,193 +3,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global | Luxury Corporate Website</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>HiVaRiX Global – Digital Excellence</title>
+
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
 <style>
 :root{
-  --primary:#0b1c2d;
-  --gold:#c6a74e;
-  --light-bg:#f4f6f9;
-  --dark-bg:#111;
+  --brand:#003366;
+  --accent:#ffd700;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:var(--light-bg);color:#111;scroll-behavior:smooth;transition:.5s;}
-body.dark{background:var(--dark-bg);color:#fff;}
+/* BASE */
+html, body {
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,#e9eef3,#dfe5ea);
+  color:#222;
+  overflow-x:hidden; /* Prevent horizontal scroll */
+}
 
-#loader{position:fixed;width:100%;height:100%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:9999;color:var(--gold);font-size:28px;font-weight:700;}
-
+/* NAV */
 nav{
-  display:flex;justify-content:space-between;align-items:center;padding:20px 8%;position:fixed;width:100%;background:var(--light-bg);border-bottom:1px solid #eee;z-index:1000;transition:.5s;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-body.dark nav{background:var(--primary);}
-.logo{font-weight:600;font-size:18px;}
-.nav-links a{margin-left:30px;text-decoration:none;color:#111;font-weight:500;transition:.3s;}
-body.dark .nav-links a{color:#fff;}
-#dark-toggle{margin-left:20px;padding:6px 12px;background:var(--gold);border:none;cursor:pointer;font-weight:600;}
+nav img{
+  height:72px;
+}
+.nav-right{display:flex;gap:12px;}
+.nav-right button{
+  width:42px;height:42px;
+  border:none;border-radius:10px;
+  background:var(--brand);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  position:relative;
+}
+#cart-count{
+  position:absolute;top:-6px;right:-6px;
+  background:red;color:#fff;
+  font-size:12px;padding:2px 6px;
+  border-radius:50%;
+}
 
-header{height:100vh;background:linear-gradient(rgba(11,28,45,.6), rgba(11,28,45,.6)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;background-size:cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:50px;margin-bottom:20px;transition:.5s;}
-.hero p{max-width:650px;margin:0 auto 30px;font-weight:300;transition:.5s;}
-.btn{background:var(--gold);padding:14px 32px;text-decoration:none;color:#111;font-weight:600;display:inline-block;transition:.3s;}
-.btn:hover{transform:scale(1.05);}
+/* MENU */
+.menu-links{
+  display:none;
+  position:absolute;
+  top:72px;right:20px;
+  background:#ffffff;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+.menu-links a{
+  display:block;
+  padding:14px 22px;
+  color:var(--brand);
+  text-decoration:none;
+  font-weight:600;
+}
+.menu-links a:hover{background:#f0f0f0;}
 
-.section{padding:100px 8%;text-align:center;}
-.section.dark{background:var(--primary);color:white;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:50px;}
-.card{padding:40px;border:1px solid #eee;transition:.3s;cursor:pointer;}
-.card:hover{border-color:var(--gold);transform:translateY(-5px);}
-.portfolio-item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;transition:.3s;}
-.portfolio-item img{width:100%;display:block;transition:.5s;}
-.portfolio-item:hover img{transform:scale(1.1);}
-.portfolio-item span{position:absolute;bottom:0;width:100%;padding:12px;background:rgba(0,0,0,.6);color:#fff;text-align:center;font-weight:600;opacity:0;transition:.3s;}
-.portfolio-item:hover span{opacity:1;}
-.about-text{max-width:700px;margin:30px auto;}
-.stats{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;margin-top:40px;}
-.stat{font-size:32px;font-weight:700;}
-.testimonial{max-width:600px;margin:40px auto 0;font-style:italic;font-size:18px;transition:.3s;}
-form{max-width:600px;margin:40px auto 0;display:flex;flex-direction:column;}
-input, textarea{padding:15px;margin-bottom:20px;border:1px solid #ddd;border-radius:8px;}
-footer{padding:40px;background:var(--dark-bg);color:#fff;text-align:center;font-size:14px;}
-.client-logos{display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;margin-top:40px;transition:.3s;}
-.client-logos img{max-height:60px;opacity:.8;transition:.3s;}
-.client-logos img:hover{opacity:1;transform:scale(1.1);}
+/* HERO */
+header{
+  position:relative;
+  min-height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+}
+header *{position:relative;}
+header h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+header p{
+  font-size:16px;
+  margin-bottom:14px;
+}
+header button{
+  padding:12px 28px;
+  border:none;
+  border-radius:24px;
+  background:var(--accent);
+  color:#003366;
+  font-weight:600;
+  cursor:pointer;
+}
+#branding-quotes{
+  font-size:14px;
+  color:rgba(255,255,255,0.85);
+  font-style:italic;
+  min-height:20px;
+  transition:opacity 0.6s;
+  margin-top:10px;
+}
 
-/* LIGHTBOX */
-#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:10000;}
-#lightbox img{max-width:90%;max-height:90%;border-radius:12px;}
+/* GLASS SECTION */
+.glass{
+  margin:-60px auto 80px;
+  max-width:900px;
+  padding:60px 30px;
+  text-align:center;
+  background:rgba(255,255,255,.45);
+  backdrop-filter:blur(18px);
+  border-radius:28px;
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+.glass h2{color:var(--brand);font-size:30px;}
+.glass p{font-size:18px;max-width:680px;margin:16px auto 0;}
+.glass button{
+  margin-top:26px;
+  padding:12px 28px;
+  border:none;
+  border-radius:24px;
+  background:var(--accent);
+  color:#003366;
+  font-weight:600;
+}
 
-/* RESPONSIVE */
-@media(max-width:768px){.hero h1{font-size:36px;}nav{padding:15px 5%;}}
+/* CART MODAL */
+#cart-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:3000;
+}
+#cart-box{
+  background:#fff;
+  max-width:460px;
+  margin:5% auto;
+  padding:26px;
+  border-radius:22px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.cart-controls button{padding:4px 10px;}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+.pay{background:var(--accent);border:none;}
+.close{background:#ccc;margin-top:10px;border:none;}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(180deg,#00264d,#001933);
+  color:#fff;
+  padding:60px 20px;
+  text-align:center;
+}
+footer .social-icons a{
+  margin:0 10px;
+  font-size:24px;
+  color:#fff;
+}
+footer .cac{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  margin-top:14px;
+  opacity:.85;
+}
+footer .cac img{width:34px;}
+footer .footer-bottom{
+  margin-top:12px;
+  font-size:13px;
+}
+@media(max-width:768px){
+  nav img{height:72px;}
+  header h1{font-size:30px;}
+  .glass{margin:40px 14px 60px;}
+}
+@media (max-width:480px){
+  header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
+  header p{font-size:15px; line-height:1.5; max-width:90%; margin:0 auto;}
+  header button{font-size:15px; padding:12px 26px;}
+}
 </style>
 </head>
-
 <body>
 
-<div id="loader">HiVaRiX Global</div>
-
 <nav>
-  <div class="logo">HiVaRiX Global</div>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-    <button id="dark-toggle">Dark Mode</button>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
+  <div class="nav-right">
+    <button id="menu-btn"><i class="fas fa-bars"></i></button>
+    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
+  </div>
+  <div class="menu-links" id="menu-links">
+    <a href="/">Home</a>
+    <a href="/products.html">Products</a>
+    <a href="/about.html">About</a>
   </div>
 </nav>
 
 <header>
-  <div class="hero">
-    <h1>Designing Vision. Building Structure.</h1>
-    <p>Strategic Infrastructure & Creative Development Firm delivering branding, architectural visualization, and digital systems across Africa.</p>
-    <a href="#contact" class="btn">Start a Project</a>
+  <div>
+    <h1>Welcome to HiVaRiX Global</h1>
+    <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
+    <a href="/products.html"><button>Explore Products</button></a>
+    <div id="branding-quotes"></div>
   </div>
 </header>
 
-<section id="services" class="section">
-  <h2>Our Core Divisions</h2>
-  <div class="grid">
-    <div class="card"><h3>Creative & Print Systems</h3><p>Corporate identity, branding systems, executive print production, packaging, and marketing materials.</p></div>
-    <div class="card"><h3>Architectural & Structural Design</h3><p>2D drafting, 3D rendering, interior visualization, structural concepts, and consultancy.</p></div>
-    <div class="card"><h3>Digital Infrastructure</h3><p>Web systems, business automation, e-commerce integration, and scalable digital architecture.</p></div>
+<section class="glass">
+  <h2>Why Choose Us?</h2>
+  <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
+  <a href="/about.html"><button>View More</button></a>
+</section>
+
+<!-- CART MODAL -->
+<div id="cart-modal">
+  <div id="cart-box">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <h4>Total: ₦<span id="cart-total">0</span></h4>
+    <input id="cust-name" placeholder="Full Name" required>
+    <input id="cust-email" placeholder="Email Address" required>
+    <input id="cust-phone" placeholder="Phone Number" required>
+    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="close" onclick="closeCart()">Close</button>
   </div>
-</section>
-
-<section id="portfolio" class="section dark">
-  <h2>Portfolio Gallery</h2>
-  <div class="grid">
-    <div class="portfolio-item"><img src="https://source.unsplash.com/400x300/?branding" alt=""><span>Brand Identity System</span></div>
-    <div class="portfolio-item"><img src="https://source.unsplash.com/400x300/?architecture" alt=""><span>Modern Residential Concept</span></div>
-    <div class="portfolio-item"><img src="https://source.unsplash.com/400x300/?website" alt=""><span>Corporate Website System</span></div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <h2>Where Vision Meets Structure</h2>
-  <p class="about-text">HiVaRiX Global operates at the intersection of creativity, architecture, and digital systems. We design strong brand identities, develop structural concepts, and deliver integrated solutions that elevate institutions, businesses, and visionary projects.</p>
-  <div class="stats">
-    <div><div class="stat" data-target="8390093">0</div><p>Registered (CAC)</p></div>
-    <div><div class="stat" data-target="3">0</div><p>Divisions</p></div>
-    <div><div class="stat" data-target="10">0</div><p>Years Experience</p></div>
-  </div>
-</section>
-
-<section id="clients" class="section dark">
-  <h2>Our Trusted Clients</h2>
-  <div class="client-logos">
-    <img src="https://via.placeholder.com/120x60?text=Client+1" alt="">
-    <img src="https://via.placeholder.com/120x60?text=Client+2" alt="">
-    <img src="https://via.placeholder.com/120x60?text=Client+3" alt="">
-    <img src="https://via.placeholder.com/120x60?text=Client+4" alt="">
-  </div>
-</section>
-
-<section class="section">
-  <h2>Client Perspective</h2>
-  <div class="testimonial" id="testimonial">“Professional execution with structural clarity.”</div>
-</section>
-
-<section id="contact" class="section dark">
-  <h2>Request Consultation</h2>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
-    <button type="submit" class="btn">Submit Request</button>
-  </form>
-</section>
+</div>
 
 <footer>
-  <p>Registered with Corporate Affairs Commission (CAC) – BN8390093</p>
-  <p>© 2026 HiVaRiX Global. All Rights Reserved.</p>
+  <div class="social-icons">
+    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
+  </div>
+  <div class="cac">
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
+  </div>
+  <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
 </footer>
 
-<!-- LIGHTBOX -->
-<div id="lightbox"><img src="" alt=""></div>
-
 <script>
-// LOADER
-window.addEventListener('load',()=>{document.getElementById('loader').style.display='none';});
+/* MENU */
+const menuBtn=document.getElementById('menu-btn');
+const menuLinks=document.getElementById('menu-links');
+menuBtn.onclick=e=>{
+  e.stopPropagation();
+  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
+};
+document.addEventListener('click',e=>{
+  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
+    menuLinks.style.display='none';
+});
 
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click',function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+/* CART SYNC */
+let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
+function saveCart(){
+  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
+  document.getElementById("cart-count").textContent=
+    cart.reduce((t,i)=>t+i.qty,0);
+}
+function addToCart(id,name,price){
+  const item=cart.find(p=>p.id===id);
+  item?item.qty++:cart.push({id,name,price,qty:1});
+  saveCart();
+}
+saveCart();
+
+/* CART MODAL FUNCTIONS */
+const cartModal=document.getElementById("cart-modal");
+const cartItemsDiv=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
+
+document.getElementById("cart-btn").onclick=()=>{
+  cartItemsDiv.innerHTML="";
+  let total=0;
+  cart.forEach(i=>{
+    total+=i.price*i.qty;
+    cartItemsDiv.innerHTML+=`
+      <div class="cart-item">
+        <span>${i.name}</span>
+        <div class="cart-controls">
+          <button onclick="updateQty('${i.id}',-1)">−</button>
+          ${i.qty}
+          <button onclick="updateQty('${i.id}',1)">+</button>
+        </div>
+      </div>
+    `;
   });
-});
+  cartTotal.textContent=total.toLocaleString();
+  cartModal.style.display="block";
+};
+function updateQty(id,change){
+  const item=cart.find(i=>i.id===id);
+  item.qty+=change;
+  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  document.getElementById("cart-btn").click();
+}
+function closeCart(){cartModal.style.display="none";}
 
-// TESTIMONIAL ROTATION
-const testimonials=["Professional execution with structural clarity.","HiVaRiX delivered beyond expectation.","Creative intelligence backed by strategic structure.","Reliable, visionary, and results-driven."];
-let index=0;const testimonialEl=document.getElementById("testimonial");
-setInterval(()=>{index=(index+1)%testimonials.length;testimonialEl.textContent="“"+testimonials[index]+"”";},4000);
+/* PAYSTACK PAYMENT */
+function payNow(){
+  const name=document.getElementById("cust-name").value.trim();
+  const email=document.getElementById("cust-email").value.trim();
+  const phone=document.getElementById("cust-phone").value.trim();
+  if(!name||!email||!phone){alert("All customer details are required");return;}
+  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
+  if(!total){alert("Cart empty");return;}
+  PaystackPop.setup({
+    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
+    email:email,
+    amount:total*100,
+    currency:'NGN',
+    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
+    callback:()=>{alert("Payment successful"); cart=[]; saveCart(); closeCart();},
+  }).openIframe();
+}
 
-// DARK/LIGHT MODE
-document.getElementById("dark-toggle").addEventListener('click',()=>{
-  document.body.classList.toggle('dark');
-  document.getElementById("dark-toggle").textContent=document.body.classList.contains('dark')?'Light Mode':'Dark Mode';
-});
-
-// ANIMATED COUNTERS
-document.querySelectorAll('.stat').forEach(counter=>{
-  const updateCount=()=>{
-    const target=+counter.getAttribute('data-target');
-    const count=+counter.innerText;
-    const increment=target/200;
-    if(count<target){counter.innerText=Math.ceil(count+increment);setTimeout(updateCount,20);}else{counter.innerText=target;}
-  };
-  updateCount();
-});
-
-// PORTFOLIO LIGHTBOX
-const lightbox=document.getElementById('lightbox');
-document.querySelectorAll('.portfolio-item img').forEach(img=>{
-  img.addEventListener('click',()=>{lightbox.style.display='flex';lightbox.querySelector('img').src=img.src;});
-});
-lightbox.addEventListener('click',()=>{lightbox.style.display='none';});
+/* BRANDING QUOTES ANIMATION */
+const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
+const quoteEl = document.getElementById("branding-quotes");
+function showRandomQuote() {
+  quoteEl.style.opacity=0; 
+  setTimeout(()=>{
+    quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; 
+    quoteEl.style.opacity=1;
+  },600);
+}
+showRandomQuote();
+setInterval(showRandomQuote,4000);
 </script>
-
 </body>
 </html>

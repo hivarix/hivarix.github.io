@@ -125,13 +125,23 @@ footer{
   padding:60px 20px;
   text-align:center;
 }
+footer .social-icons{
+  margin-bottom:12px;
+}
+footer .social-icons a{
+  margin:0 10px;
+  font-size:24px;
+  color:#fff;
+}
 footer .cac{
   display:flex;
   justify-content:center;
   gap:8px;
   margin-top:14px;
+  align-items:center;
 }
 footer .cac img{width:34px;}
+footer .footer-bottom{margin-top:12px;font-size:14px;}
 @media(max-width:768px){footer .cac{flex-direction:column;}}
 </style>
 </head>
@@ -166,7 +176,9 @@ footer .cac img{width:34px;}
     <li>Email & contact integration</li>
   </ul>
   <p><strong>Price: NGN 150,000</strong></p>
-  <button class="add-to-cart" data-id="branding" data-name="Branding & Digital Solutions" data-price="25000">Add to Cart</button>
+  <button class="add-to-cart" data-id="startup" data-name="Startup Digital Pack" data-price="150000">
+    Add to Cart
+  </button>
 </section>
 
 <!-- CART MODAL -->
@@ -192,10 +204,12 @@ footer .cac img{width:34px;}
     <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
   </div>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
-    <span>Registered • Protected • CAC BN8390093</span>
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
+    <span>Registered • Protected • Worldwide<br>CAC BN8390093</span>
   </div>
-  <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
+  <div class="footer-bottom">
+    © 2025 HiVaRiX Global. All intellectual property rights reserved.
+  </div>
 </footer>
 
 <script>
@@ -225,19 +239,14 @@ function saveCart(){
     cart.reduce((t,i)=>t+i.qty,0);
 }
 
-function addToCart(id,name,price){
-  const item=cart.find(i=>i.id===id);
-  item?item.qty++:cart.push({id,name,price,qty:1});
-  saveCart();
-}
-
 document.querySelectorAll('.add-to-cart').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    addToCart(
-      btn.getAttribute('data-id'),
-      btn.getAttribute('data-name'),
-      parseFloat(btn.getAttribute('data-price'))
-    );
+    const id=btn.getAttribute('data-id');
+    const name=btn.getAttribute('data-name');
+    const price=parseFloat(btn.getAttribute('data-price'));
+    const item=cart.find(i=>i.id===id);
+    item?item.qty++:cart.push({id,name,price,qty:1});
+    saveCart();
     alert('Added to cart');
   });
 });

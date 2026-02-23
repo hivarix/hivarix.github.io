@@ -22,7 +22,7 @@ html, body {
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
-  overflow-x:hidden; /* Prevent horizontal scroll */
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -220,19 +220,21 @@ footer .footer-bottom{
   </div>
 </nav>
 
+<!-- HERO SECTION -->
 <header>
   <div>
     <h1>Welcome to HiVaRiX Global</h1>
-    <p>Your trusted partner for digital services, branding, consultancy, and online solutions.</p>
-    <a href="/products.html"><button>Explore Products</button></a>
+    <p>Transforming ideas into digital experiences, empowering your brand, and driving measurable growth.</p>
+    <a href="/products.html"><button>Explore Our Solutions</button></a>
     <div id="branding-quotes"></div>
   </div>
 </header>
 
+<!-- GLASS SECTION -->
 <section class="glass">
-  <h2>Why Choose Us?</h2>
-  <p>We combine strategy, creativity, and technology to drive sustainable growth.</p>
-  <a href="/about.html"><button>View More</button></a>
+  <h2>Why Partner With Us?</h2>
+  <p>We fuse creativity, strategy, and technology to deliver exceptional digital outcomes for your business.</p>
+  <a href="/about.html"><button>Discover More</button></a>
 </section>
 
 <!-- CART MODAL -->
@@ -244,11 +246,12 @@ footer .footer-bottom{
     <input id="cust-name" placeholder="Full Name" required>
     <input id="cust-email" placeholder="Email Address" required>
     <input id="cust-phone" placeholder="Phone Number" required>
-    <button class="pay" onclick="payNow()">Proceed to Payment</button>
+    <button class="pay" onclick="payNow()">Proceed to Checkout</button>
     <button class="close" onclick="closeCart()">Close</button>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="social-icons">
     <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -330,7 +333,7 @@ function payNow(){
   const phone=document.getElementById("cust-phone").value.trim();
   if(!name||!email||!phone){alert("All customer details are required");return;}
   const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
-  if(!total){alert("Cart empty");return;}
+  if(!total){alert("Your cart is empty");return;}
   PaystackPop.setup({
     key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
     email:email,
@@ -342,17 +345,25 @@ function payNow(){
 }
 
 /* BRANDING QUOTES ANIMATION */
-const quotes = ["Innovation starts here.","Your brand, amplified.","Digital solutions that shine.","Building brands with impact.","Empowering businesses globally.","Creativity meets strategy.","Your growth, our mission."];
+const quotes = [
+  "Where creativity meets results.",
+  "Empowering brands to shine globally.",
+  "Innovative solutions for the digital age.",
+  "Turning vision into measurable impact.",
+  "Strategy, design, and technology in perfect harmony.",
+  "Building digital experiences that inspire.",
+  "Your growth, our passion."
+];
 const quoteEl = document.getElementById("branding-quotes");
 function showRandomQuote() {
-  quoteEl.style.opacity=0; 
-  setTimeout(()=>{
-    quoteEl.textContent=quotes[Math.floor(Math.random()*quotes.length)]; 
-    quoteEl.style.opacity=1;
-  },600);
+  quoteEl.style.opacity = 0; 
+  setTimeout(() => {
+    quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)]; 
+    quoteEl.style.opacity = 1;
+  }, 600);
 }
 showRandomQuote();
-setInterval(showRandomQuote,4000);
+setInterval(showRandomQuote, 4000);
 </script>
 </body>
 </html>

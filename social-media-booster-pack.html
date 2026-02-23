@@ -96,16 +96,45 @@ header h1{font-size:36px;margin:0;position:relative;}
 /* FOOTER */
 footer{
   background:linear-gradient(180deg,#00264d,#001933);
-  color:#fff;padding:60px 20px;text-align:center;
+  color:#fff;
+  padding:60px 20px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+footer .social-icons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+footer .social-icons a{
+  color:#fff;
+  font-size:24px;
+}
+footer .social-icons a:hover{
+  color:#ffd700;
 }
 footer .cac{
   display:flex;
+  align-items:center;
   justify-content:center;
-  gap:8px;margin-top:14px;
+  gap:8px;
+  margin-top:14px;
 }
-footer .cac img{width:34px;}
+footer .cac img{
+  width:34px;
+}
+footer .footer-bottom{
+  margin-top:12px;
+  font-size:14px;
+}
 @media(max-width:768px){
-  footer .cac{flex-direction:column;}
+  footer .cac{
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -131,14 +160,11 @@ footer .cac img{width:34px;}
 <div class="container">
   <div class="product-details">
     <h2>Boost Your Social Media Presence</h2>
-
     <div class="price">₦1,200,000</div>
-
     <p>
       The <strong>Social Media Booster Pack</strong> is a premium digital solution designed to elevate your brand’s visibility, engagement, and credibility across top social platforms.
       Built for businesses and creators ready to scale, this pack combines strategy, creative content optimization, and targeted growth techniques.
     </p>
-
     <h3>What’s Included:</h3>
     <ul>
       <li>Strategic social media audit & recommendations</li>
@@ -147,23 +173,31 @@ footer .cac img{width:34px;}
       <li>Audience engagement optimization</li>
       <li>Performance tracking & monthly insights</li>
     </ul>
-
     <p>
-      This pack is ideal for brands who want to strengthen their online footprint, drive real engagement,
-      and transform passive followers into loyal customers.
+      Ideal for brands who want to strengthen their online footprint, drive real engagement, and transform followers into loyal customers.
     </p>
-
     <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">
       Add to Cart
     </button>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 HiVaRiX Global. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
+  </div>
+
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
-    <span>Registered with CAC – BN8390093</span>
+    <img src="assets/assets/cac-logo.png" alt="CAC Registered Business">
+    <span>Registered • Protected • CAC BN8390093</span>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 HiVaRiX Global. All intellectual property rights reserved.
   </div>
 </footer>
 

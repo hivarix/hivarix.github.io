@@ -9,7 +9,7 @@
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
-:root {
+:root{
   --brand:#003366;
   --accent:#ffd700;
 }
@@ -17,9 +17,11 @@
 /* BASE */
 html, body {
   margin:0;
+  padding:0;
   font-family:'Segoe UI',sans-serif;
   background:linear-gradient(180deg,#e9eef3,#dfe5ea);
   color:#222;
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -34,9 +36,7 @@ nav{
   justify-content:space-between;
   align-items:center;
 }
-nav img{
-  height:72px;
-}
+nav img{height:72px;}
 .nav-right{display:flex;gap:12px;}
 .nav-right button{
   width:42px;height:42px;
@@ -86,7 +86,7 @@ header{
 header *{position:relative;}
 header h1{font-size:38px;margin-bottom:10px;}
 header #branding-quotes{
-  font-size:14px;color:rgba(255,255,255,0.85);font-style:italic;min-height:20px;transition:opacity 0.6s;
+  font-size:14px;color:rgba(255,255,255,0.85);font-style:italic;min-height:20px;transition:opacity 0.6s;margin-top:10px;
 }
 
 /* ABOUT SECTION GLASS CARD */
@@ -100,16 +100,8 @@ section.about-card{
   box-shadow:0 20px 40px rgba(0,0,0,.15);
   text-align:center;
 }
-.about-card h2{
-  color:var(--brand);
-  margin-bottom:12px;
-}
-.about-card p{
-  font-size:16px;
-  line-height:1.6;
-  margin-bottom:14px;
-  color:#222;
-}
+.about-card h2{color:var(--brand);margin-bottom:12px;}
+.about-card p{font-size:16px;line-height:1.6;margin-bottom:14px;color:#222;}
 
 /* VALUES & WHY CHOOSE US */
 section.values-card{
@@ -122,19 +114,14 @@ section.values-card{
   box-shadow:0 20px 40px rgba(0,0,0,.15);
   text-align:left;
 }
-.values-card h2{
-  color:var(--brand);
-  margin-bottom:12px;
-}
+.values-card h2{color:var(--brand);margin-bottom:12px;}
 .values-card ul{
   list-style-type:disc;
   padding-left:20px;
   color:#222;
   line-height:1.6;
 }
-.values-card ul li{
-  margin-bottom:10px;
-}
+.values-card ul li{margin-bottom:10px;}
 
 /* FOOTER */
 footer{
@@ -143,20 +130,33 @@ footer{
   padding:60px 20px;
   text-align:center;
 }
+footer .social-icons a{
+  margin:0 10px;
+  font-size:24px;
+  color:#fff;
+}
 footer .cac{
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  gap:8px;
+  gap:6px;
+  font-size:14px;
   margin-top:14px;
+  opacity:.85;
 }
 footer .cac img{width:34px;}
+footer .footer-bottom{
+  margin-top:12px;
+  font-size:13px;
+}
 @media(max-width:768px){footer .cac{flex-direction:column;}}
 
 /* CART MODAL */
 #cart-modal{
   display:none;
-  position:fixed;inset:0;
+  position:fixed;
+  inset:0;
   background:rgba(0,0,0,.6);
   z-index:3000;
 }
@@ -183,11 +183,10 @@ input{
 .close{background:#ccc;margin-top:10px;border:none;}
 </style>
 </head>
-
 <body>
 
 <nav>
-  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"></a>
+  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
   <div class="nav-right">
     <button id="menu-btn"><i class="fas fa-bars"></i></button>
     <button id="cart-btn">
@@ -243,7 +242,7 @@ input{
     <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
   </div>
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
+    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
     <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
   </div>
   <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>

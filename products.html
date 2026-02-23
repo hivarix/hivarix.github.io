@@ -116,7 +116,12 @@ header p{font-size:18px;}
   text-align:center;
 }
 .product h3{color:var(--brand);}
-.product .price{font-size:18px;font-weight:700;margin:12px 0 20px;}
+.product p{
+  font-size:14px;
+  color:#222;
+  margin:8px 0 16px;
+}
+.product .price{font-size:18px;font-weight:700;margin:12px 0 16px;}
 .product .actions{margin-top:auto;display:flex;flex-direction:column;gap:12px;}
 .product a,.product button{
   height:46px;
@@ -231,26 +236,23 @@ footer .cac img{width:34px;}
 footer .footer-bottom{margin-top:12px;font-size:13px;}
 </style>
 </head>
+<body>
+
 <!-- CART MODAL -->
 <div id="cart-modal">
   <div id="cart-box">
     <h3>Your Cart</h3>
-
     <div id="cart-items"></div>
-
     <h4>Total: ₦<span id="cart-total">0</span></h4>
-
     <input id="cust-name" placeholder="Full Name" required>
     <input id="cust-email" placeholder="Email Address" required>
     <input id="cust-phone" placeholder="Phone Number" required>
-
     <button class="pay" onclick="payNow()">Proceed to Payment</button>
     <button class="close" onclick="closeCart()">Close</button>
   </div>
 </div>
 
-<body>
-
+<!-- NAV -->
 <nav>
   <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png"></a>
   <div class="nav-right">
@@ -264,6 +266,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   </div>
 </nav>
 
+<!-- HERO -->
 <header>
   <div>
     <h1>Our Products & Services</h1>
@@ -272,11 +275,13 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   </div>
 </header>
 
+<!-- PRODUCTS GRID -->
 <section class="products">
 
   <div class="product">
     <h3>Branding & Digital Solutions</h3>
     <div class="price">₦50,000</div>
+    <p>Logo design, brand consultation, website setup guidance</p>
     <div class="actions">
       <a href="/branding-digital-solutions.html">View Details</a>
       <button onclick="addToCart('branding','Branding & Digital Solutions',50000)">Add to Cart</button>
@@ -286,6 +291,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   <div class="product">
     <h3>Startup Digital Pack</h3>
     <div class="price">₦150,000</div>
+    <p>Basic website, social media setup, branding templates</p>
     <div class="actions">
       <a href="/startup-digital-pack.html">View Details</a>
       <button onclick="addToCart('startup','Startup Digital Pack',150000)">Add to Cart</button>
@@ -295,6 +301,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   <div class="product">
     <h3>Business Visibility Pack</h3>
     <div class="price">₦100,000</div>
+    <p>Online listing, SEO basics, brand positioning tips</p>
     <div class="actions">
       <a href="/business-visibility-pack.html">View Details</a>
       <button onclick="addToCart('visibility','Business Visibility Pack',100000)">Add to Cart</button>
@@ -304,6 +311,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   <div class="product">
     <h3>Online Presence Pack</h3>
     <div class="price">₦200,000</div>
+    <p>Professional website, content planning, social media integration</p>
     <div class="actions">
       <a href="/online-presence-pack.html">View Details</a>
       <button onclick="addToCart('online','Online Presence Pack',200000)">Add to Cart</button>
@@ -313,6 +321,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   <div class="product">
     <h3>Social Media Booster Pack</h3>
     <div class="price">₦1,200,000</div>
+    <p>Paid campaigns, audience targeting, content optimization</p>
     <div class="actions">
       <a href="/social-media-booster-pack.html">View Details</a>
       <button onclick="addToCart('booster','Social Media Booster Pack',1200000)">Add to Cart</button>
@@ -325,15 +334,18 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
       Social Media Verified Badge Pack
       <div class="tooltip">i
         <span>
-          Eligibility requires:
-          <br>• Authentic brand presence
-          <br>• Active social media history
-          <br>• Compliance with platform policies
-          <br>• Manual review & approval
+          Eligibility:
+          <ul style="text-align:left;margin:4px 0 0 10px;padding:0;list-style-type:disc;">
+            <li>Authentic brand presence</li>
+            <li>Active social media history</li>
+            <li>Compliance with platform rules</li>
+            <li>Manual review & approval</li>
+          </ul>
         </span>
       </div>
     </h3>
     <div class="price">₦1,500,000</div>
+    <p>Verification assistance, manual review, premium support</p>
     <div class="actions">
       <a href="/verified-badge-pack.html">View Details</a>
       <button onclick="requestAccess()">Request Access</button>
@@ -342,6 +354,7 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
 
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="social-icons">
     <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -356,7 +369,6 @@ footer .footer-bottom{margin-top:12px;font-size:13px;}
   <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
 </footer>
 
-<!-- SCRIPTS -->
 <script>
 /* MENU */
 const menuBtn=document.getElementById('menu-btn');
@@ -367,7 +379,6 @@ menuBtn.onclick=e=>{
   menuLinks.style.display =
     menuLinks.style.display==='block'?'none':'block';
 };
-
 document.addEventListener('click',e=>{
   if(!menuLinks.contains(e.target) && e.target!==menuBtn)
     menuLinks.style.display='none';

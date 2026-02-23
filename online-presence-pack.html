@@ -124,15 +124,43 @@ footer{
   color:#fff;
   padding:60px 20px;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+footer .social-icons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+footer .social-icons a{
+  color:#fff;
+  font-size:24px;
+}
+footer .social-icons a:hover{
+  color:#ffd700;
 }
 footer .cac{
   display:flex;
+  align-items:center;
   justify-content:center;
   gap:8px;
   margin-top:14px;
 }
-footer .cac img{width:34px;}
-@media(max-width:768px){footer .cac{flex-direction:column;}}
+footer .cac img{
+  width:34px;
+}
+footer .footer-bottom{
+  margin-top:12px;
+  font-size:14px;
+}
+@media(max-width:768px){
+  footer .cac{
+    flex-direction:column;
+    text-align:center;
+  }
+}
 </style>
 </head>
 <body>
@@ -166,9 +194,7 @@ footer .cac img{width:34px;}
     <li>End-to-End Consultancy Support</li>
   </ul>
   <p><strong>Price: NGN 200,000</strong></p>
-  <button class="add-to-cart" data-id="online_presence" data-name="Online Presence Pack" data-price="200000">
-    Add to Cart
-  </button>
+  <button class="add-to-cart" data-id="online-presence-pack" data-name="Online Presence Pack" data-price="200000">Add to Cart</button>
 </section>
 
 <!-- CART MODAL -->
@@ -193,11 +219,15 @@ footer .cac img{width:34px;}
     <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
     <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
   </div>
+
   <div class="cac">
-    <img src="assets/assets/cac-logo.png">
+    <img src="assets/assets/cac-logo.png" alt="CAC Registered Business">
     <span>Registered • Protected • CAC BN8390093</span>
   </div>
-  <div class="footer-bottom">© 2025 HiVaRiX Global. All intellectual property rights reserved.</div>
+
+  <div class="footer-bottom">
+    © 2025 HiVaRiX Global. All intellectual property rights reserved.
+  </div>
 </footer>
 
 <script>

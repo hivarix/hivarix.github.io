@@ -6,12 +6,17 @@
 }
 
 /* BASE */
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f5f7fb;
   color:var(--text);
   scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -30,6 +35,13 @@ nav{
 
 nav img{
   height:68px;
+  max-width:100%;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  align-items:center;
 }
 
 .menu a{
@@ -38,6 +50,7 @@ nav img{
   color:var(--brand);
   font-weight:600;
   position:relative;
+  font-size:15px;
 }
 
 .menu a::after{
@@ -71,7 +84,7 @@ header{
 
 header h1{
   font-size:52px;
-  margin-bottom:10px;
+  margin:0 0 10px;
   letter-spacing:-1px;
 }
 
@@ -79,7 +92,7 @@ header p{
   font-size:18px;
   opacity:0.9;
   max-width:700px;
-  margin:auto;
+  margin:0 auto;
   line-height:1.6;
 }
 
@@ -91,7 +104,8 @@ header p{
   border-radius:30px;
   font-weight:600;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.3s ease;
+  display:inline-block;
 }
 
 .btn-primary{
@@ -101,6 +115,7 @@ header p{
 
 .btn-primary:hover{
   transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(255,215,0,0.25);
 }
 
 .btn-outline{
@@ -141,7 +156,7 @@ h2{
   padding:28px;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.06);
-  transition:0.3s;
+  transition:0.3s ease;
 }
 
 .card:hover{
@@ -167,7 +182,8 @@ footer a{
   color:#fff;
   margin:0 10px;
   font-size:20px;
-  transition:0.3s;
+  transition:0.3s ease;
+  display:inline-block;
 }
 
 footer a:hover{
@@ -177,6 +193,37 @@ footer a:hover{
 
 /* MOBILE */
 @media(max-width:768px){
-  header h1{font-size:38px;}
-  .menu{display:none;}
+
+  header h1{
+    font-size:38px;
+  }
+
+  header p{
+    font-size:16px;
+    padding:0 10px;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .btn{
+    width:100%;
+    max-width:280px;
+    display:block;
+    margin:15px auto 0;
+  }
+
+  .btn-outline{
+    margin-left:0;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  footer a{
+    font-size:18px;
+    margin:0 8px;
+  }
 }

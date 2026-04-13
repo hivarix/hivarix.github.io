@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services</title>
 
+<link rel="icon" href="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --text:#1b1b1b;
+}
+
+/* BASE */
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:#f5f7fb;
+  color:var(--text);
+}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 24px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+nav img{
+  height:60px;
+}
+
+/* HERO */
+header{
+  padding:90px 20px;
+  text-align:center;
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.75), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  color:#fff;
+}
+
+header h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+header p{
+  max-width:700px;
+  margin:auto;
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* SERVICES GRID */
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+h2{
+  font-size:34px;
+  color:var(--brand);
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  transition:0.3s;
+  text-align:left;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card h3{
+  color:var(--brand);
+  margin-bottom:10px;
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#001a33);
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.btn{
+  margin-top:20px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  background:var(--accent);
+  color:#111;
+  text-decoration:none;
+  display:inline-block;
+}
+
+/* FOOTER */
+footer{
+  background:#081523;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+
+footer img{
+  height:60px;
+  margin-bottom:10px;
+}
+
+.socials a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="HiVaRiX">
+  </a>
+
+  <div>
+    <a href="/" style="margin:0 10px;color:#003366;text-decoration:none;font-weight:600;">Home</a>
+    <a href="/services" style="margin:0 10px;color:#003366;text-decoration:none;font-weight:600;">Services</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <h1>Our Services</h1>
+  <p>We design, build, and scale premium brands through strategy, design, and digital execution.</p>
+</header>
+
+<!-- SERVICES -->
+<section>
+  <h2>What We Do</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Brand Identity</h3>
+      <p>We craft powerful brand systems including logos, typography, color systems, and full identity guidelines.</p>
+    </div>
+
+    <div class="card">
+      <h3>Website Design</h3>
+      <p>High-performance, conversion-focused websites built for global reach and business growth.</p>
+    </div>
+
+    <div class="card">
+      <h3>Digital Marketing</h3>
+      <p>Strategic campaigns that increase visibility, engagement, and revenue across platforms.</p>
+    </div>
+
+    <div class="card">
+      <h3>Startup Branding</h3>
+      <p>From idea to launch — we help startups build strong, scalable brand foundations.</p>
+    </div>
+
+    <div class="card">
+      <h3>UI/UX Design</h3>
+      <p>Modern, clean, user-focused interfaces that enhance experience and retention.</p>
+    </div>
+
+    <div class="card">
+      <h3>Business Strategy</h3>
+      <p>We help you position your brand correctly for global competition and long-term success.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Build Your Brand?</h2>
+  <p>Let’s turn your idea into a global brand.</p>
+  <a href="mailto:info@hivarix.com" class="btn">Start a Project</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="Logo">
+
+  <div class="socials">
+    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <p>© 2026 HiVaRiX Global. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

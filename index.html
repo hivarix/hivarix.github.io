@@ -12,14 +12,16 @@
 :root{
   --brand:#003366;
   --accent:#ffd700;
+  --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
 }
 
 /* BASE */
 body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
-  background:#f5f7fb;
-  color:#1b1b1b;
+  background:#f6f8fc;
+  color:var(--text);
   scroll-behavior:smooth;
 }
 
@@ -33,28 +35,22 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:14px 24px;
-  background:rgba(255,255,255,0.65);
-  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-/* LOGO */
-nav img,
-footer img{
-  height:70px;
-  background:transparent;
-  display:block;
+nav img{
+  height:68px;
   filter:contrast(1.1) brightness(1.05);
 }
 
-/* MENU */
 .menu a{
   margin:0 12px;
   text-decoration:none;
   color:var(--brand);
   font-weight:600;
   position:relative;
-  transition:0.3s;
 }
 
 .menu a::after{
@@ -68,9 +64,7 @@ footer img{
   transition:0.3s;
 }
 
-.menu a:hover::after{
-  width:100%;
-}
+.menu a:hover::after{width:100%;}
 
 /* HERO */
 header{
@@ -79,34 +73,33 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 40%),
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
   padding:40px;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  color:#fff;
 }
 
-.hero-box{
-  max-width:800px;
-  animation:fadeUp 1.2s ease;
+.hero{
+  max-width:850px;
+  animation:fadeUp 1s ease;
 }
 
-header h1{
-  font-size:60px;
-  margin-bottom:10px;
+h1{
+  font-size:64px;
+  margin:0;
   letter-spacing:-1px;
 }
 
-header p{
+p{
   font-size:18px;
-  opacity:0.9;
   line-height:1.6;
+  opacity:0.9;
 }
 
-/* BUTTONS */
 .btn{
-  margin-top:25px;
+  margin-top:22px;
   padding:14px 28px;
   border:none;
   border-radius:30px;
@@ -121,8 +114,7 @@ header p{
 }
 
 .btn-primary:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(255,215,0,0.3);
+  transform:translateY(-3px);
 }
 
 .btn-outline{
@@ -137,46 +129,44 @@ header p{
   color:#000;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-  padding:100px 20px;
+  padding:90px 20px;
   text-align:center;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-section.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 h2{
-  font-size:38px;
+  font-size:36px;
   color:var(--brand);
-  margin-bottom:20px;
+  margin-bottom:10px;
+}
+
+.sub{
+  color:var(--muted);
+  max-width:600px;
+  margin:0 auto 40px;
 }
 
 /* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
+  gap:20px;
   max-width:1100px;
   margin:auto;
 }
 
 .card{
   background:#fff;
-  padding:30px;
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-  transition:0.4s;
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 25px 50px rgba(0,0,0,0.12);
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
 /* CTA */
@@ -185,44 +175,58 @@ h2{
   color:#fff;
 }
 
-/* FOOTER - FIXED ALIGNMENT */
+/* FOOTER */
 footer{
   background:#081523;
   color:#fff;
   text-align:center;
   padding:60px 20px;
-
-  /* ✅ CENTER FIX */
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
-  gap:20px;
+  gap:18px;
 }
 
 footer img{
-  display:block;
-  margin:0 auto;
   height:70px;
-  background:transparent;
 }
 
-/* SOCIAL ICONS */
-.socials{
-  margin:20px 0;
-}
-
+/* SOCIAL */
 .socials a{
   color:#fff;
-  margin:0 12px;
-  font-size:22px;
+  margin:0 10px;
+  font-size:20px;
   transition:0.3s;
 }
 
 .socials a:hover{
   color:var(--accent);
-  transform:translateY(-5px) scale(1.2);
+  transform:translateY(-3px);
 }
+
+/* LEGAL */
+.legal-footer{
+  font-size:13px;
+  opacity:0.7;
+  line-height:1.7;
+}
+
+.legal-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:6px;
+}
+
+.legal-links a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+.legal-links span{opacity:0.4;}
+
+.region{opacity:0.6; margin-top:6px;}
 
 /* ANIMATION */
 @keyframes fadeUp{
@@ -237,7 +241,7 @@ footer img{
 <!-- NAV -->
 <nav>
   <a href="/">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="HiVaRiX Logo">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
   </a>
 
   <div class="menu">
@@ -250,9 +254,9 @@ footer img{
 
 <!-- HERO -->
 <header>
-  <div class="hero-box">
+  <div class="hero">
     <h1>HiVaRiX</h1>
-    <p>We build elite brand identities, digital experiences, and global strategies that position businesses for worldwide success.</p>
+    <p>We build world-class brand identities, digital experiences, and global strategies that turn companies into unforgettable brands.</p>
 
     <button class="btn btn-primary">Start a Project</button>
     <button class="btn btn-outline">View Services</button>
@@ -262,12 +266,13 @@ footer img{
 <!-- SERVICES -->
 <section id="services">
   <h2>Our Services</h2>
+  <p class="sub">Everything you need to build, launch, and scale a powerful global brand.</p>
 
   <div class="grid">
-    <div class="card"><h3>Brand Identity</h3><p>Premium logo & brand systems.</p></div>
-    <div class="card"><h3>Web Design</h3><p>High-conversion websites.</p></div>
-    <div class="card"><h3>Marketing</h3><p>Growth & visibility strategy.</p></div>
-    <div class="card"><h3>Startup Launch</h3><p>Idea to global brand.</p></div>
+    <div class="card"><h3>Brand Identity</h3><p>Logo systems & visual identity.</p></div>
+    <div class="card"><h3>Web Design</h3><p>High-performance websites.</p></div>
+    <div class="card"><h3>Marketing</h3><p>Growth-driven campaigns.</p></div>
+    <div class="card"><h3>Startup Launch</h3><p>From idea to global presence.</p></div>
   </div>
 </section>
 
@@ -280,7 +285,7 @@ footer img{
 <!-- FOOTER -->
 <footer>
 
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="HiVaRiX Logo">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
 
   <div class="socials">
     <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
@@ -290,24 +295,20 @@ footer img{
     <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
 
-  <p>© 2026 HiVaRiX Global. All rights reserved.</p>
+  
+  <div class="legal-footer">
+    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
 
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a><span>•</span>
+      <a href="#">Terms of Use</a><span>•</span>
+      <a href="#">Sales and Refunds</a><span>•</span>
+      <a href="#">Legal</a><span>•</span>
+      <a href="#">Site Map</a>
+    </div>
+
+    
 </footer>
-
-<!-- SCROLL ANIMATION -->
-<script>
-const sections=document.querySelectorAll("section");
-
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-    }
-  });
-},{threshold:0.15});
-
-sections.forEach(s=>observer.observe(s));
-</script>
 
 </body>
 </html>

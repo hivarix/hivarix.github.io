@@ -1,98 +1,182 @@
-/* Reset & Basics */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background: #f9f9f9;
-}
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --dark:#0b1b2b;
+  --text:#1b1b1b;
 }
 
-/* Header */
-.site-header {
-    background: #ffffff;
-    padding: 20px 0;
-    border-bottom: 2px solid #e2e2e2;
-    text-align: center;
-}
-.site-header .logo {
-    height: 60px;
-}
-.site-header h1 {
-    font-size: 28px;
-    margin-top: 10px;
-    color: #222;
+/* BASE */
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:#f5f7fb;
+  color:var(--text);
+  scroll-behavior:smooth;
 }
 
-/* Products */
-.products {
-    margin-top: 30px;
-}
-.products h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 26px;
-}
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-    gap: 20px;
-}
-.product-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-.product-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-.product-card h3 {
-    margin: 15px 0 8px;
-    font-size: 18px;
-}
-.product-card .price {
-    color: #007bff;
-    font-weight: bold;
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 24px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-/* About Section */
-.about {
-    margin-top: 40px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #e2e2e2;
-}
-.about h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-.about p, .about a {
-    font-size: 16px;
-}
-.social-links a {
-    color: #007bff;
-    text-decoration: none;
-    margin-right: 8px;
+nav img{
+  height:68px;
 }
 
-/* Footer */
-.site-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 10px;
-    font-size: 14px;
-    color: #777;
+.menu a{
+  margin:0 12px;
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:600;
+  position:relative;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
+}
+
+/* HERO */
+header{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.65), rgba(0,0,0,.4)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  padding:60px 20px;
+}
+
+header h1{
+  font-size:52px;
+  margin-bottom:10px;
+  letter-spacing:-1px;
+}
+
+header p{
+  font-size:18px;
+  opacity:0.9;
+  max-width:700px;
+  margin:auto;
+  line-height:1.6;
+}
+
+/* BUTTONS */
+.btn{
+  margin-top:25px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#111;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn-outline{
+  background:transparent;
+  border:2px solid #fff;
+  color:#fff;
+  margin-left:10px;
+}
+
+.btn-outline:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* SECTIONS */
+section{
+  padding:90px 20px;
+  text-align:center;
+}
+
+h2{
+  font-size:34px;
+  color:var(--brand);
+  margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#001a33);
+  color:#fff;
+}
+
+/* FOOTER */
+footer{
+  background:#081523;
+  color:#fff;
+  text-align:center;
+  padding:50px 20px;
+}
+
+footer a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
+  transition:0.3s;
+}
+
+footer a:hover{
+  color:var(--accent);
+  transform:translateY(-3px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header h1{font-size:38px;}
+  .menu{display:none;}
 }

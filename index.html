@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HiVaRiX Global – Digital Excellence</title>
+<title>HiVaRiX – Global Branding Agency</title>
 
-<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png">
+<link rel="icon" href="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <style>
 :root{
@@ -16,354 +15,284 @@
 }
 
 /* BASE */
-html, body {
+body{
   margin:0;
-  padding:0;
-  font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(180deg,#e9eef3,#dfe5ea);
-  color:#222;
-  overflow-x:hidden;
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:#f5f7fb;
+  color:#1b1b1b;
+  scroll-behavior:smooth;
 }
 
 /* NAV */
 nav{
-  position:sticky;
+  position:fixed;
   top:0;
+  width:100%;
   z-index:1000;
-  background:#ffffff;
-  border-bottom:1px solid rgba(0,0,0,.08);
-  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:14px 24px;
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
-nav img{
-  height:72px;
-}
-.nav-right{display:flex;gap:12px;}
-.nav-right button{
-  width:42px;height:42px;
-  border:none;border-radius:10px;
-  background:var(--brand);
-  color:#fff;
-  font-size:18px;
-  cursor:pointer;
-  position:relative;
-}
-#cart-count{
-  position:absolute;top:-6px;right:-6px;
-  background:red;color:#fff;
-  font-size:12px;padding:2px 6px;
-  border-radius:50%;
+
+/* ✅ TRUE TRANSPARENT LOGO DISPLAY */
+nav img,
+footer img{
+  height:70px;
+  background:transparent;
+  display:block;
+  filter:contrast(1.1) brightness(1.05);
 }
 
 /* MENU */
-.menu-links{
-  display:none;
-  position:absolute;
-  top:72px;right:20px;
-  background:#ffffff;
-  border-radius:14px;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
-}
-.menu-links a{
-  display:block;
-  padding:14px 22px;
-  color:var(--brand);
+.menu a{
+  margin:0 12px;
   text-decoration:none;
+  color:var(--brand);
   font-weight:600;
+  position:relative;
+  transition:0.3s;
 }
-.menu-links a:hover{background:#f0f0f0;}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
+}
 
 /* HERO */
 header{
-  position:relative;
-  min-height:50vh;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 40%),
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  padding:40px;
 }
-header *{position:relative;}
+
+.hero-box{
+  max-width:800px;
+  animation:fadeUp 1.2s ease;
+}
+
 header h1{
-  font-size:38px;
+  font-size:60px;
   margin-bottom:10px;
+  letter-spacing:-1px;
 }
+
 header p{
-  font-size:16px;
-  margin-bottom:14px;
+  font-size:18px;
+  opacity:0.9;
+  line-height:1.6;
 }
-header button{
-  padding:12px 28px;
+
+/* BUTTONS */
+.btn{
+  margin-top:25px;
+  padding:14px 28px;
   border:none;
-  border-radius:24px;
-  background:var(--accent);
-  color:#003366;
+  border-radius:30px;
   font-weight:600;
   cursor:pointer;
-}
-#branding-quotes{
-  font-size:14px;
-  color:rgba(255,255,255,0.85);
-  font-style:italic;
-  min-height:20px;
-  transition:opacity 0.6s;
-  margin-top:10px;
+  transition:0.3s;
 }
 
-/* GLASS SECTION */
-.glass{
-  margin:-60px auto 80px;
-  max-width:900px;
-  padding:60px 30px;
-  text-align:center;
-  background:rgba(255,255,255,.45);
-  backdrop-filter:blur(18px);
-  border-radius:28px;
-  box-shadow:0 30px 60px rgba(0,0,0,.15);
-}
-.glass h2{color:var(--brand);font-size:30px;}
-.glass p{font-size:18px;max-width:680px;margin:16px auto 0;}
-.glass button{
-  margin-top:26px;
-  padding:12px 28px;
-  border:none;
-  border-radius:24px;
+.btn-primary{
   background:var(--accent);
-  color:#003366;
-  font-weight:600;
+  color:#111;
 }
 
-/* CART MODAL */
-#cart-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:3000;
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(255,215,0,0.3);
 }
-#cart-box{
+
+.btn-outline{
+  background:transparent;
+  border:2px solid #fff;
+  color:#fff;
+  margin-left:10px;
+}
+
+.btn-outline:hover{
   background:#fff;
-  max-width:460px;
-  margin:5% auto;
-  padding:26px;
-  border-radius:22px;
+  color:#000;
 }
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
+
+/* SECTIONS */
+section{
+  padding:100px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
 }
-.cart-controls button{padding:4px 10px;}
-input{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
-.pay{background:var(--accent);border:none;}
-.close{background:#ccc;margin-top:10px;border:none;}
+
+h2{
+  font-size:38px;
+  color:var(--brand);
+  margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,0.12);
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#001a33);
+  color:#fff;
+}
 
 /* FOOTER */
 footer{
-  background:linear-gradient(180deg,#00264d,#001933);
+  background:#081523;
   color:#fff;
-  padding:60px 20px;
   text-align:center;
+  padding:60px 20px;
 }
-footer .social-icons a{
-  margin:0 10px;
-  font-size:24px;
+
+/* SOCIAL ICONS */
+.socials{
+  margin:20px 0;
+}
+
+.socials a{
   color:#fff;
+  margin:0 12px;
+  font-size:22px;
+  transition:0.3s;
 }
-footer .cac{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  font-size:14px;
-  margin-top:14px;
-  opacity:.85;
+
+.socials a:hover{
+  color:var(--accent);
+  transform:translateY(-5px) scale(1.2);
 }
-footer .cac img{width:34px;}
-footer .footer-bottom{
-  margin-top:12px;
-  font-size:13px;
-}
-@media(max-width:768px){
-  nav img{height:72px;}
-  header h1{font-size:30px;}
-  .glass{margin:40px 14px 60px;}
-}
-@media (max-width:480px){
-  header h1{font-size:26px; line-height:1.25; letter-spacing:-0.3px;}
-  header p{font-size:15px; line-height:1.5; max-width:90%; margin:0 auto;}
-  header button{font-size:15px; padding:12px 26px;}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
+
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/HiVaRiX_Logo.png" alt="HiVaRiX Logo"></a>
-  <div class="nav-right">
-    <button id="menu-btn"><i class="fas fa-bars"></i></button>
-    <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
-  </div>
-  <div class="menu-links" id="menu-links">
+  <a href="/">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="HiVaRiX Logo">
+  </a>
+
+  <div class="menu">
     <a href="/">Home</a>
-    <a href="/products.html">Products</a>
-    <a href="/about.html">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <header>
-  <div>
-    <h1>Welcome to HiVaRiX Global</h1>
-    <p>Transforming ideas into digital experiences, empowering your brand, and driving measurable growth.</p>
-    <a href="/products.html"><button>Explore Our Solutions</button></a>
-    <div id="branding-quotes"></div>
+  <div class="hero-box">
+    <h1>HiVaRiX</h1>
+    <p>We build elite brand identities, digital experiences, and global strategies that position businesses for worldwide success.</p>
+
+    <button class="btn btn-primary">Start a Project</button>
+    <button class="btn btn-outline">View Services</button>
   </div>
 </header>
 
-<!-- GLASS SECTION -->
-<section class="glass">
-  <h2>Why Partner With Us?</h2>
-  <p>We fuse creativity, strategy, and technology to deliver exceptional digital outcomes for your business.</p>
-  <a href="/about.html"><button>Discover More</button></a>
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+
+  <div class="grid">
+    <div class="card"><h3>Brand Identity</h3><p>Premium logo & brand systems.</p></div>
+    <div class="card"><h3>Web Design</h3><p>High-conversion websites.</p></div>
+    <div class="card"><h3>Marketing</h3><p>Growth & visibility strategy.</p></div>
+    <div class="card"><h3>Startup Launch</h3><p>Idea to global brand.</p></div>
+  </div>
 </section>
 
-<!-- CART MODAL -->
-<div id="cart-modal">
-  <div id="cart-box">
-    <h3>Your Cart</h3>
-    <div id="cart-items"></div>
-    <h4>Total: ₦<span id="cart-total">0</span></h4>
-    <input id="cust-name" placeholder="Full Name" required>
-    <input id="cust-email" placeholder="Email Address" required>
-    <input id="cust-phone" placeholder="Phone Number" required>
-    <button class="pay" onclick="payNow()">Proceed to Checkout</button>
-    <button class="close" onclick="closeCart()">Close</button>
-  </div>
-</div>
+<!-- CTA -->
+<section class="cta">
+  <h2>Let’s Build Something Exceptional</h2>
+  <button class="btn btn-primary">Get Started</button>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="social-icons">
-    <a href="mailto:HiVaRiXGlobal@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-    <a href="https://facebook.com/HiVaRiXGlobal"><i class="fab fa-facebook-f"></i></a>
+
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png" alt="HiVaRiX Logo">
+
+  <div class="socials">
+    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
-  <div class="cac">
-    <img src="assets/assets/cac-logo.png" alt="CAC Logo">
-    <span>Registered with the Corporate Affairs Commission (CAC) – BN8390093</span>
-  </div>
-  <div class="footer-bottom">© 2025 HiVaRiX Global. All rights reserved.</div>
+
+  <p>© 2026 HiVaRiX Global. All rights reserved.</p>
 </footer>
 
+<!-- SCROLL ANIMATION -->
 <script>
-/* MENU */
-const menuBtn=document.getElementById('menu-btn');
-const menuLinks=document.getElementById('menu-links');
-menuBtn.onclick=e=>{
-  e.stopPropagation();
-  menuLinks.style.display=menuLinks.style.display==='block'?'none':'block';
-};
-document.addEventListener('click',e=>{
-  if(!menuLinks.contains(e.target)&&e.target!==menuBtn)
-    menuLinks.style.display='none';
-});
+const sections=document.querySelectorAll("section");
 
-/* CART SYNC */
-let cart=JSON.parse(localStorage.getItem("hivarix_cart"))||[];
-function saveCart(){
-  localStorage.setItem("hivarix_cart",JSON.stringify(cart));
-  document.getElementById("cart-count").textContent=
-    cart.reduce((t,i)=>t+i.qty,0);
-}
-function addToCart(id,name,price){
-  const item=cart.find(p=>p.id===id);
-  item?item.qty++:cart.push({id,name,price,qty:1});
-  saveCart();
-}
-saveCart();
-
-/* CART MODAL FUNCTIONS */
-const cartModal=document.getElementById("cart-modal");
-const cartItemsDiv=document.getElementById("cart-items");
-const cartTotal=document.getElementById("cart-total");
-
-document.getElementById("cart-btn").onclick=()=>{
-  cartItemsDiv.innerHTML="";
-  let total=0;
-  cart.forEach(i=>{
-    total+=i.price*i.qty;
-    cartItemsDiv.innerHTML+=`
-      <div class="cart-item">
-        <span>${i.name}</span>
-        <div class="cart-controls">
-          <button onclick="updateQty('${i.id}',-1)">−</button>
-          ${i.qty}
-          <button onclick="updateQty('${i.id}',1)">+</button>
-        </div>
-      </div>
-    `;
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+    }
   });
-  cartTotal.textContent=total.toLocaleString();
-  cartModal.style.display="block";
-};
-function updateQty(id,change){
-  const item=cart.find(i=>i.id===id);
-  item.qty+=change;
-  if(item.qty<=0) cart=cart.filter(i=>i.id!==id);
-  saveCart();
-  document.getElementById("cart-btn").click();
-}
-function closeCart(){cartModal.style.display="none";}
+},{threshold:0.15});
 
-/* PAYSTACK PAYMENT */
-function payNow(){
-  const name=document.getElementById("cust-name").value.trim();
-  const email=document.getElementById("cust-email").value.trim();
-  const phone=document.getElementById("cust-phone").value.trim();
-  if(!name||!email||!phone){alert("All customer details are required");return;}
-  const total=cart.reduce((t,i)=>t+i.price*i.qty,0);
-  if(!total){alert("Your cart is empty");return;}
-  PaystackPop.setup({
-    key:'pk_live_532c5eee05f819c8589de72642aff146a75237dc',
-    email:email,
-    amount:total*100,
-    currency:'NGN',
-    metadata:{custom_fields:[{display_name:"Name",value:name},{display_name:"Phone",value:phone}]},
-    callback:()=>{alert("Payment successful"); cart=[]; saveCart(); closeCart();},
-  }).openIframe();
-}
-
-/* BRANDING QUOTES ANIMATION */
-const quotes = [
-  "Where creativity meets results.",
-  "Empowering brands to shine globally.",
-  "Innovative solutions for the digital age.",
-  "Turning vision into measurable impact.",
-  "Strategy, design, and technology in perfect harmony.",
-  "Building digital experiences that inspire.",
-  "Your growth, our passion."
-];
-const quoteEl = document.getElementById("branding-quotes");
-function showRandomQuote() {
-  quoteEl.style.opacity = 0; 
-  setTimeout(() => {
-    quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)]; 
-    quoteEl.style.opacity = 1;
-  }, 600);
-}
-showRandomQuote();
-setInterval(showRandomQuote, 4000);
+sections.forEach(s=>observer.observe(s));
 </script>
+
 </body>
 </html>

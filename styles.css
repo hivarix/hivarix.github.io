@@ -1,3 +1,4 @@
+/* ROOT */
 :root{
   --brand:#003366;
   --accent:#ffd700;
@@ -130,6 +131,7 @@ nav img{
     opacity:0;
     transform:translateY(-10px);
     pointer-events:none;
+    transition:0.3s ease;
   }
 
   .menu.show{
@@ -182,6 +184,7 @@ header p{
   cursor:pointer;
   transition:0.3s ease;
   display:inline-block;
+  text-decoration:none;
 }
 
 .btn-primary{
@@ -267,7 +270,7 @@ footer a:hover{
   transform:translateY(-3px);
 }
 
-/* MOBILE */
+/* MOBILE GENERAL */
 @media(max-width:768px){
 
   header h1{
@@ -277,10 +280,6 @@ footer a:hover{
   header p{
     font-size:16px;
     padding:0 10px;
-  }
-
-  .menu{
-    display:none;
   }
 
   .btn{

@@ -37,6 +37,9 @@ nav{
 
 nav img{
   height:68px;
+  width:auto;
+  display:block;
+  image-rendering:auto;
 }
 
 /* MENU */
@@ -255,6 +258,15 @@ footer{
   color:#fff;
   text-align:center;
   padding:50px 20px;
+}
+
+/* ✅ FIXED FOOTER LOGO */
+footer img{
+  height:70px;
+  width:auto;
+  display:block;
+  margin:0 auto;
+  image-rendering:auto;
 }
 
 footer a{

@@ -288,6 +288,14 @@ footer img{
   </div>
 
 </footer>
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("show");
+});
+</script>
 </body>
 </html>

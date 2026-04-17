@@ -22,7 +22,6 @@ body{
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
-  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -44,7 +43,6 @@ nav img{
   height:68px;
 }
 
-/* MENU */
 .menu a{
   margin:0 12px;
   text-decoration:none;
@@ -64,7 +62,9 @@ nav img{
   transition:0.3s;
 }
 
-.menu a:hover::after{width:100%;}
+.menu a:hover::after{
+  width:100%;
+}
 
 /* HERO */
 header{
@@ -73,7 +73,7 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:40px;
+  padding:40px 20px;
   background:
     radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
     linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
@@ -85,6 +85,7 @@ header{
   max-width:850px;
 }
 
+/* TEXT */
 h1{
   font-size:64px;
   margin:0;
@@ -95,9 +96,14 @@ p{
   line-height:1.6;
 }
 
-/* FIXED BUTTON WRAP */
+/* FIX BUTTON ALIGNMENT */
 .hero-buttons{
-  margin-top:22px;
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
 /* BUTTONS */
@@ -117,11 +123,19 @@ p{
   color:#111;
 }
 
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
 .btn-outline{
   background:transparent;
   border:2px solid #fff;
   color:#fff;
-  margin-left:10px;
+}
+
+.btn-outline:hover{
+  background:#fff;
+  color:#000;
 }
 
 /* SECTION */
@@ -174,7 +188,6 @@ footer{
   color:#fff;
   text-align:center;
   padding:60px 20px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -210,10 +223,17 @@ footer img{
   text-decoration:none;
 }
 
+.legal-links span{
+  opacity:0.4;
+}
+
 /* MOBILE */
 @media(max-width:768px){
   h1{font-size:40px;}
-  .menu{display:none;}
+
+  .menu{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -284,11 +304,11 @@ footer img{
     <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
 
     <div class="legal-links">
-      <a href="#">Privacy Policy</a><span>•</span>
-      <a href="#">Terms of Use</a><span>•</span>
-      <a href="#">Sales and Refunds</a><span>•</span>
-      <a href="#">Legal</a><span>•</span>
-      <a href="#">Site Map</a>
+      <a href="/privacy/">Privacy Policy</a><span>•</span>
+      <a href="/terms/">Terms of Use</a><span>•</span>
+      <a href="/refunds/">Sales and Refunds</a><span>•</span>
+      <a href="/legal/">Legal</a><span>•</span>
+      <a href="/sitemap/">Site Map</a>
     </div>
   </div>
 

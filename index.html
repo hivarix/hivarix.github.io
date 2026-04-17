@@ -12,6 +12,8 @@
 :root{
   --brand:#003366;
   --accent:#ffd700;
+  --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
 }
 
 /* BASE */
@@ -19,6 +21,8 @@ body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
+  color:var(--text);
+  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -26,25 +30,30 @@ nav{
   position:fixed;
   top:0;
   width:100%;
+  z-index:1000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:14px 24px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{height:60px;}
+nav img{
+  height:68px;
+}
 
+/* MENU */
 .menu{
   display:flex;
-  gap:20px;
+  align-items:center;
 }
 
 .menu a{
+  margin:0 12px;
   text-decoration:none;
-  color:#003366;
+  color:var(--brand);
   font-weight:600;
   position:relative;
 }
@@ -52,11 +61,11 @@ nav img{height:60px;}
 .menu a::after{
   content:"";
   position:absolute;
-  width:0;
-  height:2px;
   left:0;
   bottom:-5px;
-  background:#ffd700;
+  width:0;
+  height:2px;
+  background:var(--accent);
   transition:0.3s;
 }
 
@@ -68,15 +77,15 @@ nav img{height:60px;}
 .hamburger{
   display:none;
   flex-direction:column;
-  gap:5px;
   cursor:pointer;
+  gap:5px;
 }
 
 .hamburger span{
-  width:25px;
+  width:26px;
   height:3px;
-  background:#003366;
-  transition:0.3s;
+  background:var(--brand);
+  border-radius:3px;
 }
 
 /* HERO */
@@ -86,32 +95,103 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
+  padding:40px;
   background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
+    radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
     url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  color:#fff;
 }
 
-h1{font-size:60px;}
+.hero{
+  max-width:850px;
+}
+
+h1{
+  font-size:64px;
+  margin:0;
+}
+
+p{
+  font-size:18px;
+}
 
 .btn{
   display:inline-block;
-  margin-top:20px;
+  margin-top:22px;
   padding:14px 28px;
   border-radius:30px;
-  text-decoration:none;
   font-weight:600;
+  text-decoration:none;
 }
 
 .btn-primary{
-  background:#ffd700;
-  color:#000;
+  background:var(--accent);
+  color:#111;
 }
 
 .btn-outline{
   border:2px solid #fff;
   color:#fff;
   margin-left:10px;
+}
+
+/* SECTION */
+section{
+  padding:90px 20px;
+  text-align:center;
+}
+
+h2{
+  font-size:36px;
+  color:var(--brand);
+}
+
+.sub{
+  color:var(--muted);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#001a33);
+  color:#fff;
+}
+
+/* FOOTER */
+footer{
+  background:#081523;
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+footer img{
+  height:70px;
+}
+
+.socials a{
+  color:#fff;
+  margin:0 10px;
 }
 
 /* MOBILE */
@@ -127,14 +207,15 @@ h1{font-size:60px;}
     right:20px;
     background:#fff;
     flex-direction:column;
-    width:200px;
+    width:220px;
     padding:20px;
-    border-radius:10px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    border-radius:12px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
 
     opacity:0;
     transform:translateY(-10px);
     pointer-events:none;
+    transition:0.3s;
   }
 
   .menu.show{
@@ -146,6 +227,8 @@ h1{font-size:60px;}
   .menu a{
     margin:10px 0;
   }
+
+  h1{font-size:40px;}
 }
 
 </style>
@@ -159,31 +242,55 @@ h1{font-size:60px;}
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
   </a>
 
-  <!-- Hamburger -->
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
 
-  <!-- MENU -->
   <div class="menu" id="menu">
     <a href="/">Home</a>
     <a href="https://hivarix.com/services">Services</a>
     <a href="https://hivarix.com/about">About</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header>
-  <div>
+  <div class="hero">
     <h1>HiVaRiX</h1>
-    <p>We build world-class brands.</p>
+    <p>We build world-class brand identities and digital experiences.</p>
 
     <a href="https://hivarix.com/services" class="btn btn-primary">Start a Project</a>
     <a href="https://hivarix.com/services" class="btn btn-outline">View Services</a>
   </div>
 </header>
+
+<!-- SERVICES -->
+<section>
+  <h2>Our Services</h2>
+  <p class="sub">Everything you need to build and scale.</p>
+
+  <div class="grid">
+    <div class="card"><h3>Brand Identity</h3></div>
+    <div class="card"><h3>Web Design</h3></div>
+    <div class="card"><h3>Marketing</h3></div>
+    <div class="card"><h3>Startup Launch</h3></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
+
+  <div class="socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+
+  <p>© 2026 HiVaRiX Global</p>
+</footer>
 
 <!-- SCRIPT -->
 <script>
@@ -191,7 +298,6 @@ const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
   menu.classList.toggle("show");
 });
 </script>

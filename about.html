@@ -36,17 +36,104 @@ nav{
   background:rgba(255,255,255,0.75);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(0,0,0,0.06);
+  transition:0.35s ease;
 }
 
 nav img{
   height:68px;
+  transition:0.3s;
+}
+
+/* SCROLLED NAV */
+nav.scrolled{
+  background:rgba(255,255,255,0.95);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  padding:10px 24px;
+}
+
+nav.scrolled img{
+  height:56px;
+}
+
+nav.hide{
+  transform:translateY(-100%);
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  align-items:center;
+  gap:20px;
 }
 
 .menu a{
-  margin:0 12px;
   text-decoration:none;
   color:var(--brand);
   font-weight:600;
+  position:relative;
+}
+
+.menu a.active{
+  color:var(--accent);
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:5px;
+}
+
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:var(--brand);
+  border-radius:3px;
+  transition:0.3s;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* MOBILE MENU */
+@media(max-width:768px){
+
+  .hamburger{
+    display:flex;
+  }
+
+  .menu{
+    position:absolute;
+    top:80px;
+    right:20px;
+    background:#fff;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+    transition:0.3s ease;
+  }
+
+  .menu.show{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
 }
 
 /* HERO */
@@ -65,15 +152,8 @@ header{
 
 h1{
   font-size:54px;
-  margin-bottom:10px;
 }
 
-p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* SECTION */
 section{
   padding:90px 20px;
   text-align:center;
@@ -83,7 +163,6 @@ section{
 
 h2{
   color:var(--brand);
-  font-size:34px;
 }
 
 /* GRID */
@@ -107,7 +186,6 @@ h2{
   color:#fff;
 }
 
-/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -116,10 +194,9 @@ h2{
   background:var(--accent);
   color:#000;
   text-decoration:none;
-  font-weight:600;
 }
 
-/* FOOTER (MATCHED EXACTLY) */
+/* FOOTER */
 footer{
   background:#081523;
   color:#fff;
@@ -133,50 +210,13 @@ footer{
 
 footer img{
   height:70px;
-  display:block;
-  margin:0 auto;
 }
 
 .socials a{
   color:#fff;
   margin:0 10px;
-  font-size:20px;
-  transition:0.3s;
 }
 
-.socials a:hover{
-  color:var(--accent);
-  transform:translateY(-3px);
-}
-
-.legal-footer{
-  font-size:13px;
-  opacity:0.75;
-  line-height:1.6;
-}
-
-.legal-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:6px;
-}
-
-.legal-links a{
-  color:#ffd700;
-  text-decoration:none;
-}
-
-.legal-links span{
-  opacity:0.4;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  h1{font-size:38px;}
-  .menu{display:none;}
-}
 </style>
 </head>
 
@@ -188,115 +228,67 @@ footer img{
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
   </a>
 
-  <!-- Hamburger -->
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
 
-  <!-- Menu -->
   <div class="menu" id="menu">
     <a href="/">Home</a>
     <a href="https://hivarix.com/services">Services</a>
     <a href="https://hivarix.com/about" class="active">About</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <header>
   <div>
     <h1>About HiVaRiX</h1>
-    <p>We are building brands that don’t just compete — they dominate globally.</p>
+    <p>We are building brands that dominate globally.</p>
   </div>
 </header>
 
-<!-- WHO WE ARE -->
 <section>
   <h2>Who We Are</h2>
-  <p>
-    HiVaRiX is a global branding and digital strategy company focused on turning ideas into powerful, scalable brands.
-    We partner with businesses and visionaries to create identities that stand out, scale fast, and command attention.
-  </p>
+  <p>HiVaRiX is a global branding and strategy company.</p>
 </section>
 
-<!-- MISSION -->
-<section>
-  <h2>Our Mission</h2>
-  <p>
-    To help businesses build authority, visibility, and global relevance through strategic branding,
-    modern design, and growth-driven execution.
-  </p>
-</section>
-
-<!-- VALUES -->
-<section>
-  <h2>Our Core Values</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Innovation</h3>
-      <p>We build brands for the future, not the past.</p>
-    </div>
-
-    <div class="card">
-      <h3>Excellence</h3>
-      <p>We execute at a level that stands out globally.</p>
-    </div>
-
-    <div class="card">
-      <h3>Global Vision</h3>
-      <p>We design with international impact in mind.</p>
-    </div>
-
-    <div class="card">
-      <h3>Impact</h3>
-      <p>Everything we do is built to drive results.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Let’s Build Something Exceptional</h2>
-  <a href="https://hivarix.com/services" class="btn">Explore Services</a>
-</section>
-
-<!-- FOOTER -->
 <footer>
-
   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
-
-  <div class="socials">
-    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
-
-  <div class="legal-footer">
-    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
-
-    <div class="legal-links">
-      <a href="#">Privacy Policy</a><span>•</span>
-      <a href="#">Terms of Use</a><span>•</span>
-      <a href="#">Sales and Refunds</a><span>•</span>
-      <a href="#">Legal</a><span>•</span>
-      <a href="#">Site Map</a>
-    </div>
-  </div>
-
+  <p>© 2026 HiVaRiX Global</p>
 </footer>
+
+<!-- ELITE SCRIPT -->
 <script>
+const nav = document.getElementById("navbar");
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+
+  if (currentScroll > lastScroll && currentScroll > 80) {
+    nav.classList.add("hide");
+  } else {
+    nav.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
+});
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   menu.classList.toggle("show");
 });
 </script>
+
 </body>
 </html>

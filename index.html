@@ -22,6 +22,7 @@ body{
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
+  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -34,7 +35,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:14px 24px;
-  background:rgba(255,255,255,0.75);
+  background:rgba(255,255,255,0.85);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
@@ -43,19 +44,26 @@ nav img{
   height:68px;
 }
 
+/* MENU */
+.menu{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
 .menu a{
-  margin:0 12px;
   text-decoration:none;
   color:var(--brand);
   font-weight:600;
   position:relative;
 }
 
+/* Hover underline */
 .menu a::after{
   content:"";
   position:absolute;
   left:0;
-  bottom:-5px;
+  bottom:-4px;
   width:0;
   height:2px;
   background:var(--accent);
@@ -66,6 +74,14 @@ nav img{
   width:100%;
 }
 
+/* CTA BUTTON */
+.nav-cta{
+  background:var(--accent);
+  padding:8px 16px;
+  border-radius:20px;
+  color:#000;
+}
+
 /* HERO */
 header{
   height:100vh;
@@ -73,7 +89,7 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:40px 20px;
+  padding:40px;
   background:
     radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
     linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
@@ -95,13 +111,9 @@ p{
   line-height:1.6;
 }
 
-/* BUTTON ALIGNMENT FIX */
+/* FIX BUTTON SPACING */
 .hero-buttons{
-  margin-top:28px;
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
+  margin-top:25px;
 }
 
 /* BUTTONS */
@@ -111,7 +123,6 @@ p{
   border-radius:30px;
   font-weight:600;
   cursor:pointer;
-  transition:0.3s;
   text-decoration:none;
   display:inline-block;
 }
@@ -121,19 +132,11 @@ p{
   color:#111;
 }
 
-.btn-primary:hover{
-  transform:translateY(-3px);
-}
-
 .btn-outline{
   background:transparent;
   border:2px solid #fff;
   color:#fff;
-}
-
-.btn-outline:hover{
-  background:#fff;
-  color:#000;
+  margin-left:10px;
 }
 
 /* SECTION */
@@ -180,37 +183,13 @@ h2{
   color:#fff;
 }
 
-/* CONTACT FORM */
-.contact-form{
-  max-width:600px;
-  margin:30px auto 0;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-.contact-form input,
-.contact-form textarea{
-  padding:14px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.1);
-  font-size:15px;
-}
-
-.contact-form textarea{
-  min-height:130px;
-}
-
-.contact-form button{
-  align-self:center;
-}
-
 /* FOOTER */
 footer{
   background:#081523;
   color:#fff;
   text-align:center;
   padding:60px 20px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -244,14 +223,12 @@ footer img{
   text-decoration:none;
 }
 
-.legal-links span{
-  opacity:0.4;
-}
-
 /* MOBILE */
 @media(max-width:768px){
   h1{font-size:40px;}
-  .menu{display:none;}
+  .menu{
+    gap:10px;
+  }
 }
 </style>
 </head>
@@ -260,13 +237,15 @@ footer img{
 
 <!-- NAV -->
 <nav>
-  <a href="/"><img src="assets/images/HiVaRiX.png"></a>
+  <a href="/">
+    <img src="assets/images/HiVaRiX.png">
+  </a>
+
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
     <a href="/about/">About</a>
-    <a href="/portfolio/">Portfolio</a>
-    <a href="#contact">Contact</a>
+    <a href="/#contact" class="nav-cta">Start</a>
   </div>
 </nav>
 
@@ -277,7 +256,7 @@ footer img{
     <p>We build world-class brand identities, digital experiences, and global strategies that turn companies into unforgettable brands.</p>
 
     <div class="hero-buttons">
-      <a href="#contact" class="btn btn-primary">Start a Project</a>
+      <a href="/#contact" class="btn btn-primary">Start a Project</a>
       <a href="/services/" class="btn btn-outline">View Services</a>
     </div>
   </div>
@@ -299,23 +278,7 @@ footer img{
 <!-- CTA -->
 <section class="cta">
   <h2>Let’s Build Something Exceptional</h2>
-  <a href="#contact" class="btn btn-primary">Get Started</a>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Start a Project</h2>
-  <p class="sub">Tell us about your project and we’ll get back to you.</p>
-
-  <form class="contact-form" action="https://formspree.io/f/mnjldqow" method="POST">
-    <input type="hidden" name="_subject" value="HiVaRiX Contact - New Project Request">
-
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <textarea name="project" placeholder="Tell us about your project (budget, timeline, goals)" required></textarea>
-
-    <button type="submit" class="btn btn-primary">Send Request</button>
-  </form>
+  <a href="/#contact" class="btn btn-primary">Get Started</a>
 </section>
 
 <!-- FOOTER -->

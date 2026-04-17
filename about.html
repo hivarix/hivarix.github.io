@@ -33,11 +33,14 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:14px 24px;
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.75);
   backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{height:65px;}
+nav img{
+  height:68px;
+}
 
 .menu a{
   margin:0 12px;
@@ -55,7 +58,7 @@ header{
   text-align:center;
   padding:40px;
   background:
-    linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)),
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
     url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover;
   color:#fff;
 }
@@ -72,7 +75,7 @@ p{
 
 /* SECTION */
 section{
-  padding:80px 20px;
+  padding:90px 20px;
   text-align:center;
   max-width:1000px;
   margin:auto;
@@ -100,11 +103,11 @@ h2{
 
 /* CTA */
 .cta{
-  background:var(--brand);
+  background:linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
-  padding:70px 20px;
 }
 
+/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -116,15 +119,64 @@ h2{
   font-weight:600;
 }
 
-/* FOOTER */
+/* FOOTER (MATCHED EXACTLY) */
 footer{
   background:#081523;
   color:#fff;
   text-align:center;
-  padding:40px 20px;
-  margin-top:40px;
+  padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
 }
 
+footer img{
+  height:70px;
+  display:block;
+  margin:0 auto;
+}
+
+.socials a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
+  transition:0.3s;
+}
+
+.socials a:hover{
+  color:var(--accent);
+  transform:translateY(-3px);
+}
+
+.legal-footer{
+  font-size:13px;
+  opacity:0.75;
+  line-height:1.6;
+}
+
+.legal-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:6px;
+}
+
+.legal-links a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+.legal-links span{
+  opacity:0.4;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  h1{font-size:38px;}
+  .menu{display:none;}
+}
 </style>
 </head>
 
@@ -140,7 +192,6 @@ footer{
     <a href="/">Home</a>
     <a href="https://hivarix.com/services">Services</a>
     <a href="https://hivarix.com/about">About</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -152,12 +203,12 @@ footer{
   </div>
 </header>
 
-<!-- STORY -->
+<!-- WHO WE ARE -->
 <section>
   <h2>Who We Are</h2>
   <p>
-    HiVaRiX is a global branding and digital strategy company focused on turning ideas into powerful, scalable brands. 
-    We work with startups, businesses, and visionaries to create identities that stand out in competitive markets.
+    HiVaRiX is a global branding and digital strategy company focused on turning ideas into powerful, scalable brands.
+    We partner with businesses and visionaries to create identities that stand out, scale fast, and command attention.
   </p>
 </section>
 
@@ -165,8 +216,8 @@ footer{
 <section>
   <h2>Our Mission</h2>
   <p>
-    To help businesses build authority, visibility, and global relevance through strategic branding, 
-    modern design, and data-driven growth systems.
+    To help businesses build authority, visibility, and global relevance through strategic branding,
+    modern design, and growth-driven execution.
   </p>
 </section>
 
@@ -177,36 +228,57 @@ footer{
   <div class="grid">
     <div class="card">
       <h3>Innovation</h3>
-      <p>We stay ahead of trends and build future-ready brands.</p>
+      <p>We build brands for the future, not the past.</p>
     </div>
 
     <div class="card">
       <h3>Excellence</h3>
-      <p>Every project is executed with precision and high standards.</p>
+      <p>We execute at a level that stands out globally.</p>
     </div>
 
     <div class="card">
       <h3>Global Vision</h3>
-      <p>We think beyond borders and build brands for the world stage.</p>
+      <p>We design with international impact in mind.</p>
     </div>
 
     <div class="card">
       <h3>Impact</h3>
-      <p>We focus on results that drive real business growth.</p>
+      <p>Everything we do is built to drive results.</p>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Let’s Build Your Brand</h2>
-  <p>Ready to take your business global?</p>
+  <h2>Let’s Build Something Exceptional</h2>
   <a href="https://hivarix.com/services" class="btn">Explore Services</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 HiVaRiX Global. All rights reserved.</p>
+
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
+
+  <div class="socials">
+    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <div class="legal-footer">
+    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
+
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a><span>•</span>
+      <a href="#">Terms of Use</a><span>•</span>
+      <a href="#">Sales and Refunds</a><span>•</span>
+      <a href="#">Legal</a><span>•</span>
+      <a href="#">Site Map</a>
+    </div>
+  </div>
+
 </footer>
 
 </body>

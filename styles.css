@@ -35,11 +35,16 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
+/* FIX: clean logo rendering */
 nav img{
   height:68px;
   width:auto;
   display:block;
-  image-rendering:auto;
+}
+
+/* Prevent content hiding under fixed nav */
+body{
+  padding-top:90px;
 }
 
 /* MENU */
@@ -67,7 +72,7 @@ nav img{
   width:0;
   height:2px;
   background:var(--accent);
-  transition:0.3s;
+  transition:0.3s ease;
 }
 
 .menu a:hover::after{
@@ -134,7 +139,7 @@ nav img{
     opacity:0;
     transform:translateY(-10px);
     pointer-events:none;
-    transition:0.3s ease;
+    transition:0.25s ease;
   }
 
   .menu.show{
@@ -185,7 +190,7 @@ header p{
   border-radius:30px;
   font-weight:600;
   cursor:pointer;
-  transition:0.3s ease;
+  transition:0.25s ease;
   display:inline-block;
   text-decoration:none;
 }
@@ -238,7 +243,7 @@ h2{
   padding:28px;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.06);
-  transition:0.3s ease;
+  transition:0.25s ease;
 }
 
 .card:hover{
@@ -260,20 +265,18 @@ footer{
   padding:50px 20px;
 }
 
-/* ✅ FIXED FOOTER LOGO */
 footer img{
   height:70px;
   width:auto;
   display:block;
   margin:0 auto;
-  image-rendering:auto;
 }
 
 footer a{
   color:#fff;
   margin:0 10px;
   font-size:20px;
-  transition:0.3s ease;
+  transition:0.25s ease;
   display:inline-block;
 }
 

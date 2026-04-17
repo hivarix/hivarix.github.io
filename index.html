@@ -85,7 +85,6 @@ header{
   max-width:850px;
 }
 
-/* TEXT */
 h1{
   font-size:64px;
   margin:0;
@@ -96,12 +95,11 @@ p{
   line-height:1.6;
 }
 
-/* FIX BUTTON ALIGNMENT */
+/* BUTTON ALIGNMENT FIX */
 .hero-buttons{
   margin-top:28px;
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:14px;
   flex-wrap:wrap;
 }
@@ -182,6 +180,31 @@ h2{
   color:#fff;
 }
 
+/* CONTACT FORM */
+.contact-form{
+  max-width:600px;
+  margin:30px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.1);
+  font-size:15px;
+}
+
+.contact-form textarea{
+  min-height:130px;
+}
+
+.contact-form button{
+  align-self:center;
+}
+
 /* FOOTER */
 footer{
   background:#081523;
@@ -198,14 +221,12 @@ footer img{
   height:70px;
 }
 
-/* SOCIAL */
 .socials a{
   color:#fff;
   margin:0 10px;
   font-size:20px;
 }
 
-/* LEGAL */
 .legal-footer{
   font-size:13px;
   opacity:0.75;
@@ -230,10 +251,7 @@ footer img{
 /* MOBILE */
 @media(max-width:768px){
   h1{font-size:40px;}
-
-  .menu{
-    display:none;
-  }
+  .menu{display:none;}
 }
 </style>
 </head>
@@ -242,10 +260,7 @@ footer img{
 
 <!-- NAV -->
 <nav>
-  <a href="/">
-    <img src="assets/images/HiVaRiX.png">
-  </a>
-
+  <a href="/"><img src="assets/images/HiVaRiX.png"></a>
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
@@ -285,6 +300,22 @@ footer img{
 <section class="cta">
   <h2>Let’s Build Something Exceptional</h2>
   <a href="#contact" class="btn btn-primary">Get Started</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Start a Project</h2>
+  <p class="sub">Tell us about your project and we’ll get back to you.</p>
+
+  <form class="contact-form" action="https://formspree.io/f/mnjldqow" method="POST">
+    <input type="hidden" name="_subject" value="HiVaRiX Contact - New Project Request">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <textarea name="project" placeholder="Tell us about your project (budget, timeline, goals)" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Send Request</button>
+  </form>
 </section>
 
 <!-- FOOTER -->

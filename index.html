@@ -12,8 +12,6 @@
 :root{
   --brand:#003366;
   --accent:#ffd700;
-  --text:#1b1b1b;
-  --muted:rgba(0,0,0,0.6);
 }
 
 /* BASE */
@@ -21,8 +19,6 @@ body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
-  color:var(--text);
-  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -30,25 +26,25 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  z-index:1000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:14px 24px;
-  background:rgba(255,255,255,0.75);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
 }
 
-nav img{
-  height:68px;
-  filter:contrast(1.1) brightness(1.05);
+nav img{height:60px;}
+
+.menu{
+  display:flex;
+  gap:20px;
 }
 
 .menu a{
-  margin:0 12px;
   text-decoration:none;
-  color:var(--brand);
+  color:#003366;
   font-weight:600;
   position:relative;
 }
@@ -56,15 +52,32 @@ nav img{
 .menu a::after{
   content:"";
   position:absolute;
-  left:0;
-  bottom:-5px;
   width:0;
   height:2px;
-  background:var(--accent);
+  left:0;
+  bottom:-5px;
+  background:#ffd700;
   transition:0.3s;
 }
 
-.menu a:hover::after{width:100%;}
+.menu a:hover::after{
+  width:100%;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:#003366;
+  transition:0.3s;
+}
 
 /* HERO */
 header{
@@ -73,175 +86,68 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:40px;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
   color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
 }
 
-.hero{
-  max-width:850px;
-  animation:fadeUp 1s ease;
-}
-
-h1{
-  font-size:64px;
-  margin:0;
-  letter-spacing:-1px;
-}
-
-p{
-  font-size:18px;
-  line-height:1.6;
-  opacity:0.9;
-}
+h1{font-size:60px;}
 
 .btn{
   display:inline-block;
-  margin-top:22px;
+  margin-top:20px;
   padding:14px 28px;
   border-radius:30px;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
   text-decoration:none;
+  font-weight:600;
 }
 
 .btn-primary{
-  background:var(--accent);
-  color:#111;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
+  background:#ffd700;
+  color:#000;
 }
 
 .btn-outline{
-  background:transparent;
   border:2px solid #fff;
   color:#fff;
   margin-left:10px;
 }
 
-.btn-outline:hover{
-  background:#fff;
-  color:#000;
-}
-
-/* SECTION */
-section{
-  padding:90px 20px;
-  text-align:center;
-}
-
-h2{
-  font-size:36px;
-  color:var(--brand);
-  margin-bottom:10px;
-}
-
-.sub{
-  color:var(--muted);
-  max-width:600px;
-  margin:0 auto 40px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.card{
-  background:#fff;
-  padding:28px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.06);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* CTA */
-.cta{
-  background:linear-gradient(135deg,var(--brand),#001a33);
-  color:#fff;
-}
-
-/* FOOTER */
-footer{
-  background:#081523;
-  color:#fff;
-  text-align:center;
-  padding:60px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-}
-
-footer img{
-  height:70px;
-  display:block;
-  margin:0 auto;
-}
-
-/* SOCIAL */
-.socials a{
-  color:#fff;
-  margin:0 10px;
-  font-size:20px;
-  transition:0.3s;
-}
-
-.socials a:hover{
-  color:var(--accent);
-  transform:translateY(-3px);
-}
-
-/* LEGAL FOOTER */
-.legal-footer{
-  font-size:13px;
-  opacity:0.75;
-  line-height:1.6;
-}
-
-.legal-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:6px;
-}
-
-.legal-links a{
-  color:#ffd700;
-  text-decoration:none;
-}
-
-.legal-links span{
-  opacity:0.4;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
 /* MOBILE */
 @media(max-width:768px){
-  h1{font-size:40px;}
-  .menu{display:none;}
+
+  .hamburger{
+    display:flex;
+  }
+
+  .menu{
+    position:absolute;
+    top:80px;
+    right:20px;
+    background:#fff;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+  }
+
+  .menu.show{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+
+  .menu a{
+    margin:10px 0;
+  }
 }
+
 </style>
 </head>
 
@@ -253,70 +159,42 @@ footer img{
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
   </a>
 
-  <div class="menu">
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- MENU -->
+  <div class="menu" id="menu">
     <a href="/">Home</a>
     <a href="https://hivarix.com/services">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="#contact">Contact</a>
+    <a href="https://hivarix.com/about">About</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header>
-  <div class="hero">
+  <div>
     <h1>HiVaRiX</h1>
-    <p>We build world-class brand identities, digital experiences, and global strategies that turn companies into unforgettable brands.</p>
+    <p>We build world-class brands.</p>
 
-    <a href="#contact" class="btn btn-primary">Start a Project</a>
+    <a href="https://hivarix.com/services" class="btn btn-primary">Start a Project</a>
     <a href="https://hivarix.com/services" class="btn btn-outline">View Services</a>
   </div>
 </header>
 
-<!-- SERVICES -->
-<section id="services">
-  <h2>Our Services</h2>
-  <p class="sub">Everything you need to build, launch, and scale a powerful global brand.</p>
+<!-- SCRIPT -->
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 
-  <div class="grid">
-    <div class="card"><h3>Brand Identity</h3><p>Logo systems & visual identity.</p></div>
-    <div class="card"><h3>Web Design</h3><p>High-performance websites.</p></div>
-    <div class="card"><h3>Marketing</h3><p>Growth-driven campaigns.</p></div>
-    <div class="card"><h3>Startup Launch</h3><p>From idea to global presence.</p></div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Let’s Build Something Exceptional</h2>
-  <a href="#contact" class="btn btn-primary">Get Started</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
-
-  <div class="socials">
-    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
-  </div>
-
-  <div class="legal-footer">
-    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
-
-    <div class="legal-links">
-      <a href="#">Privacy Policy</a><span>•</span>
-      <a href="#">Terms of Use</a><span>•</span>
-      <a href="#">Sales and Refunds</a><span>•</span>
-      <a href="#">Legal</a><span>•</span>
-      <a href="#">Site Map</a>
-    </div>
-  </div>
-
-</footer>
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("show");
+});
+</script>
 
 </body>
 </html>

@@ -6,8 +6,216 @@
 <title>HiVaRiX</title>
 
 <link rel="icon" href="assets/images/HiVaRiX.png">
-<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
+}
+
+/* BASE */
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:#f6f8fc;
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 24px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+nav img{
+  height:68px;
+}
+
+/* MENU */
+.menu a{
+  margin:0 12px;
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:600;
+  position:relative;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{width:100%;}
+
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
+  color:#fff;
+}
+
+.hero{
+  max-width:850px;
+}
+
+h1{
+  font-size:64px;
+  margin:0;
+}
+
+p{
+  font-size:18px;
+  line-height:1.6;
+}
+
+/* FIXED BUTTON WRAP */
+.hero-buttons{
+  margin-top:22px;
+}
+
+/* BUTTONS */
+.btn{
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#111;
+}
+
+.btn-outline{
+  background:transparent;
+  border:2px solid #fff;
+  color:#fff;
+  margin-left:10px;
+}
+
+/* SECTION */
+section{
+  padding:90px 20px;
+  text-align:center;
+}
+
+h2{
+  font-size:36px;
+  color:var(--brand);
+}
+
+.sub{
+  color:var(--muted);
+  max-width:600px;
+  margin:0 auto 40px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#001a33);
+  color:#fff;
+}
+
+/* FOOTER */
+footer{
+  background:#081523;
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+footer img{
+  height:70px;
+}
+
+/* SOCIAL */
+.socials a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
+}
+
+/* LEGAL */
+.legal-footer{
+  font-size:13px;
+  opacity:0.75;
+}
+
+.legal-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.legal-links a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  h1{font-size:40px;}
+  .menu{display:none;}
+}
+</style>
 </head>
 
 <body>
@@ -46,29 +254,10 @@
   <p class="sub">Everything you need to build, launch, and scale a powerful global brand.</p>
 
   <div class="grid">
-    <div class="card">
-      <i class="fas fa-pen-nib"></i>
-      <h3>Brand Identity</h3>
-      <p>Logo systems & visual identity.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-laptop-code"></i>
-      <h3>Web Design</h3>
-      <p>High-performance websites.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-chart-line"></i>
-      <h3>Marketing</h3>
-      <p>Growth-driven campaigns.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-rocket"></i>
-      <h3>Startup Launch</h3>
-      <p>From idea to global presence.</p>
-    </div>
+    <div class="card"><h3>Brand Identity</h3><p>Logo systems & visual identity.</p></div>
+    <div class="card"><h3>Web Design</h3><p>High-performance websites.</p></div>
+    <div class="card"><h3>Marketing</h3><p>Growth-driven campaigns.</p></div>
+    <div class="card"><h3>Startup Launch</h3><p>From idea to global presence.</p></div>
   </div>
 </section>
 

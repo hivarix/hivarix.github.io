@@ -6,219 +6,9 @@
 <title>HiVaRiX</title>
 
 <link rel="icon" href="assets/images/HiVaRiX.png">
+<link rel="stylesheet" href="style.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-:root{
-  --brand:#003366;
-  --accent:#ffd700;
-  --text:#1b1b1b;
-  --muted:rgba(0,0,0,0.6);
-}
-
-/* BASE */
-body{
-  margin:0;
-  font-family:'Segoe UI', system-ui, sans-serif;
-  background:#f6f8fc;
-  color:var(--text);
-  scroll-behavior:smooth;
-}
-
-/* NAV */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 24px;
-  background:rgba(255,255,255,0.75);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
-}
-
-nav img{
-  height:68px;
-}
-
-/* MENU */
-.menu{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-.menu a{
-  text-decoration:none;
-  color:var(--brand);
-  font-weight:600;
-  position:relative;
-}
-
-/* Hover underline */
-.menu a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:0.3s;
-}
-
-.menu a:hover::after{
-  width:100%;
-}
-
-/* HERO */
-header{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 60%),
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
-  color:#fff;
-}
-
-.hero{
-  max-width:850px;
-  animation:fadeUp 1s ease;
-}
-
-h1{
-  font-size:64px;
-  margin:0;
-}
-
-p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* BUTTON FIX */
-.hero-buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:14px 28px;
-  border:none;
-  border-radius:30px;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-  text-decoration:none;
-  display:inline-block;
-}
-
-.btn-primary{
-  background:var(--accent);
-  color:#111;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-}
-
-.btn-outline{
-  background:transparent;
-  border:2px solid #fff;
-  color:#fff;
-}
-
-.btn-outline:hover{
-  background:#fff;
-  color:#000;
-}
-
-/* SECTION */
-section{
-  padding:90px 20px;
-  text-align:center;
-}
-
-h2{
-  font-size:36px;
-  color:var(--brand);
-}
-
-.sub{
-  color:var(--muted);
-  max-width:600px;
-  margin:0 auto 40px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.card{
-  background:#fff;
-  padding:28px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.06);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-}
-
-/* CTA */
-.cta{
-  background:linear-gradient(135deg,var(--brand),#001a33);
-  color:#fff;
-}
-
-/* FOOTER */
-footer{
-  background:#081523;
-  color:#fff;
-  text-align:center;
-  padding:60px 20px;
-}
-
-footer img{
-  height:70px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  h1{font-size:40px;}
-
-  .menu{
-    display:none;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-</style>
 </head>
 
 <body>
@@ -279,7 +69,29 @@ footer img{
 
 <!-- FOOTER -->
 <footer>
+
   <img src="assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+
+  <div class="socials">
+    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <div class="legal-footer">
+    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
+
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a><span>•</span>
+      <a href="#">Terms of Use</a><span>•</span>
+      <a href="#">Sales and Refunds</a><span>•</span>
+      <a href="#">Legal</a><span>•</span>
+      <a href="#">Site Map</a>
+    </div>
+  </div>
+
 </footer>
 
 </body>

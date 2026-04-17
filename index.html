@@ -99,13 +99,14 @@ p{
 }
 
 .btn{
+  display:inline-block;
   margin-top:22px;
   padding:14px 28px;
-  border:none;
   border-radius:30px;
   font-weight:600;
   cursor:pointer;
   transition:0.3s;
+  text-decoration:none;
 }
 
 .btn-primary{
@@ -181,14 +182,12 @@ footer{
   color:#fff;
   text-align:center;
   padding:60px 20px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:18px;
 }
 
-/* CENTER LOGO FIX */
 footer img{
   height:70px;
   display:block;
@@ -256,7 +255,7 @@ footer img{
 
   <div class="menu">
     <a href="/">Home</a>
-    <a href="services.html">Services</a>
+    <a href="https://hivarix.com/services">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="#contact">Contact</a>
   </div>
@@ -268,8 +267,8 @@ footer img{
     <h1>HiVaRiX</h1>
     <p>We build world-class brand identities, digital experiences, and global strategies that turn companies into unforgettable brands.</p>
 
-    <button class="btn btn-primary">Start a Project</button>
-    <button class="btn btn-outline">View Services</button>
+    <a href="#contact" class="btn btn-primary">Start a Project</a>
+    <a href="https://hivarix.com/services" class="btn btn-outline">View Services</a>
   </div>
 </header>
 
@@ -289,7 +288,7 @@ footer img{
 <!-- CTA -->
 <section class="cta">
   <h2>Let’s Build Something Exceptional</h2>
-  <button class="btn btn-primary">Get Started</button>
+  <a href="#contact" class="btn btn-primary">Get Started</a>
 </section>
 
 <!-- FOOTER -->

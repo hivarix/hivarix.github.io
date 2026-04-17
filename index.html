@@ -282,22 +282,36 @@ footer img{
 
 <!-- FOOTER -->
 <footer>
+
   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HiVaRiX.png">
 
   <div class="socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
 
-  <p>© 2026 HiVaRiX Global</p>
-</footer>
+  <div class="legal-footer">
+    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
 
-<!-- SCRIPT -->
+    <div class="legal-links">
+      <a href="#">Privacy Policy</a><span>•</span>
+      <a href="#">Terms of Use</a><span>•</span>
+      <a href="#">Sales and Refunds</a><span>•</span>
+      <a href="#">Legal</a><span>•</span>
+      <a href="#">Site Map</a>
+    </div>
+  </div>
+
+</footer>
 <script>
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 
 hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
   menu.classList.toggle("show");
 });
 </script>

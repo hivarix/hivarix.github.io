@@ -92,14 +92,29 @@ nav img{
   color:#000 !important;
 }
 
-/* HERO */
+/* HERO HEADER */
 header{
-  padding:120px 20px 60px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  padding:120px 20px 60px;
+  color:#fff;
+
+  background:
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4)),
+    url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
+
+  transition:transform 0.6s ease;
+}
+
+header:hover{
+  transform:scale(1.02);
 }
 
 header h1{
-  font-size:48px;
+  font-size:52px;
   margin:0 0 10px;
 }
 
@@ -107,7 +122,7 @@ header p{
   max-width:700px;
   margin:auto;
   font-size:18px;
-  color:var(--muted);
+  color:#e0e0e0;
 }
 
 /* SECTION */
@@ -130,39 +145,6 @@ h2{
   color:var(--muted);
   margin:0 auto 40px;
   max-width:650px;
-}
-
-/* ABOUT IMAGE */
-.about-image{
-  max-width:1000px;
-  margin:40px auto 0;
-  border-radius:18px;
-  overflow:hidden;
-  position:relative;
-}
-
-.about-image img{
-  width:100%;
-  display:block;
-  transition:transform 0.6s ease, filter 0.6s ease;
-}
-
-.about-image:hover img{
-  transform:scale(1.05);
-  filter:brightness(0.85);
-}
-
-.about-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-  opacity:0;
-  transition:0.4s ease;
-}
-
-.about-image:hover::after{
-  opacity:1;
 }
 
 /* GRID */
@@ -224,6 +206,10 @@ footer img{
   font-size:20px;
 }
 
+.socials a:hover{
+  color:var(--accent);
+}
+
 .legal-footer{
   font-size:13px;
   opacity:0.75;
@@ -243,9 +229,21 @@ footer img{
 
 /* MOBILE */
 @media(max-width:768px){
-  header h1{font-size:34px;}
-  nav img{height:50px;}
-  .menu a{font-size:13px;}
+  header{
+    min-height:80vh;
+  }
+
+  header h1{
+    font-size:34px;
+  }
+
+  nav img{
+    height:50px;
+  }
+
+  .menu a{
+    font-size:13px;
+  }
 }
 </style>
 </head>
@@ -268,8 +266,10 @@ footer img{
 
 <!-- HERO -->
 <header>
-  <h1>About HiVaRiX</h1>
-  <p>We are a global creative and strategy company focused on building powerful brands, digital experiences, and scalable business growth.</p>
+  <div>
+    <h1>About HiVaRiX</h1>
+    <p>We are a global creative and strategy company focused on building powerful brands, digital experiences, and scalable business growth.</p>
+  </div>
 </header>
 
 <!-- WHO WE ARE -->
@@ -279,12 +279,6 @@ footer img{
     <p class="sub">
       HiVaRiX exists to build brands that stand out globally. We combine strategy, design, and technology to create businesses that don’t just compete — they lead.
     </p>
-
-    <!-- IMAGE ADDED HERE -->
-    <div class="about-image">
-      <img src="/assets/images/hivarix-building.jpg" alt="HiVaRiX Building">
-    </div>
-
   </div>
 </section>
 

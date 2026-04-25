@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX Portfolio</title>
 
-<!-- Favicon (same as homepage) -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
@@ -17,17 +17,22 @@
   --brand:#003366;
   --accent:#ffd700;
   --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
 }
 
-/* BASE */
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
+  overflow-x:hidden;
 }
 
-/* NAV (MATCHES HOMEPAGE EXACTLY) */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -43,13 +48,14 @@ nav{
 }
 
 nav img{
-  height:60px;
+  height:55px;
 }
 
 .menu{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
 .menu a{
@@ -60,7 +66,6 @@ nav img{
   position:relative;
 }
 
-/* underline hover */
 .menu a::after{
   content:"";
   position:absolute;
@@ -76,7 +81,6 @@ nav img{
   width:100%;
 }
 
-/* CTA button */
 .nav-cta{
   background:var(--accent);
   padding:6px 14px;
@@ -86,7 +90,7 @@ nav img{
 
 /* HERO */
 header{
-  padding:120px 20px 80px; /* prevents nav overlap */
+  padding:120px 20px 70px;
   text-align:center;
   background:
     linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
@@ -95,7 +99,7 @@ header{
 }
 
 header h1{
-  font-size:50px;
+  font-size:48px;
   margin-bottom:10px;
 }
 
@@ -103,15 +107,17 @@ header p{
   max-width:700px;
   margin:auto;
   line-height:1.6;
+  font-size:18px;
 }
 
-/* FILTER */
+/* FILTERS */
 .filters{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:10px;
+  gap:12px;
   margin:40px 0;
+  padding:0 10px;
 }
 
 .filters button{
@@ -122,6 +128,7 @@ header p{
   background:#fff;
   border:1px solid rgba(0,0,0,0.1);
   font-weight:600;
+  color:var(--brand);
 }
 
 .filters button:hover{
@@ -165,17 +172,20 @@ header p{
   color:var(--brand);
 }
 
-/* FOOTER (MATCH HOMEPAGE STYLE) */
+/* FOOTER */
 footer{
   background:#081523;
   color:#fff;
   text-align:center;
   padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
 }
 
 footer img{
   height:70px;
-  margin-bottom:15px;
 }
 
 .socials a{
@@ -188,14 +198,65 @@ footer img{
   color:var(--accent);
 }
 
-footer p{
+.legal-footer{
   font-size:13px;
-  opacity:0.8;
+  opacity:0.75;
+}
+
+.legal-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.legal-links a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.legal-links a:hover{
+  text-decoration:underline;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  header h1{font-size:34px;}
+
+  nav{
+    padding:12px 14px;
+  }
+
+  nav img{
+    height:45px;
+  }
+
+  .menu{
+    gap:10px;
+  }
+
+  .menu a{
+    font-size:13px;
+  }
+
+  .nav-cta{
+    padding:5px 10px;
+  }
+
+  header{
+    padding:100px 15px 60px;
+  }
+
+  header h1{
+    font-size:36px;
+  }
+
+  header p{
+    font-size:16px;
+  }
+
+  .grid{
+    padding:0 15px 60px;
+  }
 }
 </style>
 </head>
@@ -205,7 +266,7 @@ footer p{
 <!-- NAV -->
 <nav>
   <a href="/">
-    <img src="/assets/images/HiVaRiX.png">
+    <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX">
   </a>
 
   <div class="menu">
@@ -222,7 +283,7 @@ footer p{
   <p>Explore world-class branding, websites, and digital experiences built by HiVaRiX for global clients.</p>
 </header>
 
-<!-- FILTER -->
+<!-- FILTERS -->
 <div class="filters">
   <button>All</button>
   <button>Branding</button>
@@ -231,7 +292,7 @@ footer p{
   <button>UI/UX</button>
 </div>
 
-<!-- GRID -->
+<!-- PORTFOLIO GRID -->
 <section class="grid">
 
   <div class="card">
@@ -260,7 +321,7 @@ footer p{
 <!-- FOOTER -->
 <footer>
 
-  <img src="/assets/images/HiVaRiX.png">
+  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX">
 
   <div class="socials">
     <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
@@ -270,7 +331,17 @@ footer p{
     <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
 
-  <p>© 2026 HiVaRiX Global. All rights reserved.</p>
+  <div class="legal-footer">
+    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
+
+    <div class="legal-links">
+      <a href="/privacy/">Privacy Policy</a><span>•</span>
+      <a href="/terms/">Terms of Use</a><span>•</span>
+      <a href="/refunds/">Sales and Refunds</a><span>•</span>
+      <a href="/legal/">Legal</a><span>•</span>
+      <a href="/sitemap/">Site Map</a>
+    </div>
+  </div>
 
 </footer>
 

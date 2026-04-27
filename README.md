@@ -1,81 +1,69 @@
 # HiVaRiX
 
-Official website for **HiVaRiX Global** — a modern brand focused on building world-class identities, digital experiences, and scalable business solutions.
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:1a1a1a&height=250&section=header&text=HiVaRiX%20Global&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
+</p>
+
+<p align="center">
+  <strong>Building world-class brands, digital experiences, and scalable solutions.</strong>
+</p>
+
+<p align="center">
+  <a href="https://hivarix.com">
+    <img src="https://img.shields.io/badge/Live%20Site-Visit-black?style=for-the-badge&logo=google-chrome">
+  </a>
+  <a href="https://github.com/hivarix/hivarix.github.io">
+    <img src="https://img.shields.io/badge/Repository-View-black?style=for-the-badge&logo=github">
+  </a>
+</p>
 
 ---
 
-## 🌐 Live Website
-https://hivarix.com
+## ⚡ Overview
+
+**HiVaRiX Global** is a modern digital brand focused on delivering:
+
+- High-impact brand identity systems  
+- Clean, conversion-driven web experiences  
+- Scalable business and digital solutions  
+
+This repository powers the official website and serves as the foundation for the HiVaRiX digital ecosystem.
 
 ---
 
-## 📁 Project Structure
+## 🎬 Live Preview
 
-```
-/
-├── index.html
-├── services/
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=FFFFFF&center=true&vCenter=true&lines=Modern+UI+Design;Responsive+Experience;Fast+Performance;Brand-Focused+Development" />
+</p>
+
+> 🔥 *Replace this section later with a real scrolling GIF of your website for maximum impact*
+
+---
+
+## 📊 Project Intelligence
+
+<p align="center">
+  <img src="https://img.shields.io/github/repo-size/hivarix/hivarix.github.io?color=black">
+  <img src="https://img.shields.io/github/last-commit/hivarix/hivarix.github.io?color=black">
+  <img src="https://img.shields.io/github/commit-activity/m/hivarix/hivarix.github.io?color=black">
+  <img src="https://img.shields.io/badge/Deployment-GitHub%20Pages-black">
+</p>
+
+---
+
+## 🧩 Architecture
+
+```text
+/ (root)
+├── index.html                # Homepage
+├── services/                 # Services pages
 │   └── index.html
-├── about/
+├── about/                    # About page
 │   └── index.html
-├── portfolio/
+├── portfolio/                # Portfolio showcase
 │   └── index.html
 ├── assets/
-│   └── images/
-│       └── HiVaRiX.png
-└── style.css (optional)
-```
-
----
-
-## 🚀 Features
-
-- Clean and modern UI  
-- Responsive design (mobile-friendly)  
-- Smooth navigation  
-- Brand-focused layout  
-- Optimized asset structure  
-
----
-
-## 🛠️ Technologies Used
-
-- HTML5  
-- CSS3  
-- Font Awesome Icons  
-- GitHub Pages (hosting)  
-
----
-
-## 📦 Deployment
-
-This site is deployed using **GitHub Pages**.
-
-To deploy:
-1. Push changes to the `main` branch  
-2. Ensure `index.html` is in the root directory  
-3. GitHub automatically publishes the site  
-
----
-
-## 🧠 Notes
-
-- All pages use folder-based routing (`/services/`, `/about/`)  
-- Assets are stored in `assets/images/`  
-- Logo is optimized for web performance  
-
----
-
-## 📞 Contact
-
-For inquiries or collaborations:
-
-- Instagram: https://instagram.com/hivarix  
-- Twitter (X): https://x.com/hivarix  
-- TikTok: https://tiktok.com/@hivarix  
-
----
-
-## © 2026 HiVaRiX Global
-
-All rights reserved.
+│   └── images/               # Static assets
+│       └── hivarix-logo.png
+└── style.css                 # Global styles

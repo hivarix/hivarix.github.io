@@ -1,7 +1,12 @@
 async function loadComponent(id, url) {
-  const res = await fetch(url);
-  const data = await res.text();
-  document.getElementById(id).innerHTML = data;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Cannot load " + url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+  } catch (err) {
+    console.error("Include error:", err);
+  }
 }
 
 window.addEventListener("DOMContentLoaded", () => {

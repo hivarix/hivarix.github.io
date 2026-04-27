@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services • HiVaRiX</title>
 
+<!-- Font Awesome (FIXED: THIS IS WHAT WAS MISSING) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/assets/images/hivarix-favicon.svg">
 
@@ -24,7 +27,6 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-/* BASE */
 *{box-sizing:border-box;}
 
 body{
@@ -50,9 +52,7 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{
-  height:60px;
-}
+nav img{height:60px;}
 
 .menu{
   display:flex;
@@ -68,11 +68,8 @@ nav img{
   position:relative;
 }
 
-.menu a.active{
-  color:var(--accent);
-}
+.menu a.active{color:var(--accent);}
 
-/* underline */
 .menu a::after{
   content:"";
   position:absolute;
@@ -84,11 +81,8 @@ nav img{
   transition:0.3s;
 }
 
-.menu a:hover::after{
-  width:100%;
-}
+.menu a:hover::after{width:100%;}
 
-/* CTA */
 .nav-cta{
   background:var(--accent);
   padding:6px 14px;
@@ -138,13 +132,11 @@ h2{
   margin-top:40px;
 }
 
-/* CARD LINK WRAP */
 .card-link{
   text-decoration:none;
   color:inherit;
 }
 
-/* CARD */
 .card{
   background:#fff;
   padding:30px;
@@ -158,7 +150,6 @@ h2{
   box-shadow:0 20px 45px rgba(0,0,0,0.12);
 }
 
-/* ICON */
 .icon{
   font-size:32px;
   color:var(--accent);
@@ -171,7 +162,6 @@ h2{
   color:#fff;
 }
 
-/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -195,14 +185,18 @@ footer{
   gap:18px;
 }
 
-footer img{
-  height:70px;
-}
+footer img{height:70px;}
 
+/* FIXED SOCIAL ICONS */
 .socials a{
   color:#fff;
   margin:0 10px;
   font-size:20px;
+  text-decoration:none;
+}
+
+.socials a:hover i{
+  color:var(--accent);
 }
 
 .legal-footer{
@@ -231,7 +225,6 @@ footer img{
 
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/">
     <img src="/assets/images/HiVaRiX.png">
@@ -245,13 +238,11 @@ footer img{
   </div>
 </nav>
 
-<!-- HERO -->
 <header>
   <h1>Our Services</h1>
   <p>We provide premium solutions designed to build, grow, and scale powerful global brands.</p>
 </header>
 
-<!-- SERVICES GRID -->
 <section>
   <div class="container">
 
@@ -294,13 +285,11 @@ footer img{
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Let’s Build Your Brand</h2>
   <a href="/#contact" class="btn">Start a Project</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
 
   <img src="/assets/images/HiVaRiX.png">
@@ -326,6 +315,7 @@ footer img{
   </div>
 
 </footer>
+
 <script src="/assets/js/include.js"></script>
 
 </body>

@@ -6,12 +6,15 @@
 }
 
 /* BASE */
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
-  scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -29,19 +32,28 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
+/* LOGO */
 nav img{
   height:68px;
 }
 
 /* MENU */
+.menu{
+  display:flex;
+  align-items:center;
+}
+
 .menu a{
   margin:0 12px;
   text-decoration:none;
   color:var(--brand);
   font-weight:600;
   position:relative;
+  padding-bottom:4px;
+  transition:0.2s ease;
 }
 
+/* UNDERLINE EFFECT */
 .menu a::after{
   content:"";
   position:absolute;
@@ -53,4 +65,44 @@ nav img{
   transition:0.3s;
 }
 
-.menu a:hover::after{width:100%;}
+.menu a:hover::after{
+  width:100%;
+}
+
+/* CTA BUTTON */
+.nav-cta{
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  color:#000 !important;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+
+  nav{
+    padding:12px 16px;
+  }
+
+  nav img{
+    height:52px;
+  }
+
+  .menu a{
+    margin:0 8px;
+    font-size:13px;
+  }
+}
+
+/* SMALLER SCREENS */
+@media(max-width:480px){
+
+  .menu a{
+    margin:0 6px;
+    font-size:12px;
+  }
+
+  nav img{
+    height:46px;
+  }
+}

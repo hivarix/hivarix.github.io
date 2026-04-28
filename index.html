@@ -31,62 +31,12 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV */
+/* NAV (loaded externally) */
 nav{
   position:fixed;
   top:0;
   width:100%;
   z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 20px;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
-}
-
-nav img{
-  height:60px;
-}
-
-/* MENU */
-.menu{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.menu a{
-  text-decoration:none;
-  color:var(--brand);
-  font-weight:600;
-  font-size:14px;
-  position:relative;
-}
-
-/* underline */
-.menu a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:0.3s;
-}
-
-.menu a:hover::after{
-  width:100%;
-}
-
-/* CTA */
-.nav-cta{
-  background:var(--accent);
-  padding:6px 14px;
-  border-radius:20px;
-  color:#000 !important;
 }
 
 /* HERO */
@@ -132,11 +82,16 @@ p{
   font-weight:600;
   text-decoration:none;
   display:inline-block;
+  transition:0.3s;
 }
 
 .btn-primary{
   background:var(--accent);
   color:#111;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
 }
 
 .btn-outline{
@@ -175,7 +130,6 @@ h2{
   text-decoration:none;
   color:inherit;
   display:block;
-  cursor:pointer;
 }
 
 /* CARD */
@@ -192,22 +146,46 @@ h2{
   box-shadow:0 14px 30px rgba(0,0,0,0.08);
 }
 
-/* CTA */
+/* CTA (UPGRADED) */
 .cta{
-  background:linear-gradient(135deg,var(--brand),#001a33);
+  background:
+    radial-gradient(circle at top, rgba(255,215,0,0.15), transparent 60%),
+    linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
+  padding:100px 20px;
 }
 
-/* FOOTER */
+.cta-inner{
+  max-width:700px;
+  margin:auto;
+}
+
+.cta h2{
+  font-size:clamp(28px,5vw,42px);
+  margin-bottom:12px;
+}
+
+.cta p{
+  opacity:0.85;
+  margin-bottom:25px;
+}
+
+.cta-btn{
+  font-size:16px;
+  padding:16px 28px;
+  box-shadow:0 10px 30px rgba(255,215,0,0.25);
+}
+
+/* FOOTER (UPGRADED) */
 footer{
-  background:#081523;
+  background:linear-gradient(180deg,#081523,#02070f);
   color:#fff;
   text-align:center;
-  padding:60px 20px;
+  padding:70px 20px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:18px;
+  gap:20px;
 }
 
 footer img{
@@ -218,23 +196,30 @@ footer img{
   color:#fff;
   margin:0 10px;
   font-size:20px;
+  opacity:0.8;
+  transition:0.3s;
 }
 
-.legal-footer{
-  font-size:13px;
-  opacity:0.75;
+.socials a:hover{
+  opacity:1;
+  transform:translateY(-2px);
 }
 
 .legal-links{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:10px;
+  gap:12px;
 }
 
 .legal-links a{
   color:#ffd700;
   text-decoration:none;
+}
+
+.legal-footer{
+  font-size:13px;
+  opacity:0.7;
 }
 
 /* MOBILE */
@@ -302,12 +287,37 @@ footer img{
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Let’s Build Something Exceptional</h2>
-  <a href="/start" class="btn btn-primary">Start Your Project</a>
+  <div class="cta-inner">
+    <h2>Let’s Build Something Exceptional</h2>
+    <p>Work with HiVaRiX to transform your ideas into a powerful, global brand experience.</p>
+
+    <a href="/start" class="btn btn-primary cta-btn">
+      Start Your Project
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
-<div id="footer"></div>
+<footer>
+  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+
+  <div class="socials">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+  </div>
+
+  <div class="legal-links">
+    <a href="/legal">Legal</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+
+  <p class="legal-footer">
+    © 2026 HiVaRiX. All rights reserved.
+  </p>
+</footer>
+
 <script src="/assets/js/include.js"></script>
 
 </body>

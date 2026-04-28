@@ -14,7 +14,6 @@
             --bg: #f6f8fc;
         }
 
-        /* RESET */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -28,12 +27,8 @@
             line-height: 1.5;
         }
 
-        /* HEADER SPACE */
-        .top-space {
-            height: 90px;
-        }
+        .top-space { height: 90px; }
 
-        /* PROGRESS BAR */
         .progress {
             max-width: 600px;
             margin: 20px auto 0;
@@ -54,7 +49,6 @@
             transition: width 0.4s ease;
         }
 
-        /* HERO */
         .hero {
             text-align: center;
             padding: 30px 20px 10px;
@@ -70,7 +64,6 @@
             margin-top: 6px;
         }
 
-        /* CARD */
         .wrapper {
             max-width: 600px;
             margin: 20px auto 80px;
@@ -78,31 +71,20 @@
             border-radius: 18px;
             padding: 26px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
         }
 
-        /* STEP ANIMATION */
         .step {
             display: none;
             animation: fade 0.4s ease forwards;
         }
 
-        .step.active {
-            display: block;
-        }
+        .step.active { display: block; }
 
         @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        /* INPUTS */
         h2 {
             color: var(--brand);
             margin-bottom: 12px;
@@ -115,15 +97,12 @@
             border-radius: 12px;
             border: 1px solid #ddd;
             font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
         }
 
         input:focus, textarea:focus, select:focus {
             border-color: var(--accent);
         }
 
-        /* BUTTONS */
         .buttons {
             margin-top: 22px;
             display: flex;
@@ -137,7 +116,6 @@
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .next {
@@ -149,17 +127,11 @@
             background: #eee;
         }
 
-        button:hover:not(:disabled) {
-            transform: translateY(-2px);
-        }
-
-        /* DISABLED */
         button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
 
-        /* PRICE BOX */
         .price-box {
             margin-top: 18px;
             padding: 16px;
@@ -174,142 +146,114 @@
             color: var(--brand);
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
-            .wrapper {
-                margin: 15px;
-            }
+            .wrapper { margin: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="header"></div>
-    <div class="top-space"></div>
+<div class="top-space"></div>
 
-    <!-- PROGRESS -->
-    <div class="progress">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
+<div class="progress">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Start Your Project</h1>
+    <p>Complete a few steps and get your estimate instantly</p>
+</div>
+
+<div class="wrapper">
+<form action="https://formspree.io/f/mnjldqow" method="POST">
+
+    <div class="step active">
+        <h2>Your Info</h2>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+
+    <div class="step">
+        <h2>Select Service</h2>
+        <select id="service" name="service">
+            <option value="300">Branding ($300)</option>
+            <option value="500">Web Development ($500)</option>
+            <option value="400">Marketing ($400)</option>
+            <option value="700">Full Package ($700)</option>
+        </select>
+    </div>
+
+    <div class="step">
+        <h2>Project Details</h2>
+        <textarea name="message" placeholder="Describe your project" rows="5"></textarea>
+
+        <div class="price-box">
+            <p>Estimated Cost</p>
+            <div class="price" id="price">$300</div>
         </div>
     </div>
 
-    <div class="hero">
-        <h1>Start Your Project</h1>
-        <p>Complete a few steps and get your estimate instantly</p>
+    <div class="step">
+        <h2>Review & Submit</h2>
+        <p>Everything looks good? Submit your request.</p>
+        <button type="submit" class="next">Submit Request</button>
     </div>
 
-    <!-- FORM -->
-    <div class="wrapper">
-        <form action="https://formspree.io/f/YOUR_ID" method="POST">
-
-            <!-- STEP 1 -->
-            <div class="step active">
-                <h2>Your Info</h2>
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-            </div>
-
-            <!-- STEP 2 -->
-            <div class="step">
-                <h2>Select Service</h2>
-                <select id="service" name="service">
-                    <option value="300">Branding ($300)</option>
-                    <option value="500">Web Development ($500)</option>
-                    <option value="400">Marketing ($400)</option>
-                    <option value="700">Full Package ($700)</option>
-                </select>
-            </div>
-
-            <!-- STEP 3 -->
-            <div class="step">
-                <h2>Project Details</h2>
-                <textarea name="message" placeholder="Describe your project" rows="5"></textarea>
-
-                <div class="price-box">
-                    <p>Estimated Cost</p>
-                    <div class="price" id="price">$300</div>
-                </div>
-            </div>
-
-            <!-- STEP 4 -->
-            <div class="step">
-                <h2>Review & Submit</h2>
-                <p>Everything looks good? Submit your request.</p>
-                <button type="submit" class="next">Submit Request</button>
-            </div>
-
-            <!-- NAVIGATION BUTTONS -->
-            <div class="buttons">
-                <button type="button" class="prev" onclick="prevStep()">Back</button>
-                <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
-            </div>
-
-        </form>
+    <div class="buttons">
+        <button type="button" class="prev" onclick="prevStep()">Back</button>
+        <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
     </div>
 
-    <div id="footer"></div>
+</form>
+</div>
 
-    <script src="/assets/js/include.js"></script>
+<script>
+let currentStep = 0;
 
-    <!-- MAIN LOGIC -->
-    <script>
-        function initOnboarding() {
-            let currentStep = 0;
-            const steps = document.querySelectorAll(".step");
-            const progressFill = document.getElementById("progress");
-            const nextBtn = document.getElementById("nextBtn");
+function initOnboarding() {
+    const steps = document.querySelectorAll(".step");
+    const progressFill = document.getElementById("progress");
+    const nextBtn = document.getElementById("nextBtn");
 
-            function updateUI() {
-                steps.forEach((step, index) => {
-                    step.classList.toggle("active", index === currentStep);
-                });
+    function updateUI() {
+        steps.forEach((step, index) => {
+            step.classList.toggle("active", index === currentStep);
+        });
 
-                // Update progress bar
-                const progressPercent = (currentStep / (steps.length - 1)) * 100;
-                progressFill.style.width = `${progressPercent}%`;
+        const progressPercent = (currentStep / (steps.length - 1)) * 100;
+        progressFill.style.width = progressPercent + "%";
 
-                // Hide Next button on last step
-                nextBtn.style.display = (currentStep === steps.length - 1) ? "none" : "inline-block";
-            }
+        nextBtn.style.display = (currentStep === steps.length - 1) ? "none" : "inline-block";
+    }
 
-            window.nextStep = function () {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    updateUI();
-                }
-            };
-
-            window.prevStep = function () {
-                if (currentStep > 0) {
-                    currentStep--;
-                    updateUI();
-                }
-            };
-
-            // Price updater
-            const serviceSelect = document.getElementById("service");
-            const priceDisplay = document.getElementById("price");
-
-            if (serviceSelect && priceDisplay) {
-                serviceSelect.addEventListener("change", () => {
-                    priceDisplay.textContent = "$" + serviceSelect.value;
-                });
-            }
-
-            // Initialize
+    window.nextStep = function () {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
             updateUI();
         }
+    };
 
-        // Wait for layout to be ready
-        document.addEventListener("DOMContentLoaded", () => {
-            if (window.layoutReady) {
-                initOnboarding();
-            } else {
-                document.addEventListener("layout-ready", initOnboarding);
-            }
-        });
-    </script>
+    window.prevStep = function () {
+        if (currentStep > 0) {
+            currentStep--;
+            updateUI();
+        }
+    };
+
+    const serviceSelect = document.getElementById("service");
+    const priceDisplay = document.getElementById("price");
+
+    serviceSelect.addEventListener("change", () => {
+        priceDisplay.textContent = "$" + serviceSelect.value;
+    });
+
+    updateUI();
+}
+
+document.addEventListener("DOMContentLoaded", initOnboarding);
+</script>
 
 </body>
 </html>

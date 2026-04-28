@@ -15,22 +15,25 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-/* BASE */
-{box-sizing:border-box;}
+/* FIXED BASE */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
 }
 
-/ HEADER SPACE (because nav is fixed) /
+/* SPACE FOR FIXED NAV */
 .top-space{
   height:90px;
 }
 
-/ HERO /
+/* HERO */
 .hero{
   text-align:center;
   padding:40px 20px 20px;
@@ -46,7 +49,7 @@ body{
   color:var(--muted);
 }
 
-/ WRAPPER /
+/* WRAPPER */
 .wrapper{
   max-width:600px;
   margin:30px auto 80px;
@@ -56,15 +59,16 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
-/ STEPS /
+/* STEPS */
 .step{display:none;}
 .step.active{display:block;}
 
 h2{
   color:var(--brand);
+  margin-bottom:10px;
 }
 
-/ INPUTS /
+/* INPUTS */
 input, select, textarea{
   width:100%;
   padding:12px;
@@ -74,7 +78,7 @@ input, select, textarea{
   font-size:14px;
 }
 
-/ BUTTONS /
+/* BUTTONS */
 .buttons{
   margin-top:20px;
   display:flex;
@@ -90,7 +94,7 @@ button{
   font-weight:600;
 }
 
-/ MATCH SITE BUTTON STYLE /
+/* MATCH BRAND */
 .next{
   background:var(--accent);
   color:#111;
@@ -100,7 +104,7 @@ button{
   background:#eee;
 }
 
-/ PRICE BOX /
+/* PRICE BOX */
 .price-box{
   margin-top:20px;
   padding:18px;
@@ -115,7 +119,7 @@ button{
   color:var(--brand);
 }
 
-/ MOBILE /
+/* MOBILE */
 @media(max-width:768px){
   .wrapper{
     margin:20px;
@@ -192,36 +196,43 @@ button{
 
 <script src="/assets/js/include.js"></script>
 
+<!-- SAFE SCRIPT -->
 <script>
-let step = 0;
-const steps = document.querySelectorAll(".step");
+document.addEventListener("DOMContentLoaded", function(){
 
-function showStep(){
-  steps.forEach((s,i)=>{
-    s.classList.toggle("active", i === step);
-  });
-}
+  let step = 0;
+  const steps = document.querySelectorAll(".step");
 
-function nextStep(){
-  if(step < steps.length - 1){
-    step++;
-    showStep();
+  function showStep(){
+    steps.forEach((s,i)=>{
+      s.classList.toggle("active", i === step);
+    });
   }
-}
 
-function prevStep(){
-  if(step > 0){
-    step--;
-    showStep();
+  window.nextStep = function(){
+    if(step < steps.length - 1){
+      step++;
+      showStep();
+    }
   }
-}
 
-/ PRICE */
-const service = document.getElementById("service");
-const price = document.getElementById("price");
+  window.prevStep = function(){
+    if(step > 0){
+      step--;
+      showStep();
+    }
+  }
 
-service.addEventListener("change", ()=>{
-  price.textContent = "$" + service.value;
+  /* PRICE */
+  const service = document.getElementById("service");
+  const price = document.getElementById("price");
+
+  if(service && price){
+    service.addEventListener("change", ()=>{
+      price.textContent = "$" + service.value;
+    });
+  }
+
 });
 </script>
 

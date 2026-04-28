@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Project • HiVaRiX</title>
+
+<link rel="icon" href="/assets/images/HiVaRiX.png">
+
+<style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --muted:rgba(0,0,0,0.6);
+}
+
+{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  font-family:'Segoe UI', system-ui;
+  background:#f6f8fc;
+}
+
+/ WRAPPER /
+.wrapper{
+  max-width:600px;
+  margin:100px auto;
+  background:#fff;
+  padding:24px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+/ STEPS /
+.step{
+  display:none;
+}
+
+.step.active{
+  display:block;
+}
+
+/ INPUTS /
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+/ BUTTONS /
+.buttons{
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+}
+
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.next{
+  background:var(--brand);
+  color:#fff;
+}
+
+.prev{
+  background:#ddd;
+}
+
+/ PRICE BOX /
+.price-box{
+  margin-top:20px;
+  padding:16px;
+  background:#f1f5fb;
+  border-radius:10px;
+  text-align:center;
+}
+
+.price{
+  font-size:24px;
+  font-weight:bold;
+  color:var(--brand);
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+
+<!-- STEP 1 -->
+<div class="step active">
+  <h2>Your Info</h2>
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <h2>Service</h2>
+  <select name="service" id="service">
+    <option value="300">Branding ($300)</option>
+    <option value="500">Web Development ($500)</option>
+    <option value="400">Marketing ($400)</option>
+    <option value="700">Full Package ($700)</option>
+  </select>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+  <h2>Project Details</h2>
+  <textarea name="message" placeholder="Describe your project"></textarea>
+
+  <div class="price-box">
+    <p>Estimated Cost</p>
+    <div class="price" id="price">$300</div>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <h2>Confirm & Submit</h2>
+  <p>Click submit and we’ll get back to you immediately.</p>
+  <button type="submit" class="next">Submit Request</button>
+</div>
+
+<div class="buttons">
+  <button type="button" class="prev" onclick="prevStep()">Back</button>
+  <button type="button" class="next" onclick="nextStep()">Next</button>
+</div>
+
+</form>
+
+</div>
+
+<script>
+let step = 0;
+const steps = document.querySelectorAll(".step");
+
+function showStep(){
+  steps.forEach((s,i)=>{
+    s.classList.toggle("active", i === step);
+  });
+}
+
+function nextStep(){
+  if(step < steps.length - 1){
+    step++;
+    showStep();
+  }
+}
+
+function prevStep(){
+  if(step > 0){
+    step--;
+    showStep();
+  }
+}
+
+/ PRICE ESTIMATE */
+const service = document.getElementById("service");
+const price = document.getElementById("price");
+
+service.addEventListener("change", ()=>{
+  price.textContent = "$" + service.value;
+});
+</script>
+
+</body>
+</html>

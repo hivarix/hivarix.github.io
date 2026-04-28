@@ -11,10 +11,11 @@
 :root{
   --brand:#003366;
   --accent:#ffd700;
-  --text:#1b1b1b;
   --muted:rgba(0,0,0,0.6);
+  --bg:#f6f8fc;
 }
 
+/* RESET */
 *{
   box-sizing:border-box;
   margin:0;
@@ -22,61 +23,100 @@
 }
 
 body{
-  font-family:'Segoe UI', system-ui, sans-serif;
-  background:#f6f8fc;
-  color:var(--text);
+  font-family:'Segoe UI', system-ui;
+  background:var(--bg);
+  color:#111;
 }
 
-/* NAV SPACE */
+/* HEADER SPACE */
 .top-space{height:90px;}
+
+/* PROGRESS BAR */
+.progress{
+  max-width:600px;
+  margin:20px auto 0;
+  padding:0 20px;
+}
+
+.progress-bar{
+  height:6px;
+  background:#e5e5e5;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:var(--accent);
+  transition:0.4s ease;
+}
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:40px 20px 10px;
+  padding:30px 20px 10px;
 }
 
 .hero h1{
-  font-size:36px;
   color:var(--brand);
-  margin-bottom:8px;
+  font-size:32px;
 }
 
 .hero p{
   color:var(--muted);
+  margin-top:6px;
 }
 
-/* WRAPPER */
+/* CARD */
 .wrapper{
   max-width:600px;
-  margin:25px auto 80px;
+  margin:20px auto 80px;
   background:#fff;
-  padding:24px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.06);
+  overflow:hidden;
 }
 
-/* STEPS */
-.step{display:none;}
-.step.active{display:block;}
+/* STEP ANIMATION */
+.step{
+  display:none;
+  animation:fade 0.4s ease;
+}
 
+.step.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateX(20px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+/* INPUTS */
 h2{
   color:var(--brand);
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 input, select, textarea{
   width:100%;
-  padding:12px;
+  padding:14px;
   margin-top:10px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.1);
+  border-radius:12px;
+  border:1px solid #ddd;
   font-size:14px;
+  outline:none;
+}
+
+input:focus, textarea:focus, select:focus{
+  border-color:var(--accent);
 }
 
 /* BUTTONS */
 .buttons{
-  margin-top:20px;
+  margin-top:22px;
   display:flex;
   justify-content:space-between;
   gap:10px;
@@ -86,8 +126,8 @@ button{
   padding:12px 18px;
   border:none;
   border-radius:30px;
-  cursor:pointer;
   font-weight:600;
+  cursor:pointer;
 }
 
 .next{
@@ -99,25 +139,31 @@ button{
   background:#eee;
 }
 
+/* DISABLED */
+button:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
 /* PRICE */
 .price-box{
-  margin-top:20px;
-  padding:18px;
-  background:#f6f8fc;
+  margin-top:18px;
+  padding:16px;
+  background:#f7f9fc;
   border-radius:12px;
   text-align:center;
 }
 
 .price{
   font-size:26px;
-  font-weight:bold;
+  font-weight:700;
   color:var(--brand);
 }
 
 /* MOBILE */
 @media(max-width:768px){
   .wrapper{
-    margin:20px;
+    margin:15px;
   }
 }
 </style>
@@ -125,15 +171,20 @@ button{
 
 <body>
 
-<!-- HEADER -->
 <div id="header"></div>
 
 <div class="top-space"></div>
 
-<!-- HERO -->
+<!-- PROGRESS -->
+<div class="progress">
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress"></div>
+  </div>
+</div>
+
 <div class="hero">
   <h1>Start Your Project</h1>
-  <p>Tell us what you need and get a quick estimate</p>
+  <p>Complete a few steps and get your estimate instantly</p>
 </div>
 
 <!-- FORM -->
@@ -151,7 +202,7 @@ button{
 <!-- STEP 2 -->
 <div class="step">
   <h2>Select Service</h2>
-  <select name="service" id="service">
+  <select id="service" name="service">
     <option value="300">Branding ($300)</option>
     <option value="500">Web Development ($500)</option>
     <option value="400">Marketing ($400)</option>
@@ -172,50 +223,55 @@ button{
 
 <!-- STEP 4 -->
 <div class="step">
-  <h2>Confirm & Submit</h2>
-  <p>We’ll get back to you shortly.</p>
+  <h2>Review & Submit</h2>
+  <p>Everything looks good? Submit your request.</p>
   <button type="submit" class="next">Submit Request</button>
 </div>
 
-<!-- NAV BUTTONS -->
+<!-- NAV -->
 <div class="buttons">
   <button type="button" class="prev" onclick="prevStep()">Back</button>
-  <button type="button" class="next" onclick="nextStep()">Next</button>
+  <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
 </div>
 
 </form>
 
 </div>
 
-<!-- FOOTER -->
 <div id="footer"></div>
 
 <script src="/assets/js/include.js"></script>
 
-<!-- FORM LOGIC -->
+<!-- STRIPE-STYLE LOGIC -->
 <script>
-function initForm(){
+function initOnboarding(){
 
   let step = 0;
   const steps = document.querySelectorAll(".step");
+  const progress = document.getElementById("progress");
+  const nextBtn = document.getElementById("nextBtn");
 
-  function showStep(){
+  function update(){
     steps.forEach((s,i)=>{
       s.classList.toggle("active", i === step);
     });
+
+    progress.style.width = ((step)/(steps.length-1))*100 + "%";
+
+    nextBtn.style.display = step === steps.length-1 ? "none" : "inline-block";
   }
 
   window.nextStep = function(){
     if(step < steps.length - 1){
       step++;
-      showStep();
+      update();
     }
   }
 
   window.prevStep = function(){
     if(step > 0){
       step--;
-      showStep();
+      update();
     }
   }
 
@@ -227,17 +283,17 @@ function initForm(){
       price.textContent = "$" + service.value;
     });
   }
+
+  update();
 }
 
-/* wait for layout system */
-document.addEventListener("DOMContentLoaded", function(){
-
+/* wait for layout */
+document.addEventListener("DOMContentLoaded", ()=>{
   if(window.layoutReady){
-    initForm();
+    initOnboarding();
   } else {
-    document.addEventListener("layout-ready", initForm);
+    document.addEventListener("layout-ready", initOnboarding);
   }
-
 });
 </script>
 

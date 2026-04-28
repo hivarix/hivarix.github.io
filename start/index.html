@@ -11,33 +11,57 @@
 :root{
   --brand:#003366;
   --accent:#ffd700;
+  --text:#1b1b1b;
   --muted:rgba(0,0,0,0.6);
 }
 
-{box-sizing:border-box;margin:0;padding:0;}
+/* BASE */
+{box-sizing:border-box;}
 
 body{
-  font-family:'Segoe UI', system-ui;
+  margin:0;
+  font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
+  color:var(--text);
+}
+
+/ HEADER SPACE (because nav is fixed) /
+.top-space{
+  height:90px;
+}
+
+/ HERO /
+.hero{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom:10px;
+  color:var(--brand);
+}
+
+.hero p{
+  color:var(--muted);
 }
 
 / WRAPPER /
 .wrapper{
   max-width:600px;
-  margin:100px auto;
+  margin:30px auto 80px;
   background:#fff;
   padding:24px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
 / STEPS /
-.step{
-  display:none;
-}
+.step{display:none;}
+.step.active{display:block;}
 
-.step.active{
-  display:block;
+h2{
+  color:var(--brand);
 }
 
 / INPUTS /
@@ -45,8 +69,9 @@ input, select, textarea{
   width:100%;
   padding:12px;
   margin-top:10px;
-  border-radius:8px;
+  border-radius:10px;
   border:1px solid rgba(0,0,0,0.1);
+  font-size:14px;
 }
 
 / BUTTONS /
@@ -54,43 +79,65 @@ input, select, textarea{
   margin-top:20px;
   display:flex;
   justify-content:space-between;
+  gap:10px;
 }
 
 button{
-  padding:10px 16px;
+  padding:12px 18px;
   border:none;
-  border-radius:8px;
+  border-radius:30px;
   cursor:pointer;
+  font-weight:600;
 }
 
+/ MATCH SITE BUTTON STYLE /
 .next{
-  background:var(--brand);
-  color:#fff;
+  background:var(--accent);
+  color:#111;
 }
 
 .prev{
-  background:#ddd;
+  background:#eee;
 }
 
 / PRICE BOX /
 .price-box{
   margin-top:20px;
-  padding:16px;
-  background:#f1f5fb;
-  border-radius:10px;
+  padding:18px;
+  background:#f6f8fc;
+  border-radius:12px;
   text-align:center;
 }
 
 .price{
-  font-size:24px;
+  font-size:26px;
   font-weight:bold;
   color:var(--brand);
+}
+
+/ MOBILE /
+@media(max-width:768px){
+  .wrapper{
+    margin:20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<div id="header"></div>
+
+<div class="top-space"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Start Your Project</h1>
+  <p>Tell us what you need and get a quick estimate</p>
+</div>
+
+<!-- FORM -->
 <div class="wrapper">
 
 <form action="https://formspree.io/f/YOUR_ID" method="POST">
@@ -104,7 +151,7 @@ button{
 
 <!-- STEP 2 -->
 <div class="step">
-  <h2>Service</h2>
+  <h2>Select Service</h2>
   <select name="service" id="service">
     <option value="300">Branding ($300)</option>
     <option value="500">Web Development ($500)</option>
@@ -127,7 +174,7 @@ button{
 <!-- STEP 4 -->
 <div class="step">
   <h2>Confirm & Submit</h2>
-  <p>Click submit and we’ll get back to you immediately.</p>
+  <p>Click submit and we’ll get back to you shortly.</p>
   <button type="submit" class="next">Submit Request</button>
 </div>
 
@@ -139,6 +186,11 @@ button{
 </form>
 
 </div>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script src="/assets/js/include.js"></script>
 
 <script>
 let step = 0;
@@ -164,7 +216,7 @@ function prevStep(){
   }
 }
 
-/ PRICE ESTIMATE */
+/ PRICE */
 const service = document.getElementById("service");
 const price = document.getElementById("price");
 

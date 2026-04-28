@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX</title>
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- FAVICON -->
 <link rel="icon" href="/assets/images/HiVaRiX.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/HiVaRiX.png">
 <link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
@@ -31,14 +29,6 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV (loaded externally) */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-}
-
 /* HERO */
 header{
   min-height:100vh;
@@ -53,21 +43,11 @@ header{
   color:#fff;
 }
 
-.hero{
-  max-width:800px;
-}
+.hero{max-width:800px;}
 
-h1{
-  font-size:56px;
-  margin:0;
-}
+h1{font-size:56px;margin:0;}
+p{font-size:18px;line-height:1.6;}
 
-p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* BUTTONS */
 .hero-buttons{
   margin-top:25px;
   display:flex;
@@ -81,17 +61,11 @@ p{
   border-radius:30px;
   font-weight:600;
   text-decoration:none;
-  display:inline-block;
-  transition:0.3s;
 }
 
 .btn-primary{
   background:var(--accent);
   color:#111;
-}
-
-.btn-primary:hover{
-  transform:translateY(-2px);
 }
 
 .btn-outline{
@@ -125,101 +99,29 @@ h2{
   margin:auto;
 }
 
-/* CARD LINK */
+/* SAFE CARD LINKS */
 .card-link{
   text-decoration:none;
   color:inherit;
-  display:block;
 }
 
-/* CARD */
 .card{
   background:#fff;
   padding:28px;
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,0.06);
-  transition:0.3s;
 }
 
-.card-link:hover .card{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 14px 30px rgba(0,0,0,0.08);
-}
-
-/* CTA (UPGRADED) */
+/* LIGHT CTA IMPROVEMENT */
 .cta{
-  background:
-    radial-gradient(circle at top, rgba(255,215,0,0.15), transparent 60%),
-    linear-gradient(135deg,var(--brand),#001a33);
+  background:var(--brand);
   color:#fff;
-  padding:100px 20px;
-}
-
-.cta-inner{
-  max-width:700px;
-  margin:auto;
+  padding:90px 20px;
 }
 
 .cta h2{
-  font-size:clamp(28px,5vw,42px);
-  margin-bottom:12px;
-}
-
-.cta p{
-  opacity:0.85;
-  margin-bottom:25px;
-}
-
-.cta-btn{
-  font-size:16px;
-  padding:16px 28px;
-  box-shadow:0 10px 30px rgba(255,215,0,0.25);
-}
-
-/* FOOTER (UPGRADED) */
-footer{
-  background:linear-gradient(180deg,#081523,#02070f);
-  color:#fff;
-  text-align:center;
-  padding:70px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
-}
-
-footer img{
-  height:70px;
-}
-
-.socials a{
-  color:#fff;
-  margin:0 10px;
-  font-size:20px;
-  opacity:0.8;
-  transition:0.3s;
-}
-
-.socials a:hover{
-  opacity:1;
-  transform:translateY(-2px);
-}
-
-.legal-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-}
-
-.legal-links a{
-  color:#ffd700;
-  text-decoration:none;
-}
-
-.legal-footer{
-  font-size:13px;
-  opacity:0.7;
+  font-size:38px;
+  margin-bottom:15px;
 }
 
 /* MOBILE */
@@ -241,7 +143,7 @@ footer img{
     <p>We build world-class brand identities, digital experiences, and global strategies that turn companies into unforgettable brands.</p>
 
     <div class="hero-buttons">
-      <a href="/start" class="btn btn-primary">Get a Free Project Estimate</a>
+      <a href="/start" class="btn btn-primary">Start a Project</a>
       <a href="/services" class="btn btn-outline">View Services</a>
     </div>
   </div>
@@ -287,37 +189,12 @@ footer img{
 
 <!-- CTA -->
 <section class="cta">
-  <div class="cta-inner">
-    <h2>Let’s Build Something Exceptional</h2>
-    <p>Work with HiVaRiX to transform your ideas into a powerful, global brand experience.</p>
-
-    <a href="/start" class="btn btn-primary cta-btn">
-      Start Your Project
-    </a>
-  </div>
+  <h2>Let’s Build Something Exceptional</h2>
+  <a href="/start" class="btn btn-primary">Start Your Project</a>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
-
-  <div class="socials">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-  </div>
-
-  <div class="legal-links">
-    <a href="/legal">Legal</a>
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-  </div>
-
-  <p class="legal-footer">
-    © 2026 HiVaRiX. All rights reserved.
-  </p>
-</footer>
-
+<div id="footer"></div>
 <script src="/assets/js/include.js"></script>
 
 </body>

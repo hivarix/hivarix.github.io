@@ -65,7 +65,7 @@ nav img{
   position:relative;
 }
 
-/* underline effect */
+/* underline */
 .menu a::after{
   content:"";
   position:absolute;
@@ -170,6 +170,15 @@ h2{
   margin:auto;
 }
 
+/* CARD LINK */
+.card-link{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  cursor:pointer;
+}
+
+/* CARD */
 .card{
   background:#fff;
   padding:28px;
@@ -178,8 +187,9 @@ h2{
   transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.card-link:hover .card{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 14px 30px rgba(0,0,0,0.08);
 }
 
 /* CTA */
@@ -258,10 +268,35 @@ footer img{
   <p class="sub">Everything you need to build, launch, and scale a powerful global brand.</p>
 
   <div class="grid">
-    <div class="card"><h3>Brand Identity</h3><p>Logo systems & visual identity.</p></div>
-    <div class="card"><h3>Web Design</h3><p>High-performance websites.</p></div>
-    <div class="card"><h3>Marketing</h3><p>Growth-driven campaigns.</p></div>
-    <div class="card"><h3>Startup Launch</h3><p>From idea to global presence.</p></div>
+
+    <a href="https://hivarix.com/services/brand/" class="card-link">
+      <div class="card">
+        <h3>Brand Identity</h3>
+        <p>Logo systems & visual identity.</p>
+      </div>
+    </a>
+
+    <a href="https://hivarix.com/services/web/" class="card-link">
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>High-performance websites.</p>
+      </div>
+    </a>
+
+    <a href="https://hivarix.com/services/marketing/" class="card-link">
+      <div class="card">
+        <h3>Marketing</h3>
+        <p>Growth-driven campaigns.</p>
+      </div>
+    </a>
+
+    <a href="https://hivarix.com/services/startup/" class="card-link">
+      <div class="card">
+        <h3>Startup Launch</h3>
+        <p>From idea to global presence.</p>
+      </div>
+    </a>
+
   </div>
 </section>
 

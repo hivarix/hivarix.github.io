@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About • HiVaRiX</title>
 
-<!-- ✅ FIXED FAVICON (clean, works everywhere) -->
-<link rel="icon" href="/assets/images/HiVaRiX.png">
-<link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
-
-<!-- ✅ FONT AWESOME (for social icons) -->
+<link rel="icon" href="../../assets/images/HiVaRiX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -45,9 +41,7 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{
-  height:60px;
-}
+nav img{height:60px;}
 
 .menu{
   display:flex;
@@ -60,27 +54,9 @@ nav img{
   color:var(--brand);
   font-weight:600;
   font-size:14px;
-  position:relative;
 }
 
-.menu a.active{
-  color:var(--accent);
-}
-
-.menu a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:0.3s;
-}
-
-.menu a:hover::after{
-  width:100%;
-}
+.menu a.active{color:var(--accent);}
 
 .nav-cta{
   background:var(--accent);
@@ -91,46 +67,19 @@ nav img{
 
 /* HERO */
 header{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
   padding:120px 20px 60px;
-  color:#fff;
-  position:relative;
-
-  background:
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4)),
-    url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
-}
-
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.2);
-  transition:0.4s ease;
-}
-
-header:hover::after{
-  background:rgba(0,0,0,0.35);
+  text-align:center;
 }
 
 header h1{
-  font-size:52px;
-  margin:0 0 10px;
-  position:relative;
-  z-index:1;
+  font-size:42px;
+  margin-bottom:10px;
 }
 
 header p{
-  max-width:700px;
+  max-width:650px;
   margin:auto;
-  font-size:18px;
-  color:#e0e0e0;
-  position:relative;
-  z-index:1;
+  color:var(--muted);
 }
 
 /* SECTION */

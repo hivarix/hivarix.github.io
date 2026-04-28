@@ -22,7 +22,8 @@ async function initIncludes() {
   await loadComponent("header", "/components/header.html");
   await loadComponent("footer", "/components/footer.html");
 
-  // 🔥 signal that layout is ready
+  // 🔥 GLOBAL READY SIGNAL
+  window.layoutReady = true;
   document.dispatchEvent(new Event("layout-ready"));
 }
 

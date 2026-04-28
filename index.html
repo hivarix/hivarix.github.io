@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HiVaRiX</title>
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- FAVICON -->
 <link rel="icon" href="/assets/images/HiVaRiX.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/HiVaRiX.png">
 <link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
@@ -50,7 +48,6 @@ nav img{
   height:60px;
 }
 
-/* MENU */
 .menu{
   display:flex;
   align-items:center;
@@ -65,7 +62,6 @@ nav img{
   position:relative;
 }
 
-/* underline */
 .menu a::after{
   content:"";
   position:absolute;
@@ -81,7 +77,6 @@ nav img{
   width:100%;
 }
 
-/* CTA */
 .nav-cta{
   background:var(--accent);
   padding:6px 14px;
@@ -103,21 +98,11 @@ header{
   color:#fff;
 }
 
-.hero{
-  max-width:800px;
-}
+.hero{max-width:800px;}
 
-h1{
-  font-size:56px;
-  margin:0;
-}
+h1{font-size:56px;margin:0;}
+p{font-size:18px;line-height:1.6;}
 
-p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* BUTTONS */
 .hero-buttons{
   margin-top:25px;
   display:flex;
@@ -131,7 +116,6 @@ p{
   border-radius:30px;
   font-weight:600;
   text-decoration:none;
-  display:inline-block;
 }
 
 .btn-primary{
@@ -170,15 +154,12 @@ h2{
   margin:auto;
 }
 
-/* CARD LINK */
 .card-link{
   text-decoration:none;
   color:inherit;
   display:block;
-  cursor:pointer;
 }
 
-/* CARD */
 .card{
   background:#fff;
   padding:28px;
@@ -246,8 +227,19 @@ footer img{
 
 <body>
 
-<!-- NAV -->
-<div id="header"></div>
+<!-- HEADER (NOW FIXED) -->
+<nav>
+  <a href="/">
+    <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+  </a>
+
+  <div class="menu">
+    <a href="/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/about/">About</a>
+    <a href="/start" class="nav-cta">Start</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <header>
@@ -312,7 +304,7 @@ footer img{
   <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
 
   <div class="socials">
-    <a href="https://facebook.com/hivarix"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
     <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
     <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
     <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
@@ -336,3 +328,6 @@ footer img{
   </div>
 
 </footer>
+
+</body>
+</html>

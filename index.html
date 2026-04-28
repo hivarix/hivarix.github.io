@@ -6,12 +6,8 @@
 <title>HiVaRiX</title>
 
 <!-- FONT AWESOME -->
+<link rel="icon" href="../../assets/images/HiVaRiX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- FAVICON -->
-<link rel="icon" href="/assets/images/HiVaRiX.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/HiVaRiX.png">
-<link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
 
 <style>
 :root{
@@ -46,11 +42,8 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{
-  height:60px;
-}
+nav img{height:60px;}
 
-/* MENU */
 .menu{
   display:flex;
   align-items:center;
@@ -62,26 +55,10 @@ nav img{
   color:var(--brand);
   font-weight:600;
   font-size:14px;
-  position:relative;
 }
 
-/* underline */
-.menu a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:0.3s;
-}
+.menu a.active{color:var(--accent);}
 
-.menu a:hover::after{
-  width:100%;
-}
-
-/* CTA */
 .nav-cta{
   background:var(--accent);
   padding:6px 14px;
@@ -91,57 +68,19 @@ nav img{
 
 /* HERO */
 header{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding:120px 20px 60px;
   text-align:center;
-  padding:120px 20px 40px;
-  background:
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover;
-  color:#fff;
 }
 
-.hero{
-  max-width:800px;
+header h1{
+  font-size:42px;
+  margin-bottom:10px;
 }
 
-h1{
-  font-size:56px;
-  margin:0;
-}
-
-p{
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* BUTTONS */
-.hero-buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.btn{
-  padding:14px 24px;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-  display:inline-block;
-}
-
-.btn-primary{
-  background:var(--accent);
-  color:#111;
-}
-
-.btn-outline{
-  border:2px solid #fff;
-  color:#fff;
+header p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
 }
 
 /* SECTION */

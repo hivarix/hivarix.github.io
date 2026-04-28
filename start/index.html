@@ -15,7 +15,6 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-/* FIXED BASE */
 *{
   box-sizing:border-box;
   margin:0;
@@ -28,21 +27,19 @@ body{
   color:var(--text);
 }
 
-/* SPACE FOR FIXED NAV */
-.top-space{
-  height:90px;
-}
+/* NAV SPACE */
+.top-space{height:90px;}
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:40px 20px 20px;
+  padding:40px 20px 10px;
 }
 
 .hero h1{
   font-size:36px;
-  margin-bottom:10px;
   color:var(--brand);
+  margin-bottom:8px;
 }
 
 .hero p{
@@ -52,7 +49,7 @@ body{
 /* WRAPPER */
 .wrapper{
   max-width:600px;
-  margin:30px auto 80px;
+  margin:25px auto 80px;
   background:#fff;
   padding:24px;
   border-radius:16px;
@@ -68,7 +65,6 @@ h2{
   margin-bottom:10px;
 }
 
-/* INPUTS */
 input, select, textarea{
   width:100%;
   padding:12px;
@@ -94,7 +90,6 @@ button{
   font-weight:600;
 }
 
-/* MATCH BRAND */
 .next{
   background:var(--accent);
   color:#111;
@@ -104,7 +99,7 @@ button{
   background:#eee;
 }
 
-/* PRICE BOX */
+/* PRICE */
 .price-box{
   margin-top:20px;
   padding:18px;
@@ -130,7 +125,7 @@ button{
 
 <body>
 
-<!-- NAV -->
+<!-- HEADER -->
 <div id="header"></div>
 
 <div class="top-space"></div>
@@ -178,10 +173,11 @@ button{
 <!-- STEP 4 -->
 <div class="step">
   <h2>Confirm & Submit</h2>
-  <p>Click submit and we’ll get back to you shortly.</p>
+  <p>We’ll get back to you shortly.</p>
   <button type="submit" class="next">Submit Request</button>
 </div>
 
+<!-- NAV BUTTONS -->
 <div class="buttons">
   <button type="button" class="prev" onclick="prevStep()">Back</button>
   <button type="button" class="next" onclick="nextStep()">Next</button>
@@ -196,9 +192,9 @@ button{
 
 <script src="/assets/js/include.js"></script>
 
-<!-- SAFE SCRIPT -->
+<!-- FORM LOGIC -->
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+function initForm(){
 
   let step = 0;
   const steps = document.querySelectorAll(".step");
@@ -223,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   }
 
-  /* PRICE */
   const service = document.getElementById("service");
   const price = document.getElementById("price");
 
@@ -231,6 +226,16 @@ document.addEventListener("DOMContentLoaded", function(){
     service.addEventListener("change", ()=>{
       price.textContent = "$" + service.value;
     });
+  }
+}
+
+/* wait for layout system */
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(window.layoutReady){
+    initForm();
+  } else {
+    document.addEventListener("layout-ready", initForm);
   }
 
 });

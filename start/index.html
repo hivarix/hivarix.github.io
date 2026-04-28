@@ -127,6 +127,11 @@
             background: #eee;
         }
 
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .price-box {
             margin-top: 18px;
             padding: 16px;
@@ -148,36 +153,28 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<div id="header"></div>
-
 <div class="top-space"></div>
 
-<!-- PROGRESS -->
 <div class="progress">
     <div class="progress-bar">
         <div class="progress-fill" id="progress"></div>
     </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
     <h1>Start Your Project</h1>
     <p>Complete a few steps and get your estimate instantly</p>
 </div>
 
-<!-- FORM -->
 <div class="wrapper">
 <form action="https://formspree.io/f/mnjldqow" method="POST">
 
-    <!-- STEP 1 -->
     <div class="step active">
         <h2>Your Info</h2>
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
     </div>
 
-    <!-- STEP 2 -->
     <div class="step">
         <h2>Select Service</h2>
         <select id="service" name="service">
@@ -188,7 +185,6 @@
         </select>
     </div>
 
-    <!-- STEP 3 -->
     <div class="step">
         <h2>Project Details</h2>
         <textarea name="message" placeholder="Describe your project" rows="5"></textarea>
@@ -199,14 +195,12 @@
         </div>
     </div>
 
-    <!-- STEP 4 -->
     <div class="step">
         <h2>Review & Submit</h2>
         <p>Everything looks good? Submit your request.</p>
         <button type="submit" class="next">Submit Request</button>
     </div>
 
-    <!-- NAV -->
     <div class="buttons">
         <button type="button" class="prev" onclick="prevStep()">Back</button>
         <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
@@ -215,13 +209,6 @@
 </form>
 </div>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<!-- INCLUDE HEADER/FOOTER -->
-<script src="/assets/js/include.js"></script>
-
-<!-- FORM LOGIC -->
 <script>
 let currentStep = 0;
 

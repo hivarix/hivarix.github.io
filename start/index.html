@@ -6,150 +6,82 @@
     <title>Start a Project • HiVaRiX</title>
     <link rel="icon" href="/assets/images/HiVaRiX.png">
 
-    <style>
-        :root {
-            --brand: #003366;
-            --accent: #ffd700;
-            --muted: rgba(0, 0, 0, 0.6);
-            --bg: #f6f8fc;
-        }
+    <<link rel="icon" href="../../assets/images/HiVaRiX.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
+}
 
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
-            color: #111;
-            line-height: 1.5;
-        }
+*{box-sizing:border-box;}
 
-        .top-space { height: 90px; }
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:#f6f8fc;
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-        .progress {
-            max-width: 600px;
-            margin: 20px auto 0;
-            padding: 0 20px;
-        }
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
 
-        .progress-bar {
-            height: 6px;
-            background: #e5e5e5;
-            border-radius: 20px;
-            overflow: hidden;
-        }
+nav img{height:60px;}
 
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--accent);
-            transition: width 0.4s ease;
-        }
+.menu{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
 
-        .hero {
-            text-align: center;
-            padding: 30px 20px 10px;
-        }
+.menu a{
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:600;
+  font-size:14px;
+}
 
-        .hero h1 {
-            color: var(--brand);
-            font-size: 32px;
-        }
+.menu a.active{color:var(--accent);}
 
-        .hero p {
-            color: var(--muted);
-            margin-top: 6px;
-        }
+.nav-cta{
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  color:#000 !important;
+}
 
-        .wrapper {
-            max-width: 600px;
-            margin: 20px auto 80px;
-            background: #fff;
-            border-radius: 18px;
-            padding: 26px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-        }
+/* HERO */
+header{
+  padding:120px 20px 60px;
+  text-align:center;
+}
 
-        .step {
-            display: none;
-            animation: fade 0.4s ease forwards;
-        }
+header h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
 
-        .step.active { display: block; }
-
-        @keyframes fade {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        h2 {
-            color: var(--brand);
-            margin-bottom: 12px;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            font-size: 14px;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: var(--accent);
-        }
-
-        .buttons {
-            margin-top: 22px;
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        button {
-            padding: 12px 18px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .next {
-            background: var(--accent);
-            color: #111;
-        }
-
-        .prev {
-            background: #eee;
-        }
-
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .price-box {
-            margin-top: 18px;
-            padding: 16px;
-            background: #f7f9fc;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .price {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--brand);
-        }
-
-        @media (max-width: 768px) {
-            .wrapper { margin: 15px; }
-        }
-    </style>
+header p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+}
 </head>
 <body>
 

@@ -5,46 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal • HiVaRiX</title>
 
-<link rel="icon" href="/assets/images/HiVaRiX.png">
+<link rel="icon" href="../../assets/images/HiVaRiX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+:root{
+  --brand:#003366;
+  --accent:#ffd700;
+  --text:#1b1b1b;
+  --muted:rgba(0,0,0,0.6);
+}
+
+*{box-sizing:border-box;}
+
 body{
   margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
+  color:var(--text);
+  overflow-x:hidden;
 }
+
+/* NAV */
 nav{
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:space-between;
-  padding:14px 20px;background:#fff;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
+
 nav img{height:60px;}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:600;
+  font-size:14px;
+}
+
+.menu a.active{color:var(--accent);}
+
+.nav-cta{
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  color:#000 !important;
+}
+
+/* HERO */
 header{
-  min-height:60vh;display:flex;align-items:center;
-  justify-content:center;text-align:center;
-  color:#fff;
-  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)),
-  url('/assets/images/hivarix-building.jpg') center/cover;
+  padding:120px 20px 60px;
+  text-align:center;
 }
-section{padding:80px 20px;}
-.container{max-width:1000px;margin:auto;}
-.card{
-  background:#fff;padding:24px;margin-bottom:20px;
-  border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.06);
+
+header h1{
+  font-size:42px;
+  margin-bottom:10px;
 }
-h2{color:#003366;}
-footer{text-align:center;padding:40px;background:#081523;color:#fff;}
-</style>
-</head>
 
-<body>
-
-<nav>
-<a href="/"><img src="/assets/images/HiVaRiX.png"></a>
-</nav>
-
-<header>
+header p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+}
 <div>
 <h1>Legal & Compliance</h1>
 <p>Regulatory transparency and corporate accountability</p>

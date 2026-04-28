@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal • HiVaRiX</title>
 
+<!-- Favicon -->
 <link rel="icon" href="../../assets/images/HiVaRiX.png">
+
+<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -16,7 +19,9 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -41,7 +46,9 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{height:60px;}
+nav img{
+  height:50px;
+}
 
 .menu{
   display:flex;
@@ -56,7 +63,9 @@ nav img{height:60px;}
   font-size:14px;
 }
 
-.menu a.active{color:var(--accent);}
+.menu a.active{
+  color:var(--accent);
+}
 
 .nav-cta{
   background:var(--accent);
@@ -72,7 +81,7 @@ header{
 }
 
 header h1{
-  font-size:42px;
+  font-size:40px;
   margin-bottom:10px;
 }
 
@@ -81,66 +90,128 @@ header p{
   margin:auto;
   color:var(--muted);
 }
-<div>
-<h1>Legal & Compliance</h1>
-<p>Regulatory transparency and corporate accountability</p>
-</div>
+
+/* SECTION */
+section{
+  padding:40px 20px 80px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.card h2{
+  margin-top:0;
+  color:var(--brand);
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.card ul{
+  margin-top:10px;
+  padding-left:20px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,0.05);
+  font-size:14px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="../../assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+  <div class="menu">
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/services.html">Services</a>
+    <a href="/contact.html">Contact</a>
+    <a class="nav-cta active" href="#">Legal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <h1>Legal & Compliance</h1>
+  <p>Regulatory transparency and corporate accountability</p>
 </header>
 
+<!-- CONTENT -->
 <section>
-<div class="container">
+  <div class="container">
 
-<div class="card">
-<h2>Company Information</h2>
-<p>
-HiVaRiX is a registered business operating under the laws of the Federal Republic of Nigeria.
-<br><br>
-<strong>Business Category:</strong> General Merchandise & Digital Services
-</p>
-</div>
+    <div class="card">
+      <h2>Company Information</h2>
+      <p>
+        HiVaRiX is a registered business operating under the laws of the Federal Republic of Nigeria.
+        <br><br>
+        <strong>Business Category:</strong> General Merchandise & Digital Services
+      </p>
+    </div>
 
-<div class="card">
-<h2>Regulatory Compliance</h2>
-<p>
-We operate in compliance with:
-<ul>
-<li>Nigeria Data Protection Regulation (NDPR)</li>
-<li>General Data Protection Regulation (GDPR)</li>
-<li>Applicable Nigerian commercial and consumer protection laws</li>
-</ul>
-</p>
-</div>
+    <div class="card">
+      <h2>Regulatory Compliance</h2>
+      <ul>
+        <li>Nigeria Data Protection Regulation (NDPR)</li>
+        <li>General Data Protection Regulation (GDPR)</li>
+        <li>Applicable Nigerian commercial and consumer protection laws</li>
+      </ul>
+    </div>
 
-<div class="card">
-<h2>Data Protection Commitment</h2>
-<p>
-HiVaRiX is committed to lawful, fair, and transparent processing of personal data,
-ensuring confidentiality, integrity, and accountability.
-</p>
-</div>
+    <div class="card">
+      <h2>Data Protection Commitment</h2>
+      <p>
+        HiVaRiX is committed to lawful, fair, and transparent processing of personal data,
+        ensuring confidentiality, integrity, and accountability.
+      </p>
+    </div>
 
-<div class="card">
-<h2>Intellectual Property Notice</h2>
-<p>
-All trademarks, logos, and digital assets are owned by HiVaRiX unless otherwise stated.
-Unauthorized use is strictly prohibited.
-</p>
-</div>
+    <div class="card">
+      <h2>Intellectual Property Notice</h2>
+      <p>
+        All trademarks, logos, and digital assets are owned by HiVaRiX unless otherwise stated.
+        Unauthorized use is strictly prohibited.
+      </p>
+    </div>
 
-<div class="card">
-<h2>Legal Contact</h2>
-<p>
-For compliance or legal inquiries:
-<br><br>
-<strong>Email:</strong> legal@hivarix.com
-</p>
-</div>
+    <div class="card">
+      <h2>Legal Contact</h2>
+      <p>
+        For compliance or legal inquiries:
+        <br><br>
+        <strong>Email:</strong> legal@hivarix.com
+      </p>
+    </div>
 
-</div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-<p>© 2026 HiVaRiX Global</p>
+  <p>© 2026 HiVaRiX Global</p>
 </footer>
 
 </body>

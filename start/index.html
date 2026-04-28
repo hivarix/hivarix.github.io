@@ -1,301 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start a Project • HiVaRiX</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Project • HiVaRiX</title>
+    <link rel="icon" href="/assets/images/HiVaRiX.png">
 
-<link rel="icon" href="/assets/images/HiVaRiX.png">
+    <style>
+        :root {
+            --brand: #003366;
+            --accent: #ffd700;
+            --muted: rgba(0, 0, 0, 0.6);
+            --bg: #f6f8fc;
+        }
 
-<style>
-:root{
-  --brand:#003366;
-  --accent:#ffd700;
-  --muted:rgba(0,0,0,0.6);
-  --bg:#f6f8fc;
-}
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* RESET */
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: #111;
+            line-height: 1.5;
+        }
 
-body{
-  font-family:'Segoe UI', system-ui;
-  background:var(--bg);
-  color:#111;
-}
+        /* HEADER SPACE */
+        .top-space {
+            height: 90px;
+        }
 
-/* HEADER SPACE */
-.top-space{height:90px;}
+        /* PROGRESS BAR */
+        .progress {
+            max-width: 600px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
 
-/* PROGRESS BAR */
-.progress{
-  max-width:600px;
-  margin:20px auto 0;
-  padding:0 20px;
-}
+        .progress-bar {
+            height: 6px;
+            background: #e5e5e5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-.progress-bar{
-  height:6px;
-  background:#e5e5e5;
-  border-radius:20px;
-  overflow:hidden;
-}
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            transition: width 0.4s ease;
+        }
 
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:var(--accent);
-  transition:0.4s ease;
-}
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:30px 20px 10px;
-}
+        .hero h1 {
+            color: var(--brand);
+            font-size: 32px;
+        }
 
-.hero h1{
-  color:var(--brand);
-  font-size:32px;
-}
+        .hero p {
+            color: var(--muted);
+            margin-top: 6px;
+        }
 
-.hero p{
-  color:var(--muted);
-  margin-top:6px;
-}
+        /* CARD */
+        .wrapper {
+            max-width: 600px;
+            margin: 20px auto 80px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
 
-/* CARD */
-.wrapper{
-  max-width:600px;
-  margin:20px auto 80px;
-  background:#fff;
-  border-radius:18px;
-  padding:26px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.06);
-  overflow:hidden;
-}
+        /* STEP ANIMATION */
+        .step {
+            display: none;
+            animation: fade 0.4s ease forwards;
+        }
 
-/* STEP ANIMATION */
-.step{
-  display:none;
-  animation:fade 0.4s ease;
-}
+        .step.active {
+            display: block;
+        }
 
-.step.active{
-  display:block;
-}
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-@keyframes fade{
-  from{opacity:0; transform:translateX(20px);}
-  to{opacity:1; transform:translateX(0);}
-}
+        /* INPUTS */
+        h2 {
+            color: var(--brand);
+            margin-bottom: 12px;
+        }
 
-/* INPUTS */
-h2{
-  color:var(--brand);
-  margin-bottom:12px;
-}
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
 
-input, select, textarea{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  font-size:14px;
-  outline:none;
-}
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent);
+        }
 
-input:focus, textarea:focus, select:focus{
-  border-color:var(--accent);
-}
+        /* BUTTONS */
+        .buttons {
+            margin-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
 
-/* BUTTONS */
-.buttons{
-  margin-top:22px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-button{
-  padding:12px 18px;
-  border:none;
-  border-radius:30px;
-  font-weight:600;
-  cursor:pointer;
-}
+        .next {
+            background: var(--accent);
+            color: #111;
+        }
 
-.next{
-  background:var(--accent);
-  color:#111;
-}
+        .prev {
+            background: #eee;
+        }
 
-.prev{
-  background:#eee;
-}
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
 
-/* DISABLED */
-button:disabled{
-  opacity:0.5;
-  cursor:not-allowed;
-}
+        /* DISABLED */
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
 
-/* PRICE */
-.price-box{
-  margin-top:18px;
-  padding:16px;
-  background:#f7f9fc;
-  border-radius:12px;
-  text-align:center;
-}
+        /* PRICE BOX */
+        .price-box {
+            margin-top: 18px;
+            padding: 16px;
+            background: #f7f9fc;
+            border-radius: 12px;
+            text-align: center;
+        }
 
-.price{
-  font-size:26px;
-  font-weight:700;
-  color:var(--brand);
-}
+        .price {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--brand);
+        }
 
-/* MOBILE */
-@media(max-width:768px){
-  .wrapper{
-    margin:15px;
-  }
-}
-</style>
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .wrapper {
+                margin: 15px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div id="header"></div>
+    <div id="header"></div>
+    <div class="top-space"></div>
 
-<div class="top-space"></div>
+    <!-- PROGRESS -->
+    <div class="progress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+    </div>
 
-<!-- PROGRESS -->
-<div class="progress">
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress"></div>
-  </div>
-</div>
+    <div class="hero">
+        <h1>Start Your Project</h1>
+        <p>Complete a few steps and get your estimate instantly</p>
+    </div>
 
-<div class="hero">
-  <h1>Start Your Project</h1>
-  <p>Complete a few steps and get your estimate instantly</p>
-</div>
+    <!-- FORM -->
+    <div class="wrapper">
+        <form action="https://formspree.io/f/YOUR_ID" method="POST">
 
-<!-- FORM -->
-<div class="wrapper">
+            <!-- STEP 1 -->
+            <div class="step active">
+                <h2>Your Info</h2>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
 
-<form action="https://formspree.io/f/YOUR_ID" method="POST">
+            <!-- STEP 2 -->
+            <div class="step">
+                <h2>Select Service</h2>
+                <select id="service" name="service">
+                    <option value="300">Branding ($300)</option>
+                    <option value="500">Web Development ($500)</option>
+                    <option value="400">Marketing ($400)</option>
+                    <option value="700">Full Package ($700)</option>
+                </select>
+            </div>
 
-<!-- STEP 1 -->
-<div class="step active">
-  <h2>Your Info</h2>
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="email" name="email" placeholder="Email Address" required>
-</div>
+            <!-- STEP 3 -->
+            <div class="step">
+                <h2>Project Details</h2>
+                <textarea name="message" placeholder="Describe your project" rows="5"></textarea>
 
-<!-- STEP 2 -->
-<div class="step">
-  <h2>Select Service</h2>
-  <select id="service" name="service">
-    <option value="300">Branding ($300)</option>
-    <option value="500">Web Development ($500)</option>
-    <option value="400">Marketing ($400)</option>
-    <option value="700">Full Package ($700)</option>
-  </select>
-</div>
+                <div class="price-box">
+                    <p>Estimated Cost</p>
+                    <div class="price" id="price">$300</div>
+                </div>
+            </div>
 
-<!-- STEP 3 -->
-<div class="step">
-  <h2>Project Details</h2>
-  <textarea name="message" placeholder="Describe your project"></textarea>
+            <!-- STEP 4 -->
+            <div class="step">
+                <h2>Review & Submit</h2>
+                <p>Everything looks good? Submit your request.</p>
+                <button type="submit" class="next">Submit Request</button>
+            </div>
 
-  <div class="price-box">
-    <p>Estimated Cost</p>
-    <div class="price" id="price">$300</div>
-  </div>
-</div>
+            <!-- NAVIGATION BUTTONS -->
+            <div class="buttons">
+                <button type="button" class="prev" onclick="prevStep()">Back</button>
+                <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
+            </div>
 
-<!-- STEP 4 -->
-<div class="step">
-  <h2>Review & Submit</h2>
-  <p>Everything looks good? Submit your request.</p>
-  <button type="submit" class="next">Submit Request</button>
-</div>
+        </form>
+    </div>
 
-<!-- NAV -->
-<div class="buttons">
-  <button type="button" class="prev" onclick="prevStep()">Back</button>
-  <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
-</div>
+    <div id="footer"></div>
 
-</form>
+    <script src="/assets/js/include.js"></script>
 
-</div>
+    <!-- MAIN LOGIC -->
+    <script>
+        function initOnboarding() {
+            let currentStep = 0;
+            const steps = document.querySelectorAll(".step");
+            const progressFill = document.getElementById("progress");
+            const nextBtn = document.getElementById("nextBtn");
 
-<div id="footer"></div>
+            function updateUI() {
+                steps.forEach((step, index) => {
+                    step.classList.toggle("active", index === currentStep);
+                });
 
-<script src="/assets/js/include.js"></script>
+                // Update progress bar
+                const progressPercent = (currentStep / (steps.length - 1)) * 100;
+                progressFill.style.width = `${progressPercent}%`;
 
-<!-- STRIPE-STYLE LOGIC -->
-<script>
-function initOnboarding(){
+                // Hide Next button on last step
+                nextBtn.style.display = (currentStep === steps.length - 1) ? "none" : "inline-block";
+            }
 
-  let step = 0;
-  const steps = document.querySelectorAll(".step");
-  const progress = document.getElementById("progress");
-  const nextBtn = document.getElementById("nextBtn");
+            window.nextStep = function () {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateUI();
+                }
+            };
 
-  function update(){
-    steps.forEach((s,i)=>{
-      s.classList.toggle("active", i === step);
-    });
+            window.prevStep = function () {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateUI();
+                }
+            };
 
-    progress.style.width = ((step)/(steps.length-1))*100 + "%";
+            // Price updater
+            const serviceSelect = document.getElementById("service");
+            const priceDisplay = document.getElementById("price");
 
-    nextBtn.style.display = step === steps.length-1 ? "none" : "inline-block";
-  }
+            if (serviceSelect && priceDisplay) {
+                serviceSelect.addEventListener("change", () => {
+                    priceDisplay.textContent = "$" + serviceSelect.value;
+                });
+            }
 
-  window.nextStep = function(){
-    if(step < steps.length - 1){
-      step++;
-      update();
-    }
-  }
+            // Initialize
+            updateUI();
+        }
 
-  window.prevStep = function(){
-    if(step > 0){
-      step--;
-      update();
-    }
-  }
-
-  const service = document.getElementById("service");
-  const price = document.getElementById("price");
-
-  if(service && price){
-    service.addEventListener("change", ()=>{
-      price.textContent = "$" + service.value;
-    });
-  }
-
-  update();
-}
-
-/* wait for layout */
-document.addEventListener("DOMContentLoaded", ()=>{
-  if(window.layoutReady){
-    initOnboarding();
-  } else {
-    document.addEventListener("layout-ready", initOnboarding);
-  }
-});
-</script>
+        // Wait for layout to be ready
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.layoutReady) {
+                initOnboarding();
+            } else {
+                document.addEventListener("layout-ready", initOnboarding);
+            }
+        });
+    </script>
 
 </body>
 </html>

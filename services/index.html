@@ -83,7 +83,7 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO (FULL SCREEN LIKE YOUR POLICY PAGE) */
+/* HERO */
 header{
   min-height:100vh;
   display:flex;
@@ -181,6 +181,13 @@ h2{
   color:#fff;
 }
 
+/* ✅ FIX 1: CTA TEXT MATCH FOOTER COLOR */
+.cta h2{
+  color:#fff;
+  opacity:0.95;
+}
+
+/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:20px;
@@ -248,7 +255,9 @@ footer img{height:70px;}
     <a href="/">Home</a>
     <a href="/services/" class="active">Services</a>
     <a href="/about/">About</a>
-    <a href="/#contact" class="nav-cta">Start</a>
+
+    <!-- optional: also fix Start button -->
+    <a href="/start#form" class="nav-cta">Start</a>
   </div>
 </nav>
 
@@ -301,14 +310,16 @@ footer img{height:70px;}
       </a>
 
     </div>
-
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
+  <!-- FIX 2: MATCH FOOTER TEXT COLOR -->
   <h2>Let’s Build Your Brand</h2>
-  <a href="/#contact" class="btn">Start a Project</a>
+
+  <!-- FIX 3: BUTTON LEADS TO START FORM -->
+  <a href="/start#form" class="btn">Start a Project</a>
 </section>
 
 <!-- FOOTER -->
@@ -341,8 +352,6 @@ footer img{height:70px;}
   </div>
 
 </footer>
-
-<script src="/assets/js/include.js"></script>
 
 </body>
 </html>

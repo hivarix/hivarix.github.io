@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="icon" href="/assets/images/HiVaRiX.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/HiVaRiX.png">
 <link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
 
 <style>
@@ -60,6 +59,11 @@ nav img{
   font-weight:600;
   font-size:14px;
   position:relative;
+}
+
+/* ACTIVE LINK (FIXED) */
+.menu a.active{
+  color:var(--accent);
 }
 
 .menu a::after{
@@ -179,7 +183,12 @@ h2{
   color:#fff;
 }
 
-/* FOOTER */
+/* MATCH CTA TEXT TO FOOTER */
+.cta h2{
+  color:#fff;
+}
+
+/* FOOTER (CLEANED + CONSISTENT) */
 footer{
   background:#081523;
   color:#fff;
@@ -199,6 +208,11 @@ footer img{
   color:#fff;
   margin:0 10px;
   font-size:20px;
+  transition:0.3s;
+}
+
+.socials a:hover{
+  color:var(--accent);
 }
 
 .legal-footer{
@@ -214,7 +228,7 @@ footer img{
 }
 
 .legal-links a{
-  color:#ffd700;
+  color:var(--accent);
   text-decoration:none;
 }
 
@@ -227,14 +241,15 @@ footer img{
 
 <body>
 
-<!-- HEADER (NOW FIXED) -->
+<!-- NAV -->
 <nav>
   <a href="/">
     <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
   </a>
 
   <div class="menu">
-    <a href="/">Home</a>
+    <!-- ✅ HOME NOW ACTIVE -->
+    <a href="/" class="active">Home</a>
     <a href="/services/">Services</a>
     <a href="/about/">About</a>
     <a href="/start" class="nav-cta">Start</a>
@@ -261,28 +276,28 @@ footer img{
 
   <div class="grid">
 
-    <a href="https://hivarix.com/services/brand/" class="card-link">
+    <a href="/services/brand/" class="card-link">
       <div class="card">
         <h3>Brand Identity</h3>
         <p>Logo systems & visual identity.</p>
       </div>
     </a>
 
-    <a href="https://hivarix.com/services/web/" class="card-link">
+    <a href="/services/web/" class="card-link">
       <div class="card">
         <h3>Web Design</h3>
         <p>High-performance websites.</p>
       </div>
     </a>
 
-    <a href="https://hivarix.com/services/marketing/" class="card-link">
+    <a href="/services/marketing/" class="card-link">
       <div class="card">
         <h3>Marketing</h3>
         <p>Growth-driven campaigns.</p>
       </div>
     </a>
 
-    <a href="https://hivarix.com/services/startup/" class="card-link">
+    <a href="/services/startup/" class="card-link">
       <div class="card">
         <h3>Startup Launch</h3>
         <p>From idea to global presence.</p>

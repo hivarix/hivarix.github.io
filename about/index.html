@@ -44,7 +44,9 @@ nav{
   z-index:1000;
 }
 
-nav img{height:48px;}
+nav img{
+  height:60px; /* increased size */
+}
 
 .menu{
   display:flex;
@@ -57,18 +59,20 @@ nav img{height:48px;}
   color:var(--brand);
   font-weight:600;
   font-size:14px;
+  padding:6px 0;
 }
 
+/* START now same size as others */
 .nav-cta{
-  background:var(--accent);
-  padding:6px 12px;
-  border-radius:20px;
-  color:#000;
+  background:none;
+  padding:6px 0;
+  border-radius:0;
+  color:var(--brand);
 }
 
-/* OFFSET FOR FIXED NAV */
+/* OFFSET */
 main{
-  margin-top:80px;
+  margin-top:90px;
 }
 
 /* HERO */
@@ -205,11 +209,6 @@ footer img{
 .socials a{
   color:#fff;
   font-size:18px;
-  transition:0.3s;
-}
-
-.socials a:hover{
-  color:var(--accent);
 }
 
 .legal-footer{
@@ -227,23 +226,8 @@ footer img{
   margin:0 6px;
 }
 
-.legal-links a:hover{
-  color:#fff;
-}
-
 /* MOBILE */
 @media(max-width:800px){
-  nav{
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-  }
-
-  .menu{
-    justify-content:flex-end;
-    gap:10px;
-  }
-
   .split{
     grid-template-columns:1fr;
     text-align:center;
@@ -253,15 +237,18 @@ footer img{
     height:65vh;
     background-position:center 15%;
   }
+
+  nav img{
+    height:52px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX company logo"></a>
+  <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX logo"></a>
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
@@ -272,7 +259,6 @@ footer img{
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <h1>We Build Brands That Lead</h1>
@@ -280,7 +266,6 @@ footer img{
   </div>
 </section>
 
-<!-- WHO WE ARE -->
 <section class="section">
   <div class="container split">
     <div>
@@ -291,11 +276,10 @@ footer img{
       </p>
     </div>
 
-    <img src="/assets/images/hivarix-headquarter.PNG" alt="HiVaRiX headquarters building">
+    <img src="/assets/images/hivarix-headquarter.PNG" alt="HiVaRiX HQ">
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
 <section class="section">
   <div class="container">
     <h2>The HiVaRiX Philosophy</h2>
@@ -308,7 +292,6 @@ footer img{
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section cta">
   <h2>Let’s Build Something Exceptional</h2>
   <a href="/start" class="btn">Start Your Project</a>
@@ -316,33 +299,18 @@ footer img{
 
 </main>
 
-<!-- FOOTER -->
 <footer>
 
-  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX company logo">
+  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX logo">
 
   <div class="socials">
-    <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
   </div>
 
   <div class="legal-footer">
     <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
-
-    <div class="legal-links">
-      <a href="/privacy/">Privacy Policy</a>
-      <span>•</span>
-      <a href="/terms/">Terms of Use</a>
-      <span>•</span>
-      <a href="/refunds/">Sales and Refunds</a>
-      <span>•</span>
-      <a href="/legal/">Legal</a>
-      <span>•</span>
-      <a href="/sitemap/">Site Map</a>
-    </div>
   </div>
 
 </footer>

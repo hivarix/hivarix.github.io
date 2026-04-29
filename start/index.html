@@ -26,7 +26,7 @@ body{
   color:var(--text);
 }
 
-/* NAV (MATCHED) */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -45,8 +45,8 @@ nav img{height:60px;}
 
 .menu{
   display:flex;
-  align-items:center;
   gap:16px;
+  align-items:center;
 }
 
 .menu a{
@@ -119,7 +119,7 @@ nav img{height:60px;}
   margin-top:6px;
 }
 
-/* FORM WRAPPER */
+/* FORM */
 .wrapper{
   max-width:600px;
   margin:20px auto 80px;
@@ -130,7 +130,7 @@ nav img{height:60px;}
 }
 
 /* STEPS */
-.step{display:none;animation:fade 0.4s ease forwards;}
+.step{display:none;animation:fade 0.4s ease;}
 .step.active{display:block;}
 
 @keyframes fade{
@@ -150,6 +150,16 @@ input, select, textarea{
   margin-top:10px;
   border-radius:12px;
   border:1px solid #ddd;
+  outline:none;
+}
+
+input:focus, textarea:focus, select:focus{
+  border-color:var(--accent);
+}
+
+/* ERROR STYLE */
+.error{
+  border:1px solid red !important;
 }
 
 /* BUTTONS */
@@ -185,7 +195,7 @@ button{
   color:var(--brand);
 }
 
-/* FOOTER (MATCHED) */
+/* FOOTER */
 footer{
   background:#081523;
   color:#fff;
@@ -234,6 +244,7 @@ footer img{height:70px;}
 <!-- NAV -->
 <nav>
   <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo"></a>
+
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
@@ -259,17 +270,20 @@ footer img{height:70px;}
 
 <!-- FORM -->
 <div class="wrapper">
+
 <form action="https://formspree.io/f/mnjldqow" method="POST">
 
+<!-- STEP 1 -->
 <div class="step active">
   <h2>Your Info</h2>
   <input type="text" name="name" required placeholder="Your Name">
   <input type="email" name="email" required placeholder="Your Email">
 </div>
 
+<!-- STEP 2 -->
 <div class="step">
   <h2>Select Service</h2>
-  <select id="service" name="service">
+  <select id="service" name="service" required>
     <option value="300">Branding ($300)</option>
     <option value="500">Web Development ($500)</option>
     <option value="400">Marketing ($400)</option>
@@ -277,9 +291,10 @@ footer img{height:70px;}
   </select>
 </div>
 
+<!-- STEP 3 -->
 <div class="step">
   <h2>Project Details</h2>
-  <textarea name="message" placeholder="Tell us about your project"></textarea>
+  <textarea name="message" required placeholder="Tell us about your project"></textarea>
 
   <div class="price-box">
     <p>Estimated Cost</p>
@@ -287,17 +302,20 @@ footer img{height:70px;}
   </div>
 </div>
 
+<!-- STEP 4 -->
 <div class="step">
   <h2>Review & Submit</h2>
   <button type="submit" class="next">Submit Request</button>
 </div>
 
+<!-- BUTTONS -->
 <div class="buttons">
   <button type="button" class="prev" onclick="prevStep()">Back</button>
   <button type="button" class="next" id="nextBtn" onclick="nextStep()">Next</button>
 </div>
 
 </form>
+
 </div>
 
 <!-- FOOTER -->
@@ -306,27 +324,15 @@ footer img{height:70px;}
 <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
 
 <div class="socials">
-  <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-  <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-  <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-x-twitter"></i></a>
+  <a href="#"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-youtube"></i></a>
 </div>
 
 <div class="legal-footer">
   <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
-
-  <div class="legal-links">
-    <a href="/privacy/">Privacy Policy</a>
-    <span>•</span>
-    <a href="/terms/">Terms of Use</a>
-    <span>•</span>
-    <a href="/refunds/">Sales and Refunds</a>
-    <span>•</span>
-    <a href="/legal/">Legal</a>
-    <span>•</span>
-    <a href="/sitemap/">Site Map</a>
-  </div>
 </div>
 
 </footer>
@@ -338,6 +344,30 @@ let currentStep = 0;
 const steps = document.querySelectorAll(".step");
 const progressFill = document.getElementById("progress");
 const nextBtn = document.getElementById("nextBtn");
+
+function validateStep(stepIndex){
+  const inputs = steps[stepIndex].querySelectorAll("input, select, textarea");
+  let valid = true;
+
+  inputs.forEach(input => {
+    input.classList.remove("error");
+
+    if(input.hasAttribute("required") && !input.value.trim()){
+      input.classList.add("error");
+      valid = false;
+    }
+
+    if(input.type === "email"){
+      const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+      if(!pattern.test(input.value)){
+        input.classList.add("error");
+        valid = false;
+      }
+    }
+  });
+
+  return valid;
+}
 
 function updateUI(){
   steps.forEach((step,i)=>{
@@ -352,14 +382,16 @@ function updateUI(){
 }
 
 function nextStep(){
-  if(currentStep<steps.length-1){
+  if(!validateStep(currentStep)) return;
+
+  if(currentStep < steps.length-1){
     currentStep++;
     updateUI();
   }
 }
 
 function prevStep(){
-  if(currentStep>0){
+  if(currentStep > 0){
     currentStep--;
     updateUI();
   }

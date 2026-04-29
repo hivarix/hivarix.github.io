@@ -64,9 +64,12 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO WITH HOVER EFFECT */
+/* HERO FIXED ALIGNMENT */
 header{
-  padding:120px 20px 90px;
+  height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   position:relative;
   color:#fff;
@@ -74,15 +77,15 @@ header{
   background:
     linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.45)),
     url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') center/cover no-repeat;
-
-  transition:0.5s ease;
+  overflow:hidden;
 }
 
-/* zoom layer */
+/* smooth zoom layer */
 header::before{
   content:"";
   position:absolute;
   inset:0;
+  background:inherit;
   background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71');
   background-size:cover;
   background-position:center;
@@ -91,7 +94,6 @@ header::before{
   z-index:-2;
 }
 
-/* overlay */
 header::after{
   content:"";
   position:absolute;
@@ -102,26 +104,28 @@ header::after{
 }
 
 header:hover::before{
-  transform:scale(1.05);
+  transform:scale(1.06);
 }
 
 header:hover::after{
   background:rgba(0,0,0,0.55);
 }
 
+/* CENTER CONTENT FIX */
+.hero{
+  max-width:700px;
+  padding:0 20px;
+}
+
 header h1{
-  font-size:42px;
-  margin-bottom:10px;
-  position:relative;
-  z-index:1;
+  font-size:44px;
+  margin:0 0 10px;
 }
 
 header p{
-  max-width:650px;
-  margin:auto;
   color:rgba(255,255,255,0.85);
-  position:relative;
-  z-index:1;
+  font-size:17px;
+  line-height:1.6;
 }
 
 /* SECTION */
@@ -135,7 +139,6 @@ section{padding:70px 20px;}
 
 h2{color:var(--brand);}
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -163,11 +166,7 @@ h2{color:var(--brand);}
   text-align:center;
 }
 
-/* match footer tone */
-.cta h2{
-  color:#fff;
-  opacity:0.85;
-}
+.cta h2{opacity:0.85;}
 
 .btn{
   display:inline-block;
@@ -186,10 +185,6 @@ footer{
   color:#fff;
   text-align:center;
   padding:60px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
 }
 
 footer img{height:70px;}
@@ -217,7 +212,6 @@ footer img{height:70px;}
   text-decoration:none;
 }
 
-/* MOBILE */
 @media(max-width:768px){
   header h1{font-size:30px;}
 }
@@ -226,10 +220,8 @@ footer img{height:70px;}
 
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/"><img src="../../assets/images/HiVaRiX.png"></a>
-
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/" class="active">Services</a>
@@ -238,78 +230,44 @@ footer img{height:70px;}
   </div>
 </nav>
 
-<!-- HERO -->
 <header>
-  <div>
+  <div class="hero">
     <h1>Marketing</h1>
     <p>We create data-driven marketing strategies that grow your brand and maximize revenue.</p>
   </div>
 </header>
 
-<!-- CONTENT -->
 <section>
   <div class="container">
     <h2>What We Deliver</h2>
 
     <div class="grid">
-      <div class="card">
-        <h3>Digital Marketing</h3>
-        <p>Campaigns designed to attract and convert audiences.</p>
-      </div>
-
-      <div class="card">
-        <h3>Social Media Growth</h3>
-        <p>Build strong engagement and global presence.</p>
-      </div>
-
-      <div class="card">
-        <h3>Paid Advertising</h3>
-        <p>Targeted ads that generate real ROI.</p>
-      </div>
-
-      <div class="card">
-        <h3>Brand Campaigns</h3>
-        <p>Creative campaigns that position you as a leader.</p>
-      </div>
+      <div class="card"><h3>Digital Marketing</h3><p>Campaigns designed to attract and convert audiences.</p></div>
+      <div class="card"><h3>Social Media Growth</h3><p>Build strong engagement and global presence.</p></div>
+      <div class="card"><h3>Paid Ads</h3><p>Targeted ads that generate real ROI.</p></div>
+      <div class="card"><h3>Brand Campaigns</h3><p>Creative campaigns that position you as a leader.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Grow Your Brand Faster</h2>
   <a href="/start#form" class="btn">Start Your Project</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
-
-  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
-
+  <img src="/assets/images/HiVaRiX.png">
   <div class="socials">
-    <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
 
   <div class="legal-footer">
     <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
-
-    <div class="legal-links">
-      <a href="/privacy/">Privacy Policy</a>
-      <span>•</span>
-      <a href="/terms/">Terms of Use</a>
-      <span>•</span>
-      <a href="/refunds/">Sales and Refunds</a>
-      <span>•</span>
-      <a href="/legal/">Legal</a>
-      <span>•</span>
-      <a href="/sitemap/">Site Map</a>
-    </div>
   </div>
-
 </footer>
 
 </body>

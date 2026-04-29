@@ -65,10 +65,14 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO (UPDATED TO MATCH SERVICES PAGE) */
+/* HERO — FIXED TO MATCH SERVICES PAGE EXACTLY */
 header{
-  padding:120px 20px 80px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  padding:120px 20px 60px;
   position:relative;
   color:#fff;
 
@@ -77,16 +81,16 @@ header{
     url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
 }
 
-/* MATCHED HOVER OVERLAY */
+/* overlay */
 header::after{
   content:"";
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.2);
   transition:0.4s ease;
-  z-index:-1;
 }
 
+/* hover */
 header:hover::after{
   background:rgba(0,0,0,0.35);
 }

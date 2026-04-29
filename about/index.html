@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About • HiVaRiX</title>
 
-<link rel="icon" href="/assets/images/HiVaRiX.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="icon" href="/assets/images/HiVaRiX.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/HiVaRiX.png">
+<link rel="apple-touch-icon" href="/assets/images/HiVaRiX.png">
 
 <style>
 :root{
@@ -16,42 +19,39 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;}
 
 body{
+  margin:0;
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
   color:var(--text);
+  overflow-x:hidden;
 }
 
-/* NAV */
+/* NAV (MATCHED) */
 nav{
   position:fixed;
   top:0;
   width:100%;
-  min-height:70px;
+  z-index:1000;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 20px;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+  padding:14px 20px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
 nav img{
-  height:60px; /* increased size */
+  height:60px;
 }
 
 .menu{
   display:flex;
-  gap:14px;
-  flex-wrap:wrap;
+  align-items:center;
+  gap:16px;
 }
 
 .menu a{
@@ -59,60 +59,70 @@ nav img{
   color:var(--brand);
   font-weight:600;
   font-size:14px;
-  padding:6px 0;
+  position:relative;
 }
 
-/* START now same size as others */
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
+}
+
 .nav-cta{
-  background:none;
-  padding:6px 0;
-  border-radius:0;
-  color:var(--brand);
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  color:#000 !important;
 }
 
-/* OFFSET */
-main{
-  margin-top:90px;
-}
-
-/* HERO */
-.hero{
-  height:80vh;
+/* HERO (ABOUT VERSION) */
+header{
+  min-height:80vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
-  padding:20px;
-
+  padding:120px 20px 40px;
   background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
-    url('/assets/images/hivarix-headquarter.PNG');
-
-  background-size:cover;
-  background-position:center 25%;
-  background-repeat:no-repeat;
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
+    url('/assets/images/hivarix-headquarter.PNG') center/cover;
+  color:#fff;
 }
 
-.hero h1{
-  font-size:clamp(28px,5vw,52px);
-}
+.hero{max-width:800px;}
+
+h1{font-size:52px;margin:0;}
 
 .hero p{
-  max-width:600px;
-  margin:10px auto 0;
-  opacity:0.9;
+  font-size:18px;
+  line-height:1.6;
   color:var(--accent);
 }
 
 /* SECTION */
-.section{
-  padding:60px 20px;
+section{
+  padding:80px 20px;
+  text-align:center;
 }
 
-.container{
-  max-width:1000px;
-  margin:auto;
+h2{
+  font-size:34px;
+  color:var(--brand);
+}
+
+.sub{
+  color:var(--muted);
+  max-width:700px;
+  margin:10px auto 40px;
 }
 
 /* SPLIT */
@@ -120,47 +130,40 @@ main{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
+  max-width:1100px;
+  margin:auto;
   align-items:center;
+  text-align:left;
 }
 
 .split img{
   width:100%;
-  height:320px;
-  object-fit:cover;
-  object-position:center 25%;
-  border-radius:12px;
-}
-
-/* TEXT */
-h2{
-  font-size:clamp(22px,3vw,32px);
-  color:var(--brand);
-  margin-bottom:10px;
-}
-
-p{
-  color:var(--muted);
-  line-height:1.6;
+  border-radius:16px;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-  margin-top:30px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
 }
 
 .card{
   background:#fff;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.05);
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
 }
 
 /* CTA */
 .cta{
-  text-align:center;
   background:linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
 }
@@ -170,76 +173,65 @@ p{
 }
 
 .btn{
+  padding:14px 24px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
   display:inline-block;
   margin-top:20px;
-  padding:12px 24px;
-  border-radius:25px;
+}
+
+.btn-primary{
   background:var(--accent);
-  color:#000;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
+  color:#111;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 12px rgba(0,0,0,0.2);
-}
-
-/* FOOTER */
+/* FOOTER (MATCHED EXACTLY) */
 footer{
-  background:#000;
+  background:#081523;
   color:#fff;
   text-align:center;
-  padding:40px 20px;
+  padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
 }
 
 footer img{
-  height:50px;
-  margin-bottom:20px;
-}
-
-.socials{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-bottom:20px;
+  height:70px;
 }
 
 .socials a{
   color:#fff;
-  font-size:18px;
+  margin:0 10px;
+  font-size:20px;
 }
 
 .legal-footer{
   font-size:13px;
-  color:rgba(255,255,255,0.7);
+  opacity:0.75;
 }
 
 .legal-links{
-  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
 }
 
 .legal-links a{
-  color:rgba(255,255,255,0.8);
+  color:#ffd700;
   text-decoration:none;
-  margin:0 6px;
 }
 
 /* MOBILE */
-@media(max-width:800px){
+@media(max-width:768px){
+  h1{font-size:36px;}
+
   .split{
     grid-template-columns:1fr;
     text-align:center;
-  }
-
-  .hero{
-    height:65vh;
-    background-position:center 15%;
-  }
-
-  nav img{
-    height:52px;
   }
 }
 </style>
@@ -247,8 +239,12 @@ footer img{
 
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX logo"></a>
+  <a href="/">
+    <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+  </a>
+
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
@@ -257,22 +253,27 @@ footer img{
   </div>
 </nav>
 
-<main>
-
-<section class="hero">
-  <div>
+<!-- HERO -->
+<header>
+  <div class="hero">
     <h1>We Build Brands That Lead</h1>
     <p>Turning ideas into powerful, scalable global brands.</p>
   </div>
-</section>
+</header>
 
-<section class="section">
-  <div class="container split">
+<!-- WHO WE ARE -->
+<section>
+  <h2>Who We Are</h2>
+  <p class="sub">
+    HiVaRiX builds brands that stand out globally through strategy,
+    design, and technology.
+  </p>
+
+  <div class="split">
     <div>
-      <h2>Who We Are</h2>
       <p>
-        HiVaRiX builds brands that stand out globally through strategy,
-        design, and technology.
+        We combine creativity with structure to create brands that are not
+        only visually compelling but strategically positioned for growth.
       </p>
     </div>
 
@@ -280,37 +281,51 @@ footer img{
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>The HiVaRiX Philosophy</h2>
+<!-- PHILOSOPHY -->
+<section>
+  <h2>The HiVaRiX Philosophy</h2>
+  <p class="sub">The principles that define how we build powerful brands.</p>
 
-    <div class="grid">
-      <div class="card"><h3>Engineered Excellence</h3></div>
-      <div class="card"><h3>Creative + Structure</h3></div>
-      <div class="card"><h3>The X-Factor</h3></div>
-    </div>
+  <div class="grid">
+    <div class="card"><h3>Engineered Excellence</h3></div>
+    <div class="card"><h3>Creative + Structure</h3></div>
+    <div class="card"><h3>The X-Factor</h3></div>
   </div>
 </section>
 
-<section class="section cta">
+<!-- CTA -->
+<section class="cta">
   <h2>Let’s Build Something Exceptional</h2>
-  <a href="/start" class="btn">Start Your Project</a>
+  <a href="/start" class="btn btn-primary">Start Your Project</a>
 </section>
 
-</main>
-
+<!-- FOOTER -->
 <footer>
 
-  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX logo">
+  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
 
   <div class="socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
   </div>
 
   <div class="legal-footer">
     <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
+
+    <div class="legal-links">
+      <a href="/privacy/">Privacy Policy</a>
+      <span>•</span>
+      <a href="/terms/">Terms of Use</a>
+      <span>•</span>
+      <a href="/refunds/">Sales and Refunds</a>
+      <span>•</span>
+      <a href="/legal/">Legal</a>
+      <span>•</span>
+      <a href="/sitemap/">Site Map</a>
+    </div>
   </div>
 
 </footer>

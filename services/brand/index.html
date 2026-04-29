@@ -65,7 +65,7 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO — FIXED TO MATCH SERVICES PAGE EXACTLY */
+/* HERO */
 header{
   min-height:100vh;
   display:flex;
@@ -81,7 +81,6 @@ header{
     url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
 }
 
-/* overlay */
 header::after{
   content:"";
   position:absolute;
@@ -90,7 +89,6 @@ header::after{
   transition:0.4s ease;
 }
 
-/* hover */
 header:hover::after{
   background:rgba(0,0,0,0.35);
 }
@@ -154,10 +152,15 @@ h2{
   box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* CTA */
+/* CTA — FIXED CENTER ALIGNMENT */
 .cta{
   background:linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 .cta h2{
@@ -222,7 +225,6 @@ footer img{height:70px;}
 
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/">
     <img src="../../assets/images/HiVaRiX.png">
@@ -236,7 +238,6 @@ footer img{height:70px;}
   </div>
 </nav>
 
-<!-- HERO -->
 <header>
   <div>
     <h1>Brand Identity</h1>
@@ -244,7 +245,6 @@ footer img{height:70px;}
   </div>
 </header>
 
-<!-- SERVICES -->
 <section>
   <div class="container">
     <h2>What We Offer</h2>
@@ -283,13 +283,11 @@ footer img{height:70px;}
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Build a Strong Global Brand</h2>
   <a href="/start#form" class="btn">Start Your Project</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
 
   <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">

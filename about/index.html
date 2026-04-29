@@ -42,7 +42,6 @@ nav{
   background:rgba(255,255,255,0.95);
   backdrop-filter:blur(10px);
   z-index:1000;
-  flex-wrap:wrap;
 }
 
 nav img{height:48px;}
@@ -99,6 +98,7 @@ main{
   max-width:600px;
   margin:10px auto 0;
   opacity:0.9;
+  color:var(--accent);
 }
 
 /* SECTION */
@@ -159,6 +159,10 @@ p{
   text-align:center;
   background:linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
+}
+
+.cta h2{
+  color:rgba(255,255,255,0.7);
 }
 
 .btn{
@@ -230,13 +234,14 @@ footer img{
 /* MOBILE */
 @media(max-width:800px){
   nav{
-    flex-direction:column;
+    flex-direction:row;
+    justify-content:space-between;
     align-items:center;
   }
 
   .menu{
-    justify-content:center;
-    margin-top:8px;
+    justify-content:flex-end;
+    gap:10px;
   }
 
   .split{

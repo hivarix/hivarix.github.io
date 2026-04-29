@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal • HiVaRiX</title>
 
-<!-- Favicon -->
 <link rel="icon" href="../../assets/images/HiVaRiX.png">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -32,7 +29,7 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV */
+/* NAV (FIXED TO MATCH OTHER PAGES) */
 nav{
   position:fixed;
   top:0;
@@ -41,42 +38,64 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 16px;
+  padding:14px 20px;
   background:rgba(255,255,255,0.9);
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
 nav img{
-  height:42px;
+  height:60px;
 }
 
-/* MENU */
+.menu-toggle{
+  display:none;
+  font-size:20px;
+  color:var(--brand);
+  cursor:pointer;
+}
+
 .menu{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
 }
 
 .menu a{
   text-decoration:none;
   color:var(--brand);
   font-weight:600;
-  font-size:13px;
+  font-size:14px;
+  position:relative;
 }
 
 .menu a.active{
   color:var(--accent);
 }
 
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
+}
+
 .nav-cta{
   background:var(--accent);
-  padding:6px 12px;
+  padding:6px 14px;
   border-radius:20px;
   color:#000 !important;
 }
 
-/* MOBILE MENU (STACK) */
+/* MOBILE MENU */
 @media (max-width:768px){
   .menu{
     position:absolute;
@@ -97,22 +116,12 @@ nav img{
 
   .menu-toggle{
     display:block;
-    font-size:20px;
-    color:var(--brand);
-    cursor:pointer;
-  }
-}
-
-/* DESKTOP */
-@media (min-width:769px){
-  .menu-toggle{
-    display:none;
   }
 }
 
 /* HERO */
 header{
-  padding:110px 16px 50px;
+  padding:120px 16px 50px;
   text-align:center;
 }
 
@@ -133,7 +142,6 @@ section{
   padding:30px 16px 70px;
 }
 
-/* GRID */
 .container{
   max-width:1100px;
   margin:auto;
@@ -141,17 +149,9 @@ section{
   gap:18px;
 }
 
-/* RESPONSIVE GRID */
 @media (min-width:768px){
   .container{
     grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media (min-width:1024px){
-  .container{
-    grid-template-columns:repeat(2, 1fr);
-    gap:24px;
   }
 }
 
@@ -169,27 +169,62 @@ section{
   font-size:18px;
 }
 
-.card p{
+.card p,
+.card ul{
   color:var(--muted);
   line-height:1.6;
   font-size:14px;
 }
 
 .card ul{
-  margin-top:10px;
   padding-left:18px;
-  color:var(--muted);
-  font-size:14px;
+  margin-top:10px;
 }
 
-/* FOOTER */
+/* FOOTER (MATCH ALL OTHER PAGES) */
 footer{
+  background:#081523;
+  color:#fff;
   text-align:center;
-  padding:18px;
-  background:#fff;
-  border-top:1px solid rgba(0,0,0,0.05);
+  padding:60px 20px;
+}
+
+footer img{
+  height:70px;
+  margin-bottom:15px;
+}
+
+.socials a{
+  color:#fff;
+  margin:0 10px;
+  font-size:20px;
+}
+
+.socials a:hover{
+  color:var(--accent);
+}
+
+.legal-footer{
   font-size:13px;
-  color:var(--muted);
+  opacity:0.75;
+  margin-top:15px;
+}
+
+.legal-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.legal-links a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header h1{font-size:30px;}
 }
 </style>
 </head>
@@ -206,9 +241,9 @@ footer{
 
   <div class="menu" id="menu">
     <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/services.html">Services</a>
-    <a class="nav-cta active" href="#">Start</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a class="nav-cta" href="/start#form">Start</a>
   </div>
 </nav>
 
@@ -243,24 +278,21 @@ footer{
     <div class="card">
       <h2>Data Protection Commitment</h2>
       <p>
-        HiVaRiX is committed to lawful, fair, and transparent processing of personal data,
-        ensuring confidentiality, integrity, and accountability.
+        HiVaRiX ensures lawful, fair, and transparent processing of personal data with full accountability.
       </p>
     </div>
 
     <div class="card">
       <h2>Intellectual Property Notice</h2>
       <p>
-        All trademarks, logos, and digital assets are owned by HiVaRiX unless otherwise stated.
-        Unauthorized use is strictly prohibited.
+        All trademarks, logos, and assets belong to HiVaRiX unless stated otherwise.
+        Unauthorized use is prohibited.
       </p>
     </div>
 
     <div class="card">
       <h2>Legal Contact</h2>
       <p>
-        For compliance or legal inquiries:
-        <br><br>
         <strong>Email:</strong> legal@hivarix.com
       </p>
     </div>

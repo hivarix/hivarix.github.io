@@ -65,7 +65,7 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO WITH HOVER EFFECT */
+/* HERO (UPDATED TO MATCH SERVICES PAGE) */
 header{
   padding:120px 20px 80px;
   text-align:center;
@@ -73,42 +73,22 @@ header{
   color:#fff;
 
   background:
-    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.45)),
-    url('https://images.unsplash.com/photo-1522199710521-72d69614c702') center/cover no-repeat;
-
-  transition:0.5s ease;
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4)),
+    url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
 }
 
-/* subtle zoom layer */
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:inherit;
-  background-image:url('https://images.unsplash.com/photo-1522199710521-72d69614c702');
-  background-size:cover;
-  background-position:center;
-  transform:scale(1);
-  transition:transform 0.6s ease;
-  z-index:-2;
-}
-
-/* dark overlay hover shift */
+/* MATCHED HOVER OVERLAY */
 header::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.35);
+  background:rgba(0,0,0,0.2);
   transition:0.4s ease;
   z-index:-1;
 }
 
-header:hover::before{
-  transform:scale(1.05);
-}
-
 header:hover::after{
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.35);
 }
 
 header h1{
@@ -174,10 +154,8 @@ h2{
 .cta{
   background:linear-gradient(135deg,var(--brand),#001a33);
   color:#fff;
-  text-align:center;
 }
 
-/* ✅ FIX: MATCH FOOTER STYLE */
 .cta h2{
   color:#fff;
   opacity:0.85;

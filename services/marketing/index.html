@@ -27,7 +27,7 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV */
+/* NAV (FROM SERVICES PAGE) */
 nav{
   position:fixed;
   top:0;
@@ -46,6 +46,7 @@ nav img{height:60px;}
 
 .menu{
   display:flex;
+  align-items:center;
   gap:16px;
 }
 
@@ -54,9 +55,23 @@ nav img{height:60px;}
   color:var(--brand);
   font-weight:600;
   font-size:14px;
+  position:relative;
 }
 
 .menu a.active{color:var(--accent);}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.menu a:hover::after{width:100%;}
 
 .nav-cta{
   background:var(--accent);
@@ -65,7 +80,7 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO FIXED ALIGNMENT */
+/* HERO (COPIED STYLE FROM SERVICES PAGE) */
 header{
   min-height:100vh;
   display:flex;
@@ -93,10 +108,10 @@ header:hover::after{
   background:rgba(0,0,0,0.35);
 }
 
-.hero{
-  max-width:800px;
+header .hero{
   position:relative;
   z-index:1;
+  max-width:800px;
 }
 
 header h1{
@@ -112,19 +127,18 @@ header p{
 /* SECTION */
 section{
   padding:70px 20px;
+  text-align:center;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
-  text-align:center;
 }
 
 h2{
   color:var(--brand);
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -137,21 +151,15 @@ h2{
   padding:26px;
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,0.06);
-  transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-}
-
-/* CTA */
+/* CTA (MATCH SERVICES STYLE) */
 .cta{
   background:linear-gradient(135deg,var(--brand),#001a33);
-  text-align:center;
   color:#fff;
+  text-align:center;
 }
 
-/* CTA FIX */
 .cta h2{
   color:#fff;
   opacity:0.9;
@@ -168,16 +176,12 @@ h2{
   font-weight:600;
 }
 
-/* FOOTER */
+/* FOOTER (EXACT SERVICES FOOTER) */
 footer{
   background:#081523;
   color:#fff;
   text-align:center;
   padding:60px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
 }
 
 footer img{height:70px;}
@@ -188,7 +192,10 @@ footer img{height:70px;}
   font-size:20px;
 }
 
-.legal-footer{font-size:13px;opacity:0.75;}
+.legal-footer{
+  font-size:13px;
+  opacity:0.75;
+}
 
 .legal-links{
   display:flex;
@@ -233,10 +240,10 @@ footer img{height:70px;}
     <h2>What We Deliver</h2>
 
     <div class="grid">
-      <div class="card"><h3>Digital Marketing</h3><p>Campaigns that convert.</p></div>
-      <div class="card"><h3>Social Growth</h3><p>Build engagement globally.</p></div>
-      <div class="card"><h3>Paid Ads</h3><p>High ROI advertising.</p></div>
-      <div class="card"><h3>Brand Campaigns</h3><p>Position you as a leader.</p></div>
+      <div class="card"><h3>Digital Marketing</h3></div>
+      <div class="card"><h3>Social Growth</h3></div>
+      <div class="card"><h3>Paid Ads</h3></div>
+      <div class="card"><h3>Brand Campaigns</h3></div>
     </div>
   </div>
 </section>

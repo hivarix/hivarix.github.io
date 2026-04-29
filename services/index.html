@@ -65,10 +65,32 @@ nav img{height:60px;}
   color:#000 !important;
 }
 
-/* HERO */
+/* HERO HEADER WITH IMAGE */
 header{
+  position:relative;
   padding:120px 20px 60px;
   text-align:center;
+  overflow:hidden;
+  z-index:1;
+  color:#fff;
+
+  background:url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
+  transition:background-size 0.6s ease;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.4)
+  );
+  z-index:-1;
+}
+
+header:hover{
+  background-size:110%;
 }
 
 header h1{
@@ -79,7 +101,7 @@ header h1{
 header p{
   max-width:650px;
   margin:auto;
-  color:var(--muted);
+  color:rgba(255,255,255,0.85);
 }
 
 /* SECTION */
@@ -111,55 +133,17 @@ h2{
   color:inherit;
 }
 
-/* CARD WITH HOVER IMAGE */
 .card{
-  position:relative;
   background:#fff;
   padding:30px;
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.06);
   transition:0.3s ease;
-  overflow:hidden;
-  z-index:1;
-}
-
-/* Image layer */
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('/assets/images/hivarix-building.jpg') center/cover no-repeat;
-  opacity:0;
-  transition:opacity 0.4s ease;
-  z-index:-1;
-}
-
-/* Dark overlay */
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  opacity:0;
-  transition:opacity 0.4s ease;
-  z-index:-1;
 }
 
 .card:hover{
   transform:translateY(-10px);
   box-shadow:0 20px 45px rgba(0,0,0,0.12);
-}
-
-.card:hover::before,
-.card:hover::after{
-  opacity:1;
-}
-
-/* Text turns white on hover */
-.card:hover h3,
-.card:hover p,
-.card:hover .icon{
-  color:#fff;
 }
 
 .icon{

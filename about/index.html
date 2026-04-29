@@ -19,6 +19,10 @@
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:'Segoe UI', system-ui, sans-serif;
   background:#f6f8fc;
@@ -164,6 +168,61 @@ p{
   color:#000;
   text-decoration:none;
   font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+
+footer img{
+  height:50px;
+  margin-bottom:20px;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.socials a{
+  color:#fff;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.socials a:hover{
+  color:var(--accent);
+}
+
+.legal-footer{
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+}
+
+.legal-links{
+  margin-top:10px;
+}
+
+.legal-links a{
+  color:rgba(255,255,255,0.8);
+  text-decoration:none;
+  margin:0 6px;
+}
+
+.legal-links a:hover{
+  color:#fff;
 }
 
 /* MOBILE */
@@ -178,6 +237,12 @@ p{
     background-position:center 15%;
   }
 }
+
+@media(max-width:600px){
+  .menu{
+    display:none;
+  }
+}
 </style>
 </head>
 
@@ -185,7 +250,7 @@ p{
 
 <!-- NAV -->
 <nav>
-  <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX"></a>
+  <a href="/"><img src="/assets/images/HiVaRiX.png" alt="HiVaRiX company logo"></a>
   <div class="menu">
     <a href="/">Home</a>
     <a href="/services/">Services</a>
@@ -215,7 +280,7 @@ p{
       </p>
     </div>
 
-    <img src="/assets/images/hivarix-headquarter.PNG" alt="HiVaRiX HQ">
+    <img src="/assets/images/hivarix-headquarter.PNG" alt="HiVaRiX headquarters building">
   </div>
 </section>
 
@@ -240,10 +305,10 @@ p{
 
 </main>
 
-<!-- YOUR ORIGINAL FOOTER -->
+<!-- FOOTER -->
 <footer>
 
-  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
+  <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX company logo">
 
   <div class="socials">
     <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>

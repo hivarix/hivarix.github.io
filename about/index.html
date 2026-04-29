@@ -68,25 +68,30 @@ nav img{height:55px;}
   text-align:center;
   padding:120px 20px;
   color:#fff;
+
   background:
-    linear-gradient(120deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4)),
-    url('../assets/images/hivarix-headquarter.PNG') center/cover;
+    linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35)),
+    url('../assets/images/hivarix-headquarter.PNG');
+
+  background-size:cover;
+  background-position:center 30%;
+  background-repeat:no-repeat;
 }
 
 .hero h1{
-  font-size:56px;
+  font-size:clamp(32px,6vw,56px);
   margin-bottom:10px;
 }
 
 .hero p{
   max-width:600px;
   margin:auto;
-  opacity:0.85;
+  opacity:0.9;
 }
 
 /* SECTION */
 .section{
-  padding:100px 20px;
+  padding:clamp(60px,10vw,100px) 20px;
 }
 
 .container{
@@ -98,19 +103,22 @@ nav img{height:55px;}
 .split{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:50px;
+  gap:60px;
   align-items:center;
 }
 
 .split img{
   width:100%;
+  max-height:420px;
+  object-fit:cover;
+  object-position:center 30%;
   border-radius:16px;
   box-shadow:0 15px 40px rgba(0,0,0,0.1);
 }
 
 /* TEXT */
 h2{
-  font-size:36px;
+  font-size:clamp(24px,4vw,36px);
   color:var(--brand);
   margin-bottom:10px;
 }
@@ -159,13 +167,18 @@ p{
 }
 
 /* MOBILE */
-@media(max-width:768px){
+@media(max-width:900px){
   .split{
     grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
   }
+}
 
-  .hero h1{
-    font-size:38px;
+@media(max-width:768px){
+  .hero{
+    background-position:center 20%; /* keeps logo visible */
+    padding:100px 20px;
   }
 }
 </style>
@@ -250,7 +263,7 @@ p{
   <a href="/start" class="btn">Start Your Project</a>
 </section>
 
-<!-- ✅ YOUR ORIGINAL FOOTER (UNCHANGED) -->
+<!-- YOUR ORIGINAL FOOTER -->
 <footer>
 
   <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">

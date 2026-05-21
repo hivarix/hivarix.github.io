@@ -18,7 +18,9 @@
   --muted:rgba(0,0,0,0.6);
 }
 
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -43,7 +45,9 @@ nav{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-nav img{height:60px;}
+nav img{
+  height:60px;
+}
 
 .menu{
   display:flex;
@@ -99,10 +103,19 @@ header{
   color:#fff;
 }
 
-.hero{max-width:850px;}
+.hero{
+  max-width:850px;
+}
 
-h1{font-size:56px;margin:0;}
-p{font-size:18px;line-height:1.6;}
+h1{
+  font-size:56px;
+  margin:0;
+}
+
+p{
+  font-size:18px;
+  line-height:1.6;
+}
 
 .hero-buttons{
   margin-top:25px;
@@ -192,18 +205,69 @@ footer{
   padding:60px 20px;
 }
 
-footer img{height:70px;}
+footer img{
+  height:70px;
+}
+
+.socials{
+  margin-top:20px;
+}
 
 .socials a{
   color:#fff;
   margin:0 10px;
   font-size:20px;
+  transition:0.3s;
 }
 
 .socials a:hover{
   color:var(--accent);
 }
 
+/* PARTNERS */
+.partners{
+  margin-top:45px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+.partners-title{
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:0.65;
+  margin-bottom:20px;
+}
+
+.partner-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.partner-logos img{
+  height:38px;
+  width:auto;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:0.92;
+  transition:0.3s ease;
+}
+
+.partner-logos img:hover{
+  opacity:1;
+  transform:scale(1.05);
+}
+
+.partner-note{
+  margin-top:14px;
+  font-size:13px;
+  opacity:0.6;
+}
+
+/* LEGAL */
 .legal-footer{
   font-size:13px;
   opacity:0.75;
@@ -223,7 +287,27 @@ footer img{height:70px;}
 
 /* MOBILE */
 @media(max-width:768px){
-  h1{font-size:38px;}
+
+  h1{
+    font-size:38px;
+  }
+
+  nav{
+    padding:12px 16px;
+  }
+
+  nav img{
+    height:50px;
+  }
+
+  .menu{
+    gap:10px;
+  }
+
+  .menu a{
+    font-size:13px;
+  }
+
 }
 </style>
 </head>
@@ -246,109 +330,206 @@ footer img{height:70px;}
 <!-- HERO -->
 <header>
   <div class="hero">
-    <h1>We Build and Scale Digital Brands Into Global Powerhouses</h1>
+
+    <h1>
+      We Build and Scale Digital Brands Into Global Powerhouses
+    </h1>
 
     <p>
       HiVaRiX is a digital growth and brand transformation company designing powerful identities, building scalable systems, and engineering global visibility for modern businesses.
     </p>
 
     <div class="hero-buttons">
-      <a href="/start" class="btn btn-primary">Start a Brand Transformation</a>
-      <a href="/services" class="btn btn-outline">Explore Our Systems</a>
+      <a href="/start" class="btn btn-primary">
+        Start a Brand Transformation
+      </a>
+
+      <a href="/services" class="btn btn-outline">
+        Explore Our Systems
+      </a>
     </div>
+
   </div>
 </header>
 
 <!-- SERVICES -->
 <section>
+
   <h2>What We Build</h2>
-  <p class="sub">Three core systems that power modern digital brands.</p>
+
+  <p class="sub">
+    Three core systems that power modern digital brands.
+  </p>
 
   <div class="grid">
 
     <a href="/services/brand/" class="card-link">
       <div class="card">
         <h3>Brand Systems</h3>
-        <p>We design identity, positioning, and messaging systems that make brands clear, premium, and memorable.</p>
+        <p>
+          We design identity, positioning, and messaging systems that make brands clear, premium, and memorable.
+        </p>
       </div>
     </a>
 
     <a href="/services/web/" class="card-link">
       <div class="card">
         <h3>Digital Infrastructure</h3>
-        <p>We build websites, platforms, and scalable systems that power modern business operations.</p>
+        <p>
+          We build websites, platforms, and scalable systems that power modern business operations.
+        </p>
       </div>
     </a>
 
     <a href="/services/marketing/" class="card-link">
       <div class="card">
         <h3>Growth Engineering</h3>
-        <p>We create structured marketing systems that turn attention into predictable revenue.</p>
+        <p>
+          We create structured marketing systems that turn attention into predictable revenue.
+        </p>
       </div>
     </a>
 
   </div>
+
 </section>
 
-<!-- WHY SECTION -->
+<!-- WHY -->
 <section>
+
   <h2>Why HiVaRiX</h2>
-  <p class="sub">We don’t design for aesthetics alone. We build systems for scale.</p>
+
+  <p class="sub">
+    We don’t design for aesthetics alone. We build systems for scale.
+  </p>
 
   <div class="grid">
 
     <div class="card">
       <h3>Systems Over Services</h3>
-      <p>Every solution is designed to work as part of a larger growth system.</p>
+      <p>
+        Every solution is designed to work as part of a larger growth system.
+      </p>
     </div>
 
     <div class="card">
       <h3>Strategy First</h3>
-      <p>We focus on positioning before design, and design before development.</p>
+      <p>
+        We focus on positioning before design, and design before development.
+      </p>
     </div>
 
     <div class="card">
       <h3>Built for Scale</h3>
-      <p>Everything we create is designed for long-term growth and expansion.</p>
+      <p>
+        Everything we create is designed for long-term growth and expansion.
+      </p>
     </div>
 
   </div>
+
 </section>
 
 <!-- CTA -->
 <section class="cta">
+
   <h2>Build Something That Can Scale Globally</h2>
-  <a href="/start" class="btn btn-primary">Begin Transformation</a>
+
+  <a href="/start" class="btn btn-primary">
+    Begin Transformation
+  </a>
+
 </section>
 
 <!-- FOOTER -->
 <footer>
+
   <img src="/assets/images/HiVaRiX.png" alt="HiVaRiX Logo">
 
   <div class="socials">
-    <a href="https://facebook.com/hivarixglobal"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.linkedin.com/company/hivarix"><i class="fab fa-linkedin"></i></a>
-    <a href="https://instagram.com/hivarix"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/hivarix"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://tiktok.com/@hivarix"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@hivarix"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/hivarixglobal">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/company/hivarix">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="https://instagram.com/hivarix">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://x.com/hivarix">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+
+    <a href="https://tiktok.com/@hivarix">
+      <i class="fab fa-tiktok"></i>
+    </a>
+
+    <a href="https://youtube.com/@hivarix">
+      <i class="fab fa-youtube"></i>
+    </a>
   </div>
 
+  <!-- PARTNERS -->
+  <div class="partners">
+
+    <p class="partners-title">
+      Trusted Payment Partner
+    </p>
+
+    <div class="partner-logos">
+      <img src="/assets/images/opay-logo.PNG" alt="OPay Business Partner Logo">
+    </div>
+
+    <p class="partner-note">
+      Authorized OPay Business Partner
+    </p>
+
+  </div>
+
+  <!-- LEGAL -->
   <div class="legal-footer">
-    <p>Copyright © 2026 HiVaRiX Global. All rights reserved.</p>
+
+    <p>
+      Copyright © 2026 HiVaRiX Global. All rights reserved.
+    </p>
 
     <div class="legal-links">
-      <a href="/privacy/">Privacy Policy</a>
+
+      <a href="/privacy/">
+        Privacy Policy
+      </a>
+
       <span>•</span>
-      <a href="/terms/">Terms of Use</a>
+
+      <a href="/terms/">
+        Terms of Use
+      </a>
+
       <span>•</span>
-      <a href="/refunds/">Sales and Refunds</a>
+
+      <a href="/refunds/">
+        Sales and Refunds
+      </a>
+
       <span>•</span>
-      <a href="/legal/">Legal</a>
+
+      <a href="/legal/">
+        Legal
+      </a>
+
       <span>•</span>
-      <a href="/sitemap/">Site Map</a>
+
+      <a href="/sitemap/">
+        Site Map
+      </a>
+
     </div>
+
   </div>
+
 </footer>
 
 </body>
